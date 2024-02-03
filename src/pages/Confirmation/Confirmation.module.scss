@@ -1,0 +1,196 @@
+.confirmationContainer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFC7FF;
+    min-height: 100vh;
+
+    .logo {
+        margin-top: 35px;
+        margin-bottom: 130px;
+    }
+
+    .thanksForOrder {
+        margin-bottom: 40px;
+        color: #443F80;
+        font-family: FE Oblako;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal
+    }
+
+    .text {
+        margin-bottom: 40px;
+        text-align: center;
+        color: #42407C;
+        font-family: Factor A TRIAL;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+    }
+
+    .goHome {
+        color: rgba(66, 64, 124, 0.60);
+        font-family: Factor A TRIAL;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-decoration-line: underline;
+        margin-bottom: 300px;
+    }
+
+    @media (max-width: 992px) {
+
+        .logo {
+            width: 43.325px;
+            height: 40px;
+            margin-bottom: 70px;
+        }
+
+        .thanksForOrder {
+            width: 261px;
+            height: 24px;
+            font-size: 20px;
+        }
+
+        .text {
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .goHome {
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .vector1 {
+            width: 396.444px;
+            height: 420.462px;
+        }
+
+        .vector2 {
+            width: 80.991px;
+            height: 99.773px;
+        }
+
+        .vector3 {
+            width: 235.908px;
+            height: 165.658px;
+        }
+
+        .vector5 {
+            width: 126.289px;
+            height: 85.402px;
+        }
+
+        .vector4 {
+            width: 196.513px;
+            height: 220.097px;
+        }
+    }
+
+    .vector1 {
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        left: 0;
+    }
+
+    .vector2 {
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 200px;
+    }
+
+    .vector3 {
+        position: absolute;
+        z-index: -1;
+        top: 70px;
+        right: 0px;
+    }
+
+    .vector4 {
+        position: absolute;
+        z-index: -1;
+        bottom: 0px;
+        right: 130px;
+    }
+
+    .vector5 {
+        position: absolute;
+        z-index: -1;
+        top: 520px;
+        right: 0px;
+    }
+
+    .vector6,
+    .vector7 {
+        display: none;
+    }
+
+    @media (max-width: 576px) {
+        .logo {
+            width: 43.325px;
+            height: 40px;
+        }
+
+        .thanksForOrder {
+            margin-top: 150px;
+        }
+
+        .text {
+            width: 343px;
+        }
+
+        .vector1,
+        .vector2,
+        .vector3,
+        .vector5 {
+            display: none;
+        }
+
+        .vector6 {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            left: 0px;
+            top: 50px;
+        }
+
+        .vector7 {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            right: 0px;
+            top: 50px;
+        }
+
+        .vector4 {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .vector1 {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            bottom: 0px;
+            left: 0px;
+            width: 60%;
+        }
+
+    }
+}

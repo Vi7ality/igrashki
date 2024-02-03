@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  min-width: 500px;
+
+  input,
+  &::placeholder {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #42407c;
+    font-size: 20px;
+    font-family: "Factor A";
+    line-height: 26px;
+    width: 100%;
+  }
+}

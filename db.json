@@ -1,0 +1,190 @@
+{
+  "toys": [
+    {
+      "toyName": "Магнитный конструктор Stick-O Базовый, 30 деталей",
+      "images": [
+        "https://bi.ua/uploaded-images/products/size_400/556127_1.jpg",
+        "https://rozum.com.ua/upload/resize_cache/webp/upload/iblock/029/k01em2y8cguaet0veh68zf1egugseai6.webp",
+        "data:image/jpeg;base64,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"
+      ],
+      "description": "Stick-O от Magformers — магнитный конструктор для самых маленьких. Он создан с учетом рекомендаций детских психологов и педагогов. Магнитный конструктор Stick-O Базовый 30 эл из ярких и прочных деталей поможет ребенку создать множество образов, развивая его креативность и интеллект. При его разработке используется принцип свободно вращающихся магнитов: они поворачиваются друг к другу нужным полюсом, поэтому в процессе конструирования не отталкиваются.",
+      "manufacturer": "Китай",
+      "age": "3+",
+      "features": [
+        "изготовлен из безопасных материалов: пластик, магнит;",
+        "компактные детали удобно помещаются в ручке ребенка;"
+      ]
+    },
+    {
+      "toyName": "Конструктор LEGO City",
+      "images": [
+        "https://content.rozetka.com.ua/goods/images/big/243970696.png"
+      ],
+      "description": "Конструктор LEGO City 60292 Городской центр управления пожарной частью — это набор из 380 деталей, с помощью которых можно собрать городской центр управления пожарной частью. В набор входят 5 минифигурок: командир пожарной части, 2 пожарных, работник службы доставки пиццы и собака. В наборе есть пожарная машина, мотоцикл, автомобиль службы доставки пиццы и др. В наборе есть также пожарная вышка, где можно наблюдать за городом, и пожарный штурмовой вертолет, который поможет потушить пожары. В наборе есть также пожарная вышка, где можно наблюдать за городом, и пожарный штурмовой вертолет, который поможет потушить пожары.",
+      "manufacturer": "Дания",
+      "age": "5+",
+      "features": [
+        "изготовлен из безопасных материалов: пластик, магнит;",
+        "компактные детали удобно помещаются в ручке ребенка;"
+      ]
+    },
+    {
+      "toyName": "Пазли Ravensburger",
+      "images": [
+        "https://content1.rozetka.com.ua/goods/images/big/267223596.jpg"
+      ],
+      "description": "Пазл Ravensburger 1000 элементов, 70х50 см, Лондонский мост — это пазл, который состоит из 1000 элементов. Он выполнен из качественного картона, который не деформируется и не выгорает. Пазлы Ravensburger изготавливаются в Германии. Они отличаются высоким качеством и прекрасным дизайном. Пазлы Ravensburger изготавливаются в Германии. Они отличаются высоким качеством и прекрасным дизайном.",
+      "manufacturer": "Германия",
+      "age": "12+",
+      "features": [
+        "изготовлен из безопасных материалов: пластик, магнит;",
+        "компактные детали удобно помещаются в ручке ребенка;"
+      ]
+    },
+    {
+      "toyName": "Автомобільна траса Hot Wheels",
+      "images": [
+        "https://hot-wheels.com.ua/system/0272/0951/_________.jpg"
+      ],
+      "description": "Автомобильная трасса Hot Wheels 5 м, 2 машинки — это трасса, которая состоит из 2 машинок и 5 метров трассы. Она выполнена из качественного материала, который не деформируется и не выгорает. Автомобильная трасса Hot Wheels 5 м, 2 машинки — это трасса, которая состоит из 2 машинок и 5 метров трассы. Она выполнена из качественного материала, который не деформируется и не выгорает.",
+      "manufacturer": "Китай",
+      "age": "5+",
+      "features": [
+        "изготовлен из безопасных материалов: пластик, магнит;",
+        "компактные детали удобно помещаются в ручке ребенка;"
+      ]
+    },
+    {
+      "toyName": "М'яка іграшка Тедді",
+      "images": [
+        "https://flowers.ua/images/Flowers/2960.jpg"
+      ],
+      "description": "Мягкая игрушка Тедди 30 см, коричневый — это мягкая игрушка в виде медвежонка. Он выполнен из качественного материала, который не вызывает аллергии. Мягкая игрушка Тедди 30 см, коричневый — это мягкая игрушка в виде медвежонка. Он выполнен из качественного материала, который не вызывает аллергии.",
+      "manufacturer": "Китай",
+      "age": "0+",
+      "features": [
+        "изготовлен из безопасных материалов: пластик, магнит;",
+        "компактные детали удобно помещаются в ручке ребенка;"
+      ]
+    }
+  ],
+  "toysAdmin": [
+    {
+      "id": "1",
+      "toyName": "Магнитный конструктор Stick-O Базовый, 30 деталей",
+      "usageCycle": 2,
+      "disinfectedDate": "15.12.2022",
+      "toyStatus": "excellent"
+    },
+    {
+      "id": "2",
+      "toyName": "Магнитный конструктор Stick-O Базовый, 30 деталей",
+      "usageCycle": 3,
+      "disinfectedDate": "20.01.2023",
+      "toyStatus": "good"
+    },
+    {
+      "id": "3",
+      "toyName": "Конструктор LEGO City",
+      "usageCycle": 1,
+      "disinfectedDate": "05.09.2022",
+      "toyStatus": "excellent"
+    },
+    {
+      "id": "4",
+      "toyName": "Автомобільна траса Hot Wheels",
+      "usageCycle": 5,
+      "disinfectedDate": "10.03.2023",
+      "toyStatus": "bad"
+    },
+    {
+      "id": "5",
+      "toyName": "М'яка іграшка Тедді",
+      "usageCycle": 2,
+      "disinfectedDate": "28.07.2022",
+      "toyStatus": "good"
+    },
+    {
+      "id": "6",
+      "toyName": "Пазли Ravensburger",
+      "usageCycle": 4,
+      "disinfectedDate": "12.05.2023",
+      "toyStatus": "excellent"
+    },
+    {
+      "id": "7",
+      "toyName": "Пазли Ravensburger",
+      "usageCycle": 1,
+      "disinfectedDate": "03.11.2022",
+      "toyStatus": "excellent"
+    },
+    {
+      "id": "8",
+      "toyName": "Конструктор LEGO City",
+      "usageCycle": 3,
+      "disinfectedDate": "18.09.2023",
+      "toyStatus": "good"
+    },
+    {
+      "id": "9",
+      "toyName": "Автомобільна траса Hot Wheels",
+      "usageCycle": 6,
+      "disinfectedDate": "24.12.2022",
+      "toyStatus": "bad"
+    },
+    {
+      "id": "10",
+      "toyName": "Автомобільна траса Hot Wheels",
+      "usageCycle": 2,
+      "disinfectedDate": "07.06.2023",
+      "toyStatus": "excellent"
+    }
+  ],
+  "clients": [
+    {
+      "id": "2",
+      "status": "online",
+      "parentName": "Іванов Іван",
+      "phoneNumber": "0987654321",
+      "childName": "Марія",
+      "childBirthDate": "2019-07-14",
+      "dateCreated": "2019-07-19",
+      "toys": [
+        "Іграшка 4",
+        "Іграшка 5"
+      ],
+      "startDate": "2023-07-20",
+      "endDate": "2023-07-25"
+    },
+    {
+      "id": "3",
+      "status": "offline",
+      "parentName": "Петренко Олена",
+      "phoneNumber": "0991234567",
+      "childName": "Олександр",
+      "childBirthDate": "2023-07-13",
+      "dateCreated": "2023-07-19",
+      "toys": [
+        "Іграшка 6"
+      ],
+      "startDate": "2023-07-20",
+      "endDate": "2023-07-25"
+    },
+    {
+      "id": "TnTa-Mu",
+      "status": "online",
+      "parentName": "Меленко Тетяна",
+      "phoneNumber": "0993606502",
+      "childName": "Каріна",
+      "childBirthDate": "2023-07-13",
+      "toys": [
+        "cubes",
+        "constructor",
+        "car"
+      ],
+      "startDate": "2023-07-19",
+      "endDate": "",
+      "dateCreated": "2023-07-19"
+    }
+  ]
+}

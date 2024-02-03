@@ -1,0 +1,72 @@
+.clientSubscription {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-left: 100px;
+
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .subToys {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .subToy {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+    }
+
+    .subToyImg {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .submitBtn {
+        max-width: 300px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 576px) {
+        padding-left: 10px;
+
+        h1 {
+            font-size: 20px;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        .subToy {
+            padding: 10px;
+        }
+
+        .submitBtn {
+            font-size: 14px;
+        }
+    }
+}

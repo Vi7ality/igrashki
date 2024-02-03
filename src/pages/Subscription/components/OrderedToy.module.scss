@@ -1,0 +1,40 @@
+.orderedContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  .deleteButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    .minusIcon {
+      color: red;
+      font-size: 18px;
+    }
+  }
+}
+
+.toyText {
+  color: var(--main-black, #42407C);
+  //font-family: Factor A TRIAL;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.img {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+
+  .imgToy {
+    width: 91.5px;
+    height: 60px;
+  }
+}

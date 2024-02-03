@@ -1,0 +1,127 @@
+@import "../../../styles/breakpoints.scss";
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin-top: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+
+  .FirstTitle {
+    color: #443F80;
+    text-align: center;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.steps {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+
+  h3 {
+    width: 100%;
+    color: var(--main-black, #42407C);
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 1800px) {
+  .container {
+    margin-top: 350px;
+  }
+}
+
+@media (max-width: $xxl) {
+  .container {
+    margin-top: 250px;
+  }
+}
+
+@media (max-width: $xl) {
+  .container {
+    margin-top: 350px;
+  }
+
+  .steps {
+    padding: 0 50px;
+    gap: 20px
+  }
+
+  .step {
+    width: auto;
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .steps {
+    padding: 0 20px;
+  }
+
+  .step h3 {
+    font-size: 16px;
+  }
+
+  .step img {
+    width: 100px;
+  }
+}
+
+@media (max-width: $lg) {
+  .steps {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .step {
+    width: 100%;
+  }
+
+  .step img {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .step h3 {
+    max-width: 350px;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: $sm) {
+  .container {
+    margin-top: 600px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    margin-top: 400px;
+  }
+}
