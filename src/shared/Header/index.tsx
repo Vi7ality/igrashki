@@ -8,6 +8,7 @@ import { useAppDispatch } from "../../redux/store";
 import HeaderMobile from "./HeaderMobile";
 import ProfileButton from "./components/ProfileButton";
 import CartButton from "./components/CartButton";
+import Container from "../Container";
 
 interface HeaderProps {
   darkMode?: boolean;
@@ -51,9 +52,9 @@ const Header = ({ darkMode }: HeaderProps) => {
           <ProfileButton darkMode={darkMode} />
           <CartButton darkMode={darkMode} />
         </div>
-
       </header>
       <HeaderMobile darkMode={darkMode} />
+      
     </>
   );
 };
