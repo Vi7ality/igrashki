@@ -14,22 +14,24 @@ import logo from "../../assets/logo.png"
 import inst from "../../assets/inst.png"
 import fb from "../../assets/fb.png"
 import { NavLink } from "react-router-dom";
+import HeroSection from "./components/HeroSection/HeroSection";
 
 const Home = () => {
   return (
     <div className={styles.content}>
       <div className={styles.wrapper}>
-        <img className={styles.headerImgXl} src={headerImgXl} alt="headerImg" />
+        {/* <img className={styles.headerImgXl} src={headerImgXl} alt="headerImg" />
         <img className={styles.headerImgLg} src={headerImgLg} alt="headerImg" />
-        <img className={styles.headerImgSm} src={headerImgSm} alt="headerImg" />
+        <img className={styles.headerImgSm} src={headerImgSm} alt="headerImg" /> */}
         <Header />
-        <div className={styles.info}>
+        <HeroSection/>
+        {/* <div className={styles.info}>
           <h1><p>Спільно Іграшки</p><span className={styles.infoSubtext}>мережа безоплатних бібліотек іграшок для раннього розвитку</span></h1>
           <div className={styles.buttons}>
             <NavLink to="/subscription" className={styles.subscribe}>Заповнити анкету</NavLink>
             <NavLink to="/catalogue" className={styles.giveToys}>Знайти бібліотеку</NavLink>
           </div>
-        </div>
+        </div> */}
       </div>
       <HowItWorks />
       <WhyWe />

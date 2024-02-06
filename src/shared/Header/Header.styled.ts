@@ -41,7 +41,7 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
   color: #fff;
   font-size: 16px;
-  line-height: 1,1875;
+  line-height: 1.1875;
   font-weight: 600;
   transition: 0.3s;
 `;
