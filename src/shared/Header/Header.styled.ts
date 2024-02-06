@@ -19,6 +19,7 @@ export const FlexContainer = styled(Container)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const Logo = styled.img`
@@ -29,7 +30,6 @@ export const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   gap: 100px;
-  margin-left: 335px;
 `;
 
 export const NavList = styled.ul`
@@ -51,5 +51,4 @@ export const ContainerRight = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-left: 123px;
 `;
