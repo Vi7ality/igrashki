@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import headerImgXl from "./assets/header/headerImgXl.png";
 import headerImgLg from "./assets/header/headerImgLg.png";
 import headerImgSm from "./assets/header/headerImgSm.png";
+
 import galleryImgXl from "./assets/gallery/galleryXl.png";
 import galleryImgSm from "./assets/gallery/gallerySm.png";
 import footerImgXl from "./assets/footer/footerXl.png";

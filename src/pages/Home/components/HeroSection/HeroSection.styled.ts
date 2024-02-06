@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { NavLinkStyled } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
+import bgImage from '../../assets/home-hero-bg.svg'
 
 export const SectionStyled = styled.section`
 padding-top: 245px;
 padding-bottom: 218px;
 background-color: #46409C;
+background-image: url(${bgImage});
+fill: #46409C;
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 
 export const Title = styled.h1`

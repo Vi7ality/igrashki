@@ -15,6 +15,7 @@ const HeroSection = () => {
           <LinkStyled to="/subscription">Заповнити анкету</LinkStyled>
           <LinkTrsp to="/catalogue">Знайти бібліотеку</LinkTrsp>
         </FlexCont>
+        <img href='../../assets/vector-img.svg#home-hero-bears'></img>
       </Container>
     </SectionStyled>
   );
