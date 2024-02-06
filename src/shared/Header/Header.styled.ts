@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export const HeaderStyled = styled.header`
   position: absolute;
+  z-index: 99;
   top: 0;
   left: 0;
   right: 0;

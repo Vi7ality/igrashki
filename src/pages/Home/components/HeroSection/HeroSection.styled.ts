@@ -3,6 +3,7 @@ import { NavLinkStyled } from "../../../../shared/NavigateLinks/NavigateLinks.st
 import bgImage from '../../assets/home-hero-bg.svg'
 
 export const SectionStyled = styled.section`
+position: relative;
 width: 100%;
 padding-top: 245px;
 padding-bottom: 218px;
@@ -55,4 +56,10 @@ export const LinkTrsp = styled(LinkStyled)`
 color: #FFFFFF;
 background-color: transparent;
 `
-
+export const BearsSvg = styled.svg`
+width: 361px;
+height: 513px;
+position: absolute;
+bottom: 0;
+right: 480px;
+`

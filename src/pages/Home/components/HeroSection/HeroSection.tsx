@@ -1,7 +1,7 @@
 
 import Container from "../../../../shared/Container";
-import { FlexCont, LinkStyled, LinkTrsp, SectionStyled, TextStyled, Title } from "./HeroSection.styled";
-
+import { BearsSvg, FlexCont, LinkStyled, LinkTrsp, SectionStyled, TextStyled, Title } from "./HeroSection.styled";
+import svgImg from '../../assets/homepage_vector-img.svg'
 const HeroSection = () => {
   return (
     <SectionStyled>
@@ -15,10 +15,9 @@ const HeroSection = () => {
           <LinkStyled to="/subscription">Заповнити анкету</LinkStyled>
           <LinkTrsp to="/catalogue">Знайти бібліотеку</LinkTrsp>
         </FlexCont>
-        <svg>
-          <use href='../../assets/homepage_vector-img.svg#hero_bears'/>
-        </svg >
-
+        <BearsSvg>
+          <use href={`${svgImg}#hero_bears`}/>
+        </BearsSvg >
       </Container>
     </SectionStyled>
   );
