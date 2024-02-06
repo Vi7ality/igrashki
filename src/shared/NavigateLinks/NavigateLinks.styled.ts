@@ -6,7 +6,7 @@ text-align: center;
 border: 2px solid 
 #FFFFFF;
 border-radius: 30px;
-padding: 15px 23px 15px 23px;
+padding: 23px 15px 23px 15px;
 
 `
 
