@@ -3,6 +3,7 @@ import { NavLinkStyled } from "../../../../shared/NavigateLinks/NavigateLinks.st
 import bgImage from '../../assets/home-hero-bg.svg'
 
 export const SectionStyled = styled.section`
+width: 100%;
 padding-top: 245px;
 padding-bottom: 218px;
 background-color: #46409C;
