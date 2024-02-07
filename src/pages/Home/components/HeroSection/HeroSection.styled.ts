@@ -54,6 +54,16 @@ width: 280px;
 export const LinkTrsp = styled(LinkStyled)`
 color: #FFFFFF;
 background-color: transparent;
+display: flex;
+align-items: center;
+
+padding: 21px 28px;
+
+ svg {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+ }
 `
 export const BearsSvg = styled.svg`
 width: 361px;
