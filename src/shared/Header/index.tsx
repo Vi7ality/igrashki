@@ -29,7 +29,7 @@ const Header = ({ darkMode }: HeaderProps) => {
     if (token) {
       dispatch(autoLogin(token));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

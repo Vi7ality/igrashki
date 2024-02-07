@@ -52,3 +52,15 @@ export const ContainerRight = styled.div`
   align-items: center;
   gap: 20px;
 `;
+
+export const AuthBtn = styled.button`
+font-weight: 600;
+font-size: 16px;
+line-height: 1.185;
+text-align: center;
+color: #FFFFFF;
+border: 2px solid 
+#FFFFFF;
+border-radius: 30px;
+padding: 15px 32px;
+`

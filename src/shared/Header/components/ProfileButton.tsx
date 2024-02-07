@@ -5,6 +5,7 @@ import profileIconDark from "../assets/profileDark.png";
 import styles from '../Header.module.scss'
 import AuthModal from './AuthModal'
 import DropDownProfile from './DropDownProfile'
+import { AuthBtn } from '../Header.styled';
 
 const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean, darkMode?: boolean }) => {
     const { client } = useAppSelector(state => state.client)
@@ -19,7 +20,7 @@ const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean, darkMode?: bool
         setShowAuthModal((prev) => !prev);
     };
 
-    const profileBtnContent = mobile ? "Вхід" : (darkMode ? <img src={profileIconDark} /> : <img src={profileIcon} />)
+    const profileBtnContent = mobile ? "Вхід" : (darkMode ? "Авторизація7" : "Авторизація")
 
     return (
         <>
@@ -28,7 +29,7 @@ const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean, darkMode?: bool
                     <button className={`${styles.profileBtn} ${darkMode && styles.dark}`} onClick={handleProfileButtonClick}>{client.parentName}</button>
                     {showProfileDropdown && <DropDownProfile closeDropDown={() => setShowProfileDropdown(false)} />}
                 </div>
-                : <button className={styles.profileBtnWithoutUser} onClick={handleAuthModal}>{profileBtnContent}</button>}
+                : <AuthBtn  onClick={handleAuthModal}>{profileBtnContent}</AuthBtn>}
             {showAuthModal && <AuthModal authClose={handleAuthModal} />}
 
         </>
