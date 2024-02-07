@@ -1,5 +1,5 @@
 import Header from "../../shared/Header";
-import HowItWorks from "./components/HowItWorks";
+import HowItWorks from "./components/HowItWorksSection/HowItWorks";
 import WhyWe from "./components/WhyWe";
 import styles from "./styles.module.scss";
 import headerImgXl from "./assets/header/headerImgXl.png";

@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         line-height: 19px;
         color: #2F2960;
+        background-color: #F3F3FF;
         min-height: 100%;
         display: flex;
         flex-direction: column;

@@ -48,7 +48,7 @@ font-size: 20px;
 line-height: 1.185;
 font-weight: 600; 
 color: #46409C;
-width: 280px;
+min-width: 280px;
 `
 
 export const LinkTrsp = styled(LinkStyled)`
