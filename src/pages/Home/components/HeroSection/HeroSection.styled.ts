@@ -7,7 +7,6 @@ position: relative;
 width: 100%;
 padding-top: 245px;
 padding-bottom: 218px;
-background-color: #46409C;
 background-image: url(${bgImage});
 fill: #46409C;
     background-repeat: no-repeat;
