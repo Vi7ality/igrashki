@@ -57,10 +57,19 @@ export const AuthBtn = styled.button`
 font-weight: 600;
 font-size: 16px;
 line-height: 1.185;
+
+display: flex;
+align-items: center;
 text-align: center;
 color: #FFFFFF;
 border: 2px solid 
 #FFFFFF;
 border-radius: 30px;
 padding: 15px 32px;
+
+svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
 `

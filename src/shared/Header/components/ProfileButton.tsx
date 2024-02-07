@@ -6,6 +6,7 @@ import styles from '../Header.module.scss'
 import AuthModal from './AuthModal'
 import DropDownProfile from './DropDownProfile'
 import { AuthBtn } from '../Header.styled';
+import icons from '../../../assets/icons.svg'
 
 const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean, darkMode?: boolean }) => {
     const { client } = useAppSelector(state => state.client)
@@ -29,7 +30,7 @@ const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean, darkMode?: bool
                     <button className={`${styles.profileBtn} ${darkMode && styles.dark}`} onClick={handleProfileButtonClick}>{client.parentName}</button>
                     {showProfileDropdown && <DropDownProfile closeDropDown={() => setShowProfileDropdown(false)} />}
                 </div>
-                : <AuthBtn  onClick={handleAuthModal}>{profileBtnContent}</AuthBtn>}
+                : <AuthBtn  onClick={handleAuthModal}><svg><use href={`${icons}#user`}/></svg>{profileBtnContent}</AuthBtn>}
             {showAuthModal && <AuthModal authClose={handleAuthModal} />}
 
         </>
