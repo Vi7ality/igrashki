@@ -73,3 +73,16 @@ svg {
   margin-right: 10px;
 }
 `
+
+export const BasketBtn = styled.button`
+padding: 10px;
+background-color: 
+#FFFFFF;
+border-radius: 50%;
+width: 48px;
+height: 48px;
+svg {
+  width: 28px;
+  height: 28px;
+}
+`

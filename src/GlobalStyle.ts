@@ -3,7 +3,7 @@ import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
     body {
-        font-family: 'Rubik';
+        font-family: 'Rubik', sans-serif;
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
