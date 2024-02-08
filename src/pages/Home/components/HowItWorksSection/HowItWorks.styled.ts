@@ -1,19 +1,41 @@
 import styled from "styled-components";
 import Container from "../../../../shared/Container";
 import { NavLink } from "react-router-dom";
+import bgImg from "../../assets/lines-bg.svg";
+import lines from '../../assets/howworks_lines.svg'
 
 export const SectionStyled = styled.section`
     padding-top: 140px;
     padding-bottom: 100px; 
 `
-export const ContentContainer = styled(Container)`
+export const ContainerBgImage = styled(Container)`
+position: relative;
+
+&::before {
+    content: '';
+    background-image: url(${bgImg});
+    width: 1770px;
+    height: 588px;
+    position: absolute;
+    top: 0;
+    left: -145px;
+    z-index: -1;
+}
+`
+export const ContentContainer = styled.div`
 width: 1300px;
 height: 588px;
+margin: 0 auto;
 
 padding: 61px 50px 101px 53px;
 
 background-color: #FFFFFF;
 border-radius: 60px;
+
+position: relative;
+z-index: 9;
+
+
 `
 
 export const SectionTitle = styled.h2`
@@ -35,6 +57,19 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 330px;
+position: relative;
+
+&:not(:last-child) {
+    &::after{
+        content: '';
+        background-image: url(${lines});
+        width: 105px;
+        height: 15px;
+        position: absolute;
+        top: 83px;
+        right: -105px;
+    }
+}
 `
 
 export const SvgStyled = styled.svg`

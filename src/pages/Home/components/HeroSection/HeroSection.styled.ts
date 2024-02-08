@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { NavLinkStyled } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import bgImage from '../../assets/home-hero-bg.svg'
+import Container from "../../../../shared/Container";
 
 export const SectionStyled = styled.section`
-position: relative;
+/* position: relative; */
 width: 100%;
 padding-top: 245px;
 padding-bottom: 218px;
@@ -11,6 +12,10 @@ background-image: url(${bgImage});
 fill: #46409C;
     background-repeat: no-repeat;
     background-size: cover;
+`
+
+export const ContainerStyled = styled(Container)`
+position: relative;
 `
 
 export const Title = styled.h1`
@@ -69,6 +74,6 @@ export const BearsSvg = styled.svg`
 width: 361px;
 height: 513px;
 position: absolute;
-bottom: 0;
-right: 480px;
+bottom: -219px;
+right: 250px;
 `

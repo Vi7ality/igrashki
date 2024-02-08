@@ -10,14 +10,16 @@ import {
   ItemStyled,
   SvgStyled,
   TextStyled,
-  LinkStyled
+  LinkStyled,
+  ContainerBgImage
 } from "./HowItWorks.styled";
 import svgImg from "../../assets/homepage_vector-img.svg";
 
 const HowItWorks = () => {
   return (
     <SectionStyled>
-      <ContentContainer>
+      <ContainerBgImage>
+        <ContentContainer>
         <SectionTitle>Як це працює?</SectionTitle>
         <ListStyled>
           <ItemStyled>
@@ -31,7 +33,7 @@ const HowItWorks = () => {
           </ItemStyled>
           <ItemStyled>
             <SvgStyled>
-              <use href={`${svgImg}#howworks_fill`}></use>
+              <use href={`${svgImg}#howworks_takepart`}></use>
             </SvgStyled>
             <TextStyled>
               Відвідуйте ігрові сесії у Дитячій точці "Спільно” та забираєте іграшки, що
@@ -40,7 +42,7 @@ const HowItWorks = () => {
           </ItemStyled>
           <ItemStyled>
             <SvgStyled>
-              <use href={`${svgImg}#howworks_takepart`}></use>
+              <use href={`${svgImg}#howworks_exchange`}></use>
             </SvgStyled>
             <TextStyled>
               Обмінюйте іграшки щотримісяці та ставайте частиною спільноти однодумців
@@ -48,6 +50,8 @@ const HowItWorks = () => {
           </ItemStyled>
         </ListStyled>
       </ContentContainer>
+      </ContainerBgImage>
+      
     </SectionStyled>
   );
 };
