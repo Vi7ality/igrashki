@@ -16,29 +16,24 @@ import inst from "../../assets/inst.png";
 import fb from "../../assets/fb.png";
 import { NavLink } from "react-router-dom";
 import HeroSection from "./components/HeroSection/HeroSection";
+import Gallery from "./components/GallerySection/Gallery";
+import JoinUs from "./components/JoinUs/JoinUs";
 
 const Home = () => {
   return (
     <div className={styles.content}>
-      {/* <img className={styles.headerImgXl} src={headerImgXl} alt="headerImg" />
-        <img className={styles.headerImgLg} src={headerImgLg} alt="headerImg" />
-        <img className={styles.headerImgSm} src={headerImgSm} alt="headerImg" /> */}
-      {/* <div className={styles.info}>
-          <h1><p>Спільно Іграшки</p><span className={styles.infoSubtext}>мережа безоплатних бібліотек іграшок для раннього розвитку</span></h1>
-          <div className={styles.buttons}>
-            <NavLink to="/subscription" className={styles.subscribe}>Заповнити анкету</NavLink>
-            <NavLink to="/catalogue" className={styles.giveToys}>Знайти бібліотеку</NavLink>
-          </div>
-        </div> */}
       <Header />
       <HeroSection />
       <HowItWorks />
       <WhyUs />
-      <div className={styles.galleryContainer}>
+      {/* <div className={styles.galleryContainer}>
         <h3 className={styles.title}>Галерея Спільно Іграшки</h3>
         <img src={galleryImgXl} className={styles.galleryImgXl} alt="galleryImg" />
         <img src={galleryImgSm} className={styles.galleryImgSm} alt="galleryImg" />
-      </div>
+      </div> */}
+      <Gallery/>
+      <JoinUs/>
+
       <footer>
         <div className={styles.footerContent}>
           <h4>Почни гратися зі Спільно Іграшки вже сьогодні!</h4>

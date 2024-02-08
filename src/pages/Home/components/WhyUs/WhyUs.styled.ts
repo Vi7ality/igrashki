@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import cloudLeft from '../../assets/cloud-left.svg'
 import cloudRight from '../../assets/cloud-right.svg'
+import { NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
+import Container from "../../../../shared/Container";
 
 export const SectionStyled = styled.section`
 padding-top: 100px;
@@ -32,12 +34,19 @@ position: relative;
 }
 `
 
+export const FlexContainer = styled(Container)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 export const List = styled.ul`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 60px;
+    margin-bottom: 100px;
     `
 
 export const ItemStyled = styled.li`
@@ -58,4 +67,13 @@ margin-bottom: 20px;
 
 export const Text = styled.p`
 width: 433px;`
+
+export const NavLinkStyled = styled(NavLinkTrsp)`
+font-size: 24px;
+font-weight: 700;
+min-width: 358px;
+background-color: #FFCD1E;
+padding: 33px 65px;
+border-radius: 40px;
+`
 

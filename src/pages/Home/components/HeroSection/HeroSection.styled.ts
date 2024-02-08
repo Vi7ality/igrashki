@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLinkStyled } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
+import { NavLinkStyled, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import bgImage from '../../assets/home-hero-bg.svg'
 import Container from "../../../../shared/Container";
 
@@ -56,7 +56,7 @@ color: #46409C;
 min-width: 280px;
 `
 
-export const LinkTrsp = styled(LinkStyled)`
+export const LinkTrsp = styled(NavLinkTrsp)`
 color: #FFFFFF;
 background-color: transparent;
 display: flex;
