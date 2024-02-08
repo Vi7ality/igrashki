@@ -60,7 +60,7 @@ const WhyUs = () => {
             </div>
           </ItemStyled>
         </List>
-      </Container>
+          </Container>
     </SectionStyled>
   );
 };

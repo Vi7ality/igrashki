@@ -61,4 +61,8 @@ export const GlobalStyle = createGlobalStyle`
     address {
   font-style: normal;
 }
+
+section {
+  width: 100%;
+}
 `;
