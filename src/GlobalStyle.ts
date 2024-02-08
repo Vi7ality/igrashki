@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         font-weight: 400;
         font-size: 16px;
-        line-height: 19px;
+        line-height: 1.185;
         color: #2F2960;
         background-color: #F3F3FF;
         min-height: 100%;

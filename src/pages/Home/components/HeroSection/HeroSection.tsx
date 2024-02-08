@@ -1,4 +1,3 @@
-import Container from "../../../../shared/Container";
 import {
   BearsSvg,
   FlexCont,

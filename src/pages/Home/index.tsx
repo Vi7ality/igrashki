@@ -1,6 +1,6 @@
 import Header from "../../shared/Header";
 import HowItWorks from "./components/HowItWorksSection/HowItWorks";
-import WhyWe from "./components/WhyWe";
+import WhyUs from "./components//WhyUs/WhyUs";
 import styles from "./styles.module.scss";
 import headerImgXl from "./assets/header/headerImgXl.png";
 import headerImgLg from "./assets/header/headerImgLg.png";
@@ -33,7 +33,7 @@ const Home = () => {
       <Header />
       <HeroSection />
       <HowItWorks />
-      <WhyWe />
+      <WhyUs />
       <div className={styles.galleryContainer}>
         <h3 className={styles.title}>Галерея Спільно Іграшки</h3>
         <img src={galleryImgXl} className={styles.galleryImgXl} alt="galleryImg" />

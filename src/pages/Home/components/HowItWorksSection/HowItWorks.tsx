@@ -1,11 +1,6 @@
-// import styles from "./HowItWorks.module.scss";
-// import step1Img from "../assets/steps/step1.png";
-// import step2Img from "../assets/steps/step2.png";
-// import step3Img from "../assets/steps/step3.png";
 import {
   ContentContainer,
   SectionStyled,
-  SectionTitle,
   ListStyled,
   ItemStyled,
   SvgStyled,
@@ -14,6 +9,7 @@ import {
   ContainerBgImage
 } from "./HowItWorks.styled";
 import svgImg from "../../assets/homepage_vector-img.svg";
+import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
 const HowItWorks = () => {
   return (
@@ -51,7 +47,6 @@ const HowItWorks = () => {
         </ListStyled>
       </ContentContainer>
       </ContainerBgImage>
-      
     </SectionStyled>
   );
 };

@@ -34,16 +34,6 @@ border-radius: 60px;
 
 position: relative;
 z-index: 9;
-
-
-`
-
-export const SectionTitle = styled.h2`
-font-size: 54px;
-line-height: 1.296;
-text-align: center;
-
-margin-bottom: 67px;
 `
 
 export const ListStyled = styled.ul`
