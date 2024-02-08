@@ -6,17 +6,17 @@ import {
   SvgStyled,
   TextStyled,
   LinkStyled,
-  ContainerBgImage
+  ContainerBgImage,
+  TitleStyled
 } from "./HowItWorks.styled";
 import svgImg from "../../assets/homepage_vector-img.svg";
-import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
 const HowItWorks = () => {
   return (
     <SectionStyled>
       <ContainerBgImage>
         <ContentContainer>
-        <SectionTitle>Як це працює?</SectionTitle>
+        <TitleStyled>Як це працює?</TitleStyled>
         <ListStyled>
           <ItemStyled>
             <SvgStyled>

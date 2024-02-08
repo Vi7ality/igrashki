@@ -4,7 +4,6 @@ import bgImage from '../../assets/home-hero-bg.svg'
 import Container from "../../../../shared/Container";
 
 export const SectionStyled = styled.section`
-/* position: relative; */
 width: 100%;
 padding-top: 245px;
 padding-bottom: 218px;

@@ -3,6 +3,7 @@ import cloudLeft from '../../assets/cloud-left.svg'
 import cloudRight from '../../assets/cloud-right.svg'
 import { NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import Container from "../../../../shared/Container";
+import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
 export const SectionStyled = styled.section`
 padding-top: 100px;
@@ -39,6 +40,9 @@ export const FlexContainer = styled(Container)`
     flex-direction: column;
     align-items: center;
 `
+
+export const TitleStyled = styled(SectionTitle)`
+margin-bottom: 80px;`
 
 export const List = styled.ul`
     display: flex;

@@ -1,5 +1,14 @@
-
-import { SectionStyled, SvgImg, ItemStyled, Title, Text, List, NavLinkStyled, FlexContainer } from "./WhyUs.styled";
+import {
+  SectionStyled,
+  SvgImg,
+  ItemStyled,
+  Title,
+  Text,
+  List,
+  NavLinkStyled,
+  FlexContainer,
+  TitleStyled
+} from "./WhyUs.styled";
 import svgImg from "../../assets/homepage_vector-img.svg";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
@@ -7,7 +16,7 @@ const WhyUs = () => {
   return (
     <SectionStyled>
       <FlexContainer>
-        <SectionTitle>Чому ми?</SectionTitle>
+        <TitleStyled>Чому ми?</TitleStyled>
         <List>
           <ItemStyled>
             <SvgImg>
@@ -58,9 +67,9 @@ const WhyUs = () => {
               </Text>
             </div>
           </ItemStyled>
-              </List>
-              <NavLinkStyled to="/subscription">Заповнити анкету</NavLinkStyled>
-          </FlexContainer>
+        </List>
+        <NavLinkStyled to="/subscription">Заповнити анкету</NavLinkStyled>
+      </FlexContainer>
     </SectionStyled>
   );
 };

@@ -26,11 +26,6 @@ const Home = () => {
       <HeroSection />
       <HowItWorks />
       <WhyUs />
-      {/* <div className={styles.galleryContainer}>
-        <h3 className={styles.title}>Галерея Спільно Іграшки</h3>
-        <img src={galleryImgXl} className={styles.galleryImgXl} alt="galleryImg" />
-        <img src={galleryImgSm} className={styles.galleryImgSm} alt="galleryImg" />
-      </div> */}
       <Gallery/>
       <JoinUs/>
 

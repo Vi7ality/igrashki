@@ -17,7 +17,7 @@ export const ContainerBgImage = styled(Container)`
     width: 1770px;
     height: 588px;
     position: absolute;
-    top: 0;
+    top: -56px;
     left: -145px;
     z-index: -1;
   }
@@ -63,3 +63,12 @@ export const ShareNavLink = styled(NavLinkTrsp)`
   padding: 23px 28px;
   border-color: #46409c;
 `;
+
+export const PenguinsImg = styled.img`
+width: 688px;
+height: 462px;
+
+position: absolute;
+bottom: 0;
+right: 0;
+`

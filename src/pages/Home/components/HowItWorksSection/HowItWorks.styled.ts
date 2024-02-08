@@ -3,6 +3,7 @@ import Container from "../../../../shared/Container";
 import { NavLink } from "react-router-dom";
 import bgImg from "../../assets/lines-bg.svg";
 import lines from '../../assets/howworks_lines.svg'
+import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
 export const SectionStyled = styled.section`
     padding-top: 140px;
@@ -35,6 +36,9 @@ border-radius: 60px;
 position: relative;
 z-index: 9;
 `
+
+export const TitleStyled = styled(SectionTitle)`
+margin-bottom: 67px;`
 
 export const ListStyled = styled.ul`
 display: flex;
