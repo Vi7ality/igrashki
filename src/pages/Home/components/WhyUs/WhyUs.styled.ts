@@ -7,7 +7,7 @@ import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.style
 
 export const SectionStyled = styled.section`
 padding-top: 100px;
-padding-bottom: 149px;
+padding-bottom: 153px;
 position: relative;
 
 &::before {

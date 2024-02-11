@@ -10,7 +10,6 @@ import {
   TitleStyled
 } from "./WhyUs.styled";
 import svgImg from "../../assets/homepage_vector-img.svg";
-import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
 const WhyUs = () => {
   return (
