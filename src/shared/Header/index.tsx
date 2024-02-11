@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import styles from "./Header.module.scss";
 import logo from "../../assets/logo.svg";
 import { useEffect } from "react";
 import { autoLogin } from "../../redux/slices/client.slice";
