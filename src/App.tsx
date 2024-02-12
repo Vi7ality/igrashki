@@ -30,7 +30,7 @@ function App() {
       dispatch(managerGetInfo())
     }
     dispatch(loadCartItems())
-  }, [])
+  }, [dispatch])
 
   return (
     <BrowserRouter>

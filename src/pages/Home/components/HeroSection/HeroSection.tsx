@@ -32,7 +32,7 @@ const HeroSection = () => {
           </LinkTrsp>
         </FlexCont>
         <BearsSvg>
-          <use href={`${svgImg}#icon-hero_bears`} />
+          <use href={`${svgImg}#hero_bears`} />
         </BearsSvg>
       </ContainerStyled>
     </SectionStyled>
