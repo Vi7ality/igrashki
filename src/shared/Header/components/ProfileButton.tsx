@@ -40,7 +40,7 @@ const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean; darkMode?: bool
       ) : (
         <AuthBtn onClick={handleAuthModal}>
           <svg>
-            <use href={`${icons}#user`} />
+            <use href={`${icons}#icon-user`} />
           </svg>
           {profileBtnContent}
         </AuthBtn>
