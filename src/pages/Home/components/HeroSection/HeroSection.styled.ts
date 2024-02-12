@@ -8,6 +8,7 @@ width: 100%;
 padding-top: 245px;
 padding-bottom: 218px;
 background-image: url(${bgImage});
+background-position: center;
 fill: #46409C;
     background-repeat: no-repeat;
     background-size: cover;
@@ -73,5 +74,5 @@ width: 361px;
 height: 513px;
 position: absolute;
 bottom: -219px;
-right: 250px;
+right: 259px;
 `
