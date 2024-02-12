@@ -22,7 +22,7 @@ const JoinUs = () => {
             <JoinNavLink to={"/"}>Доєднатися!</JoinNavLink>
             <ShareNavLink to={"/"}>
               <GiftSvg>
-                <use href={`${icons}#gift`}></use>
+                <use href={`${icons}#icon-gift`}></use>
               </GiftSvg>
               Передати іграшки
             </ShareNavLink>

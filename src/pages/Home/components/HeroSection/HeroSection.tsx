@@ -26,13 +26,13 @@ const HeroSection = () => {
           <LinkStyled to="/subscription">Заповнити анкету</LinkStyled>
           <LinkTrsp to="/catalogue">
             <svg>
-              <use href={`${icons}#location`} />
+              <use href={`${icons}#icon-location`} />
             </svg>
             Знайти бібліотеку
           </LinkTrsp>
         </FlexCont>
         <BearsSvg>
-          <use href={`${svgImg}#hero_bears`} />
+          <use href={`${svgImg}#icon-hero_bears`} />
         </BearsSvg>
       </ContainerStyled>
     </SectionStyled>
