@@ -13,12 +13,7 @@ const CartButton = ({ darkMode }: { darkMode?: boolean }) => {
 
     return (
         <div className={styles.cartBtnWrapper}>
-            <BasketBtn onClick={() => setIsCartModalVisible(!isCartModalVisible)} className={styles.cartBtn}>
-                {/* {darkMode ? (
-                    <img src={bagButtonDark} alt="bagButton" />
-                ) : (
-                    <img src={bagButton} alt="bagButton" />
-                )} */}
+            <BasketBtn onClick={() => setIsCartModalVisible(!isCartModalVisible)} >
                 <svg><use href={`${icons}#icon-basket`}/></svg>
             </BasketBtn>
             {isCartModalVisible && <CartModal cart={cart} onClose={() => setIsCartModalVisible(false)} />}

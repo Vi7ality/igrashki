@@ -20,6 +20,8 @@ import ManagerLogin from "./pages/ManagerLogin";
 import Profile from "./pages/Profile";
 import SubscriptionInfo from "./pages/Management/screens/SubscriptionInfo";
 import { managerGetInfo } from "./redux/slices/manager.slice";
+import { ThemeProvider } from 'styled-components';
+import { theme } from "./constants/theme";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -33,6 +35,7 @@ function App() {
   }, [dispatch])
 
   return (
+    <ThemeProvider theme={theme}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -54,7 +57,8 @@ function App() {
           <Route index element={<ManagementHome />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+      </ThemeProvider>
   );
 }
 

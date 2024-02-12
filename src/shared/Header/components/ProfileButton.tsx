@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useAppSelector } from "../../../redux/store";
-// import profileIcon from "../assets/profileLight.png";
-// import profileIconDark from "../assets/profileDark.png";
 import styles from "../Header.module.scss";
 import AuthModal from "./AuthModal";
 import DropDownProfile from "./DropDownProfile";

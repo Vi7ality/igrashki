@@ -18,10 +18,10 @@ position: relative;
 `
 
 export const Title = styled.h1`
-font-weight: 700;
+font-weight: ${props => props.theme.fontWeights.bold};
 font-size: 68px; 
 line-height: 0.897;
-color: #FFFFFF;
+color: ${props => props.theme.colors.white};
 
 margin-bottom: 30px;
 
@@ -30,16 +30,15 @@ span {
 }
 `
 export const TextStyled = styled.p`
-font-weight: 400;
 font-size: 28px; 
 line-height: 1.27;
-color: #FFFFFF;
+color: ${props => props.theme.colors.white};
 max-width: 500px;
 
 margin-bottom: 70px;
 
 span {
-   font-weight: 700; 
+   font-weight: ${props => props.theme.fontWeights.bold}; 
 }
 `
 
@@ -51,12 +50,12 @@ export const LinkStyled = styled(NavLinkStyled)`
 font-size: 20px;
 line-height: 1.185;
 font-weight: 600; 
-color: #46409C;
+color: ${props => props.theme.colors.baseBlue};
 min-width: 280px;
 `
 
 export const LinkTrsp = styled(NavLinkTrsp)`
-color: #FFFFFF;
+color: ${props => props.theme.colors.white};
 background-color: transparent;
 display: flex;
 align-items: center;

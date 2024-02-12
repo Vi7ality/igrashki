@@ -6,7 +6,7 @@ import Container from "../../../../shared/Container";
 export const FooterBottomStyled = styled.div`
 padding-top: 48px;
 padding-bottom: 53px;
-background-color: #100E20;
+background-color: ${props => props.theme.colors.bgDark};
 `
 
 export const FlexContainer = styled(Container)`
@@ -32,5 +32,5 @@ height: 32px;
 export const TextStyled = styled.p`
 width: 970px;
 font-size: 12px;
-color: #70728F;
+color: ${props => props.theme.colors.mutedGrey};
 `

@@ -30,7 +30,7 @@ margin: 0 auto;
 
 padding: 61px 50px 101px 53px;
 
-background-color: #FFFFFF;
+background-color: ${props => props.theme.colors.white};
 border-radius: 60px;
 
 position: relative;
@@ -81,4 +81,4 @@ text-align: center;
 
 export const LinkStyled = styled(NavLink)`
 display: inline-block;
-font-weight: 700;`
+font-weight: ${props => props.theme.fontWeights.bold};`

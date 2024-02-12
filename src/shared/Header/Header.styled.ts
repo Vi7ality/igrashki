@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const HeaderStyled = styled.header`
   position: absolute;
-  z-index: 99;
+  z-index: 9;
   top: 0;
   left: 0;
   right: 0;
@@ -40,10 +40,9 @@ export const NavList = styled.ul`
 
 export const LinkStyled = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: ${props => props.theme.colors.white};
   font-size: 16px;
-  line-height: 1.1875;
-  font-weight: 600;
+  font-weight: ${props => props.theme.fontWeights.medium};
   transition: 0.3s;
 `;
 
@@ -54,16 +53,16 @@ export const ContainerRight = styled.div`
 `;
 
 export const AuthBtn = styled.button`
-font-weight: 600;
+font-weight: ${props => props.theme.fontWeights.medium};
 font-size: 16px;
 line-height: 1.185;
 
 display: flex;
 align-items: center;
 text-align: center;
-color: #FFFFFF;
+color: ${props => props.theme.colors.white};
 border: 2px solid 
-#FFFFFF;
+${props => props.theme.colors.white};
 border-radius: 30px;
 padding: 15px 32px;
 
@@ -77,7 +76,7 @@ svg {
 export const BasketBtn = styled.button`
 padding: 10px;
 background-color: 
-#FFFFFF;
+${props => props.theme.colors.white};
 border-radius: 50%;
 width: 48px;
 height: 48px;

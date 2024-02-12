@@ -30,7 +30,7 @@ export const ContentContainer = styled.div`
 
   padding: 109px 632px 109px 109px;
 
-  background-color: #ffffff;
+  background-color: ${props => props.theme.colors.white};
   border-radius: 60px;
 
   position: relative;
@@ -61,7 +61,7 @@ export const ShareNavLink = styled(NavLinkTrsp)`
   display: flex;
   align-items: center;
   padding: 23px 28px;
-  border-color: #46409c;
+  border-color: ${props => props.theme.colors.baseBlue};
 `;
 
 export const PenguinsImg = styled.img`

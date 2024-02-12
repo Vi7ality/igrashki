@@ -74,9 +74,9 @@ width: 433px;`
 
 export const NavLinkStyled = styled(NavLinkTrsp)`
 font-size: 24px;
-font-weight: 700;
+font-weight: ${props => props.theme.fontWeights.bold};
 min-width: 358px;
-background-color: #FFCD1E;
+background-color: ${props => props.theme.colors.accent};
 padding: 33px 65px;
 border-radius: 40px;
 `

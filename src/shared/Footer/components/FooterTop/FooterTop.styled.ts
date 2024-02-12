@@ -51,7 +51,7 @@ export const NavList = styled.ul`
 
 export const LinkStyled = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: ${props => props.theme.colors.white};
   font-size: 16px;
   line-height: 1.1875;
   font-weight: 600;
@@ -74,12 +74,12 @@ gap: 26px;
 `
 
 export const TermsLink = styled.a`
-color: #F3F3FF;
+color: ${props => props.theme.colors.bgWhite};
 `
 export const ContactLink = styled.a`
 font-size: 18px;
-font-weight: 700;
-color: #F3F3FF;
+font-weight: ${props => props.theme.colors.bold};
+color: ${props => props.theme.colors.bgWhite};
 `
 
 export const ContactList = styled.ul`
@@ -89,7 +89,7 @@ gap: 40px;
 
 export const CopyrightStyled = styled.p`
 font-size: 14px;
-color: #8F8ACD;
+color: ${props => props.theme.colors.mutedWhite};
 text-align: center;
 
 margin-top: 58px;
