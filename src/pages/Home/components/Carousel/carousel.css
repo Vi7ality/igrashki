@@ -1,0 +1,34 @@
+.slick-track {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+ .slick-slide {
+    width: 450px;
+    height: 450px; 
+}
+.slick-slide.slick-center {
+    transform: scale(1.1333);
+}
+
+.gallery-img {
+        width: 450px;
+            height: 450px;
+    border-radius: 60px;
+}
+
+.slick-dots {
+    bottom: -48px;
+}
+
+.slick-dots li {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+}
+
+.slick-dots li button {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}

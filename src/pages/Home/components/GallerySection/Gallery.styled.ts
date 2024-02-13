@@ -5,7 +5,7 @@ import bgImg from '../../assets/gallery-bg.svg'
 
 export const SectionStyled = styled.section`
 padding-top: 110px;
-padding-bottom: 98px;
+padding-bottom: 164px;
 
 background-image: url(${bgImg});
 `
