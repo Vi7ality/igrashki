@@ -58,14 +58,7 @@ const FooterTop = () => {
           </ContainerRight>
         </FlexWrapTop>
         <FlexWrap>
-          <TermsList>
-            <li>
-              <TermsLink href="">Terms & Conditions</TermsLink>
-            </li>
-            <li>
-              <TermsLink href="">Legal & Privacy</TermsLink>
-            </li>
-          </TermsList>
+          <TermsLink href="">Правила для користувачів</TermsLink>
           <ContactList>
             <li>
               <ContactLink href="tel:+380123456789">+380 12 345 67 89</ContactLink>
