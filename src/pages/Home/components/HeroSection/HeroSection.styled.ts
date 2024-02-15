@@ -71,8 +71,8 @@ padding: 21px 28px;
 `
 export const BearsSvg = styled.svg`
 width: 361px;
-height: 513px;
+height: 523px;
 position: absolute;
-bottom: -219px;
+bottom: -229px;
 right: 259px;
 `
