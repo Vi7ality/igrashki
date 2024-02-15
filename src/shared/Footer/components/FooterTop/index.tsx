@@ -18,6 +18,7 @@ import {
 } from "./FooterTop.styled";
 import icons from "../../../../assets/icons.svg";
 import logo from "../../../../assets/logo.svg";
+import conditions from '../../../../../public/user_terms&conditions.pdf'
 
 const FooterTop = () => {
   return (
@@ -58,7 +59,7 @@ const FooterTop = () => {
           </ContainerRight>
         </FlexWrapTop>
         <FlexWrap>
-          <TermsLink href="">Правила для користувачів</TermsLink>
+          <TermsLink href={conditions} target="_blank" rel="noreferrer nofollow noopener">Правила для користувачів</TermsLink>
           <ContactList>
             <li>
               <ContactLink href="tel:+380123456789">+380 12 345 67 89</ContactLink>
