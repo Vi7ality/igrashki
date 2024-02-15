@@ -4,7 +4,8 @@ import bgImg from '../../assets/footer-bg.svg'
 
 export const FooterTopStyled = styled.div`
 background-image: url(${bgImg});
-
+background-repeat: no-repeat;
+background-size: cover;
 padding-top: 57px;
 padding-bottom: 23px;
 `

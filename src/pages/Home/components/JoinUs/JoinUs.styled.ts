@@ -14,6 +14,7 @@ export const ContainerBgImage = styled(Container)`
   &::before {
     content: "";
     background-image: url(${bgImg});
+    background-repeat: no-repeat;
     width: 1770px;
     height: 588px;
     position: absolute;

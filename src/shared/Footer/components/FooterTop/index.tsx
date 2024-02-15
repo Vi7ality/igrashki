@@ -59,7 +59,7 @@ const FooterTop = () => {
           </ContainerRight>
         </FlexWrapTop>
         <FlexWrap>
-          <TermsLink href={conditions} target="_blank" rel="noreferrer nofollow noopener">Правила для користувачів</TermsLink>
+          <TermsLink href='/user_terms&conditions.pdf' target="_blank" rel="noreferrer nofollow noopener">Правила для користувачів</TermsLink>
           <ContactList>
             <li>
               <ContactLink href="tel:+380123456789">+380 12 345 67 89</ContactLink>
