@@ -20,7 +20,7 @@ const HowItWorks = () => {
         <ListStyled>
           <ItemStyled>
             <SvgStyled>
-              <use href={`${svgImg}#howworks_fill`}></use>
+              <use href={`${svgImg}#svg-howworks_fill`}></use>
             </SvgStyled>
             <TextStyled>
               <LinkStyled to="/subscription">Заповнюйте анкету</LinkStyled> на сайті або у Дитячій точці
@@ -29,7 +29,7 @@ const HowItWorks = () => {
           </ItemStyled>
           <ItemStyled>
             <SvgStyled>
-              <use href={`${svgImg}#howworks_takepart`}></use>
+              <use href={`${svgImg}#svg-howworks_takepart`}></use>
             </SvgStyled>
             <TextStyled>
               Відвідуйте ігрові сесії у Дитячій точці "Спільно” та забираєте іграшки, що
@@ -38,7 +38,7 @@ const HowItWorks = () => {
           </ItemStyled>
           <ItemStyled>
             <SvgStyled>
-              <use href={`${svgImg}#howworks_exchange`}></use>
+              <use href={`${svgImg}#svg-howworks_exchange`}></use>
             </SvgStyled>
             <TextStyled>
               Обмінюйте іграшки щотримісяці та ставайте частиною спільноти однодумців

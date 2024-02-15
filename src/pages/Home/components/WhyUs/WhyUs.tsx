@@ -19,7 +19,7 @@ const WhyUs = () => {
         <List>
           <ItemStyled>
             <SvgImg>
-              <use href={`${svgImg}#whyus_cultivation`}></use>
+              <use href={`${svgImg}#svg-whyus_cultivation`}></use>
             </SvgImg>
             <div>
               <Title>Культивування звички ділитись</Title>
@@ -31,7 +31,7 @@ const WhyUs = () => {
           </ItemStyled>
           <ItemStyled>
             <SvgImg>
-              <use href={`${svgImg}#whyus_development`}></use>
+              <use href={`${svgImg}#svg-whyus_development`}></use>
             </SvgImg>
             <div>
               <Title>Ранній розвиток дитини</Title>
@@ -43,7 +43,7 @@ const WhyUs = () => {
           </ItemStyled>
           <ItemStyled>
             <SvgImg>
-              <use href={`${svgImg}#whyus_free`}></use>
+              <use href={`${svgImg}#svg-whyus_free`}></use>
             </SvgImg>
             <div>
               <Title>Безкоштовний доступ до іграшок</Title>
@@ -56,7 +56,7 @@ const WhyUs = () => {
           </ItemStyled>
           <ItemStyled>
             <SvgImg>
-              <use href={`${svgImg}#whyus_safety`}></use>
+              <use href={`${svgImg}#svg-whyus_safety`}></use>
             </SvgImg>
             <div>
               <Title>Безпечність та дезінфекція</Title>

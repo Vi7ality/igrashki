@@ -26,17 +26,38 @@
 }
 
 .slick-dots {
-    bottom: -48px;
+    bottom: -66px;
 }
 
 .slick-dots li {
     width: 18px;
     height: 18px;
     padding: 0;
+    margin-right: 15px;
+    margin-left: 0;
 }
 
 .slick-dots li button {
     width: 100%;
     height: 100%;
     padding: 0;
+}
+
+.slick-dots li button:before {
+    font-size: 18px;
+    line-height: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    content: '•';
+    text-align: center;
+    opacity: 100;
+    color: #D8DEFB;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #46409C;
 }
