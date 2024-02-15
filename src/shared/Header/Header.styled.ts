@@ -64,11 +64,11 @@ color: ${props => props.theme.colors.white};
 border: 2px solid 
 ${props => props.theme.colors.white};
 border-radius: 30px;
-padding: 15px 32px;
+padding: 10px 30px;
 
 svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   margin-right: 10px;
 }
 `

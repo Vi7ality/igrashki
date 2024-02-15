@@ -19,7 +19,7 @@ position: relative;
     height: 588px;
     position: absolute;
     top: 0;
-    left: -145px;
+    left: -235px;
     z-index: -1;
 }
 `

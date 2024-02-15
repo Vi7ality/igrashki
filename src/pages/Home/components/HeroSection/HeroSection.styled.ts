@@ -74,5 +74,5 @@ width: 361px;
 height: 523px;
 position: absolute;
 bottom: -229px;
-right: 259px;
+right: 189px;
 `
