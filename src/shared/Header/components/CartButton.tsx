@@ -21,4 +21,4 @@ const CartButton = ({ darkMode }: { darkMode?: boolean }) => {
     )
 }
 
-export default CartButton
+export default CartButton;

@@ -14,7 +14,11 @@ import {
   Logo,
   NavContainer,
   NavList,
+  MobMenuBtn,
+  MenuIcon,
+  FlexWrap
 } from "./Header.styled";
+import icons from "../../assets/icons.svg";
 
 interface HeaderProps {
   darkMode?: boolean;
@@ -34,9 +38,16 @@ const Header = ({ darkMode }: HeaderProps) => {
     <>
       <HeaderStyled>
         <FlexContainer>
-          <Link to="/">
-            <Logo src={logo} alt="GROW WITH U logo" />
-          </Link>
+          <FlexWrap>
+            <MobMenuBtn>
+              <MenuIcon>
+                <use href={`${icons}#icon-menu`}></use>
+              </MenuIcon>
+            </MobMenuBtn>
+            <Link to="/">
+              <Logo src={logo} alt="GROW WITH U logo" />
+            </Link>
+          </FlexWrap>
           <NavContainer>
             <NavList>
               <li>

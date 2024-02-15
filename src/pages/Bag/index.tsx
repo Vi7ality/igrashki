@@ -15,7 +15,7 @@ const Bag = () => {
 
   const handleDeleteItem = useCallback((id: string) => {
     dispatch(removeItemFromCart(id))
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={styles.bag}>

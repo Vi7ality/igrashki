@@ -21,14 +21,14 @@ export const theme = {
   },
 
   size: {
-    mobile: "350px",
-    tablet: "940px",
-    desktop: "1300px",
+    mobile: "370px",
+    tablet: "980px",
+    desktop: "1340px",
   },
 
   device: {
-    mobile: `(min-width: 350px)`,
-    tablet: `(min-width: 940px)`,
-    desktop: `(min-width: 1300px)`,
+    mobile: `(min-width: 370px)`,
+    tablet: `(min-width: 980px)`,
+    desktop: `(min-width: 1340px)`,
   },
 };
