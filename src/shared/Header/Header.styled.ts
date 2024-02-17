@@ -90,7 +90,7 @@ export const LinkStyled = styled(Link)`
 
 export const ContainerRight = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 20px;
 `;
 
@@ -99,25 +99,34 @@ export const AuthBtn = styled.button`
   @media ${(props) => props.theme.device.desktop} {
   font-weight: ${(props) => props.theme.fontWeights.medium};
   font-size: 16px;
-  line-height: 1.185;
 
   display: flex;
   align-items: center;
-  text-align: center;
   color: ${(props) => props.theme.colors.white};
   border: 2px solid ${(props) => props.theme.colors.white};
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 10px 30px;
+  width: 200px;
+  height: 48px;
   }
 
-  svg {
+  /* svg {
+
+    margin-right: 10px;
+
+    @media ${(props) => props.theme.device.desktop} {
     width: 28px;
     height: 28px;
-    margin-right: 10px;
-  }
+    }
+
+  } */
 `;
+
+
 export const MobUserIcon = styled.svg`
 padding: 6px;
+width: 28px;
+height: 28px;
 background-color: ${(props) => props.theme.colors.white};
 border-radius: 50%;
 
@@ -135,6 +144,9 @@ export const DeskUserIcon = styled.svg`
 display: none;
 @media ${(props) => props.theme.device.desktop} {
     display: block;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
   }
 `
 
@@ -146,13 +158,32 @@ display: none;
 `
 
 export const BasketBtn = styled.button`
-  padding: 10px;
+  padding: 6px;
   background-color: ${(props) => props.theme.colors.white};
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 28px;
+  height: 28px;
+
+    @media ${(props) => props.theme.device.tablet} {
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+  }
+    @media ${(props) => props.theme.device.desktop} {
+  padding: 10px;
+    width: 48px;
+    height: 48px;
+  }
   svg {
+    width: 17px;
+    height: 17px;
+      @media ${(props) => props.theme.device.tablet} {
+    width: 21px;
+    height: 21px;
+  }
+    @media ${(props) => props.theme.device.desktop} {
     width: 28px;
     height: 28px;
+  }
   }
 `;

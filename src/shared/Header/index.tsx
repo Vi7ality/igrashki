@@ -67,7 +67,7 @@ const Header = ({ darkMode }: HeaderProps) => {
           </ContainerRight>
         </FlexContainer>
       </HeaderStyled>
-      <HeaderMobile darkMode={darkMode} />
+      {/* <HeaderMobile darkMode={darkMode} /> */}
     </>
   );
 };
