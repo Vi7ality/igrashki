@@ -3,7 +3,7 @@ import logo from "../../assets/logo.svg";
 import { useEffect } from "react";
 import { autoLogin } from "../../redux/slices/client.slice";
 import { useAppDispatch } from "../../redux/store";
-import HeaderMobile from "./HeaderMobile";
+// import HeaderMobile from "./HeaderMobile";
 import ProfileButton from "./components/ProfileButton";
 import CartButton from "./components/CartButton";
 import {

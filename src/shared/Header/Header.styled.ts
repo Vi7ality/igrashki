@@ -91,7 +91,11 @@ export const LinkStyled = styled(Link)`
 export const ContainerRight = styled.div`
   display: flex;
   align-items: start;
-  gap: 20px;
+  gap: 15px;
+
+  @media ${(props) => props.theme.device.tablet} {
+    gap: 20px;
+  } 
 `;
 
 export const AuthBtn = styled.button`
