@@ -21,17 +21,28 @@ export const SectionStyled = styled.section`
 export const ContainerBgImage = styled(Container)`
   position: relative;
 
-  /* &::before {
-    content: '';
-    background-image: url(${bgImg});
-    width: 1770px;
-    height: 588px;
-    position: absolute;
-    top: 0;
-    left: -235px;
-    z-index: -1;
-} */
+  &::before {
+    @media ${(props) => props.theme.device.tablet} {
+      content: "";
+      background-image: url(${bgImg});
+      background-size: 1214px 414px;
+      width: 1600px;
+      height: 414px;
+      position: absolute;
+      top: 0;
+      left: -120px;
+      z-index: -1;
+    }
+
+    @media ${(props) => props.theme.device.desktop} {
+      background-size: 1770px 588px;
+      width: 1770px;
+      height: 588px;
+       left: -220px;
+    }
+  }
 `;
+
 export const ContentContainer = styled.div`
   width: 350px;
   height: 837px;
@@ -45,7 +56,9 @@ export const ContentContainer = styled.div`
   z-index: 9;
 
   @media ${(props) => props.theme.device.tablet} {
-    padding: 49px 25px 59px 60px;
+    width: 940px;
+    height: 471px;
+    padding: 49px 40px 59px 40px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
@@ -74,8 +87,11 @@ export const ListStyled = styled.ul`
   flex-direction: column;
   gap: 50px;
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.tablet} {
     flex-direction: row;
+  }
+
+  @media ${(props) => props.theme.device.desktop} {
     gap: 102px;
   }
 `;
@@ -87,14 +103,23 @@ export const ItemStyled = styled.li`
   width: 100%;
   position: relative;
 
-  @media ${(props) => props.theme.device.tablet} {
-    &:not(:last-child) {
-      &::after {
+  &:not(:last-child) {
+    &::after {
+      @media ${(props) => props.theme.device.tablet} {
         content: "";
         background-image: url(${lines});
-        width: 105px;
-        height: 15px;
+        background-size: 70px 10px;
+        width: 70px;
+        height: 10px;
         position: absolute;
+        top: 60px;
+        right: -65px;
+      }
+
+      @media ${(props) => props.theme.device.desktop} {
+        background-size: 105px 20px;
+        width: 105px;
+        height: 20px;
         top: 83px;
         right: -105px;
       }
@@ -112,7 +137,7 @@ export const SvgStyled = styled.svg`
 
   margin-bottom: 20px;
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.tablet} {
     width: 150px;
     height: 126px;
     margin-bottom: 36px;
