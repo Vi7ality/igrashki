@@ -6,7 +6,6 @@ import bgTbImage from "../../assets/home-hero-bg_tb.svg"
 import Container from "../../../../shared/Container";
 
 export const SectionStyled = styled.section`
-  /* width: 100%; */
   padding-top: 92px;
   padding-bottom: 314px;
   background-image: url(${bgMbImage});
