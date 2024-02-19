@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import cloudLeft from "../../assets/cloud-left.svg";
 import cloudRight from "../../assets/cloud-right.svg";
+import cloudLeftTb from "../../assets/cloud-left_tb.svg";
+import cloudRightTb from "../../assets/cloud-right_tb.svg";
 import { NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import Container from "../../../../shared/Container";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
@@ -15,33 +17,49 @@ export const SectionStyled = styled.section`
     padding-bottom: 153px;
   }
 
-  /* &::before {
-
+  &::before {
     @media ${(props) => props.theme.device.tablet} {
+      content: "";
+      background-image: url(${cloudLeftTb});
+      background-repeat: no-repeat;
+      width: 304px;
+      height: 259px;
 
+      position: absolute;
+      left: 34px;
+      bottom: -60px;
     }
-    content: '';
-    background-image: url(${cloudLeft});
-    background-repeat: no-repeat;
-    width: 430px;
-    height: 366px;
 
-    position: absolute;
-    left: 0;
-    top: 236px;
-}
+    @media ${(props) => props.theme.device.desktop} {
+      background-image: url(${cloudLeft});
+      width: 430px;
+      height: 366px;
+      left: 0;
+      top: 236px;
+    }
+  }
 
-&::after {
-    content: '';
-    background-image: url(${cloudRight});
-    background-repeat: no-repeat;
-    width: 430px;
-    height: 366px;
+  &::after {
+    @media ${(props) => props.theme.device.tablet} {
+      content: "";
+      background-image: url(${cloudRightTb});
+      background-repeat: no-repeat;
+      width: 307px;
+      height: 258px;
 
-    position: absolute;
-    right: -207px;
-    top: 236px;
-} */
+      position: absolute;
+      right: 18px;
+      bottom: -45px;
+    }
+
+    @media ${(props) => props.theme.device.desktop} {
+      background-image: url(${cloudRight});
+      width: 430px;
+      height: 366px;
+      right: -207px;
+      top: 236px;
+    }
+  }
 `;
 
 export const FlexContainer = styled(Container)`
@@ -129,7 +147,7 @@ export const NavLinkStyled = styled(NavLinkTrsp)`
   min-width: 358px;
   background-color: ${(props) => props.theme.colors.accent};
   padding: 33px 51px;
-  
+
   border-radius: 40px;
 
   @media ${(props) => props.theme.device.desktop} {
