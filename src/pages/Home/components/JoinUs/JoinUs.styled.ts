@@ -20,17 +20,18 @@ export const SectionStyled = styled.section`
 export const ContainerBgImage = styled(Container)`
   position: relative;
 
-  /* &::before {
+  &::before {
     content: "";
     background-image: url(${bgImg});
     background-repeat: no-repeat;
+    background-size: 1770px 515px;
     width: 1770px;
-    height: 588px;
+    height: 515px;
     position: absolute;
-    top: -56px;
+    top: -17px;
     left: -235px;
     z-index: -1;
-  } */
+  }
 `;
 
 export const ContentContainer = styled.div`

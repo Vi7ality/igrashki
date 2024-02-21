@@ -14,11 +14,9 @@ import {
   NavContainer,
   NavList,
   TermsLink,
-  TermsList,
 } from "./FooterTop.styled";
 import icons from "../../../../assets/icons.svg";
 import logo from "../../../../assets/logo.svg";
-import conditions from '../../../../../public/user_terms&conditions.pdf'
 
 const FooterTop = () => {
   return (

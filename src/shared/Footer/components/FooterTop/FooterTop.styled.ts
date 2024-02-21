@@ -6,8 +6,18 @@ export const FooterTopStyled = styled.div`
 background-image: url(${bgImg});
 background-repeat: no-repeat;
 background-size: cover;
+padding-top: 40px;
+padding-bottom: 65px;
+
+@media ${(props) => props.theme.device.tablet} {
+padding-top: 43px;
+padding-bottom: 27px;
+}
+
+@media ${(props) => props.theme.device.tablet} {
 padding-top: 57px;
 padding-bottom: 23px;
+}
 `
 
 export const FlexWrap = styled.div`
@@ -15,6 +25,8 @@ export const FlexWrap = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+
   
 `;
 
@@ -22,6 +34,10 @@ export const FlexWrapTop = styled(FlexWrap)`
 position: relative;
 padding-bottom: 32px;
 margin-bottom: 46px;
+
+  @media ${(props) => props.theme.device.tablet} {
+    
+  }
 
 &:after {
   content: '';
