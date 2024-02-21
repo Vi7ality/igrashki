@@ -5,7 +5,6 @@ import {
   ContactList,
   ContainerRight,
   CopyrightStyled,
-  FlexWrap,
   FlexWrapTop,
   FooterTopStyled,
   IconStyled,
@@ -14,6 +13,7 @@ import {
   NavContainer,
   NavList,
   TermsLink,
+  FlexWrapBottom,
 } from "./FooterTop.styled";
 import icons from "../../../../assets/icons.svg";
 import logo from "../../../../assets/logo.svg";
@@ -43,21 +43,27 @@ const FooterTop = () => {
             <li>
               <a href="" target="_blank" rel="noreferrer nofollow noopener">
                 <IconStyled>
-                  <use href={`${icons}#icon-instagram`}></use>
+                  <use href={`${icons}#icon-facebook`}></use>
                 </IconStyled>
               </a>
             </li>
             <li>
               <a href="" target="_blank" rel="noreferrer nofollow noopener">
                 <IconStyled>
-                  <use href={`${icons}#icon-facebook`}></use>
+                  <use href={`${icons}#icon-instagram`}></use>
                 </IconStyled>
               </a>
             </li>
           </ContainerRight>
         </FlexWrapTop>
-        <FlexWrap>
-          <TermsLink href='/user_terms&conditions.pdf' target="_blank" rel="noreferrer nofollow noopener">Правила для користувачів</TermsLink>
+        <FlexWrapBottom>
+          <TermsLink
+            href="/user_terms&conditions.pdf"
+            target="_blank"
+            rel="noreferrer nofollow noopener"
+          >
+            Правила для користувачів
+          </TermsLink>
           <ContactList>
             <li>
               <ContactLink href="tel:+380123456789">+380 12 345 67 89</ContactLink>
@@ -66,7 +72,7 @@ const FooterTop = () => {
               <ContactLink href="mailto:hello@growithyou.club">hello@growithyou.club</ContactLink>
             </li>
           </ContactList>
-        </FlexWrap>
+        </FlexWrapBottom>
         <CopyrightStyled>Ⓒ 2024 Growithyou</CopyrightStyled>
       </Container>
     </FooterTopStyled>
