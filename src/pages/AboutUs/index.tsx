@@ -26,7 +26,7 @@ const AboutUs = () => {
     return (
         <div className={styles.aboutUsContainer}>
             <div className={styles.headerWrapper}>
-                <Header />
+                {/* <Header /> */}
                 <h1>Що таке Спільно Іграшки?</h1>
                 <img src={headerBg} alt="headerBg" className={styles.headerBg} />
                 <img src={headerBgXxl} alt="headerBgXxl" className={styles.headerBgXxl} />
