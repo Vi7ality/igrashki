@@ -19,7 +19,7 @@ const Bag = () => {
 
   return (
     <div className={styles.bag}>
-      <Header darkMode />
+      <Header/>
       <h1>Твій кошик</h1>
       {cart.length === 0 ? (
         <EmptyBag />

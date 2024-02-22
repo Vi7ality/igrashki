@@ -40,7 +40,7 @@ const Toy = () => {
 
   return (
     <div className={styles.toy}>
-      <Header darkMode />
+      <Header />
       <div className={styles.toyWrapper}>
         <ImageSlider images={toy?.images} />
         <div className={styles.toyTitle}>

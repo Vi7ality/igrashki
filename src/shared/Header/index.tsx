@@ -20,11 +20,11 @@ import {
 } from "./Header.styled";
 import icons from "../../assets/icons.svg";
 
-interface HeaderProps {
-  darkMode?: boolean;
-}
+// interface HeaderProps {
+//   darkMode?: boolean;
+// }
 
-const Header = ({ darkMode }: HeaderProps) => {
+const Header = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -62,8 +62,8 @@ const Header = ({ darkMode }: HeaderProps) => {
             </NavList>
           </NavContainer>
           <ContainerRight>
-            <ProfileButton darkMode={darkMode} />
-            <CartButton darkMode={darkMode} />
+            <ProfileButton />
+            <CartButton  />
           </ContainerRight>
         </FlexContainer>
       </HeaderStyled>

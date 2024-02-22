@@ -62,7 +62,7 @@ const HeaderMobile = ({ darkMode }: { darkMode?: boolean }) => {
                 {isMobileMenuVisible || darkMode ? <img src={logoDark} alt="GROW WITH U" className={styles.logoMenu} /> : <img src={logo} alt="GROW WITH U" className={styles.logoMenu} />}
             </div>
             {isMobileMenuVisible || darkMode ? <img src={logoDark} alt="GROW WITH U" className={styles.logoCenter} /> : <img src={logo} alt="GROW WITH U" className={styles.logoCenter} />}
-            <CartButton darkMode={darkMode} />
+            <CartButton />
         </header>
     )
 
@@ -79,7 +79,7 @@ const HeaderMobile = ({ darkMode }: { darkMode?: boolean }) => {
                     <li className={styles.items}><Link to='/profile'>Профіль</Link></li>
                     <li className={styles.items}><button onClick={handleLogout}>Вийти</button></li>
                 </> : <li>
-                    <ProfileButton mobile />
+                    <ProfileButton/>
                 </li>}
 
             </ul>

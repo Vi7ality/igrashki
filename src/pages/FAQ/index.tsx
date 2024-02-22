@@ -122,7 +122,7 @@ const FAQ = () => {
 
   return (
     <div className={styles.faq}>
-      <Header darkMode />
+      <Header />
       <h1>Популярні запитання</h1>
       <div className={styles.popularQuestionsCategories}>
         {categories.map((category, index) => (

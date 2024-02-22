@@ -106,7 +106,7 @@ const Catalogue = () => {
 
   return (
     <div className={styles.catalogue}>
-      <Header darkMode />
+      <Header />
       <div className={styles.сontent}>
         <h1>Каталог іграшок</h1>
         <div className={styles.container}>

@@ -69,7 +69,7 @@ const Profile = () => {
 
     return (
         <main className={styles.main}>
-            <Header darkMode />
+            <Header />
             <div className={styles.container}>
                 <div className={styles.left}>
                     <h2>Профіль</h2>
