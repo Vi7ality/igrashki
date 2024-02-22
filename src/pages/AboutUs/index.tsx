@@ -11,7 +11,7 @@ import patternWave from "./assets/patternWave.png"
 import missionLeftImg from "./assets/missionLeftImg.png"
 import missionRightImg from "./assets/missionRightImg.png"
 import footerBg from "./assets/footer/footerBg.png"
-import footerBgXxxl from "./assets/footer/footerBgXxxl.png"
+// import footerBgXxxl from "./assets/footer/footerBgXxxl.png"
 import footerBgXxl from "./assets/footer/footerBgXxl.png"
 import footerBgXl from "./assets/footer/footerBgXl.png"
 import footerBgLg from "./assets/footer/footerBgLg.png"
@@ -79,7 +79,7 @@ const AboutUs = () => {
                     <p className={styles.footerRealization}>Проєкт реалізує ГО “БФ Світ Майбутнього” у рамках СПІЛЬНО — програми Дитячого фонду ООН (ЮНІСЕФ) для підтримки сімей з дітьми, які постраждали від війни. Програма СПІЛЬНО об’єднує зусилля ЮНІСЕФ з урядом, місцевими органами влади, громадським сектором та бізнес-партнерами заради кожної дитини в Україні.</p>
                 </div>
                 <img src={footerBg} className={styles.footerBg} alt="footerBg" />
-                <img src={footerBgXxxl} className={styles.footerBgXxxl} alt="footerBgXxxl" />
+                {/* <img src={footerBgXxxl} className={styles.footerBgXxxl} alt="footerBgXxxl" /> */}
                 <img src={footerBgXxl} className={styles.footerBgXxl} alt="footerBgXxl" />
                 <img src={footerBgXl} className={styles.footerBgXl} alt="footerBgXl" />
                 <img src={footerBgLg} className={styles.footerBgLg} alt="footerBgLg" />
