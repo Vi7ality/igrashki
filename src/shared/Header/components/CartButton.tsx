@@ -4,6 +4,8 @@ import bagButtonDark from "../../../assets/bagButtonDark.png";
 import styles from "../Header.module.scss";
 import CartModal from "./CartModal";
 import { useAppSelector } from "../../../redux/store";
+import icons from '../../../assets/icons.svg'
+import { BasketBtn } from "../Header.styled";
 
 const CartButton = ({ darkMode }: { darkMode?: boolean }) => {
     const { cart } = useAppSelector((state) => state.cart);
@@ -11,16 +13,12 @@ const CartButton = ({ darkMode }: { darkMode?: boolean }) => {
 
     return (
         <div className={styles.cartBtnWrapper}>
-            <button onClick={() => setIsCartModalVisible(!isCartModalVisible)} className={styles.cartBtn}>
-                {darkMode ? (
-                    <img src={bagButtonDark} alt="bagButton" />
-                ) : (
-                    <img src={bagButton} alt="bagButton" />
-                )}
-            </button>
+            <BasketBtn onClick={() => setIsCartModalVisible(!isCartModalVisible)} >
+                <svg><use href={`${icons}#icon-basket`}/></svg>
+            </BasketBtn>
             {isCartModalVisible && <CartModal cart={cart} onClose={() => setIsCartModalVisible(false)} />}
         </div>
     )
 }
 
-export default CartButton
+export default CartButton;
