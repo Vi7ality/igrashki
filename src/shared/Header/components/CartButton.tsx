@@ -1,13 +1,11 @@
 import { useState } from "react";
-import bagButton from "../../../assets/bagButton.png";
-import bagButtonDark from "../../../assets/bagButtonDark.png";
 import styles from "../Header.module.scss";
 import CartModal from "./CartModal";
 import { useAppSelector } from "../../../redux/store";
 import icons from '../../../assets/icons.svg'
 import { BasketBtn } from "../Header.styled";
 
-const CartButton = ({ darkMode }: { darkMode?: boolean }) => {
+const CartButton = () => {
     const { cart } = useAppSelector((state) => state.cart);
     const [isCartModalVisible, setIsCartModalVisible] = useState(false)
 
