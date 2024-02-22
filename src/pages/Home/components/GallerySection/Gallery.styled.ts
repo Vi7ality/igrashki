@@ -10,6 +10,7 @@ background-image: url(${bgImg});
 background-position: center;
 height: 620px;
 background-size: 1850px 620px;
+overflow: hidden;
  @media ${(props) => props.theme.device.tablet} {
     padding-top: 71px;
     padding-bottom: 68px;
