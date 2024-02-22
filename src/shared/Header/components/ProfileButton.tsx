@@ -6,7 +6,7 @@ import DropDownProfile from "./DropDownProfile";
 import { AuthBtn, AuthContent, DeskUserIcon, MobUserIcon } from "../Header.styled";
 import icons from "../../../assets/icons.svg";
 
-const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean; darkMode?: boolean }) => {
+const ProfileButton = () => {
   const { client } = useAppSelector((state) => state.client);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
@@ -28,7 +28,6 @@ const ProfileButton = ({ mobile, darkMode }: { mobile?: boolean; darkMode?: bool
       {client ? (
         <div className={styles.profileWrapper}>
           <button
-            className={`${styles.profileBtn} ${darkMode && styles.dark}`}
             onClick={handleProfileButtonClick}
           >
             {client.parentName}

@@ -14,11 +14,11 @@ const ManagementLayout = () => {
   const managerToken = localStorage.getItem("managerToken");
   const { currentManager } = useAppSelector(state => state.manager)
 
-  // useEffect(() => {
-  //   if (!managerToken) {
-  //     navigate("/managerLogin")
-  //   }
-  // }, [currentManager?._id])
+  useEffect(() => {
+    if (!managerToken) {
+      navigate("/managerLogin")
+    }
+  }, [currentManager?._id])
 
   const handleManagerLogout = () => {
     dispatch(managerLogout())
