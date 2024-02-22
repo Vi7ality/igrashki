@@ -9,13 +9,11 @@ import Footer from "../../shared/Footer";
 const Home = () => {
   return (
     <>
-      <Header />
       <HeroSection />
       <HowItWorks />
       <WhyUs />
       <Gallery/>
       <JoinUs />
-      <Footer/>
     </>
   );
 };
