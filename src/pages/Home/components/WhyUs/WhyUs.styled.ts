@@ -3,6 +3,8 @@ import cloudLeft from "../../assets/cloud-left.svg";
 import cloudRight from "../../assets/cloud-right.svg";
 import cloudLeftTb from "../../assets/cloud-left_tb.svg";
 import cloudRightTb from "../../assets/cloud-right_tb.svg";
+import cloudLeftMb from "../../assets/cloud-left_mb.svg";
+import cloudRightMb from "../../assets/cloud-right_mb.svg";
 import { NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import Container from "../../../../shared/Container";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
@@ -18,14 +20,20 @@ export const SectionStyled = styled.section`
   }
 
   &::before {
+    content: "";
+    background-image: url(${cloudLeftMb});
+    background-repeat: no-repeat;
+    width: 222px;
+    height: 259px;
+    position: absolute;
+    left: 0;
+    bottom: 22px;
+    z-index: -1;
     @media ${(props) => props.theme.device.tablet} {
-      content: "";
       background-image: url(${cloudLeftTb});
       background-repeat: no-repeat;
       width: 304px;
       height: 259px;
-
-      position: absolute;
       left: 34px;
       bottom: -60px;
     }
@@ -40,23 +48,28 @@ export const SectionStyled = styled.section`
   }
 
   &::after {
+    content: "";
+    background-image: url(${cloudRightMb});
+    background-repeat: no-repeat;
+    width: 67px;
+    height: 258px;
+    position: absolute;
+    right: 0;
+    bottom: 22px;
+    z-index: -1;
     @media ${(props) => props.theme.device.tablet} {
-      content: "";
       background-image: url(${cloudRightTb});
-      background-repeat: no-repeat;
       width: 307px;
       height: 258px;
-
-      position: absolute;
       right: 18px;
       bottom: -45px;
     }
 
     @media ${(props) => props.theme.device.desktop} {
       background-image: url(${cloudRight});
-      width: 430px;
+      width: 218px;
       height: 366px;
-      right: -207px;
+      right: 0;
       top: 236px;
     }
   }

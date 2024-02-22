@@ -104,17 +104,17 @@ export const LinkStyled = styled(NavLinkStyled)`
   justify-content: center;
   color: ${(props) => props.theme.colors.baseBlue};
   min-width: 250px;
-  padding: 15px 52px;
+  height: 48px;
+
 
   @media ${(props) => props.theme.device.tablet} {
     font-size: 20px;
     min-width: 241px;
-    padding: 23px 27px;
+    height: 70px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
     min-width: 280px;
-    padding: 23px 46px;
   }
 `;
 
@@ -126,17 +126,16 @@ export const LinkTrsp = styled(NavLinkTrsp)`
   align-items: center;
   justify-content: center;
   min-width: 250px;
-  padding: 15px 52px;
+  height: 48px;
 
   @media ${(props) => props.theme.device.tablet} {
     font-size: 20px;
-    min-width: 241px;
-    padding: 23px 27px;
+    min-width: 271px;
+    height: 70px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
     min-width: 280px;
-    padding: 23px 46px;
   }
 
   svg {

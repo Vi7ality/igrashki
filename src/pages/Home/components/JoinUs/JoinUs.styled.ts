@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Container from "../../../../shared/Container";
-import bgImg from "../../assets/lines-bg.svg";
+import bgImg from "../../assets/join-lines_bg.svg";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 import { NavLinkAccent, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 
@@ -18,19 +18,29 @@ export const SectionStyled = styled.section`
   }
 `;
 export const ContainerBgImage = styled(Container)`
-  position: relative;
+  @media ${(props) => props.theme.device.tablet} {
+    position: relative;
+    &::before {
+      content: "";
+      background-image: url(${bgImg});
+      background-repeat: no-repeat;
+      background-size: 1770px 400px;
+      width: 1770px;
+      height: 400px;
+      position: absolute;
+      top: 19px;
 
-  &::before {
-    content: "";
-    background-image: url(${bgImg});
-    background-repeat: no-repeat;
-    background-size: 1770px 515px;
-    width: 1770px;
-    height: 515px;
-    position: absolute;
-    top: -17px;
-    left: -235px;
-    z-index: -1;
+      left: -400px;
+      z-index: -1;
+
+      @media ${(props) => props.theme.device.desktop} {
+        background-size: 1770px 515px;
+        width: 1770px;
+        height: 515px;
+        top: -17px;
+        left: -235px;
+      }
+    }
   }
 `;
 
@@ -99,7 +109,7 @@ export const JoinNavLink = styled(NavLinkAccent)`
   justify-content: center;
   width: 250px;
   height: 48px;
-  
+
   font-size: 16px;
 
   @media ${(props) => props.theme.device.tablet} {
@@ -108,7 +118,7 @@ export const JoinNavLink = styled(NavLinkAccent)`
     font-size: 20px;
   }
 
-    @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.desktop} {
     width: 235px;
   }
 `;
