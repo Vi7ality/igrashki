@@ -10,7 +10,7 @@ export const SectionStyled = styled.section`
   padding-bottom: 314px;
   background-image: url(${bgMbImage});
   background-position: center;
-  fill: #46409c;
+  fill: ${props => props.theme.colors.baseBlue};
   background-repeat: no-repeat;
   background-size: cover;
 
