@@ -40,7 +40,7 @@ export const SectionStyled = styled.section`
 
     @media ${(props) => props.theme.device.desktop} {
       background-image: url(${cloudLeft});
-      width: 430px;
+      width: 223px;
       height: 366px;
       left: 0;
       top: 236px;
