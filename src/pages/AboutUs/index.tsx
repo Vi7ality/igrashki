@@ -22,12 +22,14 @@
 // import fb from "../../assets/fb.png"
 import AboutSection from './components/AboutSection';
 import HeroSection from './components/HeroSection';
+import Mission from './components/Mission';
 
 const AboutUs = () => {
     return (
         <>
             <HeroSection />
-            <AboutSection/>
+            <AboutSection />
+            <Mission/>
         </>
 
 
