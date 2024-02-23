@@ -2,8 +2,10 @@ import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.style
 import Container from "../../../../shared/Container";
 import {
   BearImg,
+  CollageImg,
   ContentBottom,
   ContentTop,
+  FlexWrap,
   SectionStyled,
   TextBold,
   TextStyled,
@@ -17,11 +19,11 @@ const Mission = () => {
     <SectionStyled>
       <Container>
         <ContentTop>
-          <div>
+          <FlexWrap>
             <SectionTitle style={{ textAlign: "start" }}>Наша місія</SectionTitle>
             <TextStyled>Повернути частинку дитинства дітям, які щодня проживають війну.</TextStyled>
-          </div>
-          <img src={photoCollage}></img>
+          </FlexWrap>
+          <CollageImg src={photoCollage}></CollageImg>
         </ContentTop>
         <ContentBottom>
           <WrapText>
