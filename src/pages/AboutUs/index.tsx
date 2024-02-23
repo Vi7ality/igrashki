@@ -20,12 +20,14 @@
 // import logo from "../../assets/logo.png"
 // import inst from "../../assets/inst.png"
 // import fb from "../../assets/fb.png"
+import AboutSection from './components/AboutSection';
 import HeroSection from './components/HeroSection';
 
 const AboutUs = () => {
     return (
         <>
-            <HeroSection/>
+            <HeroSection />
+            <AboutSection/>
         </>
 
 
