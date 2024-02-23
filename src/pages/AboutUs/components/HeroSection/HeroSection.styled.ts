@@ -23,8 +23,8 @@ export const SectionStyled = styled.section`
     @media ${(props) => props.theme.device.desktop} {
     background-image: url(${bgImgDesk});
 
-    padding-top: 184px;
-    padding-bottom: 176px;
+    padding-top: 236px;
+    padding-bottom: 160px;
   }
 `;
 
@@ -53,4 +53,12 @@ export const ImgStyled = styled.img`
     bottom: -257px;
   left: 208px;
   }
+
+  @media ${(props) => props.theme.device.tablet} {
+        width: 726px;
+  height: 286px;
+    bottom: -321px;
+  left: 324px;
+  }
+
 `;
