@@ -20,7 +20,7 @@ export const SectionStyled = styled.section`
     padding-bottom: 176px;
   }
 
-    @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.desktop} {
     background-image: url(${bgImgDesk});
 
     padding-top: 236px;
@@ -33,7 +33,7 @@ export const PageTitle = styled.h1`
   color: ${(props) => props.theme.colors.white};
   text-align: center;
 
-  @media ${(props) => props.theme.device.tablet}  {
+  @media ${(props) => props.theme.device.tablet} {
     font-size: 68px;
   }
 `;
@@ -48,17 +48,16 @@ export const ImgStyled = styled.img`
   z-index: 9;
 
   @media ${(props) => props.theme.device.tablet} {
-      width: 564px;
-  height: 222px;
+    width: 564px;
+    height: 222px;
     bottom: -257px;
-  left: 208px;
+    left: 208px;
   }
 
-  @media ${(props) => props.theme.device.tablet} {
-        width: 726px;
-  height: 286px;
+  @media ${(props) => props.theme.device.desktop} {
+    width: 726px;
+    height: 286px;
     bottom: -321px;
-  left: 324px;
+    left: 324px;
   }
-
 `;
