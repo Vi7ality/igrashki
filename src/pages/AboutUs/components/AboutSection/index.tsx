@@ -6,8 +6,8 @@ const AboutSection = () => {
     <SectionStyled>
       <ContentContainer>
         <SectionTitle style={{ textAlign: "start" }}>Що таке Спільно Іграшки?</SectionTitle>
-              <TextStyled>
-                  <span>Спільно Іграшки</span> — це програма з безкоштовної оренди дитячих іграшок для раннього розвитку,
+              <TextStyled style={{marginTop: '40px'}}>
+                  <span>Спільно Іграшки</span> — це програма з <span>безкоштовної</span> оренди дитячих іграшок для раннього розвитку,
           що реалізується через мережу Дитячих точок "Спільно". В основі проєкту лежить ідея
           бібліотеки, де замість книжок — іграшки.
         </TextStyled>
