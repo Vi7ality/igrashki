@@ -22,6 +22,7 @@
 // import fb from "../../assets/fb.png"
 import AboutSection from './components/AboutSection';
 import HeroSection from './components/HeroSection';
+import JoinUsSection from './components/JoinUsSection';
 import Mission from './components/Mission';
 
 const AboutUs = () => {
@@ -29,7 +30,8 @@ const AboutUs = () => {
         <>
             <HeroSection />
             <AboutSection />
-            <Mission/>
+            <Mission />
+            <JoinUsSection/>
         </>
 
 

@@ -11,18 +11,17 @@ color: ${(props) => props.theme.colors.white};
 border-radius: 20px;
 font-size: 16px;
 font-weight: 600;
-min-width: 250px;
+width: 250px;
 height: 48px;
 
 @media ${(props) => props.theme.device.tablet} {
     border-radius: 30px;
     font-size: 20px;
-    min-width: 250px;
     height: 70px;
 }
 
 @media ${(props) => props.theme.device.desktop} {
-    min-width: 280px;
+    width: 280px;
     font-size: 20px;
 }
 `
@@ -33,11 +32,11 @@ color: ${(props) => props.theme.colors.baseBlue};
 border: none;
 
 @media ${props => props.theme.device.tablet} {
-    min-width: 241px;
+    width: 241px;
 }
 
 @media ${props => props.theme.device.desktop} {
-    min-width: 280px;
+    width: 280px;
 }
 
 `
