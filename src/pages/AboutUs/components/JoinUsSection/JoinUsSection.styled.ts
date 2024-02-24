@@ -1,26 +1,27 @@
 import styled from "styled-components";
 import Container from "../../../../shared/Container";
 import { NavLinkAccent, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
-import LinesTb from '../../assets/form-lines_tb.svg'
-import LinesDesk from '../../assets/form-lines_desk.svg'
+import LinesTb from "../../assets/form-lines_tb.svg";
+import LinesDesk from "../../assets/form-lines_desk.svg";
 
 export const SectionStyled = styled.section`
-padding-top: 30px;
-padding-bottom: 30px;
+  overflow: hidden;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   @media ${(props) => props.theme.device.tablet} {
     padding-top: 40px;
     padding-bottom: 40px;
   }
 
-    @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.desktop} {
     padding-top: 95px;
     padding-bottom: 66px;
   }
-`
+`;
 
 export const ContentContainer = styled(Container)`
-border-radius: 30px;
+  border-radius: 30px;
   background-color: ${(props) => props.theme.colors.white};
   width: 350px;
   padding: 46px 21px 35px 22px;
@@ -32,16 +33,16 @@ border-radius: 30px;
 
     &::before {
       content: "";
-        background-image: url(${LinesTb});
-        background-repeat: no-repeat;
+      background-image: url(${LinesTb});
+      background-repeat: no-repeat;
       width: 1226px;
       height: 350px;
       position: absolute;
       z-index: -1;
-        top: 24px;
+      top: 24px;
       left: -153px;
       @media ${(props) => props.theme.device.desktop} {
-                background-image: url(${LinesDesk});
+        background-image: url(${LinesDesk});
         width: 1750px;
         height: 350px;
 
@@ -49,49 +50,48 @@ border-radius: 30px;
         left: -225px;
       }
     }
-}
+  }
 
   @media ${(props) => props.theme.device.desktop} {
     width: 1300px;
     padding: 77px 114px;
   }
-`
+`;
 
 export const JoinTitle = styled.h2`
-text-align: center;
-font-size: 28px;
-line-height: 1.4;
-margin-bottom: 30px;
+  text-align: center;
+  font-size: 28px;
+  line-height: 1.4;
+  margin-bottom: 30px;
 
-@media ${(props) => props.theme.device.tablet}  {
+  @media ${(props) => props.theme.device.tablet} {
     font-size: 48px;
     line-height: 1.292;
     margin-bottom: 50px;
-}
-`
+  }
+`;
 
 export const LinkList = styled.ul`
-display: flex; 
-justify-content: center;
-align-items: center;
-gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 
-@media ${props => props.theme.device.mobile} {
+  @media ${(props) => props.theme.device.mobile} {
     flex-direction: column;
-}
-`
+  }
+`;
 export const AccentLinkStyled = styled(NavLinkAccent)`
-
-@media ${(props) => props.theme.device.tablet}  {
+  @media ${(props) => props.theme.device.tablet} {
     min-width: 307px;
-}
-`
+  }
+`;
 
 export const TrspLinkStyled = styled(NavLinkTrsp)`
-color: ${props => props.theme.colors.baseBlue};
-border-color: ${props => props.theme.colors.baseBlue};
+  color: ${(props) => props.theme.colors.baseBlue};
+  border-color: ${(props) => props.theme.colors.baseBlue};
 
-@media ${(props) => props.theme.device.tablet}  {
+  @media ${(props) => props.theme.device.tablet} {
     min-width: 280px;
-}
-`
+  }
+`;

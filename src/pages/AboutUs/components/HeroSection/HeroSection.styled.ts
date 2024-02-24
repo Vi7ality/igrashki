@@ -15,13 +15,14 @@ export const SectionStyled = styled.section`
 
   @media ${(props) => props.theme.device.tablet} {
     background-image: url(${bgImgTb});
-
+    
     padding-top: 184px;
     padding-bottom: 176px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
     background-image: url(${bgImgDesk});
+    background-position: 0 0;
 
     padding-top: 236px;
     padding-bottom: 160px;

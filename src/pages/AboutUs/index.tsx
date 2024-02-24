@@ -1,25 +1,3 @@
-// import styles from './AboutUs.module.scss';
-// import Header from '../../shared/Header';
-// import { NavLink } from 'react-router-dom';
-// import headerBg from "./assets/header/headerBg.png"
-// import headerBgXxl from "./assets/header/headerBgXxl.png"
-// import headerBgXl from "./assets/header/headerBgXl.png"
-// import headerBgLg from "./assets/header/headerBgLg.png"
-// import headerBgMd from "./assets/header/headerBgMd.png"
-// import headerBgSm from "./assets/header/headerBgSm.png"
-// import patternWave from "./assets/patternWave.png"
-// import missionLeftImg from "./assets/missionLeftImg.png"
-// import missionRightImg from "./assets/missionRightImg.png"
-// import footerBg from "./assets/footer/footerBg.png"
-// import footerBgXxl from "./assets/footer/footerBgXxl.png"
-// import footerBgXl from "./assets/footer/footerBgXl.png"
-// import footerBgLg from "./assets/footer/footerBgLg.png"
-// import footerBgMd from "./assets/footer/footerBgMd.png"
-// import footerBgSm from "./assets/footer/footerBgSm.png"
-
-// import logo from "../../assets/logo.png"
-// import inst from "../../assets/inst.png"
-// import fb from "../../assets/fb.png"
 import AboutSection from './components/AboutSection';
 import HeroSection from './components/HeroSection';
 import JoinUsSection from './components/JoinUsSection';

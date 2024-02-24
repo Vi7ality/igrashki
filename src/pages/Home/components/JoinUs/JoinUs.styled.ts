@@ -5,6 +5,7 @@ import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.style
 import { NavLinkAccent, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 
 export const SectionStyled = styled.section`
+  overflow: hidden;
   padding-top: 80px;
   padding-bottom: 80px;
   @media ${(props) => props.theme.device.tablet} {
@@ -134,11 +135,9 @@ export const ShareNavLink = styled(NavLinkTrsp)`
     min-width: 257px;
   }
 
-    @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.desktop} {
     min-width: 280px;
-    
   }
-
 `;
 
 export const PenguinsImg = styled.img`

@@ -6,6 +6,7 @@ import lines from "../../assets/howworks_lines.svg";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
 export const SectionStyled = styled.section`
+  overflow: hidden;
   padding-top: 48px;
   padding-bottom: 40px;
 

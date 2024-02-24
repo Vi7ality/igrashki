@@ -4,6 +4,7 @@ import bgTbImg from "../../assets/about-lines-bg_tb.svg";
 import bgDeskImg from "../../assets/about-lines-bg_desk.svg";
 
 export const SectionStyled = styled.section`
+  overflow: hidden;
   padding-top: 106px;
   padding-bottom: 30px;
 
