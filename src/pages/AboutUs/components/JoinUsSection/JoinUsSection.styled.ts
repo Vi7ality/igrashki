@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Container from "../../../../shared/Container";
 import { NavLinkAccent, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import LinesTb from '../../assets/form-lines_tb.svg'
+import LinesDesk from '../../assets/form-lines_desk.svg'
 
 export const SectionStyled = styled.section`
 padding-top: 30px;
@@ -10,6 +11,11 @@ padding-bottom: 30px;
   @media ${(props) => props.theme.device.tablet} {
     padding-top: 40px;
     padding-bottom: 40px;
+  }
+
+    @media ${(props) => props.theme.device.desktop} {
+    padding-top: 95px;
+    padding-bottom: 66px;
   }
 `
 
@@ -34,24 +40,32 @@ border-radius: 30px;
       z-index: -1;
         top: 24px;
       left: -153px;
-      /* @media ${(props) => props.theme.device.desktop} {
+      @media ${(props) => props.theme.device.desktop} {
+                background-image: url(${LinesDesk});
         width: 1750px;
-        height: 370px;
+        height: 350px;
 
-        top: 44px;
-        left: -235px;
-      } */
+        top: 24px;
+        left: -225px;
+      }
     }
 }
+
+  @media ${(props) => props.theme.device.desktop} {
+    width: 1300px;
+    padding: 77px 114px;
+  }
 `
 
 export const JoinTitle = styled.h2`
 text-align: center;
 font-size: 28px;
+line-height: 1.4;
 margin-bottom: 30px;
 
 @media ${(props) => props.theme.device.tablet}  {
     font-size: 48px;
+    line-height: 1.292;
     margin-bottom: 50px;
 }
 `
