@@ -3,8 +3,10 @@ import whaleBg from "./assets/whale-bg.svg";
 
 export const FooterStyled = styled.footer`
   margin: 0;
+  margin-top: auto;
   padding-top: 146px;
   height: auto;
+  position: relative;
 
   @media ${(props) => props.theme.device.tablet} {
     padding-top: 189px;

@@ -27,7 +27,7 @@ export const theme = {
   },
 
   device: {
-    mobile: `(min-width: 370px)`,
+    mobile: `(max-width: 979px)`,
     tablet: `(min-width: 980px)`,
     desktop: `(min-width: 1340px)`,
   },

@@ -10,6 +10,7 @@ import {
 } from "./HeroSection.styled";
 import svgImg from "../../assets/homepage_vector-img.svg";
 import icons from "../../../../assets/icons.svg";
+import { NavLinkStyled } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 
 const HeroSection = () => {
   return (
@@ -23,7 +24,7 @@ const HeroSection = () => {
           Мережа <span>безоплатних</span> бібліотек іграшок для раннього розвитку
         </TextStyled>
         <FlexCont>
-          <LinkStyled to="/subscription">Заповнити анкету</LinkStyled>
+          <NavLinkStyled to="/subscription">Заповнити анкету</NavLinkStyled>
           <LinkTrsp to="/catalogue">
             <svg>
               <use href={`${icons}#icon-location`} />

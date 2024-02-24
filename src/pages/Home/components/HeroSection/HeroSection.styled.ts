@@ -10,7 +10,7 @@ export const SectionStyled = styled.section`
   padding-bottom: 314px;
   background-image: url(${bgMbImage});
   background-position: center;
-  fill: #46409c;
+  fill: ${props => props.theme.colors.baseBlue};
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -119,19 +119,10 @@ export const LinkStyled = styled(NavLinkStyled)`
 `;
 
 export const LinkTrsp = styled(NavLinkTrsp)`
-  font-size: 16px;
-  color: ${(props) => props.theme.colors.white};
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-width: 250px;
-  height: 48px;
 
   @media ${(props) => props.theme.device.tablet} {
-    font-size: 20px;
     min-width: 271px;
-    height: 70px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
@@ -149,6 +140,7 @@ export const LinkTrsp = styled(NavLinkTrsp)`
     }
   }
 `;
+
 export const BearsSvg = styled.svg`
   width: 190px;
   height: 275px;

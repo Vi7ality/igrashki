@@ -3,17 +3,23 @@ import Header from "../../../../shared/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../../../../shared/Footer";
 
+
 const SharedLayout = () => {
   return (
-    <>
+    <div style={{
+        minHeight: '100vh',
+        maxHeight: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
       <Header />
       <main>
         <Suspense>
           <Outlet />
         </Suspense>
       </main>
-      <Footer />
-    </>
+      <Footer/>
+    </div>
   );
 };
 
