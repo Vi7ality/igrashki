@@ -5,7 +5,7 @@ import cloudLeftTb from "../../assets/cloud-left_tb.svg";
 import cloudRightTb from "../../assets/cloud-right_tb.svg";
 import cloudLeftMb from "../../assets/cloud-left_mb.svg";
 import cloudRightMb from "../../assets/cloud-right_mb.svg";
-import { NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
+import { NavLinkAccent, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import Container from "../../../../shared/Container";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
@@ -154,16 +154,17 @@ export const Text = styled.p`
   }
 `;
 
-export const NavLinkStyled = styled(NavLinkTrsp)`
+export const NavLinkStyled = styled(NavLinkAccent)`
   font-size: 24px;
   font-weight: ${(props) => props.theme.fontWeights.bold};
-  min-width: 358px;
+  min-width: 326px;
+  height: 93px;
   background-color: ${(props) => props.theme.colors.accent};
-  padding: 33px 51px;
 
   border-radius: 40px;
 
-  @media ${(props) => props.theme.device.desktop} {
-    padding: 33px 65px;
+  @media ${(props) => props.theme.device.tablet} {
+    min-width: 358px;
   }
+
 `;

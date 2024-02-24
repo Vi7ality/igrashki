@@ -104,22 +104,15 @@ export const LinkContainer = styled.div`
   }
 `;
 export const JoinNavLink = styled(NavLinkAccent)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 250px;
-  height: 48px;
-
   font-size: 16px;
 
   @media ${(props) => props.theme.device.tablet} {
-    width: 195px;
-    height: 70px;
+    min-width: 195px;
     font-size: 20px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
-    width: 235px;
+    min-width: 235px;
   }
 `;
 
@@ -130,29 +123,22 @@ export const GiftSvg = styled.svg`
     width: 28px;
     height: 28px;
   }
-
   margin-right: 10px;
 `;
 
 export const ShareNavLink = styled(NavLinkTrsp)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 250px;
-  height: 48px;
-  font-size: 16px;
-
   border-color: ${(props) => props.theme.colors.baseBlue};
+  color: ${(props) => props.theme.colors.baseBlue};
 
   @media ${(props) => props.theme.device.tablet} {
-    width: 257px;
-    height: 70px;
-    font-size: 20px;
+    min-width: 257px;
   }
 
-  @media ${(props) => props.theme.device.desktop} {
-    width: 280px;
+    @media ${(props) => props.theme.device.desktop} {
+    min-width: 280px;
+    
   }
+
 `;
 
 export const PenguinsImg = styled.img`
