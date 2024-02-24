@@ -1,7 +1,6 @@
 import {
   BearsSvg,
   FlexCont,
-  LinkStyled,
   LinkTrsp,
   SectionStyled,
   TextStyled,

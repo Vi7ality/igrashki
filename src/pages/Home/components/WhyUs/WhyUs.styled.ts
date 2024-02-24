@@ -5,7 +5,7 @@ import cloudLeftTb from "../../assets/cloud-left_tb.svg";
 import cloudRightTb from "../../assets/cloud-right_tb.svg";
 import cloudLeftMb from "../../assets/cloud-left_mb.svg";
 import cloudRightMb from "../../assets/cloud-right_mb.svg";
-import { NavLinkAccent, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
+import { NavLinkAccent } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
 import Container from "../../../../shared/Container";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 
