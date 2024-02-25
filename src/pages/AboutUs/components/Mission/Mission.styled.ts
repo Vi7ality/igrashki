@@ -131,6 +131,10 @@ export const WrapText = styled.div`
     @media ${(props) => props.theme.device.tablet} {
       bottom: 0;
     }
+
+    @media ${(props) => props.theme.device.desktop} {
+      bottom: 87px;
+    }
   }
 
   @media ${(props) => props.theme.device.tablet} {
@@ -139,6 +143,8 @@ export const WrapText = styled.div`
 
   @media ${(props) => props.theme.device.desktop} {
     width: 640px;
+
+    padding-top: 102px;
   }
 `;
 
