@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { autoLogin } from "../../redux/slices/client.slice";
 import { useAppDispatch } from "../../redux/store";
 // import HeaderMobile from "./HeaderMobile";
@@ -19,6 +19,7 @@ import {
   FlexWrap
 } from "./Header.styled";
 import icons from "../../assets/icons.svg";
+import MobileMenu from "./components/MobileMenu";
 
 // interface HeaderProps {
 //   darkMode?: boolean;
@@ -26,6 +27,18 @@ import icons from "../../assets/icons.svg";
 
 const Header = () => {
   const dispatch = useAppDispatch();
+
+  const [open, setOpen] = useState(false);
+  
+    const handleMenuClick = () => {
+    setOpen(!open);
+    if (open) {
+      document.body.classList.add('modal-open');
+    }
+    if (!open) {
+      document.body.classList.remove('modal-open');
+    }
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("userToken");
@@ -39,7 +52,7 @@ const Header = () => {
       <HeaderStyled>
         <FlexContainer>
           <FlexWrap>
-            <MobMenuBtn>
+            <MobMenuBtn onClick={handleMenuClick}>
               <MenuIcon>
                 <use href={`${icons}#icon-menu`}></use>
               </MenuIcon>
@@ -67,6 +80,7 @@ const Header = () => {
           </ContainerRight>
         </FlexContainer>
       </HeaderStyled>
+      <MobileMenu openState={open} handleMenuClick={handleMenuClick} />
       {/* <HeaderMobile darkMode={darkMode} /> */}
     </>
   );
