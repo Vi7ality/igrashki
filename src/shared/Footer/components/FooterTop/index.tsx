@@ -41,14 +41,14 @@ const FooterTop = () => {
           </NavContainer>
           <ContainerRight>
             <li>
-              <a href="" target="_blank" rel="noreferrer nofollow noopener">
+              <a href="https://www.facebook.com/spilno.ihrashka" target="_blank" rel="noreferrer nofollow noopener">
                 <IconStyled>
                   <use href={`${icons}#icon-facebook`}></use>
                 </IconStyled>
               </a>
             </li>
             <li>
-              <a href="" target="_blank" rel="noreferrer nofollow noopener">
+              <a href="https://www.instagram.com/spilno_ihrashka" target="_blank" rel="noreferrer nofollow noopener">
                 <IconStyled>
                   <use href={`${icons}#icon-instagram`}></use>
                 </IconStyled>
