@@ -4,8 +4,6 @@ import styled from "styled-components";
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
   position: fixed;
-  padding-right: 12px;
-  padding-left: 12px;
   background-color: white;
   background-repeat: no-repeat;
   background-size: contain;
@@ -26,8 +24,22 @@ export const MobileMenuSection = styled.section`
     opacity: 1;
     height: 100vh;
     width: 100vw;
+    overflow: auto;
     visibility: visible;
   }
+`;
+
+export const MenuContainer = styled.div`
+  margin: 0 auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 65px;
+  width: 370px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 `;
 
 export const HeaderMb = styled.div`
@@ -51,37 +63,68 @@ export const IconClose = styled.svg`
 `;
 
 export const AuthContainer = styled.div`
-display: flex;
-justify-content: center;
-margin-bottom: 44px;
-`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 44px;
+`;
 
 export const RegisterLink = styled(NavLink)`
-font-size: 18px;
-padding-left: 20px;
-border-left: 2px solid #D8DEFB
-;
-`
+  font-size: 18px;
+  padding-left: 20px;
+  border-left: 2px solid #d8defb;
+`;
 
 export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+
+  margin-bottom: 20px;
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-font-size: 18px;
-font-weight: 700;
-`
+  font-size: 18px;
+  font-weight: 700;
+`;
 
 export const SocialMediaList = styled.ul`
-display: flex;
-justify-content: center;
-gap: 27px;
-`
+  display: flex;
+  justify-content: center;
+  gap: 27px;
+
+  margin-top: auto;
+  margin-bottom: 40px;
+`;
 export const IconSocial = styled.svg`
-width: 36px;
-height: 36px;
-fill: ${props => props.theme.colors.baseBlue};
-`
+  width: 36px;
+  height: 36px;
+  fill: ${(props) => props.theme.colors.baseBlue};
+`;
+
+export const MenuBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  &::before {
+    content: "";
+    width: 350px;
+    height: 2px;
+
+    background-color: #d8defb;
+    border-radius: 16px;
+  }
+`;
+export const ContactList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const ContactLink = styled.a`
+  font-weight: 600;
+  color: ${(props) => props.theme.colors.baseBlue};
+`;
