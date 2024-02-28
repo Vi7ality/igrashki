@@ -26,6 +26,7 @@ type Props = {
 };
 
 const MobileMenu = ({ handleMenuClick, openState }: Props) => {
+
   useEffect(() => {
     if (openState) {
       const scrollY = window.scrollY;
@@ -38,6 +39,8 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
       };
     }
   }, [openState]);
+
+
   return (
     <MobileMenuSection className={openState ? "open" : ""}>
       <MenuContainer>
@@ -61,16 +64,16 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         <nav>
           <NavList>
             <li>
-              <NavLinkStyled to={"/"}>Головна сторінка</NavLinkStyled>
+              <NavLinkStyled to={"/"} onClick={handleMenuClick}>Головна сторінка</NavLinkStyled>
             </li>
             <li>
-              <NavLinkStyled to={"/catalogue"}>Каталог іграшок</NavLinkStyled>
+              <NavLinkStyled to={"/catalogue"} onClick={handleMenuClick}>Каталог іграшок</NavLinkStyled>
             </li>
             <li>
-              <NavLinkStyled to={"/about"}>Про проєкт</NavLinkStyled>
+              <NavLinkStyled to={"/about"} onClick={handleMenuClick}>Про проєкт</NavLinkStyled>
             </li>
             <li>
-              <NavLinkStyled to={"/faq"}>Популярні запитання</NavLinkStyled>
+              <NavLinkStyled to={"/faq"} onClick={handleMenuClick}>Популярні запитання</NavLinkStyled>
             </li>
           </NavList>
         </nav>

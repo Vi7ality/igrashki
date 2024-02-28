@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Header from "../../../../shared/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../../../../shared/Footer";
+import ScrollToTop from "../../../../utils/ScrollToTop";
 
 
 const SharedLayout = () => {
@@ -16,6 +17,7 @@ const SharedLayout = () => {
       <main>
         <Suspense>
           <Outlet />
+          <ScrollToTop/>
         </Suspense>
       </main>
       <Footer/>

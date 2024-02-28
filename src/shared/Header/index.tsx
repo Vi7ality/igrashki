@@ -38,13 +38,14 @@ const Header = () => {
     if (!open) {
       document.body.classList.remove('modal-open');
     }
-  };
-
+    };
+  
   useEffect(() => {
     const token = localStorage.getItem("userToken");
     if (token) {
       dispatch(autoLogin(token));
     }
+    
   }, [dispatch]);
 
   return (
