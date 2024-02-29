@@ -40,12 +40,8 @@ export const MobMenuBtn = styled.button`
 
   margin-right: 30px;
 
-  @media ${(props) => props.theme.device.tablet} {
-    width: 36px;
-    height: 36px;
-  }
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.tablet} {
     display: none;
   }
 `;
@@ -67,10 +63,8 @@ export const Logo = styled.img`
 export const NavContainer = styled.nav`
   display: none;
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${(props) => props.theme.device.tablet} {
   display: block;
-  /* align-items: center;
-  gap: 100px; */
   }
 `;
 

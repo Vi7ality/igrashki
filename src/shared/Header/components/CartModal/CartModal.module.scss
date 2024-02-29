@@ -4,11 +4,11 @@
   background-image: url("../../../assets/cartBg.png");
   min-width: 400px;
   position: absolute;
-  z-index: 10;
+  z-index: 999;
   right: 0;
   bottom: -20px;
   transform: translate(-50px, 100%);
-  background-color: #8AD6CE;
+  background-color: #8ad6ce;
   padding: 40px 50px 20px 20px;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
     margin-bottom: 15px;
 
     h2 {
-      color: #42407C;
+      color: #42407c;
       font-size: 16px;
       font-weight: 500;
     }
@@ -49,7 +49,7 @@
       list-style: none;
       text-decoration: none;
       font-weight: 400;
-      color: #42407C;
+      color: #42407c;
     }
   }
 
@@ -59,10 +59,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #42407C;
+    border: 2px solid #42407c;
     border-radius: 25px;
     background-color: transparent;
-    color: #42407C;
+    color: #42407c;
     text-decoration: none;
     font-size: 14px;
   }
@@ -90,8 +90,7 @@
   }
 }
 
-
-@media(max-width : $sm) {
+@media (max-width: $sm) {
   .cartModal {
     max-width: 300px;
     width: 80%;
