@@ -98,6 +98,7 @@ export const ContainerRight = styled.ul`
 `;
 
 export const IconStyled = styled.svg`
+  fill: ${props => props.theme.colors.white};
   width: 36px;
   height: 36px;
 `;

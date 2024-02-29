@@ -27,6 +27,10 @@ export const MobileMenuSection = styled.section`
     overflow: auto;
     visibility: visible;
   }
+
+  @media ${props => props.theme.device.tablet} {
+    display: none;
+  }
 `;
 
 export const MenuContainer = styled.div`
@@ -63,9 +67,11 @@ export const IconClose = styled.svg`
 `;
 
 export const BagNavLink = styled(NavLink)`
+display: flex;
+justify-content: center;
+align-items: center;
 width: 28px;
 height: 28px;
-padding: 6px;
 
 fill: ${props => props.theme.colors.white};
 background-color: ${props => props.theme.colors.baseBlue};
@@ -73,8 +79,10 @@ border-radius: 50%;
 `
 
 export const IconBag = styled.svg`
-width:17px;
-height: 17px;
+width: 28px;
+height: 28px;
+
+padding: 5px;
 `
 
 export const AuthContainer = styled.div`
