@@ -14,7 +14,7 @@ export const MobileMenuSection = styled.section`
   width: 100vw;
   transform: translateY(-100%);
 
-  z-index: 999;
+  z-index: 99;
   opacity: 1;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -61,6 +61,21 @@ export const IconClose = styled.svg`
 
   margin-right: 30px;
 `;
+
+export const BagNavLink = styled(NavLink)`
+width: 28px;
+height: 28px;
+padding: 6px;
+
+fill: ${props => props.theme.colors.white};
+background-color: ${props => props.theme.colors.baseBlue};
+border-radius: 50%;
+`
+
+export const IconBag = styled.svg`
+width:17px;
+height: 17px;
+`
 
 export const AuthContainer = styled.div`
   display: flex;

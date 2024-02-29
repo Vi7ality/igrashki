@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
-import CartButton from "../CartButton";
 import {
   AuthContainer,
+  BagNavLink,
   ContactLink,
   ContactList,
   FlexWrap,
   HeaderMb,
+  IconBag,
   IconClose,
   IconSocial,
   MenuBottom,
@@ -53,7 +54,11 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
             </button>
             <img src={darkLogo} alt="" />
           </FlexWrap>
-          <CartButton />
+          <BagNavLink to={'/bag'} onClick={handleMenuClick}>
+            <IconBag>
+              <use href={`${icons}#icon-basket-white`}></use>
+            </IconBag>
+          </BagNavLink>
         </HeaderMb>
         <AuthContainer>
           <NavLink to={"/"} style={{ fontSize: "18px", paddingRight: "20px" }}>
