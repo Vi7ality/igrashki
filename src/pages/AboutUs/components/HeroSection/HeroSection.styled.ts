@@ -46,7 +46,7 @@ export const ImgStyled = styled.img`
   bottom: -152px;
   left: 50%;
   transform: translatex(-50%);
-  z-index: 9;
+  z-index: 2;
 
 
 
