@@ -116,9 +116,9 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
               <ContactLink href="mailto:hello@growithyou.club">hello@growithyou.club</ContactLink>
             </li>
           </ContactList>
-          <a href="/user_terms&conditions.pdf" target="_blank" rel="noreferrer nofollow noopener">
+          <UserTerms href="/user_terms&conditions.pdf" target="_blank" rel="noreferrer nofollow noopener">
             Правила для користувачів
-          </a>
+          </UserTerms>
         </MenuBottom>
       </MenuContainer>
     </MobileMenuSection>

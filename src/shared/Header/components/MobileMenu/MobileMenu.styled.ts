@@ -95,6 +95,7 @@ export const RegisterLink = styled(NavLink)`
   font-size: 18px;
   padding-left: 20px;
   border-left: 2px solid #d8defb;
+  color: ${props => props.theme.colors.darkBlue};
 `;
 
 export const NavList = styled.ul`
@@ -109,6 +110,7 @@ export const NavList = styled.ul`
 export const NavLinkStyled = styled(NavLink)`
   font-size: 18px;
   font-weight: 700;
+  color: ${props => props.theme.colors.darkBlue};
 `;
 
 export const SocialMediaList = styled.ul`
@@ -151,3 +153,7 @@ export const ContactLink = styled.a`
   font-weight: 600;
   color: ${(props) => props.theme.colors.baseBlue};
 `;
+
+export const UserTerms = styled.a`
+color: ${props => props.theme.colors.darkBlue};
+`
