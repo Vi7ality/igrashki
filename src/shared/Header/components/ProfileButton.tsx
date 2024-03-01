@@ -21,13 +21,12 @@ const ProfileButton = () => {
     setShowAuthModal((prev) => !prev);
   };
 
-  // const profileBtnContent = mobile ? '' : "Авторизація";
 
   return (
     <>
       {client ? (
         <div className={styles.profileWrapper}>
-          <button
+          <button style={{color: 'white'}}
             onClick={handleProfileButtonClick}
           >
             {client.parentName}

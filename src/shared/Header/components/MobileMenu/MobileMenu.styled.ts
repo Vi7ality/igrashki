@@ -107,7 +107,7 @@ export const NavList = styled.ul`
   align-items: center;
   gap: 30px;
 
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 export const NavLinkStyled = styled(NavLink)`
@@ -115,6 +115,13 @@ export const NavLinkStyled = styled(NavLink)`
   font-weight: 700;
   color: ${props => props.theme.colors.darkBlue};
 `;
+
+export const LogoutBtn = styled.button`
+border: none;
+font-size: 18px;
+color: ${props => props.theme.colors.red};
+margin-bottom: 40px;
+`
 
 export const SocialMediaList = styled.ul`
   display: flex;
