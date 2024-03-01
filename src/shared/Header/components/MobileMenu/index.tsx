@@ -9,6 +9,7 @@ import {
   IconBag,
   IconClose,
   IconSocial,
+  LogoutBtn,
   MenuBottom,
   MenuContainer,
   MobileMenuSection,
@@ -20,16 +21,27 @@ import {
 } from "./MobileMenu.styled";
 import icons from "../../../../assets/icons.svg";
 import darkLogo from "../../../../assets/logo-dark.svg";
-import { MouseEventHandler, useEffect } from "react";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../../redux/store";
+import { clearClient } from "../../../../redux/slices/client.slice";
+
 
 type Props = {
-  handleMenuClick: MouseEventHandler;
+  handleMenuClick(): void;
   openState: boolean;
 };
 
 const MobileMenu = ({ handleMenuClick, openState }: Props) => {
+  const { client } = useAppSelector((state) => state.client);
+  const dispatch = useAppDispatch();
 
+  const onLogoutClick = () => {
+    dispatch(clearClient());
+    handleMenuClick();
+  }
+ 
   useEffect(() => {
+    console.log(client);
     if (openState) {
       const scrollY = window.scrollY;
 
@@ -40,7 +52,7 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         window.scrollTo(0, scrollY);
       };
     }
-  }, [openState]);
+  }, [openState, client]);
 
 
   return (
@@ -53,7 +65,7 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
                 <use href={`${icons}#icon-close`}></use>
               </IconClose>
             </button>
-            <img src={darkLogo} alt="" />
+            <img src={darkLogo} alt="logo" />
           </FlexWrap>
           <BagNavLink to={'/bag'} onClick={handleMenuClick}>
             <IconBag>
@@ -62,10 +74,11 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
           </BagNavLink>
         </HeaderMb>
         <AuthContainer>
-          <NavLink to={"/"} style={{ fontSize: "18px", paddingRight: "20px" }} onClick={handleMenuClick}>
+          {client ? <NavLink to={'/profile'} onClick={handleMenuClick}>{client.parentName + ' ' + client.parentSurname}</NavLink> : <><NavLink to={"/"} style={{ fontSize: "18px", paddingRight: "20px" }} onClick={handleMenuClick}>
             Вхід
           </NavLink>
-          <RegisterLink to={"/subscription"} onClick={handleMenuClick}>Реєстрація</RegisterLink>
+          <RegisterLink to={"/subscription"} onClick={handleMenuClick}>Реєстрація</RegisterLink></>}
+          
         </AuthContainer>
         <nav>
           <NavList>
@@ -83,7 +96,9 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
             </li>
           </NavList>
         </nav>
-        
+        {
+          client &&
+          <LogoutBtn onClick={onLogoutClick}>Вихід</LogoutBtn>}
         <SocialMediaList>
           <li>
             <a
