@@ -41,7 +41,6 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
   }
  
   useEffect(() => {
-    console.log(client);
     if (openState) {
       const scrollY = window.scrollY;
 

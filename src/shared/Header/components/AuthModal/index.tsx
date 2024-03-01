@@ -37,9 +37,9 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
         if (client) {
             authClose();
         }
-    }, [client])
+    }, [client, authClose])
 
-    const handleLogin = ( data: IClientCredentials) => {
+    const handleLogin = (data: IClientCredentials) => {
         dispatch(clientLogin(data));
     };
 
