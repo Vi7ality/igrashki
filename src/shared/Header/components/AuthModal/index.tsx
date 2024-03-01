@@ -38,10 +38,8 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
             authClose();
         }
     }, [client])
-    }, [client, authClose])
 
-    const handleLogin = (e: Event, data: IClientCredentials) => {
-        e.preventDefault;
+    const handleLogin = (data: IClientCredentials) => {
         dispatch(clientLogin(data));
     };
 
