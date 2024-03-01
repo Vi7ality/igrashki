@@ -47,7 +47,7 @@ export const ContainerBgImage = styled(Container)`
 
 export const ContentContainer = styled.div`
   width: 100%;
-  height: 100%px;
+  height: 100%;
   margin: 0 auto;
   padding: 44px 30px 45px 30px;
 
@@ -55,7 +55,7 @@ export const ContentContainer = styled.div`
   border-radius: 30px;
 
   position: relative;
-  z-index: 9;
+  z-index: 2;
 
   @media ${props => props.theme.device.mobile} {
     width: 350px;
