@@ -165,12 +165,12 @@ export const NavLinkStyled = styled(NavLinkAccent)`
   border-radius: 40px;
 
   @media ${(props) => props.theme.device.mobile} {
-    min-width: 326px;
+    width: 326px;
   }
 
 
   @media ${(props) => props.theme.device.tablet} {
-    min-width: 358px;
+    width: 358px;
   }
 
 `;
