@@ -62,10 +62,10 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
           </BagNavLink>
         </HeaderMb>
         <AuthContainer>
-          <NavLink to={"/"} style={{ fontSize: "18px", paddingRight: "20px" }}>
+          <NavLink to={"/"} style={{ fontSize: "18px", paddingRight: "20px" }} onClick={handleMenuClick}>
             Вхід
           </NavLink>
-          <RegisterLink to={"/subscription"}>Реєстрація</RegisterLink>
+          <RegisterLink to={"/subscription"} onClick={handleMenuClick}>Реєстрація</RegisterLink>
         </AuthContainer>
         <nav>
           <NavList>
