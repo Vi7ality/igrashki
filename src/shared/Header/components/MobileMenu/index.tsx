@@ -16,6 +16,7 @@ import {
   NavList,
   RegisterLink,
   SocialMediaList,
+  UserTerms,
 } from "./MobileMenu.styled";
 import icons from "../../../../assets/icons.svg";
 import darkLogo from "../../../../assets/logo-dark.svg";
