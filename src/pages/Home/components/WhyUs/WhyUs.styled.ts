@@ -160,6 +160,7 @@ export const NavLinkStyled = styled(NavLinkAccent)`
   font-weight: ${(props) => props.theme.fontWeights.bold};
   height: 93px;
   background-color: ${(props) => props.theme.colors.accent};
+  color: ${(props) => props.theme.colors.darkBlue};
 
   border-radius: 40px;
 

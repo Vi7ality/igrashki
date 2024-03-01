@@ -47,7 +47,7 @@ export const ContainerBgImage = styled(Container)`
 
 export const ContentContainer = styled.div`
   width: 100%;
-  height: 837px;
+  height: 100%px;
   margin: 0 auto;
   padding: 44px 30px 45px 30px;
 
@@ -166,4 +166,5 @@ export const TextStyled = styled.p`
 export const LinkStyled = styled(NavLink)`
   display: inline-block;
   font-weight: ${(props) => props.theme.fontWeights.bold};
+  color: ${(props) => props.theme.colors.baseBlue};
 `;

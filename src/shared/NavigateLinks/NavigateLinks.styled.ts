@@ -28,7 +28,7 @@ height: 48px;
 
 export const NavLinkStyled = styled(NavLinkTrsp)`
 background-color: ${props => props.theme.colors.white};
-color: ${(props) => props.theme.colors.baseBlue};
+color: ${(props) => props.theme.colors.darkBlue};
 border: none;
 
 @media ${props => props.theme.device.tablet} {

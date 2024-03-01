@@ -110,6 +110,7 @@ export const LinkContainer = styled.div`
 `;
 export const JoinNavLink = styled(NavLinkAccent)`
   font-size: 16px;
+  color: ${(props) => props.theme.colors.darkBlue};
 
   @media ${(props) => props.theme.device.tablet} {
     min-width: 195px;
