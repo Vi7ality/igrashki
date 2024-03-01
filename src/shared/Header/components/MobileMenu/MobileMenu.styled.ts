@@ -151,7 +151,7 @@ export const ContactList = styled.ul`
 
 export const ContactLink = styled.a`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.baseBlue};
+  color: ${(props) => props.theme.colors.darkBlue};
 `;
 
 export const UserTerms = styled.a`
