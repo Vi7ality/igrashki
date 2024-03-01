@@ -23,8 +23,12 @@ export const SectionStyled = styled.section`
 export const ContentContainer = styled(Container)`
   border-radius: 30px;
   background-color: ${(props) => props.theme.colors.white};
-  width: 350px;
+  width: 100%;
   padding: 46px 21px 35px 22px;
+
+  @media ${(props) => props.theme.device.mobile} {
+    width: 350px;
+  }
 
   @media ${(props) => props.theme.device.tablet} {
     width: 940px;
@@ -75,13 +79,16 @@ export const LinkList = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 20px;
 
-  @media ${(props) => props.theme.device.mobile} {
-    flex-direction: column;
+  @media ${(props) => props.theme.device.tablet} {
+    flex-direction: row;
   }
 `;
 export const AccentLinkStyled = styled(NavLinkAccent)`
+  color: ${(props) => props.theme.colors.darkBlue};
+
   @media ${(props) => props.theme.device.tablet} {
     min-width: 307px;
   }

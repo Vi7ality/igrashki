@@ -65,7 +65,6 @@ export const UnicefIco = styled.svg`
   }
 `;
 export const TextStyled = styled.p`
-  width: 970px;
   font-size: 12px;
   color: ${(props) => props.theme.colors.mutedGrey};
 `;

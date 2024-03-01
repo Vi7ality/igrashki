@@ -84,8 +84,13 @@ export const TextStyled = styled.p`
 `;
 
 export const CollageImg = styled.img`
-  width: 350px;
-  height: 243px;
+  width: 100%;
+  height: auto;
+
+  @media ${(props) => props.theme.device.mobile} {
+    width: 350px;
+    height: 243px;
+  }
 
   @media ${(props) => props.theme.device.tablet} {
     width: 460px;
@@ -100,15 +105,14 @@ export const CollageImg = styled.img`
 
 export const ContentBottom = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 98px;
 
-  @media ${(props) => props.theme.device.mobile} {
-    flex-direction: column;
-    gap: 98px;
-  }
 
   @media ${(props) => props.theme.device.tablet} {
     width: 923px;
     gap: 45px;
+    flex-direction: row;
   }
 
   @media ${(props) => props.theme.device.desktop} {
@@ -157,8 +161,13 @@ export const TextBold = styled.p`
   }
 `;
 export const BearImg = styled.img`
+  width: 100%;
+  height: auto;
+
+  @media ${props => props.theme.device.mobile} {
   width: 346px;
   height: 339px;
+  }
 
   @media ${(props) => props.theme.device.tablet} {
     width: 418px;

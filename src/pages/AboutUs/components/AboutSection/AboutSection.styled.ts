@@ -22,8 +22,12 @@ export const SectionStyled = styled.section`
 export const ContentContainer = styled(Container)`
   border-radius: 30px;
   background-color: ${(props) => props.theme.colors.white};
-  width: 350px;
+  width: 100%;
   padding: 41px 20px;
+
+  @media ${props => props.theme.device.mobile} {
+    width: 350px;
+  }
 
   @media ${(props) => props.theme.device.tablet} {
     width: 940px;

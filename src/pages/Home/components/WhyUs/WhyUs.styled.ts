@@ -141,7 +141,7 @@ export const Title = styled.h3`
 `;
 
 export const Text = styled.p`
-  width: 350px;
+  width: 100%;
   text-align: center;
 
   @media ${(props) => props.theme.device.tablet} {
@@ -155,13 +155,18 @@ export const Text = styled.p`
 `;
 
 export const NavLinkStyled = styled(NavLinkAccent)`
+  width: 100%;
   font-size: 24px;
   font-weight: ${(props) => props.theme.fontWeights.bold};
-  min-width: 326px;
   height: 93px;
   background-color: ${(props) => props.theme.colors.accent};
 
   border-radius: 40px;
+
+  @media ${(props) => props.theme.device.mobile} {
+    min-width: 326px;
+  }
+
 
   @media ${(props) => props.theme.device.tablet} {
     min-width: 358px;

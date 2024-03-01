@@ -40,13 +40,18 @@ export const PageTitle = styled.h1`
 `;
 
 export const ImgStyled = styled.img`
+display: none;
+
+@media ${(props) => props.theme.device.mobile} {
+  display: block;
   width: 310px;
   height: 122px;
-
   position: absolute;
   bottom: -152px;
   left: 30px;
   z-index: 9;
+}
+
 
   @media ${(props) => props.theme.device.tablet} {
     width: 564px;

@@ -38,12 +38,15 @@ export const MenuContainer = styled.div`
   padding-right: 10px;
   padding-left: 10px;
   padding-bottom: 65px;
-  width: 370px;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+
+  @media ${props => props.theme.device.mobile} {
+    width: 370px;
+  }
 `;
 
 export const HeaderMb = styled.div`
@@ -135,7 +138,7 @@ export const MenuBottom = styled.div`
 
   &::before {
     content: "";
-    width: 350px;
+    width: 100%;
     height: 2px;
 
     background-color: #d8defb;

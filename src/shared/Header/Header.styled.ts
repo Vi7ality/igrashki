@@ -9,7 +9,6 @@ export const HeaderStyled = styled.header`
   left: 0;
   right: 0;
   width: 100%;
-  min-width: 320px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,16 +107,6 @@ export const AuthBtn = styled.button`
   height: 48px;
   }
 
-  /* svg {
-
-    margin-right: 10px;
-
-    @media ${(props) => props.theme.device.desktop} {
-    width: 28px;
-    height: 28px;
-    }
-
-  } */
 `;
 
 

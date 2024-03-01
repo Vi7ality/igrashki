@@ -46,7 +46,7 @@ export const ContainerBgImage = styled(Container)`
 `;
 
 export const ContentContainer = styled.div`
-  width: 350px;
+  width: 100%;
   height: 493px;
   margin: 0 auto;
 
@@ -57,6 +57,10 @@ export const ContentContainer = styled.div`
 
   position: relative;
   z-index: 9;
+
+  @media ${props => props.theme.device.mobile} {
+    width: 350px;
+  }
 
   @media ${(props) => props.theme.device.tablet} {
     width: 940px;
