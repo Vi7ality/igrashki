@@ -40,30 +40,25 @@ export const PageTitle = styled.h1`
 `;
 
 export const ImgStyled = styled.img`
-display: none;
-
-@media ${(props) => props.theme.device.mobile} {
-  display: block;
   width: 310px;
   height: 122px;
   position: absolute;
   bottom: -152px;
-  left: 30px;
+  left: 50%;
+  transform: translatex(-50%);
   z-index: 9;
-}
+
 
 
   @media ${(props) => props.theme.device.tablet} {
     width: 564px;
     height: 222px;
     bottom: -257px;
-    left: 208px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
     width: 726px;
     height: 286px;
     bottom: -321px;
-    left: 324px;
   }
 `;

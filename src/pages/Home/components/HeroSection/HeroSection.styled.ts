@@ -146,7 +146,7 @@ export const BearsSvg = styled.svg`
   height: 275px;
   position: absolute;
   bottom: -331px;
-  right: 108px;
+  right: 31%;
 
 
   @media ${(props) => props.theme.device.tablet} {
