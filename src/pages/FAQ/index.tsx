@@ -5,6 +5,7 @@ import styles from "./FAQ.module.scss";
 import Accordion from "./components/Accordion";
 import Map from "./components/Map";
 import api from "../../api";
+import HeroSection from "./components/HeroSection";
 
 interface IQuestion {
   title: string;
@@ -122,8 +123,8 @@ const FAQ = () => {
 
   return (
     <div className={styles.faq}>
-      <Header />
-      <h1>Популярні запитання</h1>
+      <HeroSection/>
+      {/* <h1>Популярні запитання</h1> */}
       <div className={styles.popularQuestionsCategories}>
         {categories.map((category, index) => (
           <button
@@ -143,7 +144,6 @@ const FAQ = () => {
         ))}
       </div>
       {points.length > 0 ?  <Map points={points} /> : <h2>Завантаження мапи</h2>}
-      <Footer />
     </div>
   );
 };
