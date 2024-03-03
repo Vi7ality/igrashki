@@ -6,6 +6,8 @@ import Accordion from "./components/Accordion";
 import Map from "./components/Map";
 import api from "../../api";
 import HeroSection from "./components/HeroSection";
+import Categories from "./components/Categories";
+import Container from "../../shared/Container";
 
 interface IQuestion {
   title: string;
@@ -38,8 +40,7 @@ const questions: IQuestion[] = [
   {
     title: "Які іграшки у вас є? ",
     category: "Інформація щодо іграшок",
-    content:
-      "Ми пропонуємо іграшки для раннього розвитку для дітей віком від 0 до 7 років",
+    content: "Ми пропонуємо іграшки для раннього розвитку для дітей віком від 0 до 7 років",
   },
   {
     title: "Скільки іграшок я можу взяти за один раз?",
@@ -73,8 +74,7 @@ const questions: IQuestion[] = [
   {
     title: "Чи можу я принести іграшки, якими не користується дитина?",
     category: "Передача іграшок",
-    content:
-      "Так, звісно. Але попередньо, скажіть про це адміністратору Дитячої Точки “Спільно”.",
+    content: "Так, звісно. Але попередньо, скажіть про це адміністратору Дитячої Точки “Спільно”.",
   },
   {
     title: "Як мені дізнатись, чи доступна бібліотека іграшок у моєму місці?",
@@ -112,20 +112,29 @@ const FAQ = () => {
     () =>
       selectedCategories.length === 0
         ? questions
-        : questions.filter(({ category }) =>
-            selectedCategories.includes(category)
-          ),
+        : questions.filter(({ category }) => selectedCategories.includes(category)),
     [selectedCategories]
   );
 
   console.log(points);
-  
 
   return (
     <div className={styles.faq}>
-      <HeroSection/>
-      {/* <h1>Популярні запитання</h1> */}
-      <div className={styles.popularQuestionsCategories}>
+      <HeroSection />
+      <section>
+        <Container>
+          <Categories isSelected={isSelected} handleCategoryClick={handleCategoryClick} />
+
+          <div className={styles.popularQuestions}>
+            {filteredQuestions.map(({ title, content }, index) => (
+              <Accordion key={index} title={title} content={content} />
+            ))}
+          </div>
+          {points.length > 0 ? <Map points={points} /> : <h2>Завантаження мапи</h2>}
+        </Container>
+      </section>
+
+      {/* <div className={styles.popularQuestionsCategories}>
         {categories.map((category, index) => (
           <button
             key={index}
@@ -137,13 +146,7 @@ const FAQ = () => {
             {category}
           </button>
         ))}
-      </div>
-      <div className={styles.popularQuestions}>
-        {filteredQuestions.map(({ title, content }, index) => (
-          <Accordion key={index} title={title} content={content} />
-        ))}
-      </div>
-      {points.length > 0 ?  <Map points={points} /> : <h2>Завантаження мапи</h2>}
+      </div> */}
     </div>
   );
 };
