@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Footer from "../../shared/Footer";
 import Header from "../../shared/Header";
-import styles from "./FAQ.module.scss";
+// import styles from "./FAQ.module.scss";
 import Accordion from "./components/Accordion";
 import Map from "./components/Map";
 import api from "../../api";
@@ -119,13 +119,13 @@ const FAQ = () => {
   console.log(points);
 
   return (
-    <div className={styles.faq}>
+    <div >
       <HeroSection />
       <section>
         <Container>
           <Categories isSelected={isSelected} handleCategoryClick={handleCategoryClick} />
 
-          <div className={styles.popularQuestions}>
+          <div >
             {filteredQuestions.map(({ title, content }, index) => (
               <Accordion key={index} title={title} content={content} />
             ))}

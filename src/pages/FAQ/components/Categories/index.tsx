@@ -1,5 +1,4 @@
 import { PromiseOr } from "sass";
-import styles from "../../FAQ.module.scss";
 import { CategoriesWrap, CategoryBtn } from "./Categories.styled";
 
 type ICategory = string;
@@ -24,7 +23,7 @@ const Categories = ({isSelected, handleCategoryClick }: Props) => {
           <CategoryBtn
             key={index}
             className={`${
-              isSelected(category) && styles.selected
+              isSelected(category) && 'selected'
             }`}
             onClick={() => handleCategoryClick(category)}
           >
