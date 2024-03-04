@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Accordion.module.scss";
-import Arrow from "./Arrow";
+import Arrow from "../Arrow";
 
 interface AccordionProps {
   title: string;

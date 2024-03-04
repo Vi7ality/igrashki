@@ -1,4 +1,4 @@
-import { PromiseOr } from "sass";
+// import { PromiseOr } from "sass";
 import { CategoriesWrap, CategoryBtn } from "./Categories.styled";
 
 type ICategory = string;

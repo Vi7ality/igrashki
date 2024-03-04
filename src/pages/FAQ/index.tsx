@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Footer from "../../shared/Footer";
-import Header from "../../shared/Header";
 // import styles from "./FAQ.module.scss";
 import Accordion from "./components/Accordion";
 import Map from "./components/Map";
@@ -17,12 +15,12 @@ interface IQuestion {
 
 type ICategory = string;
 
-const categories: ICategory[] = [
-  "Як це працює",
-  "Замовлення та повернення іграшок",
-  "Інформація щодо іграшок",
-  "Передача іграшок",
-];
+// const categories: ICategory[] = [
+//   "Як це працює",
+//   "Замовлення та повернення іграшок",
+//   "Інформація щодо іграшок",
+//   "Передача іграшок",
+// ];
 
 const questions: IQuestion[] = [
   {
@@ -124,7 +122,6 @@ const FAQ = () => {
       <section>
         <Container>
           <Categories isSelected={isSelected} handleCategoryClick={handleCategoryClick} />
-
           <div >
             {filteredQuestions.map(({ title, content }, index) => (
               <Accordion key={index} title={title} content={content} />
