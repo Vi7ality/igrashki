@@ -54,6 +54,11 @@ export const IconWrapper = styled.div`
   svg {
     width: 24px;
     height: 24px;
+
+    @media ${(props) => props.theme.device.tablet} {
+      width: 32px;
+      height: 32px;
+    }
   }
 `;
 

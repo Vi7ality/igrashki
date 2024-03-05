@@ -4,9 +4,9 @@ import { CategoriesWrap, CategoryBtn } from "./Categories.styled";
 type ICategory = string;
 
 type Props = {
-    isSelected(arg: ICategory): boolean,
-    handleCategoryClick(arg: ICategory): void;
-}
+  isSelected(arg: ICategory): boolean;
+  handleCategoryClick(arg: ICategory): void;
+};
 
 const categories: ICategory[] = [
   "Як це працює",
@@ -15,23 +15,20 @@ const categories: ICategory[] = [
   "Передача іграшок",
 ];
 
-
-const Categories = ({isSelected, handleCategoryClick }: Props) => {
-    return (
-              <CategoriesWrap>
-        {categories.map((category, index) => (
-          <CategoryBtn
-            key={index}
-            className={`${
-              isSelected(category) && 'selected'
-            }`}
-            onClick={() => handleCategoryClick(category)}
-          >
-            {category}
-          </CategoryBtn>
-        ))}
-      </CategoriesWrap>
-    )
-}
+const Categories = ({ isSelected, handleCategoryClick }: Props) => {
+  return (
+    <CategoriesWrap>
+      {categories.map((category, index) => (
+        <CategoryBtn
+          key={index}
+          className={`${isSelected(category) && "selected"}`}
+          onClick={() => handleCategoryClick(category)}
+        >
+          {category}
+        </CategoryBtn>
+      ))}
+    </CategoriesWrap>
+  );
+};
 
 export default Categories;

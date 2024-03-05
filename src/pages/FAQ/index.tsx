@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-// import styles from "./FAQ.module.scss";
 import Accordion from "./components/Accordion";
 import Map from "./components/Map";
 import api from "../../api";
 import HeroSection from "./components/HeroSection";
 import Categories from "./components/Categories";
-import Container from "../../shared/Container";
-import { AccordionConatiner, SectionStyled } from "./FAQ.styled";
+import { AccordionConatiner, ContainerStyled, SectionStyled } from "./FAQ.styled";
 
 interface IQuestion {
   title: string;
@@ -15,13 +13,6 @@ interface IQuestion {
 }
 
 type ICategory = string;
-
-// const categories: ICategory[] = [
-//   "Як це працює",
-//   "Замовлення та повернення іграшок",
-//   "Інформація щодо іграшок",
-//   "Передача іграшок",
-// ];
 
 const questions: IQuestion[] = [
   {
@@ -121,7 +112,7 @@ const FAQ = () => {
     <div >
       <HeroSection />
       <SectionStyled>
-        <Container>
+        <ContainerStyled>
           <Categories isSelected={isSelected} handleCategoryClick={handleCategoryClick} />
           <AccordionConatiner>
             {filteredQuestions.map(({ title, content }, index) => (
@@ -129,22 +120,8 @@ const FAQ = () => {
             ))}
           </AccordionConatiner>
           {points.length > 0 ? <Map points={points} /> : <p>Завантаження мапи...</p>}
-        </Container>
+        </ContainerStyled>
       </SectionStyled>
-
-      {/* <div className={styles.popularQuestionsCategories}>
-        {categories.map((category, index) => (
-          <button
-            key={index}
-            className={`${styles.popularQuestionsCategory} ${
-              isSelected(category) && styles.selected
-            }`}
-            onClick={() => handleCategoryClick(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div> */}
     </div>
   );
 };

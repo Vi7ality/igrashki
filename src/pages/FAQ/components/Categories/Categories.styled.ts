@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const CategoriesWrap = styled.div`
-  /* margin-top: 25px; */
   margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+
+  @media ${props => props.theme.device.tabletOnly} {
+    max-width: 600px;
+  }
 `;
 
 export const CategoryBtn = styled.button`
