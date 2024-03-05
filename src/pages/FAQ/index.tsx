@@ -75,7 +75,7 @@ const questions: IQuestion[] = [
 ];
 
 const FAQ = () => {
-  const [selectedCategories, setSelectedCategories] = useState<ICategory[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<ICategory>('');
   const [points, setPoints] = useState([]);
 
   useEffect(() => {
@@ -91,11 +91,19 @@ const FAQ = () => {
   };
 
   const handleCategoryClick = (category: ICategory) => {
-    if (isSelected(category)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== category));
-    } else {
-      setSelectedCategories([...selectedCategories, category]);
+    // SELECT A FEW CATEGORIES:
+    // if (isSelected(category)) {
+    //   setSelectedCategories(selectedCategories.filter((c) => c !== category));
+    // } else {
+    //   setSelectedCategories([...selectedCategories, category]);
+    // }
+
+    // SELECT A SINGLE CATEGORY:
+    if (selectedCategories === category) {
+      setSelectedCategories('');
+      return
     }
+    setSelectedCategories(category);
   };
 
   const filteredQuestions = useMemo(
@@ -105,8 +113,6 @@ const FAQ = () => {
         : questions.filter(({ category }) => selectedCategories.includes(category)),
     [selectedCategories]
   );
-
-  console.log(points);
 
   return (
     <div >
