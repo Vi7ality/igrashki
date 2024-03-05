@@ -92,6 +92,7 @@ const FAQ = () => {
 
   const handleCategoryClick = (category: ICategory) => {
     // SELECT A FEW CATEGORIES:
+
     // if (isSelected(category)) {
     //   setSelectedCategories(selectedCategories.filter((c) => c !== category));
     // } else {
@@ -113,6 +114,8 @@ const FAQ = () => {
         : questions.filter(({ category }) => selectedCategories.includes(category)),
     [selectedCategories]
   );
+
+  console.log(points);
 
   return (
     <div >
