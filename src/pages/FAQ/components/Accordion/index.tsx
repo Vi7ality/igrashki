@@ -1,7 +1,6 @@
 import { useState } from "react";
-import styles from "./Accordion.module.scss";
-// import Arrow from "../Arrow";
-import { AccordionHeader, AccordionWrap, IconWrapper } from "./Accordion.styled";
+import { AccordionHeader, AccordionWrap, Content, IconWrapper } from "./Accordion.styled";
+import icons from "../../assets/icons.svg";
 
 interface AccordionProps {
   title: string;
@@ -16,18 +15,18 @@ const Accordion = ({ title, content }: AccordionProps) => {
   };
 
   return (
-    <AccordionWrap className={`${styles.accordion} ${isOpen ? styles.open : ""}`}>
+    <AccordionWrap className={`${isOpen && "open"}`}>
       <AccordionHeader onClick={toggleAccordion}>
         <h2>{title}</h2>
-        <IconWrapper className={` ${isOpen && "open"}`}>
-          {/* <Arrow /> */}
-          {isOpen ? '-' : '+'}
+        <IconWrapper className={`${isOpen && "open"}`}>
+          <svg>
+            {isOpen ? <use href={`${icons}#icon-minus`} /> : <use href={`${icons}#icon-plus`} />}
+          </svg>
         </IconWrapper>
       </AccordionHeader>
-
-      <div className={styles.accordionContent}>
+      <Content className={`${isOpen ? "open" : ""}`}>
         <p>{content}</p>
-      </div>
+      </Content>
     </AccordionWrap>
   );
 };

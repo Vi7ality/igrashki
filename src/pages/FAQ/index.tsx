@@ -6,6 +6,7 @@ import api from "../../api";
 import HeroSection from "./components/HeroSection";
 import Categories from "./components/Categories";
 import Container from "../../shared/Container";
+import { AccordionConatiner, SectionStyled } from "./FAQ.styled";
 
 interface IQuestion {
   title: string;
@@ -119,17 +120,17 @@ const FAQ = () => {
   return (
     <div >
       <HeroSection />
-      <section>
+      <SectionStyled>
         <Container>
           <Categories isSelected={isSelected} handleCategoryClick={handleCategoryClick} />
-          <div >
+          <AccordionConatiner>
             {filteredQuestions.map(({ title, content }, index) => (
               <Accordion key={index} title={title} content={content} />
             ))}
-          </div>
-          {points.length > 0 ? <Map points={points} /> : <h2>Завантаження мапи</h2>}
+          </AccordionConatiner>
+          {points.length > 0 ? <Map points={points} /> : <p>Завантаження мапи...</p>}
         </Container>
-      </section>
+      </SectionStyled>
 
       {/* <div className={styles.popularQuestionsCategories}>
         {categories.map((category, index) => (
