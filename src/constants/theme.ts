@@ -30,6 +30,7 @@ export const theme = {
   device: {
     mobile: `(min-width: 370px)`,
     tablet: `(min-width: 980px)`,
+    tabletOnly: `((min-width: 980px) and (max-width: 1339px))`,
     desktop: `(min-width: 1340px)`,
   },
 };

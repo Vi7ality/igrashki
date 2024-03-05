@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import Footer from "../../shared/Footer";
-import Header from "../../shared/Header";
-import styles from "./FAQ.module.scss";
 import Accordion from "./components/Accordion";
 import Map from "./components/Map";
 import api from "../../api";
+import HeroSection from "./components/HeroSection";
+import Categories from "./components/Categories";
+import { AccordionConatiner, ContainerStyled, SectionStyled } from "./FAQ.styled";
 
 interface IQuestion {
   title: string;
@@ -13,13 +13,6 @@ interface IQuestion {
 }
 
 type ICategory = string;
-
-const categories: ICategory[] = [
-  "Як це працює",
-  "Замовлення та повернення іграшок",
-  "Інформація щодо іграшок",
-  "Передача іграшок",
-];
 
 const questions: IQuestion[] = [
   {
@@ -37,8 +30,7 @@ const questions: IQuestion[] = [
   {
     title: "Які іграшки у вас є? ",
     category: "Інформація щодо іграшок",
-    content:
-      "Ми пропонуємо іграшки для раннього розвитку для дітей віком від 0 до 7 років",
+    content: "Ми пропонуємо іграшки для раннього розвитку для дітей віком від 0 до 7 років",
   },
   {
     title: "Скільки іграшок я можу взяти за один раз?",
@@ -72,8 +64,7 @@ const questions: IQuestion[] = [
   {
     title: "Чи можу я принести іграшки, якими не користується дитина?",
     category: "Передача іграшок",
-    content:
-      "Так, звісно. Але попередньо, скажіть про це адміністратору Дитячої Точки “Спільно”.",
+    content: "Так, звісно. Але попередньо, скажіть про це адміністратору Дитячої Точки “Спільно”.",
   },
   {
     title: "Як мені дізнатись, чи доступна бібліотека іграшок у моєму місці?",
@@ -84,7 +75,7 @@ const questions: IQuestion[] = [
 ];
 
 const FAQ = () => {
-  const [selectedCategories, setSelectedCategories] = useState<ICategory[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<ICategory>('');
   const [points, setPoints] = useState([]);
 
   useEffect(() => {
@@ -100,50 +91,46 @@ const FAQ = () => {
   };
 
   const handleCategoryClick = (category: ICategory) => {
-    if (isSelected(category)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== category));
-    } else {
-      setSelectedCategories([...selectedCategories, category]);
+    // SELECT A FEW CATEGORIES:
+
+    // if (isSelected(category)) {
+    //   setSelectedCategories(selectedCategories.filter((c) => c !== category));
+    // } else {
+    //   setSelectedCategories([...selectedCategories, category]);
+    // }
+
+    // SELECT A SINGLE CATEGORY:
+    if (selectedCategories === category) {
+      setSelectedCategories('');
+      return
     }
+    setSelectedCategories(category);
   };
 
   const filteredQuestions = useMemo(
     () =>
       selectedCategories.length === 0
         ? questions
-        : questions.filter(({ category }) =>
-            selectedCategories.includes(category)
-          ),
+        : questions.filter(({ category }) => selectedCategories.includes(category)),
     [selectedCategories]
   );
 
   console.log(points);
-  
 
   return (
-    <div className={styles.faq}>
-      <Header />
-      <h1>Популярні запитання</h1>
-      <div className={styles.popularQuestionsCategories}>
-        {categories.map((category, index) => (
-          <button
-            key={index}
-            className={`${styles.popularQuestionsCategory} ${
-              isSelected(category) && styles.selected
-            }`}
-            onClick={() => handleCategoryClick(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-      <div className={styles.popularQuestions}>
-        {filteredQuestions.map(({ title, content }, index) => (
-          <Accordion key={index} title={title} content={content} />
-        ))}
-      </div>
-      {points.length > 0 ?  <Map points={points} /> : <h2>Завантаження мапи</h2>}
-      <Footer />
+    <div >
+      <HeroSection />
+      <SectionStyled>
+        <ContainerStyled>
+          <Categories isSelected={isSelected} handleCategoryClick={handleCategoryClick} />
+          <AccordionConatiner>
+            {filteredQuestions.map(({ title, content }, index) => (
+              <Accordion key={index} title={title} content={content} />
+            ))}
+          </AccordionConatiner>
+          {points.length > 0 ? <Map points={points} /> : <p>Завантаження мапи...</p>}
+        </ContainerStyled>
+      </SectionStyled>
     </div>
   );
 };
