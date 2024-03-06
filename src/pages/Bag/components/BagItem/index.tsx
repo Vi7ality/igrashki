@@ -1,28 +1,30 @@
-import styles from './BagItem.module.scss';
-import trashIcon from '../../assets/trashIcon.svg';
-import { memo } from 'react';
+import { memo } from "react";
+import { BagItemStyled, ItemImg, FlexWrap, WrapLeft, TrashIcon } from "./BagItem.styled";
+import icons from '../../../../assets/icons.svg'
 
 interface BagItemProps {
-    itemId: string;
-    itemName: string;
-    itemImage: string;
-    deleteItem: (id: string) => void;
+  itemId: string;
+  itemName: string;
+  itemImage: string;
+  deleteItem: (id: string) => void;
 }
 
 const BagItem = ({ itemId, itemImage, itemName, deleteItem }: BagItemProps) => {
-    return (
-        <div className={styles.bagItem}>
-            <div className={styles.infoWrapper}>
-                <div className={styles.image}>
-                    <img src={itemImage} className={styles.img} />
-                </div>
-                <h6>{itemName}</h6>
-            </div>
-            <button onClick={() => deleteItem(itemId)}>
-                <img className={styles.btn} src={trashIcon} />
-            </button>
-        </div>
-    )
-}
+  return (
+    <BagItemStyled>
+      <FlexWrap>
+        <WrapLeft>
+          <ItemImg src={itemImage} />
+          <p>{itemName}</p>
+        </WrapLeft>
+              <button onClick={() => deleteItem(itemId)}>
+                <TrashIcon>
+                    <use href={`${icons}#icon-trash`}></use>
+                </TrashIcon>
+        </button>
+      </FlexWrap>
+    </BagItemStyled>
+  );
+};
 
 export default memo(BagItem);

@@ -21,6 +21,12 @@ export const ListWrap = styled.div`
   }
 `;
 
+export const CartList = styled.ul`
+display: flex; 
+flex-direction: column;
+gap: 20px;
+`
+
 export const FlexWrap = styled.div`
   display: flex;
   align-items: center;

@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { removeItemFromCart } from "../../../../redux/slices/cart.slice";
 import { useAppDispatch, useAppSelector } from "../../../../redux/store";
 import BagItem from "../BagItem";
-import { CalcText, FlexWrap, LinkAccent, LinkTrsp, ListWrap } from "./BagList.styled";
+import { CalcText, CartList, FlexWrap, LinkAccent, LinkTrsp, ListWrap } from "./BagList.styled";
 
 const BagList = () => {
   const { cart } = useAppSelector((state) => state.cart);
@@ -19,7 +19,7 @@ const BagList = () => {
 
   return (
     <ListWrap>
-      <ul>
+      <CartList>
         {cart.map((item) => (
           <BagItem
             key={item.itemId}
@@ -29,7 +29,7 @@ const BagList = () => {
             deleteItem={handleDeleteItem}
           />
         ))}
-      </ul>
+      </CartList>
       <FlexWrap>
           <CalcText>Всього іграшок: <span>{cart.length}</span></CalcText>
           <LinkAccent to="/subscriprion">Оформити замовлення</LinkAccent>
