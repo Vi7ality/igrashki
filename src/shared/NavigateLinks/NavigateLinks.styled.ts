@@ -42,6 +42,6 @@ border: none;
 `
 export const NavLinkAccent = styled(NavLinkTrsp)`
 background-color: ${props => props.theme.colors.accent};
-color: ${(props) => props.theme.colors.baseBlue};
+color: ${(props) => props.theme.colors.darkBlue};
 border: none;
 `
