@@ -7,6 +7,7 @@ export const theme = {
     baseBlue: "#46409C",
     darkBlue: "#2F2960",
 
+    black: "#000000",
     bgDark: "#100E20",
     mutedGrey: "#70728F",
     lightGrey: '#D8DEFB',
@@ -29,6 +30,7 @@ export const theme = {
 
   device: {
     mobile: `(min-width: 370px)`,
+    mobileOnly: `(max-width: 979px)`,
     tablet: `(min-width: 980px)`,
     tabletOnly: `((min-width: 980px) and (max-width: 1339px))`,
     desktop: `(min-width: 1340px)`,
