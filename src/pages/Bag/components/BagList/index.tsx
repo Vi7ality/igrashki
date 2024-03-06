@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useCallback } from "react";
 import { removeItemFromCart } from "../../../../redux/slices/cart.slice";
 import { useAppDispatch, useAppSelector } from "../../../../redux/store";

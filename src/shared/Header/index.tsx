@@ -3,7 +3,6 @@ import logo from "../../assets/logo.svg";
 import { useEffect, useState } from "react";
 import { autoLogin } from "../../redux/slices/client.slice";
 import { useAppDispatch } from "../../redux/store";
-// import HeaderMobile from "./HeaderMobile";
 import ProfileButton from "./components/ProfileButton";
 import CartButton from "./components/CartButton";
 import {
@@ -21,9 +20,6 @@ import {
 import icons from "../../assets/icons.svg";
 import MobileMenu from "./components/MobileMenu";
 
-// interface HeaderProps {
-//   darkMode?: boolean;
-// }
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -77,12 +73,11 @@ const Header = () => {
           </NavContainer>
           <ContainerRight>
             <ProfileButton />
-            <CartButton  />
+            <CartButton/>
           </ContainerRight>
         </FlexContainer>
       </HeaderStyled>
       <MobileMenu openState={open} handleMenuClick={handleMenuClick} />
-      {/* <HeaderMobile darkMode={darkMode} /> */}
     </>
   );
 };

@@ -145,22 +145,25 @@ display: none;
 `
 
 export const BasketBtn = styled.button`
-  padding: 6px;
+  padding: 5px;
   background-color: ${(props) => props.theme.colors.white};
   border-radius: 50%;
   width: 28px;
   height: 28px;
 
+  position: relative;
+
     @media ${(props) => props.theme.device.tablet} {
-    padding: 8px;
+    padding: 7px;
     width: 36px;
     height: 36px;
   }
     @media ${(props) => props.theme.device.desktop} {
-  padding: 10px;
+  padding: 9px;
     width: 48px;
     height: 48px;
   }
+
   svg {
     width: 17px;
     height: 17px;
@@ -172,5 +175,18 @@ export const BasketBtn = styled.button`
     width: 28px;
     height: 28px;
   }
+  }
+
+  P {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #FF391E;
+    color: #fff;
+    font-weight: 12px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 `;
