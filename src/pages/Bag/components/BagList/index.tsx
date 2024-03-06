@@ -32,7 +32,7 @@ const BagList = () => {
       </CartList>
       <FlexWrap>
           <CalcText>Всього іграшок: <span>{cart.length}</span></CalcText>
-          <LinkAccent to="/subscriprion">Оформити замовлення</LinkAccent>
+          <LinkAccent to="/subscription">Оформити замовлення</LinkAccent>
           <LinkTrsp to="/catalogue">Повернутися до каталогу</LinkTrsp>
       </FlexWrap>
     </ListWrap>
