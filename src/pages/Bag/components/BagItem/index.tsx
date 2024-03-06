@@ -1,5 +1,5 @@
 import styles from './BagItem.module.scss';
-import trashIcon from '../assets/trashIcon.svg';
+import trashIcon from '../../assets/trashIcon.svg';
 import { memo } from 'react';
 
 interface BagItemProps {
