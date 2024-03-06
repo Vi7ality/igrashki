@@ -19,7 +19,6 @@ const Bag = () => {
 
   return (
     <div className={styles.bag}>
-      <Header/>
       <h1>Твій кошик</h1>
       {cart.length === 0 ? (
         <EmptyBag />
@@ -39,7 +38,6 @@ const Bag = () => {
           </Link>
         </>
       )}
-      <Footer />
     </div>
   );
 };
