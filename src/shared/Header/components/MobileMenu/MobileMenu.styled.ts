@@ -166,4 +166,5 @@ export const ContactLink = styled.a`
 
 export const UserTerms = styled.a`
 color: ${props => props.theme.colors.darkBlue};
+padding-bottom: 15px;
 `
