@@ -25,7 +25,6 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../../redux/store";
 import { clearClient } from "../../../../redux/slices/client.slice";
 
-
 type Props = {
   handleMenuClick(): void;
   openState: boolean;
@@ -38,8 +37,8 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
   const onLogoutClick = () => {
     dispatch(clearClient());
     handleMenuClick();
-  }
- 
+  };
+
   useEffect(() => {
     if (openState) {
       const scrollY = window.scrollY;
@@ -53,7 +52,6 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
     }
   }, [openState, client]);
 
-
   return (
     <MobileMenuSection className={openState ? "open" : ""}>
       <MenuContainer>
@@ -66,38 +64,57 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
             </button>
             <img src={darkLogo} alt="logo" />
           </FlexWrap>
-          <BagNavLink to={'/bag'} onClick={handleMenuClick}>
+          <BagNavLink to={"/bag"} onClick={handleMenuClick}>
             <IconBag>
               <use href={`${icons}#icon-basket-white`}></use>
             </IconBag>
           </BagNavLink>
         </HeaderMb>
         <AuthContainer>
-          {client ? <NavLink to={'/profile'} onClick={handleMenuClick}>{client.parentName + ' ' + client.parentSurname}</NavLink> : <><NavLink to={"/"} style={{ fontSize: "18px", paddingRight: "20px" }} onClick={handleMenuClick}>
-            Вхід
-          </NavLink>
-          <RegisterLink to={"/subscription"} onClick={handleMenuClick}>Реєстрація</RegisterLink></>}
-          
+          {client ? (
+            <NavLink to={"/profile"} onClick={handleMenuClick}>
+              {client.parentName + " " + client.parentSurname}
+            </NavLink>
+          ) : (
+            <>
+              <NavLink
+                to={"/"}
+                style={{ fontSize: "18px", paddingRight: "20px" }}
+                onClick={handleMenuClick}
+              >
+                Вхід
+              </NavLink>
+              <RegisterLink to={"/subscription"} onClick={handleMenuClick}>
+                Реєстрація
+              </RegisterLink>
+            </>
+          )}
         </AuthContainer>
         <nav>
           <NavList>
             <li>
-              <NavLinkStyled to={"/"} onClick={handleMenuClick}>Головна сторінка</NavLinkStyled>
+              <NavLinkStyled to={"/"} onClick={handleMenuClick}>
+                Головна сторінка
+              </NavLinkStyled>
             </li>
             <li>
-              <NavLinkStyled to={"/catalogue"} onClick={handleMenuClick}>Каталог іграшок</NavLinkStyled>
+              <NavLinkStyled to={"/catalogue"} onClick={handleMenuClick}>
+                Каталог іграшок
+              </NavLinkStyled>
             </li>
             <li>
-              <NavLinkStyled to={"/about"} onClick={handleMenuClick}>Про проєкт</NavLinkStyled>
+              <NavLinkStyled to={"/about"} onClick={handleMenuClick}>
+                Про проєкт
+              </NavLinkStyled>
             </li>
             <li>
-              <NavLinkStyled to={"/faq"} onClick={handleMenuClick}>Популярні запитання</NavLinkStyled>
+              <NavLinkStyled to={"/faq"} onClick={handleMenuClick}>
+                Популярні запитання
+              </NavLinkStyled>
             </li>
           </NavList>
         </nav>
-        {
-          client &&
-          <LogoutBtn onClick={onLogoutClick}>Вихід</LogoutBtn>}
+        {client && <LogoutBtn onClick={onLogoutClick}>Вихід</LogoutBtn>}
         <SocialMediaList>
           <li>
             <a
@@ -131,7 +148,11 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
               <ContactLink href="mailto:hello@growithyou.club">hello@growithyou.club</ContactLink>
             </li>
           </ContactList>
-          <UserTerms href="/user_terms&conditions.pdf" target="_blank" rel="noreferrer nofollow noopener">
+          <UserTerms
+            href="/user_terms&conditions.pdf"
+            target="_blank"
+            rel="noreferrer nofollow noopener"
+          >
             Правила для користувачів
           </UserTerms>
         </MenuBottom>
