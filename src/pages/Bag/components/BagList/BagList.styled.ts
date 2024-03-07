@@ -43,7 +43,7 @@ export const FlexWrap = styled.div`
 `;
 
 export const CalcText = styled.p`
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.darkBlue};
   order: 1;
 
   @media ${(props) => props.theme.device.tablet} {
