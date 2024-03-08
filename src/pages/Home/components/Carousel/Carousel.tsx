@@ -1,4 +1,4 @@
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import image2 from '../../assets/gallery/growithyou-gallery-img-02.jpg'
 import image3 from '../../assets/gallery/growithyou-gallery-img-03.jpg'
 import image4 from '../../assets/gallery/growithyou-gallery-img-04.jpg'
