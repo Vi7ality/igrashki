@@ -6,7 +6,8 @@ import image5 from '../../assets/gallery/growithyou-gallery-img-05.jpg'
 import image6 from '../../assets/gallery/growithyou-gallery-img-06.jpg'
 import image7 from '../../assets/gallery/growithyou-gallery-img-07.jpg'
 import image8 from '../../assets/gallery/growithyou-gallery-img-08.jpg'
-import './carousel.css'
+// import './carousel.css'
+import { SliderStyled } from "./Carousel.styled";
 
 
 
@@ -29,7 +30,7 @@ const Carousel = () => {
 
   };
   return (
-    <Slider {...settings}>
+    <SliderStyled {...settings}>
         <img src={image2} className='gallery-img' alt="" />
         <img src={image3} className='gallery-img' alt="" />
         <img src={image4} className='gallery-img' alt="" />
@@ -37,7 +38,7 @@ const Carousel = () => {
         <img src={image6} className='gallery-img' alt="" />
         <img src={image7} className='gallery-img' alt="" />
         <img src={image8} className='gallery-img' alt="" />
-      </Slider>
+      </SliderStyled>
   );
 }
 

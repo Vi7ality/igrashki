@@ -1,4 +1,8 @@
-/* .slick-track {
+import Slider from "react-slick";
+import styled from "styled-components";
+
+export const SliderStyled = styled(Slider)`
+.slick-track {
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -66,4 +70,6 @@
 .slick-dots li.slick-active button:before {
   opacity: 0.75;
   color: #46409c;
-} */
+}
+
+`
