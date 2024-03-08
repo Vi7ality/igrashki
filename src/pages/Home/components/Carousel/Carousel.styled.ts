@@ -14,7 +14,9 @@ export const SliderStyled = styled(Slider)`
 
 }
 .slick-slide.slick-center {
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transform: scale(1.1333);
   transform: scale(1.1333);
   padding-left: 30px;
   padding-right: 30px;
