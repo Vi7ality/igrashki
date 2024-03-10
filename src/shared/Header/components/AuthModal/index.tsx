@@ -8,6 +8,7 @@ import { clientLogin } from '../../../../redux/slices/client.slice';
 import { useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
+import { AuthForm, AuthModalWrap } from './AuthModal.styled';
 
 interface AuthModalProps {
     authClose: () => void;
@@ -44,8 +45,8 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
     };
 
     return (
-        <div className={styles.authModal} onClick={authClose}>
-            <form className={styles.authForm} onSubmit={handleSubmit(handleLogin)} onClick={e => e.stopPropagation()}>
+        <AuthModalWrap onClick={authClose}>
+            <AuthForm className={styles.authForm} onSubmit={handleSubmit(handleLogin)} onClick={e => e.stopPropagation()}>
                 <button className={styles.closeBtn} onClick={authClose}>
                     <img src={closeBtn} alt="closeBtn" />
                 </button>
@@ -69,8 +70,8 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
                     {errors.password && <span className={styles.error}>Це поле обов'язкове</span>}
                 </div>
                 <button className={styles.enterBtn} type='submit'>Увійти на сайт</button>
-            </form >
-        </div>
+            </AuthForm >
+        </AuthModalWrap>
     );
 };
 
