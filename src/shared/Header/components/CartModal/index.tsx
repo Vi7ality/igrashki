@@ -1,48 +1,75 @@
-import { Link } from 'react-router-dom'
-import styles from "./CartModal.module.scss"
-import closeBtn from "../../../../assets/CloseBtn.png"
-import { useAppDispatch } from '../../../../redux/store';
-import { clearCart } from '../../../../redux/slices/cart.slice';
+import { useAppDispatch } from "../../../../redux/store";
+import { clearCart } from "../../../../redux/slices/cart.slice";
+import {
+  CartModalContainer,
+  IconClose,
+  ItemCounter,
+  FlexWrap,
+  CartList,
+  CartItem,
+  LinkBtnContainer,
+  ClearBtn,
+  BagLink,
+  CatalogueLink,
+  EmptyCartMsg,
+} from "./CartModal.styled";
+import icons from "../../../../assets/icons.svg";
 
 interface CartModalProps {
-    cart: Array<{ itemId: string; itemName: string }>;
-    onClose: () => void;
+  cart: Array<{ itemId: string; itemName: string }>;
+  onClose: () => void;
 }
 
 const CartModal = ({ cart, onClose }: CartModalProps) => {
-    const dispatch = useAppDispatch();
-    const totalItems = cart.length;
-    const getWordEnding = (quantity: number) => {
-        return quantity === 1 ? "іграшка" : quantity >= 2 && quantity <= 4 ? "іграшки" : "іграшок";
-    };
+  const dispatch = useAppDispatch();
+  const totalItems = cart.length;
+  const getWordEnding = (quantity: number) => {
+    return quantity === 1 ? "іграшка" : quantity >= 2 && quantity <= 4 ? "іграшки" : "іграшок";
+  };
 
-    const handleClearCart = () => {
-        dispatch(clearCart())
-        onClose()
-    }
+  const handleClearCart = () => {
+    dispatch(clearCart());
+    onClose();
+  };
 
-    return (
-        <div className={styles.cartModal}>
-            <button className={styles.closeBtn} onClick={onClose}>
-                <img src={closeBtn} alt="closeBtn" />
-            </button>
-            <div className={styles.header}>
-                <h2>У кошику:</h2>
-                <h2>{totalItems} {getWordEnding(totalItems)}</h2>
-            </div>
-            <ul className={styles.cartList}>
-                {cart.map((item) => (
-                    <li key={item.itemId}>{item.itemName}</li>
-                ))}
-            </ul>
-            <div className={styles.cartBtns}>
-                <Link to={"/bag"} className={styles.cartBtn}>Перейти до кошика</Link>
-                {cart.length > 0 && <button onClick={handleClearCart} className={styles.crearBtn}>Очистити</button>}
-            </div>
+  return (
+    <CartModalContainer>
+      <FlexWrap>
+        <ItemCounter>
+          У кошику:<span>{totalItems}</span> {getWordEnding(totalItems)}
+        </ItemCounter>
+        <button onClick={onClose}>
+          <IconClose>
+            <use href={`${icons}#icon-close`} />
+          </IconClose>
+        </button>
+      </FlexWrap>
 
+      {cart.length > 0 ? (
+        <>
+          <CartList>
+            {cart.map((item) => (
+              <CartItem key={item.itemId}>{item.itemName}</CartItem>
+            ))}
+          </CartList>
+          <LinkBtnContainer>
+            <ClearBtn onClick={handleClearCart}>Очистити</ClearBtn>{" "}
+            <BagLink to={"/bag"} onClick={onClose}>
+              Перейти до кошика
+            </BagLink>
+          </LinkBtnContainer>
+        </>
+      ) : (
+        <EmptyCartMsg>
+          Твій кошик порожній. <br /> Завітай до нашого{" "}
+          <CatalogueLink to={"/catalogue"} onClick={onClose}>
+            Каталогу іграшок
+          </CatalogueLink>
+          .
+        </EmptyCartMsg>
+      )}
+    </CartModalContainer>
+  );
+};
 
-        </div>
-    )
-}
-
-export default CartModal
+export default CartModal;

@@ -22,7 +22,7 @@ import SubscriptionInfo from "./pages/Management/screens/SubscriptionInfo";
 import { managerGetInfo } from "./redux/slices/manager.slice";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./constants/theme";
-import SharedLayout from "./pages/Home/components/SharedLayout";
+import SharedLayout from "./shared/SharedLayout";
 
 function App() {
   const dispatch = useAppDispatch();

@@ -90,7 +90,7 @@ export const AccentLinkStyled = styled(NavLinkAccent)`
   color: ${(props) => props.theme.colors.darkBlue};
 
   @media ${(props) => props.theme.device.tablet} {
-    min-width: 307px;
+    width: 307px;
   }
 `;
 
@@ -99,6 +99,6 @@ export const TrspLinkStyled = styled(NavLinkTrsp)`
   border-color: ${(props) => props.theme.colors.baseBlue};
 
   @media ${(props) => props.theme.device.tablet} {
-    min-width: 280px;
+    width: 280px;
   }
 `;
