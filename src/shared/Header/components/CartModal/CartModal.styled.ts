@@ -9,6 +9,7 @@ export const CartModalContainer = styled.div`
   top: 45px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: ${(props) => props.theme.colors.white};
+  box-shadow: 0 6px 25px 0 rgba(63, 73, 148, 0.2);
   padding: 20px;
   border-radius: 15px;
   width: 100%;
