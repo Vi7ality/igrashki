@@ -10,8 +10,10 @@ export const SliderStyled = styled(Slider)`
 .slick-slide {
   padding-right: 20px;
   padding-left: 20px;
-
-
+   -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 .slick-slide.slick-center {
   -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -23,12 +25,12 @@ export const SliderStyled = styled(Slider)`
 }
 
 .gallery-img {
-  width: 310px;
+  width: 310px !important;
   height: 310px;
   border-radius: 60px;
 
 @media (min-width: 980px) {
-    width: 450px;
+    width: 450px !important;
     height: 450px;
 }
 }
