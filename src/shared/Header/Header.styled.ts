@@ -27,6 +27,7 @@ export const FlexContainer = styled(Container)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 `;
 
 export const FlexWrap = styled.div`
