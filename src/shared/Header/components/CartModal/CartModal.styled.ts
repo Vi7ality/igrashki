@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AccentLinkStyled } from "../../../../pages/AboutUs/components/JoinUsSection/JoinUsSection.styled";
+import { Link } from "react-router-dom";
 
 export const CartModalContainer = styled.div`
   position: absolute;
@@ -8,7 +9,7 @@ export const CartModalContainer = styled.div`
   top: 45px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: ${(props) => props.theme.colors.white};
-  padding: 20px 30px;
+  padding: 20px;
   border-radius: 15px;
   width: 100%;
 
@@ -16,6 +17,7 @@ export const CartModalContainer = styled.div`
       width: 446px;
       top: 50px;
       right: 20px;
+      padding: 20px 30px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
@@ -35,6 +37,7 @@ export const ItemCounter = styled.p`
 
   span {
     font-weight: 700;
+    margin-left: 14px;
   }
 `;
 
@@ -105,3 +108,13 @@ font-size: 16px;
     height: 48px;
   }
 `;
+
+export const EmptyCartMsg = styled.p`
+font-size: 18px;
+margin-top: 30px;
+`
+
+export const CatalogueLink = styled(Link)`
+display: inline;
+font-weight: 600;
+`

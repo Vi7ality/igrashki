@@ -10,6 +10,8 @@ import {
   LinkBtnContainer,
   ClearBtn,
   BagLink,
+  CatalogueLink,
+  EmptyCartMsg,
 } from "./CartModal.styled";
 import icons from "../../../../assets/icons.svg";
 
@@ -34,7 +36,7 @@ const CartModal = ({ cart, onClose }: CartModalProps) => {
     <CartModalContainer>
       <FlexWrap>
         <ItemCounter>
-          У кошику: <span>{totalItems}</span> {getWordEnding(totalItems)}
+          У кошику:<span>{totalItems}</span> {getWordEnding(totalItems)}
         </ItemCounter>
         <button onClick={onClose}>
           <IconClose>
@@ -42,17 +44,30 @@ const CartModal = ({ cart, onClose }: CartModalProps) => {
           </IconClose>
         </button>
       </FlexWrap>
-      <CartList>
-        {cart.map((item) => (
-          <CartItem key={item.itemId}>{item.itemName}</CartItem>
-        ))}
-      </CartList>
-      <LinkBtnContainer>
-        {cart.length > 0 && <ClearBtn onClick={handleClearCart}>Очистити</ClearBtn>}
-        <BagLink to={"/bag"} onClick={onClose}>
-          Перейти до кошика
-        </BagLink>
-      </LinkBtnContainer>
+
+      {cart.length > 0 ? (
+        <>
+          <CartList>
+            {cart.map((item) => (
+              <CartItem key={item.itemId}>{item.itemName}</CartItem>
+            ))}
+          </CartList>
+          <LinkBtnContainer>
+            <ClearBtn onClick={handleClearCart}>Очистити</ClearBtn>{" "}
+            <BagLink to={"/bag"} onClick={onClose}>
+              Перейти до кошика
+            </BagLink>
+          </LinkBtnContainer>
+        </>
+      ) : (
+        <EmptyCartMsg>
+          Твій кошик порожній. <br /> Завітай до нашого{" "}
+          <CatalogueLink to={"/catalogue"} onClick={onClose}>
+            Каталогу іграшок
+          </CatalogueLink>
+          .
+        </EmptyCartMsg>
+      )}
     </CartModalContainer>
   );
 };

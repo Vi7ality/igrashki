@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import Header from "../../../../shared/Header";
+import Header from "../Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../../../../shared/Footer";
-import ScrollToTop from "../../../../utils/ScrollToTop";
+import Footer from "../Footer";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 
 const SharedLayout = () => {

@@ -1,8 +1,8 @@
-import HowItWorks from "./components/HowItWorksSection/HowItWorks";
+import HowItWorks from "./components/HowItWorksSection";
 import WhyUs from "./components//WhyUs/WhyUs";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Gallery from "./components/GallerySection/Gallery";
-import JoinUs from "./components/JoinUs/JoinUs";
+import JoinUs from "./components/JoinUs";
 
 
 const Home = () => {
