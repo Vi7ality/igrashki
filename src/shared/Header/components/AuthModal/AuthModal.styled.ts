@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AuthModalWrap = styled.div`
+export const BackdropWrap = styled.div`
  position: fixed;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@ export const AuthModalWrap = styled.div`
     }
     `
 
-    export const AuthForm = styled.div`
+    export const FormWrap = styled.div`
     position: relative;
     min-width: 400px;
     background-color: #f5f4fe;
