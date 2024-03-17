@@ -97,7 +97,7 @@ export const InputStyled = styled.input<InputProps>`
     }
 `;
 
-export const ReqMsg = styled.p`
+export const AlertMsg = styled.p`
 font-size: 14px;
 text-align: start;
 color: ${p => p.theme.colors.warnRed};

@@ -19,28 +19,25 @@ import {
   RegisterLink,
   PswrdInputWrap,
   PhoneInputWrap,
-  ReqMsg,
+  AlertMsg
 } from "./AuthModal.styled";
 import icons from "../../../../assets/icons.svg";
 import logo from "../../../../assets/logo-dark.svg";
+import { ErrorMessage, Formik } from "formik";
+import * as Yup from "yup";
 
 interface AuthModalProps {
   authClose: () => void;
 }
 
-interface LoginForm {
-  phoneNumber: string;
-  password: string;
-}
+const loginValidationSchema = Yup.object({
+  phoneNumber: Yup.string().required("Це поле обов'язкове").min(19, "Веедіть корректний номер телефону"),
+  password: Yup.string().required("Це поле обов'язкове"),
+});
 
 const AuthModal = ({ authClose }: AuthModalProps) => {
   const dispatch = useAppDispatch();
   const { client, error } = useAppSelector((state) => state.client);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginForm>();
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
@@ -57,7 +54,8 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
     }
   }, [client, authClose]);
 
-  const handleLogin = (data: IClientCredentials) => { 
+  const handleLogin = (data: IClientCredentials) => {
+    console.log(data)
     dispatch(clientLogin(data));
   };
 
@@ -72,42 +70,54 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
             </IconClose>
           </button>
         </FlexWrap>
-        <form onSubmit={handleSubmit(handleLogin)}>
-          <div>
-            <FormTitle>Авторизація</FormTitle>
-            {error && <h6>Недійсні облікові дані</h6>}
-          </div>
-          <PhoneInputWrap>
-            <InputMaskStyled
-              mask="+38 (999) 999 99 99"
-              placeholder="+380"
-              maskChar={null}
-               {...errors.phoneNumber && {isInvalid: true}}
-              {...register("phoneNumber", { required: true })}
-            />
-            {errors.phoneNumber && <ReqMsg>Це поле обов'язкове</ReqMsg>}
-          </PhoneInputWrap>
-          <PswrdInputWrap>
-            <div style={{position: 'relative'}}>
-              <InputStyled
-              type={showPassword ? "text" : "password"}
-                placeholder="Введіть пароль "
-            {...errors.password && {isInvalid: true}}
-              {...register("password", { required: true })}
-            />
-            <ShowPasswordBtn type="button" onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? (
-                <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
-              ) : (
-                <AiFillEye style={{ width: "24px", height: "24px" }} />
-              )}
-            </ShowPasswordBtn>
-            </div>
-            {errors.password && <ReqMsg>Це поле обов'язкове</ReqMsg>}
-          </PswrdInputWrap>
-          <SubmitBtn type="submit">Увійти</SubmitBtn>
-          <RegisterLink to={"/subscription"} onClick={authClose}>Зареєструватися</RegisterLink>
-        </form>
+        <Formik
+          initialValues={{ phoneNumber: "", password: "" }}
+          validationSchema={loginValidationSchema}
+          onSubmit={handleLogin}
+        >
+          {({ handleSubmit, getFieldProps, touched, errors }) => {
+            return (
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <FormTitle>Авторизація</FormTitle>
+                  {error && <h6>Недійсні облікові дані</h6>}
+                </div>
+                <PhoneInputWrap>
+                  <InputMaskStyled
+                    mask="+38 (999) 999 99 99"
+                    placeholder="+380"
+                    maskChar={null}
+                    {...getFieldProps('phoneNumber')}
+                    {...(errors.phoneNumber && touched.phoneNumber && { isInvalid: true })}
+                  />
+                  <ErrorMessage name="phoneNumber">{(msg) => <AlertMsg>{msg}</AlertMsg>}</ErrorMessage>
+                </PhoneInputWrap>
+                <PswrdInputWrap>
+                  <div style={{ position: "relative" }}>
+                    <InputStyled
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Введіть пароль "
+                      {...getFieldProps('password')}
+                      {...(errors.password && touched.password && { isInvalid: true })}
+                    />
+                    <ShowPasswordBtn type="button" onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? (
+                        <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
+                      ) : (
+                        <AiFillEye style={{ width: "24px", height: "24px" }} />
+                      )}
+                    </ShowPasswordBtn>
+                  </div>
+                  <ErrorMessage name="password">{(msg) => <AlertMsg>{msg}</AlertMsg>}</ErrorMessage>
+                </PswrdInputWrap>
+                <SubmitBtn type="submit">Увійти</SubmitBtn>
+                <RegisterLink to={"/subscription"} onClick={authClose}>
+                  Зареєструватися
+                </RegisterLink>
+              </form>
+            );
+          }}
+        </Formik>
       </FormWrap>
     </BackdropWrap>
   );
