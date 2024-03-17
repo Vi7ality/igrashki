@@ -48,7 +48,7 @@ export const IconWrapper = styled.div`
   transition: transform 0.3s ease;
 
   &.open {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
   }
 
   svg {
