@@ -43,8 +43,6 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
   } = useForm<LoginForm>();
   const [showPassword, setShowPassword] = useState(false);
 
-
-
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
@@ -59,7 +57,7 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
     }
   }, [client, authClose]);
 
-  const handleLogin = (data: IClientCredentials) => {
+  const handleLogin = (data: IClientCredentials) => { 
     dispatch(clientLogin(data));
   };
 
@@ -83,6 +81,7 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
             <InputMaskStyled
               mask="+38 (999) 999 99 99"
               placeholder="+380"
+              maskChar={null}
                {...errors.phoneNumber && {isInvalid: true}}
               {...register("phoneNumber", { required: true })}
             />
@@ -92,7 +91,7 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
             <div style={{position: 'relative'}}>
               <InputStyled
               type={showPassword ? "text" : "password"}
-              placeholder="Введіть пароль "
+                placeholder="Введіть пароль "
             {...errors.password && {isInvalid: true}}
               {...register("password", { required: true })}
             />

@@ -17,7 +17,6 @@ export const BackdropWrap = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${(props) => props.theme.colors.darkBlue}80;
-  /* background-color: rgba(0, 0, 0, 0.8); */
 `;
 
 export const FormWrap = styled.div`
@@ -68,11 +67,16 @@ margin-bottom: 20px;
 
 export const InputMaskStyled = styled(InputMask)<InputProps>`
   border-radius: 20px;
+  outline: none;
   padding: 15px 23px 15px 20px;
   background-color: ${(props) => props.theme.colors.bgWhite};
   color: ${(props) => props.theme.colors.darkBlue};
   width: 100%;
   border:  ${props => props.isInvalid ? '2px solid #FF6157' : 'none'};
+
+      &:focus {
+      border: 2px solid ${p => p.theme.colors.borderGrey};
+    }
 `;
 
 export const PswrdInputWrap = styled.div`
