@@ -9,7 +9,6 @@ const ProfileButton = () => {
   const { client } = useAppSelector((state) => state.client);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  console.log(client)
   const handleProfileButtonClick = () => {
     setShowProfileDropdown((prev) => !prev);
   };

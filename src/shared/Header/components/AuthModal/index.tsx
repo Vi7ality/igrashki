@@ -24,8 +24,6 @@ interface AuthModalProps {
   authClose: () => void;
 }
 
-
-
 const AuthModal = ({ authClose }: AuthModalProps) => {
   const dispatch = useAppDispatch();
   const { client, error } = useAppSelector((state) => state.client);
