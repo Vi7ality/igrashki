@@ -1,42 +1,42 @@
 @import "../../../../styles/breakpoints.scss";
 
 .container {
-    position: absolute;
-    bottom: -20px;
-    right: 0;
-    transform: translateY(100%);
-    background-color: white;
-    border-radius: 15px;
-    width: 120px;
-    border: 1px solid gray;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  transform: translateY(100%);
+  background-color: white;
+  border-radius: 15px;
+  width: 120px;
+  border: 1px solid gray;
 
-    .listOfItems {
-        list-style-type: none;
-        padding: 10px;
+  .listOfItems {
+    list-style-type: none;
+    padding: 10px;
 
-        .items {
-            cursor: pointer;
-            padding-top: 4px;
-            color: #42407C;
-        }
+    .items {
+      cursor: pointer;
+      padding-top: 4px;
+      color: #42407c;
     }
+  }
 }
 
 .container ::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    width: 17px;
-    height: 17px;
-    transform: rotate(45deg);
-    background-color: white;
-    border-left: 1px solid gray;
-    border-top: 1px solid gray;
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  width: 17px;
+  height: 17px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
 }
 
-@media (max-width: $lg) {
-    .container {
-        display: none;
-    }
-}
+// @media (max-width: $lg) {
+//     .container {
+//         display: none;
+//     }
+// }
