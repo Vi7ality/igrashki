@@ -61,6 +61,11 @@ export const FormTitle = styled.h2`
   margin-bottom: 20px;
 `;
 
+export const ClientErr = styled.p`
+color: ${p => p.theme.colors.warnRed};
+margin-bottom: 5px;
+`
+
 export const PhoneInputWrap = styled.div`
 margin-bottom: 20px;
 `

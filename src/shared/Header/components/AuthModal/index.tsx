@@ -1,10 +1,7 @@
-import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../../redux/store";
 import { IClientCredentials } from "../../../../models/client";
 import { clientLogin } from "../../../../redux/slices/client.slice";
-import { useEffect, useState } from "react";
-import { AiFillEye } from "react-icons/ai";
-import { FaEyeSlash } from "react-icons/fa6";
+import { useEffect } from "react";
 import {
   FormWrap,
   BackdropWrap,
@@ -12,33 +9,32 @@ import {
   LogoStyled,
   IconClose,
   FormTitle,
-  InputMaskStyled,
-  InputStyled,
-  ShowPasswordBtn,
   SubmitBtn,
   RegisterLink,
-  PswrdInputWrap,
-  PhoneInputWrap,
-  AlertMsg
+  ClientErr,
 } from "./AuthModal.styled";
 import icons from "../../../../assets/icons.svg";
 import logo from "../../../../assets/logo-dark.svg";
-import { ErrorMessage, Formik } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
+import { PhoneInput } from "./PhoneInput";
+import { PasswordInput } from "./PasswordInput";
 
 interface AuthModalProps {
   authClose: () => void;
 }
 
 const loginValidationSchema = Yup.object({
-  phoneNumber: Yup.string().required("Це поле обов'язкове").min(19, "Веедіть корректний номер телефону"),
+  phoneNumber: Yup.string()
+    .required("Це поле обов'язкове")
+    .min(19, "Веедіть корректний номер телефону"),
   password: Yup.string().required("Це поле обов'язкове"),
 });
 
 const AuthModal = ({ authClose }: AuthModalProps) => {
   const dispatch = useAppDispatch();
   const { client, error } = useAppSelector((state) => state.client);
-  const [showPassword, setShowPassword] = useState(false);
+
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -55,7 +51,6 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
   }, [client, authClose]);
 
   const handleLogin = (data: IClientCredentials) => {
-    console.log(data)
     dispatch(clientLogin(data));
   };
 
@@ -80,36 +75,18 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
               <form onSubmit={handleSubmit}>
                 <div>
                   <FormTitle>Авторизація</FormTitle>
-                  {error && <h6>Недійсні облікові дані</h6>}
+                  {error && <ClientErr>Недійсні облікові дані</ClientErr>}
                 </div>
-                <PhoneInputWrap>
-                  <InputMaskStyled
-                    mask="+38 (999) 999 99 99"
-                    placeholder="+380"
-                    maskChar={null}
-                    {...getFieldProps('phoneNumber')}
-                    {...(errors.phoneNumber && touched.phoneNumber && { isInvalid: true })}
-                  />
-                  <ErrorMessage name="phoneNumber">{(msg) => <AlertMsg>{msg}</AlertMsg>}</ErrorMessage>
-                </PhoneInputWrap>
-                <PswrdInputWrap>
-                  <div style={{ position: "relative" }}>
-                    <InputStyled
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Введіть пароль "
-                      {...getFieldProps('password')}
-                      {...(errors.password && touched.password && { isInvalid: true })}
-                    />
-                    <ShowPasswordBtn type="button" onClick={() => setShowPassword(!showPassword)}>
-                      {showPassword ? (
-                        <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
-                      ) : (
-                        <AiFillEye style={{ width: "24px", height: "24px" }} />
-                      )}
-                    </ShowPasswordBtn>
-                  </div>
-                  <ErrorMessage name="password">{(msg) => <AlertMsg>{msg}</AlertMsg>}</ErrorMessage>
-                </PswrdInputWrap>
+                <PhoneInput
+                  getFieldProps={getFieldProps}
+                  error={errors.phoneNumber}
+                  touched={touched.phoneNumber}
+                />
+                <PasswordInput
+                  getFieldProps={getFieldProps}
+                  error={errors.phoneNumber}
+                  touched={touched.phoneNumber}
+                />
                 <SubmitBtn type="submit">Увійти</SubmitBtn>
                 <RegisterLink to={"/subscription"} onClick={authClose}>
                   Зареєструватися

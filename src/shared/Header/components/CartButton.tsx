@@ -10,7 +10,7 @@ const CartButton = () => {
     const [isCartModalVisible, setIsCartModalVisible] = useState(false)
 
     return (
-        <div className={styles.cartBtnWrapper}>
+        <div>
             <BasketBtn onClick={() => setIsCartModalVisible(!isCartModalVisible)} >
                 <svg><use href={`${icons}#icon-basket`} /></svg>
                 {cart.length !== 0 && <p>{cart.length}</p>}

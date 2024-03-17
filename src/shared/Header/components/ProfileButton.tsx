@@ -1,18 +1,15 @@
 import { useState } from "react";
 import { useAppSelector } from "../../../redux/store";
-import styles from "../Header.module.scss";
 import AuthModal from "./AuthModal";
 import DropDownProfile from "./DropDownProfile";
-import { AuthBtn, AuthContent, DeskUserIcon, MobUserIcon } from "../Header.styled";
+import { AuthBtn, AuthContent, ClientProfile, DeskUserIcon, MobUserIcon } from "../Header.styled";
 import icons from "../../../assets/icons.svg";
 
 const ProfileButton = () => {
   const { client } = useAppSelector((state) => state.client);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-
-
-
+  console.log(client)
   const handleProfileButtonClick = () => {
     setShowProfileDropdown((prev) => !prev);
   };
@@ -25,12 +22,12 @@ const ProfileButton = () => {
   return (
     <>
       {client ? (
-        <div className={styles.profileWrapper}>
-          <button style={{color: 'white'}}
+        <div>
+          <ClientProfile style={{color: 'white'}}
             onClick={handleProfileButtonClick}
           >
-            {client.parentName}
-          </button>
+            {client.parentName + ' ' + client.parentSurname}
+          </ClientProfile>
           {showProfileDropdown && (
             <DropDownProfile closeDropDown={() => setShowProfileDropdown(false)} />
           )}
