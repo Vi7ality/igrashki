@@ -2,6 +2,10 @@ import styled from "styled-components";
 import InputMask from "react-input-mask";
 import { Link } from "react-router-dom";
 
+interface InputProps {
+  isInvalid?: boolean;
+}
+
 export const BackdropWrap = styled.div`
   position: fixed;
   display: flex;
@@ -58,35 +62,54 @@ export const FormTitle = styled.h2`
   margin-bottom: 20px;
 `;
 
-export const InputMaskStyled = styled(InputMask)`
+export const PhoneInputWrap = styled.div`
+margin-bottom: 20px;
+`
+
+export const InputMaskStyled = styled(InputMask)<InputProps>`
   border-radius: 20px;
-  border: none;
   padding: 15px 23px 15px 20px;
   background-color: ${(props) => props.theme.colors.bgWhite};
   color: ${(props) => props.theme.colors.darkBlue};
   width: 100%;
-  margin-bottom: 20px;
+  border:  ${props => props.isInvalid ? '2px solid #FF6157' : 'none'};
 `;
 
-export const InputStyled = styled.input`
+export const PswrdInputWrap = styled.div`
+margin-bottom: 30px;
+`
+
+export const InputStyled = styled.input<InputProps>`
   border-radius: 20px;
-  border: none;
+  outline: none;
   padding: 15px 23px 15px 20px;
   background-color: ${(props) => props.theme.colors.bgWhite};
-  color: ${(props) => props.theme.colors.darkBlue};
-  margin-bottom: 30px;
+  color: ${(p) => p.theme.colors.darkBlue};
   width: 100%;
+    border: ${p => p.isInvalid ? '2px solid #FF6157' : 'none'};
+
+    &:focus {
+      border: 2px solid ${p => p.theme.colors.borderGrey};
+    }
 `;
+
+export const ReqMsg = styled.p`
+font-size: 14px;
+text-align: start;
+color: ${p => p.theme.colors.warnRed};
+margin-top: 5px;
+`
 
 export const ShowPasswordBtn = styled.button`
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 23px;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
+  height: 24px;
 `;
 
 export const SubmitBtn = styled.button`
@@ -97,10 +120,8 @@ export const SubmitBtn = styled.button`
   border-radius: 20px;
   width: 100%;
   height: 48px;
-
   font-size: 16px;
   font-weight: 600;
-
   margin-bottom: 10px;
 `;
 

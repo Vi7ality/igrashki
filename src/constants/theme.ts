@@ -9,11 +9,13 @@ export const theme = {
 
     black: "#000000",
     bgDark: "#100E20",
+    borderGrey: '#AFBBF2',
     mutedGrey: "#70728F",
     lightGrey: '#D8DEFB',
 
     accent: "#FFCD1E",
-    red: "#EF7669"
+    red: "#EF7669",
+    warnRed: '#FF6157',
   },
 
   fontWeights: {
