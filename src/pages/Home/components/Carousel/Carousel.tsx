@@ -29,13 +29,13 @@ const Carousel = () => {
   };
   return (
     <SliderStyled {...settings}>
-        <img src={image2} className='gallery-img' alt="" />
-        <img src={image3} className='gallery-img' alt="" />
-        <img src={image4} className='gallery-img' alt="" />
-        <img src={image5} className='gallery-img' alt="" />
-        <img src={image6} className='gallery-img' alt="" />
-        <img src={image7} className='gallery-img' alt="" />
-        <img src={image8} className='gallery-img' alt="" />
+        <img src={image2} className='gallery-img' alt="Фото" />
+        <img src={image3} className='gallery-img' alt="Фото" />
+        <img src={image4} className='gallery-img' alt="Фото" />
+        <img src={image5} className='gallery-img' alt="Фото" />
+        <img src={image6} className='gallery-img' alt="Фото" />
+        <img src={image7} className='gallery-img' alt="Фото" />
+        <img src={image8} className='gallery-img' alt="Фото" />
       </SliderStyled>
   );
 }
