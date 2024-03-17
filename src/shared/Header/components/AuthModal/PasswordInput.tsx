@@ -16,8 +16,10 @@ export const PasswordInput = ({ getFieldProps, error, touched }: PropType) => {
     <PswrdInputWrap>
       <div style={{ position: "relative" }}>
         <InputStyled
+          autoComplete="true"
           type={showPassword ? "text" : "password"}
-          placeholder="Введіть пароль "
+          placeholder="Введіть пароль"
+          autocomplete="current-password"
           {...getFieldProps("password")}
           {...(error && touched && { isInvalid: true })}
         />
