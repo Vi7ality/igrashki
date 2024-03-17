@@ -40,7 +40,6 @@ export const MobMenuBtn = styled.button`
 
   margin-right: 30px;
 
-
   @media ${(props) => props.theme.device.tablet} {
     display: none;
   }
@@ -57,14 +56,13 @@ export const Logo = styled.img`
   @media ${(props) => props.theme.device.desktop} {
     width: 56px;
   }
-  
 `;
 
 export const NavContainer = styled.nav`
   display: none;
 
   @media ${(props) => props.theme.device.tablet} {
-  display: block;
+    display: block;
   }
 `;
 
@@ -84,39 +82,49 @@ export const LinkStyled = styled(Link)`
 
 export const ContainerRight = styled.div`
   display: flex;
-  align-items: start;
+  align-items: center;
   gap: 15px;
 
   @media ${(props) => props.theme.device.tablet} {
     gap: 20px;
-  } 
+  }
 `;
+
+export const ClientProfile = styled.button`
+font-weight: 400;
+font-size: 14px;
+`
 
 export const AuthBtn = styled.button`
+  height: 28px;
 
-  @media ${(props) => props.theme.device.desktop} {
-  font-weight: ${(props) => props.theme.fontWeights.medium};
-  font-size: 16px;
-
-  display: flex;
-  align-items: center;
-  color: ${(props) => props.theme.colors.white};
-  border: 2px solid ${(props) => props.theme.colors.white};
-  border-radius: 20px;
-  padding: 10px 30px;
-  width: 200px;
-  height: 48px;
+  @media ${(props) => props.theme.device.tablet} {
+    height: 36px;
   }
 
+  @media ${(props) => props.theme.device.desktop} {
+    font-weight: ${(props) => props.theme.fontWeights.medium};
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    color: ${(props) => props.theme.colors.white};
+    border: 2px solid ${(props) => props.theme.colors.white};
+    border-radius: 20px;
+    padding: 10px 30px;
+    width: 200px;
+    height: 48px;
+  }
 `;
 
+export const ClientBtn = styled.button``;
 
 export const MobUserIcon = styled.svg`
-padding: 6px;
-width: 28px;
-height: 28px;
-background-color: ${(props) => props.theme.colors.white};
-border-radius: 50%;
+  padding: 6px;
+  width: 28px;
+  height: 28px;
+  background-color: ${(props) => props.theme.colors.white};
+  border-radius: 50%;
 
   @media ${(props) => props.theme.device.tablet} {
     padding: 8px;
@@ -127,23 +135,23 @@ border-radius: 50%;
   @media ${(props) => props.theme.device.desktop} {
     display: none;
   }
-`
+`;
 export const DeskUserIcon = styled.svg`
-display: none;
-@media ${(props) => props.theme.device.desktop} {
+  display: none;
+  @media ${(props) => props.theme.device.desktop} {
     display: block;
     width: 28px;
     height: 28px;
     margin-right: 10px;
   }
-`
+`;
 
 export const AuthContent = styled.p`
-display: none;
-@media ${(props) => props.theme.device.desktop} {
+  display: none;
+  @media ${(props) => props.theme.device.desktop} {
     display: inline;
   }
-`
+`;
 
 export const BasketBtn = styled.button`
   padding: 5px;
@@ -154,13 +162,13 @@ export const BasketBtn = styled.button`
 
   position: relative;
 
-    @media ${(props) => props.theme.device.tablet} {
+  @media ${(props) => props.theme.device.tablet} {
     padding: 7px;
     width: 36px;
     height: 36px;
   }
-    @media ${(props) => props.theme.device.desktop} {
-  padding: 9px;
+  @media ${(props) => props.theme.device.desktop} {
+    padding: 9px;
     width: 48px;
     height: 48px;
   }
@@ -168,21 +176,21 @@ export const BasketBtn = styled.button`
   svg {
     width: 17px;
     height: 17px;
-      @media ${(props) => props.theme.device.tablet} {
-    width: 21px;
-    height: 21px;
-  }
+    @media ${(props) => props.theme.device.tablet} {
+      width: 21px;
+      height: 21px;
+    }
     @media ${(props) => props.theme.device.desktop} {
-    width: 28px;
-    height: 28px;
-  }
+      width: 28px;
+      height: 28px;
+    }
   }
 
   P {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: #FF391E;
+    background-color: #ff391e;
     color: #fff;
     font-weight: 12px;
 
