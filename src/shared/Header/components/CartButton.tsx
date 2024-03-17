@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "../Header.module.scss";
 import CartModal from "./CartModal";
 import { useAppSelector } from "../../../redux/store";
 import icons from '../../../assets/icons.svg'

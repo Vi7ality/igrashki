@@ -16,20 +16,15 @@ import {
 import icons from "../../../../assets/icons.svg";
 import logo from "../../../../assets/logo-dark.svg";
 import { Formik } from "formik";
-import * as Yup from "yup";
 import { PhoneInput } from "./PhoneInput";
 import { PasswordInput } from "./PasswordInput";
+import { loginValidationSchema } from "../../../../utils/ScrollToTop/authValidationSchema";
 
 interface AuthModalProps {
   authClose: () => void;
 }
 
-const loginValidationSchema = Yup.object({
-  phoneNumber: Yup.string()
-    .required("Це поле обов'язкове")
-    .min(19, "Веедіть корректний номер телефону"),
-  password: Yup.string().required("Це поле обов'язкове"),
-});
+
 
 const AuthModal = ({ authClose }: AuthModalProps) => {
   const dispatch = useAppDispatch();
