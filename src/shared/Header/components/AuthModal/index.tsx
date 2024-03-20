@@ -18,7 +18,7 @@ import logo from "../../../../assets/logo-dark.svg";
 import { Formik } from "formik";
 import { PhoneInput } from "./PhoneInput";
 import { PasswordInput } from "./PasswordInput";
-import { loginValidationSchema } from "../../../../utils/ScrollToTop/authValidationSchema";
+import { loginValidationSchema } from "../../../../utils/validationSchemas/authValidationSchema";
 
 interface AuthModalProps {
   authClose: () => void;

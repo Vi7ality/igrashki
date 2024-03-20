@@ -23,6 +23,7 @@ import { managerGetInfo } from "./redux/slices/manager.slice";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./constants/theme";
 import SharedLayout from "./shared/SharedLayout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -48,6 +49,7 @@ function App() {
             <Route path="/subscription" element={<Subscription />} />
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="*" element={<NotFound/>} />
           </Route>
 
           <Route path="/managerLogin" element={<ManagerLogin />} />
