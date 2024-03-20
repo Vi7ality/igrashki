@@ -3,6 +3,10 @@ import Container from "../../../../shared/Container";
 import bgImg from "../../assets/join-lines_bg.svg";
 import { SectionTitle } from "../../../../shared/CommonStyles/CommonStyles.styled";
 import { NavLinkAccent, NavLinkTrsp } from "../../../../shared/NavigateLinks/NavigateLinks.styled";
+import svgImg from "../../assets/penguins.svg";
+import svgMbImg from "../../assets/penguins-mb.svg";
+import svgTbImg from "../../assets/penguins-tb.svg";
+
 
 export const SectionStyled = styled.section`
   overflow: hidden;
@@ -113,12 +117,12 @@ export const JoinNavLink = styled(NavLinkAccent)`
   color: ${(props) => props.theme.colors.darkBlue};
 
   @media ${(props) => props.theme.device.tablet} {
-    min-width: 195px;
+    width: 195px;
     font-size: 20px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
-    min-width: 235px;
+    width: 235px;
   }
 `;
 
@@ -137,15 +141,17 @@ export const ShareNavLink = styled(NavLinkTrsp)`
   color: ${(props) => props.theme.colors.baseBlue};
 
   @media ${(props) => props.theme.device.tablet} {
-    min-width: 257px;
+    width: 257px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
-    min-width: 280px;
+    width: 280px;
   }
 `;
 
-export const PenguinsImg = styled.img`
+export const PenguinsImg = styled.div`
+  background-image: url(${svgMbImg});
+  background-repeat: no-repeat;
   width: 331px;
   height: 222px;
   position: absolute;
@@ -153,11 +159,13 @@ export const PenguinsImg = styled.img`
   right: 0;
 
   @media ${(props) => props.theme.device.tablet} {
+    background-image: url(${svgTbImg});
     width: 567px;
     height: 381px;
   }
 
   @media ${(props) => props.theme.device.desktop} {
+    background-image: url(${svgImg});
     width: 688px;
     height: 462px;
   }

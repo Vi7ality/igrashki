@@ -23,19 +23,15 @@ const JoinUs = () => {
             Приєднуйся до нас вже сьогодні!<span>&#x1f917;</span>
           </SectionTitleStyled>
           <LinkContainer>
-            <JoinNavLink to={"/"}>Доєднатися!</JoinNavLink>
-            <ShareNavLink to={"/"}>
+            <JoinNavLink to={"/subscription"}>Доєднатися!</JoinNavLink>
+            <ShareNavLink to={"/catalogue"}>
               <GiftSvg>
                 <use href={`${icons}#icon-gift`}></use>
               </GiftSvg>
               Передати іграшки
             </ShareNavLink>
           </LinkContainer>
-          <PenguinsImg
-            srcSet={`${svgMbImg} 370w, ${svgTbImg}  980w, ${svgImg} 1340w`}
-            sizes="(max-width: 979px) 370px, ((min-width: 980px) and (max-width: 1349px)) 980px, (min-width: 1340px) 1340px"
-            alt="Penguins"
-          />
+          <PenguinsImg/>
         </ContentContainer>
       </ContainerBgImage>
     </SectionStyled>
