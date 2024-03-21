@@ -4,15 +4,10 @@ import {
   SectionStyled,
   SectionTitleStyled,
   LinkContainer,
-  GiftSvg,
   JoinNavLink,
   ShareNavLink,
   PenguinsImg,
 } from "./JoinUs.styled";
-import icons from "../../../../assets/icons.svg";
-import svgImg from "../../assets/penguins.svg";
-import svgMbImg from "../../assets/penguins-mb.svg";
-import svgTbImg from "../../assets/penguins-tb.svg";
 
 const JoinUs = () => {
   return (
@@ -24,14 +19,9 @@ const JoinUs = () => {
           </SectionTitleStyled>
           <LinkContainer>
             <JoinNavLink to={"/subscription"}>Доєднатися!</JoinNavLink>
-            <ShareNavLink to={"/catalogue"}>
-              <GiftSvg>
-                <use href={`${icons}#icon-gift`}></use>
-              </GiftSvg>
-              Передати іграшки
-            </ShareNavLink>
+            <ShareNavLink to={"/catalogue"}>Перейти до каталогу</ShareNavLink>
           </LinkContainer>
-          <PenguinsImg/>
+          <PenguinsImg />
         </ContentContainer>
       </ContainerBgImage>
     </SectionStyled>

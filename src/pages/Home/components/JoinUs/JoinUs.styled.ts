@@ -126,15 +126,15 @@ export const JoinNavLink = styled(NavLinkAccent)`
   }
 `;
 
-export const GiftSvg = styled.svg`
-  display: none;
-  @media ${(props) => props.theme.device.tablet} {
-    display: block;
-    width: 28px;
-    height: 28px;
-  }
-  margin-right: 10px;
-`;
+// export const GiftSvg = styled.svg`
+//   display: none;
+//   @media ${(props) => props.theme.device.tablet} {
+//     display: block;
+//     width: 28px;
+//     height: 28px;
+//   }
+//   margin-right: 10px;
+// `;
 
 export const ShareNavLink = styled(NavLinkTrsp)`
   border-color: ${(props) => props.theme.colors.baseBlue};
