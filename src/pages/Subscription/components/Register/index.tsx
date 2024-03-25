@@ -1,97 +1,74 @@
 import styles from "../../Subscription.module.scss";
-import InputMask from "react-input-mask";
-import checkedImg from "../../assets/checkedImg.png";
 import checkbox from "../../assets/checkbox.png";
-import checkboxVb from "../../assets/checkboxVb.png";
-import checkboxTg from "../../assets/checkboxTg.png";
-import checkedVb from "../../assets/checkedVb.png";
-import checkedTg from "../../assets/checkedTg.png";
+import InputField from "../InputField";
+import PhoneInput from "../PhoneInput";
+import { AiFillEye } from "react-icons/ai";
+import { FaEyeSlash } from "react-icons/fa6";
+import { IoCheckbox } from "react-icons/io5";
+import { useState } from "react";
 
-const Register = ({ clientValues, setClientValues, setIsAuthModalOpen }) => {
+type ProopType = {
+  clientValues: any,
+  setClientValues(clientValues: any): void,
+}
+
+const Register = ({ clientValues, setClientValues }: ProopType) => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <>
-      <div className={styles.field}>
-        <label htmlFor="parentSurname" className={styles.fieldLabel}>
-          Прізвище
-        </label>
-        <input
-          type="text"
-          name="parentSurname"
-          className={styles.fieldInput}
-          placeholder="Прізвище"
-          value={clientValues.parentSurname}
-          onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
+      <InputField
+        label="Прізвище"
+        type="text"
+        name="parentSurname"
+        placeholder="Прізвище"
+        value={clientValues.parentSurname}
+        onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
+      />
+      <InputField
+        label="Ім'я"
+        type="text"
+        name="parentName"
+        placeholder="Ім'я"
+        value={clientValues.parentName}
+        onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
+      />
+      <PhoneInput
+        name="phoneNumber"
+        value={clientValues.phoneNumber}
+        onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
+      />
+      <div style={{ position: "relative" }}>
+        <InputField
+        label="Пароль"
+        type={showPassword ? "text" : "password"}
+        name="password"
+        placeholder="Пароль"
+        value={clientValues.password}
+        onChange={(e) => setClientValues({ ...clientValues, password: e.target.value })}
         />
+        <button type="button" onClick={() => setShowPassword(!showPassword)}>
+          {showPassword ? (
+            <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
+          ) : (
+            <AiFillEye style={{ width: "24px", height: "24px" }} />
+          )}
+        </button>
       </div>
-      <div className={styles.field}>
-        <label htmlFor="parentName" className={styles.fieldLabel}>
-          Ім'я
-        </label>
-        <input
-          type="text"
-          name="parentName"
-          className={styles.fieldInput}
-          placeholder="Ім'я"
-          value={clientValues.parentName}
-          onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
-        />
-      </div>
-      <div className={styles.field}>
-        <label htmlFor="phoneNumber" className={styles.fieldLabel}>
-          Мобільний номер
-        </label>
-        <InputMask
-          placeholder="+38 (___) ___ __ __"
-          mask="+38 (999) 999 99 99"
-          maskChar="_"
-          type="tel"
-          name="phoneNumber"
-          className={styles.fieldInput}
-          value={clientValues.phoneNumber}
-          onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
-        />
-      </div>
-      <div className={styles.field}>
-        <label htmlFor="password" className={styles.fieldLabel}>
-          Пароль
-        </label>
-        <input
-          type="password"
-          name="password"
-          className={styles.fieldInput}
-          placeholder="Пароль"
-          value={clientValues.password}
-          onChange={(e) => setClientValues({ ...clientValues, password: e.target.value })}
-        />
-      </div>
-
-      <div className={styles.field}>
-        <label htmlFor="phoneNumber" className={styles.fieldLabel}>
-          Ім'я дитини
-        </label>
-        <input
-          type="text"
+      <InputField
+        label="Ім'я дитини"
+         type="text"
           name="childName"
-          className={styles.fieldInput}
           placeholder="Ім'я дитини"
           value={clientValues.childName}
           onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
-        />
-      </div>
-
-      <div className={styles.field}>
-        <label htmlFor="childBirthDate" className={styles.fieldLabel}>
-          Дата народження дитини
-        </label>
-        <input
-          type="date"
+      />
+      <InputField
+        label="Дата народження дитини"
+      type="date"
           name="childBirthDate"
-          className={styles.fieldInput}
           placeholder="Дата народження дитини"
           value={clientValues.childBirthDate}
-          onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}
-        />
-      </div>
+          onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}/>
       <div className={styles.fieldCheckbox}>
         <label
           className={styles.fieldCheckLabel}
@@ -99,10 +76,10 @@ const Register = ({ clientValues, setClientValues, setIsAuthModalOpen }) => {
             setClientValues({ ...clientValues, acceptRules: !clientValues.acceptRules })
           }
         >
-          <img
-            src={clientValues.acceptRules ? checkedImg : checkbox}
+{  clientValues.acceptRules ?   <IoCheckbox/> : <img
+            src={checkbox}
             className={styles.checkedImg}
-          />
+          />}
           <span className={styles.checkboxText}>
             Я надаю згоду на оброблення персональних даних
           </span>
@@ -116,7 +93,10 @@ const Register = ({ clientValues, setClientValues, setIsAuthModalOpen }) => {
           className={styles.checkboxLabel}
           onClick={() => setClientValues({ ...clientValues, messenger: "viber" })}
         >
-          <img src={clientValues.messenger === "viber" ? checkedVb : checkboxVb} alt="checkboxVb" />
+          {clientValues.messenger === "viber" ? <IoCheckbox/> : <img
+            src={checkbox}
+            className={styles.checkedImg}
+          /> }
           <span className={styles.checkboxVb}>Viber</span>
         </label>
 
@@ -124,26 +104,99 @@ const Register = ({ clientValues, setClientValues, setIsAuthModalOpen }) => {
           className={styles.checkboxLabel}
           onClick={() => setClientValues({ ...clientValues, messenger: "telegram" })}
         >
-          <img
-            src={clientValues.messenger === "telegram" ? checkedTg : checkboxTg}
-            alt="checkboxTg"
-          />
+          {clientValues.messenger === "telegram" ? <IoCheckbox/> : <img
+            src={checkbox}
+            className={styles.checkedImg}
+          /> }
           <span className={styles.checkboxTg}>Telegram</span>
         </label>
-      </div>
-      <div className={styles.headerSub}>
-        <>
-          <p>
-            Якщо ви вже заповнили анкету у одній з бібліотек або онлайн — увійдіть до свого
-            облікового запису, натиснувши кнопку нижче
-          </p>
-          <button onClick={() => setIsAuthModalOpen(true)} className={styles.accountBtn}>
-            Увійти
-          </button>
-        </>
       </div>
     </>
   );
 };
 
 export default Register;
+
+
+      {/* <div className={styles.field}>
+        <label htmlFor="parentSurname" className={styles.fieldLabel}>
+          Прізвище
+        </label>
+        <input
+          type="text"
+          name="parentSurname"
+          className={styles.fieldInput}
+          placeholder="Прізвище"
+          value={clientValues.parentSurname}
+          onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
+        />
+      </div> */}
+      {/* <div className={styles.field}>
+        <label htmlFor="parentName" className={styles.fieldLabel}>
+          Ім'я
+        </label>
+        <input
+          type="text"
+          name="parentName"
+          className={styles.fieldInput}
+          placeholder="Ім'я"
+          value={clientValues.parentName}
+          onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
+        />
+      </div> */}
+      {/* <div className={styles.field}>
+        <label htmlFor="phoneNumber" className={styles.fieldLabel}>
+          Мобільний номер
+        </label>
+        <InputMask
+          placeholder="+38 (___) ___ __ __"
+          mask="+38 (999) 999 99 99"
+          maskChar="_"
+          type="tel"
+          name="phoneNumber"
+          className={styles.fieldInput}
+          value={clientValues.phoneNumber}
+          onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
+        />
+      </div> */}
+      {/* <div className={styles.field}>
+        <label htmlFor="password" className={styles.fieldLabel}>
+          Пароль
+        </label>
+        <input
+          type="password"
+          name="password"
+          className={styles.fieldInput}
+          placeholder="Пароль"
+          value={clientValues.password}
+          onChange={(e) => setClientValues({ ...clientValues, password: e.target.value })}
+        />
+      </div> */}
+
+      {/* <div className={styles.field}>
+        <label htmlFor="phoneNumber" className={styles.fieldLabel}>
+          Ім'я дитини
+        </label>
+        <input
+          type="text"
+          name="childName"
+          className={styles.fieldInput}
+          placeholder="Ім'я дитини"
+          value={clientValues.childName}
+          onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
+        />
+      </div> */}
+
+      {/* <div className={styles.field}>
+        <label htmlFor="childBirthDate" className={styles.fieldLabel}>
+          Дата народження дитини
+        </label>
+        <input
+          type="date"
+          name="childBirthDate"
+          className={styles.fieldInput}
+          placeholder="Дата народження дитини"
+          value={clientValues.childBirthDate}
+          onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}
+        />
+      </div> */}

@@ -55,24 +55,24 @@ const Subscription = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     try {
-      e.preventDefault();
+      // e.preventDefault();
+      console.log(clientValues);
+      // let token = localStorage.getItem("userToken");
+      // const subscription = {
+      //   managementPointId: selectedManagementPoint?._id,
+      //   toys: cart.map((toy) => toy.itemId),
+      // };
 
-      let token = localStorage.getItem("userToken");
-      const subscription = {
-        managementPointId: selectedManagementPoint?._id,
-        toys: cart.map((toy) => toy.itemId),
-      };
+      // if (!client?._id) {
+      //   const { data: registeredClient } = await api.post("/auth/register", clientValues);
+      //   token = registeredClient.token;
+      // }
 
-      if (!client?._id) {
-        const { data: registeredClient } = await api.post("/auth/register", clientValues);
-        token = registeredClient.token;
-      }
-
-      await api.post("/subscription/sub", subscription, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      dispatch(clearCart());
-      navigate("/confirmation");
+      // await api.post("/subscription/sub", subscription, {
+      //   headers: { Authorization: `Bearer ${token}` },
+      // });
+      // dispatch(clearCart());
+      // navigate("/confirmation");
     } catch (error: any) {
       toast.error(`Помилка при оформленні: ${error?.response?.data?.error}`);
       setTimeout(() => {

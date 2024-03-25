@@ -1,5 +1,6 @@
 import Register from "../Register";
 import styles from "../../Subscription.module.scss";
+import { Formik } from "formik";
 
 const AuthSection = ({
   handleSubmit,
@@ -13,7 +14,11 @@ const AuthSection = ({
     <>
       {/* {!client?._id && <img className={styles.animalCenter} src={animalCenter} alt="animal" />} */}
       <div className={styles.leftContent}>
-        <form onSubmit={handleSubmit} className={styles.subscriptionForm} id="formId">
+        <Formik
+          initialValues={{parentName: ''}}
+          onSubmit={handleSubmit}>{({ handleSubmit, getFieldProps, touched, errors }) => {
+            return (
+              <form onSubmit={handleSubmit} className={styles.subscriptionForm} id="formId">
           <div className={styles.field}>
             {selectedManagementPoint && (
                 <label htmlFor="managementPoint" className={styles.fieldLabel}>
@@ -32,7 +37,7 @@ const AuthSection = ({
               clientValues={clientValues}
               setClientValues={setClientValues}
               setIsAuthModalOpen={setIsAuthModalOpen}
-            />
+                  />
           ) : (
             <>
               <div className={styles.field}>
@@ -84,6 +89,18 @@ const AuthSection = ({
             Відправити
           </button>
         </form>
+          )} }</Formik>
+      {!client?._id && <div className={styles.headerSub}>
+        <>
+          <p>
+            Якщо ви вже заповнили анкету у одній з бібліотек або онлайн — увійдіть до свого
+            облікового запису, натиснувши кнопку нижче
+          </p>
+          <button onClick={() => setIsAuthModalOpen(true)} className={styles.accountBtn}>
+            Увійти
+          </button>
+        </>
+      </div>}
       </div>
     </>
   );
