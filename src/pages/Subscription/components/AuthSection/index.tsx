@@ -2,6 +2,15 @@ import Register from "../Register";
 import styles from "../../Subscription.module.scss";
 import { Formik } from "formik";
 
+type PropType = {
+  handleSubmit: void,
+  selectedManagementPoint: any,
+  client: any,
+  clientValues: any,
+  setClientValues(values: any): void,
+  setIsAuthModalOpen(value: boolean): void
+}
+
 const AuthSection = ({
   handleSubmit,
   selectedManagementPoint,
@@ -9,7 +18,7 @@ const AuthSection = ({
   clientValues,
   setClientValues,
   setIsAuthModalOpen,
-}) => {
+}: PropType) => {
   return (
     <>
       {/* {!client?._id && <img className={styles.animalCenter} src={animalCenter} alt="animal" />} */}
@@ -36,7 +45,6 @@ const AuthSection = ({
             <Register
               clientValues={clientValues}
               setClientValues={setClientValues}
-              setIsAuthModalOpen={setIsAuthModalOpen}
                   />
           ) : (
             <>
