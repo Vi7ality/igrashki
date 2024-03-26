@@ -12,11 +12,15 @@ import { removeItemFromCart } from "../../redux/slices/cart.slice";
 import HeaderBackgound from "../../shared/HeaderBackground";
 import Container from "../../shared/Container";
 import AuthSection from "./components/AuthSection";
+import { PageTitle, SubscrContainer } from "./Subscription.styled";
+import { AxiosError } from "axios";
 
 // managementPointId:
 // clientId:
 // toys:
 // subscribtionStartDate:
+
+
 
 const Subscription = () => {
   const navigate = useNavigate();
@@ -79,11 +83,8 @@ const Subscription = () => {
     <>
       <HeaderBackgound />
       <Container>
-        <h1 className={styles.hed}>Реєстрація</h1>
-        <section></section>
-        <section></section>
-        <div className={styles.subscriptionContainer}>
-          {!client?._id && <img className={styles.animalCenter} src={animalCenter} alt="animal" />}
+        <PageTitle>Реєстрація</PageTitle>
+        <SubscrContainer>
           <AuthSection
             handleSubmit={handleSubmit}
             selectedManagementPoint={selectedManagementPoint}
@@ -140,7 +141,7 @@ const Subscription = () => {
             theme="light"
             closeButton={false}
           />
-        </div>
+        </SubscrContainer>
       </Container>
     </>
   );

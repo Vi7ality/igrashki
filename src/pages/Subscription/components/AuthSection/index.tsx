@@ -1,13 +1,26 @@
 import Register from "../Register";
 import styles from "../../Subscription.module.scss";
 import { Formik } from "formik";
+import { FormEvent } from "react";
+
+type ClientValuesType = {
+  parentName: string,
+  parentSurname: string,
+  phoneNumber: string,
+  password: string,
+  childName: string,
+  childBirthDate: string,
+  messenger: "telegram" | "viber",
+  formType: "online" | "offline",
+  acceptRules: boolean,
+}
 
 type PropType = {
-  handleSubmit: void,
+  handleSubmit: (e: FormEvent) => Promise<void>,
   selectedManagementPoint: any,
   client: any,
-  clientValues: any,
-  setClientValues(values: any): void,
+  clientValues: ClientValuesType,
+  setClientValues(values: ClientValuesType): void,
   setIsAuthModalOpen(value: boolean): void
 }
 
