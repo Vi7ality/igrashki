@@ -4,23 +4,16 @@ import { Formik } from "formik";
 import { FormEvent } from "react";
 import { SectionStyled } from "./AuthSection.styled";
 import InputField from "../InputField";
+import { ClientValuesType } from "../../../../models/auth";
+import { IClient } from "../../../../models/client";
+import { ImanagementPoint } from "../../../../models/managementPoint";
 
-type ClientValuesType = {
-  parentName: string;
-  parentSurname: string;
-  phoneNumber: string;
-  password: string;
-  childName: string;
-  childBirthDate: string;
-  messenger: "telegram" | "viber";
-  formType: "online" | "offline";
-  acceptRules: boolean;
-};
+
 
 type PropType = {
   handleSubmit: (e: FormEvent) => Promise<void>;
-  selectedManagementPoint: any;
-  client: any;
+  selectedManagementPoint: ImanagementPoint;
+  client: IClient;
   clientValues: ClientValuesType;
   setClientValues(values: ClientValuesType): void;
   setIsAuthModalOpen(value: boolean): void;
@@ -34,7 +27,6 @@ const AuthSection = ({
   setClientValues,
   setIsAuthModalOpen,
 }: PropType) => {
-  console.log(selectedManagementPoint);
   return (
     <SectionStyled>
       <Formik initialValues={{ parentName: "" }} onSubmit={handleSubmit}>

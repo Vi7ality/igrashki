@@ -2,10 +2,11 @@ import { useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { FaEyeSlash } from "react-icons/fa6";
 import { InputWrap, InputStyled, LabelStyled, RelativeWrap, ShowPasswordBtn } from "./PasswordInput.styled";
+import { ClientValuesType } from "../../../../models/auth";
 
 type PropType = {
-  clientValues: any;
-  setClientValues(clientValues: any): void;
+  clientValues: ClientValuesType;
+  setClientValues(clientValues: ClientValuesType): void;
 };
 
 const PasswordInput = ({ clientValues, setClientValues }: PropType) => {

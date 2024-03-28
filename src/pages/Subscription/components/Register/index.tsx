@@ -1,16 +1,14 @@
-import styles from "../../Subscription.module.scss";
-import checkbox from "../../assets/checkbox.png";
 import InputField from "../InputField";
-import { AiFillEye } from "react-icons/ai";
-import { FaEyeSlash } from "react-icons/fa6";
-import { IoCheckbox } from "react-icons/io5";
-import { useState } from "react";
 import PasswordInput from "../PasswordInput";
+import { ClientValuesType } from "../../../../models/auth";
+import { CheckboxField } from "../CheckboxField";
+
 
 type PropType = {
-  clientValues: any,
-  setClientValues(clientValues: any): void,
+  clientValues: ClientValuesType,
+  setClientValues(values: ClientValuesType): void,
 }
+
 
 const Register = ({ clientValues, setClientValues }: PropType) => {
   return (
@@ -54,48 +52,7 @@ const Register = ({ clientValues, setClientValues }: PropType) => {
           placeholder="Дата народження дитини"
           value={clientValues.childBirthDate}
           onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}/>
-      <div className={styles.fieldCheckbox}>
-        <label
-          className={styles.fieldCheckLabel}
-          onClick={() =>
-            setClientValues({ ...clientValues, acceptRules: !clientValues.acceptRules })
-          }
-        >
-{  clientValues.acceptRules ?   <IoCheckbox/> : <img
-            src={checkbox}
-            className={styles.checkedImg}
-          />}
-          <span className={styles.checkboxText}>
-            Я надаю згоду на оброблення персональних даних
-          </span>
-        </label>
-      </div>
-      <label className={styles.messengerLabel} htmlFor="messenger">
-        Оберіть месенджер, у якому вам зручніше продовжити спілкування:
-      </label>
-      <div className={styles.messengerCheck}>
-        <label
-          className={styles.checkboxLabel}
-          onClick={() => setClientValues({ ...clientValues, messenger: "viber" })}
-        >
-          {clientValues.messenger === "viber" ? <IoCheckbox/> : <img
-            src={checkbox}
-            className={styles.checkedImg}
-          /> }
-          <span className={styles.checkboxVb}>Viber</span>
-        </label>
-
-        <label
-          className={styles.checkboxLabel}
-          onClick={() => setClientValues({ ...clientValues, messenger: "telegram" })}
-        >
-          {clientValues.messenger === "telegram" ? <IoCheckbox/> : <img
-            src={checkbox}
-            className={styles.checkedImg}
-          /> }
-          <span className={styles.checkboxTg}>Telegram</span>
-        </label>
-      </div>
+      <CheckboxField clientValues={clientValues} setClientValues={setClientValues} />
     </>
   );
 };
