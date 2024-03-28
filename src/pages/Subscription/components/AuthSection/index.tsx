@@ -3,6 +3,7 @@ import styles from "../../Subscription.module.scss";
 import { Formik } from "formik";
 import { FormEvent } from "react";
 import { SectionStyled } from "./AuthSection.styled";
+import InputField from "../InputField";
 
 type ClientValuesType = {
   parentName: string;
@@ -33,6 +34,7 @@ const AuthSection = ({
   setClientValues,
   setIsAuthModalOpen,
 }: PropType) => {
+  console.log(selectedManagementPoint);
   return (
     <SectionStyled>
       <Formik initialValues={{ parentName: "" }} onSubmit={handleSubmit}>
@@ -41,16 +43,14 @@ const AuthSection = ({
             <form onSubmit={handleSubmit} id="formId">
               <div>
                 {selectedManagementPoint && (
-                  <>
-                    <label htmlFor="managementPoint">
-                      Локація
-                    </label>
-                    <input
-                      value={selectedManagementPoint ? selectedManagementPoint.location : ""}
-                      disabled
-                    />
-                  </>
-                )}
+                  <InputField
+                    label='Локація'
+                    type='text'
+                    name='location'
+                    value={selectedManagementPoint ? `${selectedManagementPoint.city}, ${selectedManagementPoint.location}` : ""}
+                    disabled
+                  />
+             )} 
               </div>
               {!client?._id ? (
                 <Register clientValues={clientValues} setClientValues={setClientValues} />

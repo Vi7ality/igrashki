@@ -1,19 +1,18 @@
 import styles from "../../Subscription.module.scss";
 import checkbox from "../../assets/checkbox.png";
 import InputField from "../InputField";
-import PhoneInput from "../PhoneInput";
 import { AiFillEye } from "react-icons/ai";
 import { FaEyeSlash } from "react-icons/fa6";
 import { IoCheckbox } from "react-icons/io5";
 import { useState } from "react";
+import PasswordInput from "../PasswordInput";
 
-type ProopType = {
+type PropType = {
   clientValues: any,
   setClientValues(clientValues: any): void,
 }
 
-const Register = ({ clientValues, setClientValues }: ProopType) => {
-  const [showPassword, setShowPassword] = useState(false);
+const Register = ({ clientValues, setClientValues }: PropType) => {
   return (
     <>
       <InputField
@@ -32,28 +31,14 @@ const Register = ({ clientValues, setClientValues }: ProopType) => {
         value={clientValues.parentName}
         onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
       />
-      <PhoneInput
+      <InputField
         name="phoneNumber"
+        type="tel"
+        label="Номер телефону"
         value={clientValues.phoneNumber}
         onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
       />
-      <div style={{ position: "relative" }}>
-        <InputField
-        label="Пароль"
-        type={showPassword ? "text" : "password"}
-        name="password"
-        placeholder="Пароль"
-        value={clientValues.password}
-        onChange={(e) => setClientValues({ ...clientValues, password: e.target.value })}
-        />
-        <button type="button" onClick={() => setShowPassword(!showPassword)}>
-          {showPassword ? (
-            <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
-          ) : (
-            <AiFillEye style={{ width: "24px", height: "24px" }} />
-          )}
-        </button>
-      </div>
+      <PasswordInput clientValues={clientValues} setClientValues={setClientValues} />
       <InputField
         label="Ім'я дитини"
          type="text"
@@ -64,7 +49,7 @@ const Register = ({ clientValues, setClientValues }: ProopType) => {
       />
       <InputField
         label="Дата народження дитини"
-      type="date"
+        type="date"
           name="childBirthDate"
           placeholder="Дата народження дитини"
           value={clientValues.childBirthDate}

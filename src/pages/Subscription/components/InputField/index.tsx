@@ -1,30 +1,50 @@
 import { ChangeEventHandler } from "react";
-import styles from "../../Subscription.module.scss";
+import { InputStyled, InputWrap, LabelStyled, PhoneInput } from "./InputField.styled";
 
 type PropType = {
   label: string;
   type: string;
   name: string;
-  placeholder: string;
+  placeholder?: string;
   value: string;
-  onChange: ChangeEventHandler;
+  disabled?: boolean;
+  onChange?: ChangeEventHandler;
 };
 
-const InputField = ({ label, type, name, placeholder, value, onChange }: PropType) => {
+const InputField = ({
+  label,
+  type,
+  name,
+  placeholder,
+  value,
+  disabled = false,
+  onChange,
+}: PropType) => {
   return (
-    <div className={styles.field}>
-      <label htmlFor={name} className={styles.fieldLabel}>
-        {label}
-      </label>
-      <input
-        type={type}
-        name={name}
-        className={styles.fieldInput}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
+    <InputWrap>
+      <LabelStyled htmlFor={name}>{label}</LabelStyled>
+      {type === "tel" ? (
+        <PhoneInput
+          placeholder="+38"
+          mask="+38 (999) 999 99 99"
+          maskChar={null}
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+        />
+      ) : (
+        <InputStyled
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+        />
+      )}
+    </InputWrap>
   );
 };
 
