@@ -7,13 +7,14 @@ import InputField from "../InputField";
 import { ClientValuesType } from "../../../../models/auth";
 import { IClient } from "../../../../models/client";
 import { ImanagementPoint } from "../../../../models/managementPoint";
+import ButtonPannel from "../ButtonPannel";
 
 
 
 type PropType = {
   handleSubmit: (e: FormEvent) => Promise<void>;
-  selectedManagementPoint: ImanagementPoint;
-  client: IClient;
+  selectedManagementPoint?: ImanagementPoint;
+  client?: IClient;
   clientValues: ClientValuesType;
   setClientValues(values: ClientValuesType): void;
   setIsAuthModalOpen(value: boolean): void;
@@ -87,29 +88,18 @@ const AuthSection = ({
                   </div>
                 </>
               )}
-              <button
+              <ButtonPannel client={client} clientValues={clientValues} setIsAuthModalOpen={setIsAuthModalOpen} position="auth"/>
+              {/* <button
                 disabled={!clientValues.acceptRules && !client?._id}
                 type="submit"
               >
                 Відправити
-              </button>
+              </button> */}
             </form>
           );
         }}
       </Formik>
-      {!client?._id && (
-        <div className={styles.headerSub}>
-          <>
-            <p>
-              Якщо ви вже заповнили анкету у одній з бібліотек або онлайн — увійдіть до свого
-              облікового запису, натиснувши кнопку нижче
-            </p>
-            <button onClick={() => setIsAuthModalOpen(true)} className={styles.accountBtn}>
-              Увійти
-            </button>
-          </>
-        </div>
-      )}
+
     </SectionStyled>
   );
 };

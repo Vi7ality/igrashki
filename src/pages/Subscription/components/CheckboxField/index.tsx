@@ -21,11 +21,11 @@ export const CheckboxField = ({ clientValues, setClientValues }: PropType) => {
           <TextStyled>Я надаю згоду на оброблення персональних даних</TextStyled>
         </LabelStyled>
       </div>
-      <label htmlFor="messenger" style={{marginBottom: '15px'}}>
-        <TextStyled>Оберіть месенджер, у якому вам зручніше продовжити спілкування:</TextStyled>
+      <label htmlFor="messenger">
+        <TextStyled style={{marginBottom: '15px'}}>Оберіть месенджер, у якому вам зручніше продовжити спілкування:</TextStyled>
       </label>
       <FlexWrap>
-        <LabelStyled style={{marginRight: '85px'}} onClick={() => setClientValues({ ...clientValues, messenger: "viber" })}>
+        <LabelStyled  onClick={() => setClientValues({ ...clientValues, messenger: "viber" })}>
           {clientValues.messenger === "viber" ? <CheckedIcon /> : <UncheckedIcon />}
           <span>Viber</span>
         </LabelStyled>

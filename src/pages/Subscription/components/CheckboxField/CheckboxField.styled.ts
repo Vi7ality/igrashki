@@ -32,4 +32,5 @@ font-size: 14px;
 `
 export const FlexWrap = styled.div`
 display: flex;
+gap: 58px;
 `

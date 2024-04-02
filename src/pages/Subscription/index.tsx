@@ -2,7 +2,6 @@ import {useNavigate } from "react-router-dom";
 import styles from "./Subscription.module.scss";
 import edit from "./assets/edit.png";
 import OrderedToy from "./components/OrderedToy";
-import animalCenter from "./assets/animalCenter.png";
 import { FormEvent, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import AuthModal from "../../shared/Header/components/AuthModal";
@@ -14,6 +13,7 @@ import Container from "../../shared/Container";
 import AuthSection from "./components/AuthSection";
 import { PageTitle, SubscrContainer } from "./Subscription.styled";
 import { AxiosError } from "axios";
+import ButtonPannel from "./components/ButtonPannel";
 
 // managementPointId:
 // clientId:
@@ -118,14 +118,27 @@ const Subscription = () => {
               ))}
             </div>
             <hr className={styles.line} />
-            <button
+            <ButtonPannel client={client} clientValues={clientValues} setIsAuthModalOpen={setIsAuthModalOpen} position="cart"/>
+            {/* <button
               disabled={!clientValues.acceptRules && !client?._id}
               type="submit"
               form="formId"
-              className={styles.SecondBtnSubmit}
             >
               Відправити
             </button>
+                  {!client?._id && (
+        <div className={styles.headerSub}>
+          <>
+            <p>
+              Якщо ви вже заповнили анкету у одній з бібліотек або онлайн — увійдіть до свого
+              облікового запису, натиснувши кнопку нижче
+            </p>
+            <button onClick={() => setIsAuthModalOpen(true)} className={styles.accountBtn}>
+              Увійти
+            </button>
+          </>
+        </div>
+      )} */}
           </div>
           {isAuthModalOpen && <AuthModal authClose={() => setIsAuthModalOpen(false)} />}
           <ToastContainer
