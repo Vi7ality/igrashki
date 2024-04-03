@@ -1,11 +1,9 @@
 import Register from "../Register";
-import styles from "../../Subscription.module.scss";
 import { Formik } from "formik";
 import { FormEvent } from "react";
 import { SectionStyled } from "./AuthSection.styled";
 import InputField from "../InputField";
 import { ClientValuesType } from "../../../../models/auth";
-import { IClient } from "../../../../models/client";
 import { ImanagementPoint } from "../../../../models/managementPoint";
 import ButtonPannel from "../ButtonPannel";
 import { registerValidationSchema } from "../../../../utils/validationSchemas/authValidationSchema";
@@ -39,11 +37,15 @@ const AuthSection = ({
     messenger: "telegram",
     formType: "online",
     acceptRules: false,
-  }
+  };
 
   return (
     <SectionStyled>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={registerValidationSchema}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={registerValidationSchema}
+      >
         {({ handleSubmit, getFieldProps, touched, errors }) => {
           return (
             <form onSubmit={handleSubmit} id="formId">
@@ -72,7 +74,7 @@ const AuthSection = ({
                   getFieldProps={getFieldProps}
                 />
               ) : (
-                  <ClientDetails getFieldProps={getFieldProps} />
+                <ClientDetails />
               )}
               <ButtonPannel
                 clientValues={clientValues}

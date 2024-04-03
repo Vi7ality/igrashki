@@ -27,7 +27,6 @@ const InputField = ({
   touched,
   getFieldProps,
 }: PropType) => {
-  console.log(value);
   return (
     <InputWrap>
       <LabelStyled htmlFor={name}>{label}</LabelStyled>

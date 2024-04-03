@@ -1,41 +1,22 @@
 import { useAppSelector } from "../../../../redux/store";
-import InputField from "../InputField";
+import { InputStyled, InputWrap, LabelStyled, PhoneInput } from "./ClientDetails.styled";
 
-type PropType = {
-  getFieldProps(name: string): object;
-};
-
-const ClientDetails = ({ getFieldProps }: PropType) => {
+const ClientDetails = () => {
   const { client } = useAppSelector((state) => state.client);
   return (
     <>
-      <InputField
-        label="Ім'я"
-        type="text"
-        name="parentName"
-        placeholder="Ім'я"
-        value={client?.parentName}
-        disabled
-        getFieldProps={getFieldProps}
-      />
-      <InputField
-        label="Прізвище"
-        type="text"
-        name="parentSurname"
-        placeholder="Прізвище"
-        value={client?.parentSurname}
-        disabled
-        getFieldProps={getFieldProps}
-      />
-      <InputField
-        label="Мобільний номер"
-        type="tel"
-        name="phoneNumber"
-        placeholder="Мобільний номер"
-        value={client?.phoneNumber}
-        disabled
-        getFieldProps={getFieldProps}
-      />
+      <InputWrap>
+        <LabelStyled htmlFor="parentName">Ім'я</LabelStyled>
+        <InputStyled type="text" name="parentName" value={client?.parentName} disabled />
+      </InputWrap>
+      <InputWrap>
+        <LabelStyled htmlFor="parentSurname">Прізвище</LabelStyled>
+        <InputStyled type="text" name="parentSurname" value={client?.parentSurname} disabled />
+      </InputWrap>
+      <InputWrap>
+        <LabelStyled htmlFor="phoneNumber">Мобільний номер</LabelStyled>
+        <InputStyled type="tel" name="phoneNumber" value={client?.phoneNumber} disabled />
+      </InputWrap>
     </>
   );
 };
