@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface InputProps {
+  isInvalid?: boolean;
+}
+
 export const InputWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,7 +17,7 @@ export const RelativeWrap = styled.div`
   position: relative;
 `;
 
-export const InputStyled = styled.input`
+export const InputStyled = styled.input<InputProps>`
   outline: none;
   border: none;
   border-radius: 20px;
@@ -21,6 +25,12 @@ export const InputStyled = styled.input`
   background-color: ${(p) => p.theme.colors.bgWhite};
   color: ${(p) => p.theme.colors.darkBlue};
     width: 100%;
+
+      border: ${p => p.isInvalid ? '2px solid #FF6157' : 'none'};
+
+    &:focus {
+      border: 2px solid ${p => p.theme.colors.borderGrey};
+    }
 `;
 
 export const ShowPasswordBtn = styled.button`
@@ -34,3 +44,10 @@ export const ShowPasswordBtn = styled.button`
   outline: none;
   height: 24px;
 `;
+
+export const AlertMsg = styled.p`
+font-size: 14px;
+text-align: start;
+color: ${p => p.theme.colors.warnRed};
+margin-top: 5px;
+`

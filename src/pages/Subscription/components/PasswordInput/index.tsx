@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { FaEyeSlash } from "react-icons/fa6";
-import { InputWrap, InputStyled, LabelStyled, RelativeWrap, ShowPasswordBtn } from "./PasswordInput.styled";
+import {
+  InputWrap,
+  InputStyled,
+  LabelStyled,
+  RelativeWrap,
+  ShowPasswordBtn,
+  AlertMsg,
+} from "./PasswordInput.styled";
 import { ClientValuesType } from "../../../../models/auth";
+import { ErrorMessage, FormikTouched } from "formik";
 
 type PropType = {
   clientValues: ClientValuesType;
   setClientValues(clientValues: ClientValuesType): void;
+  error?: any;
+  touched: FormikTouched<FormEvent<Element>>;
+  getFieldProps: any;
 };
 
-const PasswordInput = ({ clientValues, setClientValues }: PropType) => {
+const PasswordInput = ({
+  clientValues,
+  setClientValues,
+  error,
+  touched,
+  getFieldProps,
+}: PropType) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <InputWrap>
@@ -21,6 +38,8 @@ const PasswordInput = ({ clientValues, setClientValues }: PropType) => {
           placeholder="Пароль"
           value={clientValues.password}
           onChange={(e: any) => setClientValues({ ...clientValues, password: e.target.value })}
+          {...getFieldProps("password")}
+          {...(error && touched && { isInvalid: true })}
         />
         <ShowPasswordBtn type="button" onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? (
@@ -30,6 +49,7 @@ const PasswordInput = ({ clientValues, setClientValues }: PropType) => {
           )}
         </ShowPasswordBtn>
       </RelativeWrap>
+      <ErrorMessage name="password">{(msg) => <AlertMsg>{msg}</AlertMsg>}</ErrorMessage>
     </InputWrap>
   );
 };

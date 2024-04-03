@@ -1,5 +1,6 @@
-import { ChangeEventHandler } from "react";
-import { InputStyled, InputWrap, LabelStyled, PhoneInput } from "./InputField.styled";
+import { ChangeEventHandler, FormEvent } from "react";
+import { AlertMsg, InputStyled, InputWrap, LabelStyled, PhoneInput } from "./InputField.styled";
+import { ErrorMessage, FormikTouched } from "formik";
 
 type PropType = {
   label: string;
@@ -9,6 +10,9 @@ type PropType = {
   value: string;
   disabled?: boolean;
   onChange?: ChangeEventHandler;
+  error?: any,
+  touched: FormikTouched<FormEvent<Element>>,
+  getFieldProps: any
 };
 
 const InputField = ({
@@ -19,6 +23,8 @@ const InputField = ({
   value,
   disabled = false,
   onChange,
+  error,
+  touched, getFieldProps
 }: PropType) => {
   return (
     <InputWrap>
@@ -33,6 +39,8 @@ const InputField = ({
           value={value}
           onChange={onChange}
           disabled={disabled}
+        {...getFieldProps(name)}
+          {...(error && touched && { isInvalid: true })}
         />
       ) : (
         <InputStyled
@@ -41,9 +49,12 @@ const InputField = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          disabled={disabled}
+            disabled={disabled}
+          {...getFieldProps(name)}
+            {...(error && touched && { isInvalid: true })}
         />
       )}
+      <ErrorMessage name={name} component="div">{(msg) => <AlertMsg>{msg}</AlertMsg>}</ErrorMessage>
     </InputWrap>
   );
 };

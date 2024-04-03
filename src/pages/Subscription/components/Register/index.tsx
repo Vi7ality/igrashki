@@ -2,15 +2,18 @@ import InputField from "../InputField";
 import PasswordInput from "../PasswordInput";
 import { ClientValuesType } from "../../../../models/auth";
 import { CheckboxField } from "../CheckboxField";
-
+import { FormikTouched } from "formik";
+import { FormEvent } from "react";
 
 type PropType = {
-  clientValues: ClientValuesType,
-  setClientValues(values: ClientValuesType): void,
-}
+  clientValues: ClientValuesType;
+  setClientValues(values: ClientValuesType): void;
+  errors: any;
+  touched: FormikTouched<FormEvent<Element>>;
+  getFieldProps: any
+};
 
-
-const Register = ({ clientValues, setClientValues }: PropType) => {
+const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps }: PropType) => {
   return (
     <>
       <InputField
@@ -20,6 +23,9 @@ const Register = ({ clientValues, setClientValues }: PropType) => {
         placeholder="Прізвище"
         value={clientValues.parentSurname}
         onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
+        error={errors.parentSurname}
+        touched={touched}
+        getFieldProps={getFieldProps}
       />
       <InputField
         label="Ім'я"
@@ -28,6 +34,9 @@ const Register = ({ clientValues, setClientValues }: PropType) => {
         placeholder="Ім'я"
         value={clientValues.parentName}
         onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
+        error={errors.parentName}
+        touched={touched}
+        getFieldProps={getFieldProps}
       />
       <InputField
         name="phoneNumber"
@@ -35,32 +44,48 @@ const Register = ({ clientValues, setClientValues }: PropType) => {
         label="Номер телефону"
         value={clientValues.phoneNumber}
         onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
+        error={errors.phoneNumber}
+        touched={touched}
+        getFieldProps={getFieldProps}
       />
-      <PasswordInput clientValues={clientValues} setClientValues={setClientValues} />
+      <PasswordInput
+        clientValues={clientValues}
+        setClientValues={setClientValues}
+        error={errors.password}
+        touched={touched}
+      getFieldProps={getFieldProps}/>
+      
       <InputField
         label="Ім'я дитини"
-         type="text"
-          name="childName"
-          placeholder="Ім'я дитини"
-          value={clientValues.childName}
-          onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
+        type="text"
+        name="childName"
+        placeholder="Ім'я дитини"
+        value={clientValues.childName}
+        onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
+        error={errors.childName}
+        touched={touched}
+        getFieldProps={getFieldProps}
       />
       <InputField
         label="Дата народження дитини"
         type="date"
-          name="childBirthDate"
-          placeholder="Дата народження дитини"
-          value={clientValues.childBirthDate}
-          onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}/>
-      <CheckboxField clientValues={clientValues} setClientValues={setClientValues} />
+        name="childBirthDate"
+        placeholder="Дата народження дитини"
+        value={clientValues.childBirthDate}
+        onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}
+        error={errors.childBirthDate}
+        touched={touched}
+        getFieldProps={getFieldProps}
+      />
+      <CheckboxField clientValues={clientValues} setClientValues={setClientValues} getFieldProps={getFieldProps} />
     </>
   );
 };
 
 export default Register;
 
-
-      {/* <div className={styles.field}>
+{
+  /* <div className={styles.field}>
         <label htmlFor="parentSurname" className={styles.fieldLabel}>
           Прізвище
         </label>
@@ -72,8 +97,10 @@ export default Register;
           value={clientValues.parentSurname}
           onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
         />
-      </div> */}
-      {/* <div className={styles.field}>
+      </div> */
+}
+{
+  /* <div className={styles.field}>
         <label htmlFor="parentName" className={styles.fieldLabel}>
           Ім'я
         </label>
@@ -85,8 +112,10 @@ export default Register;
           value={clientValues.parentName}
           onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
         />
-      </div> */}
-      {/* <div className={styles.field}>
+      </div> */
+}
+{
+  /* <div className={styles.field}>
         <label htmlFor="phoneNumber" className={styles.fieldLabel}>
           Мобільний номер
         </label>
@@ -100,8 +129,10 @@ export default Register;
           value={clientValues.phoneNumber}
           onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
         />
-      </div> */}
-      {/* <div className={styles.field}>
+      </div> */
+}
+{
+  /* <div className={styles.field}>
         <label htmlFor="password" className={styles.fieldLabel}>
           Пароль
         </label>
@@ -113,9 +144,11 @@ export default Register;
           value={clientValues.password}
           onChange={(e) => setClientValues({ ...clientValues, password: e.target.value })}
         />
-      </div> */}
+      </div> */
+}
 
-      {/* <div className={styles.field}>
+{
+  /* <div className={styles.field}>
         <label htmlFor="phoneNumber" className={styles.fieldLabel}>
           Ім'я дитини
         </label>
@@ -127,9 +160,11 @@ export default Register;
           value={clientValues.childName}
           onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
         />
-      </div> */}
+      </div> */
+}
 
-      {/* <div className={styles.field}>
+{
+  /* <div className={styles.field}>
         <label htmlFor="childBirthDate" className={styles.fieldLabel}>
           Дата народження дитини
         </label>
@@ -141,4 +176,5 @@ export default Register;
           value={clientValues.childBirthDate}
           onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}
         />
-      </div> */}
+      </div> */
+}

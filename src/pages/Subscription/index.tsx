@@ -48,10 +48,10 @@ const Subscription = () => {
     [dispatch]
   );
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (values: any) => {
     try {
       // e.preventDefault();
-      console.log(clientValues);
+      console.log(values);
       // let token = localStorage.getItem("userToken");
       // const subscription = {
       //   managementPointId: selectedManagementPoint?._id,
