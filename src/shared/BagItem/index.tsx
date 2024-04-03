@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { BagItemStyled, ItemImg, FlexWrap, WrapLeft, TrashIcon } from "./BagItem.styled";
-import icons from '../../../../assets/icons.svg'
+import { BagItemStyled, ItemImg, FlexWrap, WrapLeft, TrashIcon, ItemName } from "./BagItem.styled";
+import icons from "../../assets/icons.svg";
 
 interface BagItemProps {
   itemId: string;
@@ -15,12 +15,12 @@ const BagItem = ({ itemId, itemImage, itemName, deleteItem }: BagItemProps) => {
       <FlexWrap>
         <WrapLeft>
           <ItemImg src={itemImage} />
-          <p>{itemName}</p>
+          <ItemName>{itemName}</ItemName>
         </WrapLeft>
-              <button onClick={() => deleteItem(itemId)}>
-                <TrashIcon>
-                    <use href={`${icons}#icon-trash`}></use>
-                </TrashIcon>
+        <button onClick={() => deleteItem(itemId)}>
+          <TrashIcon>
+            <use href={`${icons}#icon-trash`}></use>
+          </TrashIcon>
         </button>
       </FlexWrap>
     </BagItemStyled>

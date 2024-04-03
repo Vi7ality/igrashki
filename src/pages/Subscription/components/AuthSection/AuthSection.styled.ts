@@ -6,11 +6,12 @@ padding: 30px 20px;
 background-color: ${p => p.theme.colors.white};
 
 @media ${p => p.theme.device.tablet} {
-border-radius: 0 30px 30px 0;
+border-radius: 30px 0 0 30px;
+width: 470px;
 padding: 40px 42px;
 }
 
 @media ${p => p.theme.device.desktop} {
-    
+    width: 540px;
 }
 `

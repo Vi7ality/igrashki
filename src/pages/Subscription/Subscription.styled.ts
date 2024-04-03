@@ -20,7 +20,6 @@ export const PageTitle = styled.h1`
 export const SubscrContainer = styled.div`
   @media ${(p) => p.theme.device.tablet} {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
   }
 `;

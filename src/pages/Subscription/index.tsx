@@ -1,19 +1,14 @@
 import {useNavigate } from "react-router-dom";
-import styles from "./Subscription.module.scss";
-import edit from "./assets/edit.png";
-import OrderedToy from "./components/OrderedToy";
 import { FormEvent, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import AuthModal from "../../shared/Header/components/AuthModal";
 import { ToastContainer, toast } from "react-toastify";
 import { useCallback } from "react";
-import { removeItemFromCart } from "../../redux/slices/cart.slice";
 import HeaderBackgound from "../../shared/HeaderBackground";
 import Container from "../../shared/Container";
 import AuthSection from "./components/AuthSection";
 import { PageTitle, SubscrContainer } from "./Subscription.styled";
 import { AxiosError } from "axios";
-import ButtonPannel from "./components/ButtonPannel";
 import OrderSection from "./components/OrderSection";
 
 // managementPointId:
@@ -25,11 +20,9 @@ import OrderSection from "./components/OrderSection";
 
 const Subscription = () => {
   const navigate = useNavigate();
-  // const dispatch = useAppDispatch();
   const { client } = useAppSelector((state) => state.client);
   const { selectedManagementPoint } = useAppSelector((state) => state.cart);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  // const [isEditing, setIsEditing] = useState(false);
   const [clientValues, setClientValues] = useState({
     parentName: "",
     parentSurname: "",
@@ -41,13 +34,6 @@ const Subscription = () => {
     formType: "online",
     acceptRules: false,
   });
-
-  // const handleDeleteItem = useCallback(
-  //   (id: string) => {
-  //     dispatch(removeItemFromCart(id));
-  //   },
-  //   [dispatch]
-  // );
 
   const handleSubmit = async (values: any) => {
     try {
@@ -77,9 +63,7 @@ const Subscription = () => {
         }
       }, 3000);
     }
-  };
-
-  
+  }; 
   return (
     <>
       <HeaderBackgound />
@@ -95,32 +79,7 @@ const Subscription = () => {
             setIsAuthModalOpen={setIsAuthModalOpen}
           />
           <OrderSection clientValues={clientValues} setIsAuthModalOpen={setIsAuthModalOpen} />
-          {/* <div className={styles.rightContent}>
-            <h1 className={styles.title}>Твоє замовлення</h1>
-            <div className={styles.container}>
-              <h6 className={styles.toysTitle}>Іграшки ({toysCount}) </h6>
-              <div className={styles.contentBox}>
-                <img className={styles.editImg} src={edit} alt="edit" />
-                <button className={styles.btnEdit} onClick={() => setIsEditing(!isEditing)}>
-                  Редагувати
-                </button>
-              </div>
-            </div>
-            <div className={styles.orderContainer}>
-              {cart.map((item) => (
-                <OrderedToy
-                  key={item.itemId}
-                  itemImage={item.itemImage}
-                  itemId={item.itemId}
-                  itemName={item.itemName}
-                  onDelete={handleDeleteItem}
-                  isEditing={isEditing}
-                />
-              ))}
-            </div>
-            <hr className={styles.line} />
-            <ButtonPannel client={client} clientValues={clientValues} setIsAuthModalOpen={setIsAuthModalOpen} position="cart"/>
-          </div> */}
+        </SubscrContainer>
           {isAuthModalOpen && <AuthModal authClose={() => setIsAuthModalOpen(false)} />}
           <ToastContainer
             position="bottom-right"
@@ -135,7 +94,6 @@ const Subscription = () => {
             theme="light"
             closeButton={false}
           />
-        </SubscrContainer>
       </Container>
     </>
   );

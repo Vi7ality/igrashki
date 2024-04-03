@@ -108,7 +108,6 @@ const AuthSection = ({
                 </>
               )}
               <ButtonPannel
-                client={client}
                 clientValues={clientValues}
                 setIsAuthModalOpen={setIsAuthModalOpen}
                 position="auth"

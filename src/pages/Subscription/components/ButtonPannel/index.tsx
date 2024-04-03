@@ -1,15 +1,23 @@
 import { ClientValuesType } from "../../../../models/auth";
-import { IClient } from "../../../../models/client";
-import { DecorLine, DecorText, DecorWrap, LoginBtn, PannelWrap, SubmitBtn, TextStyled } from "./ButtonPannel.styled";
+import { useAppSelector } from "../../../../redux/store";
+import {
+  DecorLine,
+  DecorText,
+  DecorWrap,
+  LoginBtn,
+  PannelWrap,
+  SubmitBtn,
+  TextStyled,
+} from "./ButtonPannel.styled";
 
 type PropType = {
-  client?: IClient;
   clientValues: ClientValuesType;
   setIsAuthModalOpen(value: boolean): void;
-  position: 'auth' | 'cart';
+  position: "auth" | "cart";
 };
 
-const ButtonPannel = ({ client, clientValues, setIsAuthModalOpen, position }: PropType) => {
+const ButtonPannel = ({ clientValues, setIsAuthModalOpen, position }: PropType) => {
+  const { client } = useAppSelector((state) => state.client);
   return (
     <PannelWrap position={position}>
       <SubmitBtn disabled={!clientValues?.acceptRules && !client?._id} type="submit" form="formId">

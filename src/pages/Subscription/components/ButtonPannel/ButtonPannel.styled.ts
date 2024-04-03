@@ -7,6 +7,11 @@ type PropType = {
 export const PannelWrap = styled.div<PropType>`
 display: ${p => p.position === 'auth' ? 'none' : 'block'};
 margin-top: 40px;
+
+@media ${p => p.theme.device.tablet} {
+    display: ${p => p.position === 'cart' ? 'none' : 'block'};
+    margin-top: 30px;
+}
 `
 
 export const SubmitBtn = styled.button`

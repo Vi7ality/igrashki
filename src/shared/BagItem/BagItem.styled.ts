@@ -4,7 +4,7 @@ export const BagItemStyled = styled.li`
   padding-bottom: 20px;
 
   &::after {
-    content: '';
+    content: "";
     position: relative;
     display: block;
     bottom: -20px;
@@ -12,7 +12,7 @@ export const BagItemStyled = styled.li`
     width: 100%;
     height: 1px;
     border-radius: 16px;
-    background-color: ${props => props.theme.colors.lightGrey}
+    background-color: ${(props) => props.theme.colors.lightGrey};
   }
 `;
 
@@ -38,6 +38,12 @@ export const ItemImg = styled.img`
     height: 120px;
     border-radius: 30px;
     margin-right: 40px;
+  }
+`;
+
+export const ItemName = styled.p`
+  @media ${(p) => p.theme.device.tablet} {
+    font-size: 18px;
   }
 `;
 
