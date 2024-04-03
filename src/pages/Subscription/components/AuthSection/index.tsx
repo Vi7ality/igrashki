@@ -9,6 +9,7 @@ import ButtonPannel from "../ButtonPannel";
 import { registerValidationSchema } from "../../../../utils/validationSchemas/authValidationSchema";
 import { useAppSelector } from "../../../../redux/store";
 import ClientDetails from "../ClientDetails";
+import { InputStyled, InputWrap, LabelStyled } from "../ClientDetails/ClientDetails.styled";
 
 type PropType = {
   handleSubmit: (e: FormEvent) => Promise<void>;
@@ -51,18 +52,19 @@ const AuthSection = ({
             <form onSubmit={handleSubmit} id="formId">
               <div>
                 {selectedManagementPoint && (
-                  <InputField
-                    label="Локація"
-                    type="text"
-                    name="location"
-                    value={
-                      selectedManagementPoint
-                        ? `${selectedManagementPoint.city}, ${selectedManagementPoint.location}`
-                        : ""
-                    }
-                    disabled
-                    getFieldProps={getFieldProps}
-                  />
+                  <InputWrap>
+                    <LabelStyled htmlFor="parentName">Локація</LabelStyled>
+                    <InputStyled
+                      type="text"
+                      name="location"
+                      value={
+                        selectedManagementPoint
+                          ? `${selectedManagementPoint.city}, ${selectedManagementPoint.location}`
+                          : ""
+                      }
+                      disabled
+                    />
+                  </InputWrap>
                 )}
               </div>
               {!client?._id ? (

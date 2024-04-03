@@ -64,7 +64,6 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
           onSubmit={handleLogin}
         >
           {({ handleSubmit, getFieldProps, touched, errors }) => {
-            console.log(errors)
             return (
               <form onSubmit={handleSubmit}>
                 <div>
