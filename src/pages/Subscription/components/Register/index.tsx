@@ -22,7 +22,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         name="parentSurname"
         placeholder="Прізвище"
         value={clientValues.parentSurname}
-        onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
+        // onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
         error={errors.parentSurname}
         touched={touched}
         getFieldProps={getFieldProps}
@@ -33,7 +33,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         name="parentName"
         placeholder="Ім'я"
         value={clientValues.parentName}
-        onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
+        // onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
         error={errors.parentName}
         touched={touched}
         getFieldProps={getFieldProps}
@@ -43,7 +43,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         type="tel"
         label="Номер телефону"
         value={clientValues.phoneNumber}
-        onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
+        // onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
         error={errors.phoneNumber}
         touched={touched}
         getFieldProps={getFieldProps}
@@ -61,7 +61,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         name="childName"
         placeholder="Ім'я дитини"
         value={clientValues.childName}
-        onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
+        // onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
         error={errors.childName}
         touched={touched}
         getFieldProps={getFieldProps}
@@ -72,7 +72,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         name="childBirthDate"
         placeholder="Дата народження дитини"
         value={clientValues.childBirthDate}
-        onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}
+        // onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}
         error={errors.childBirthDate}
         touched={touched}
         getFieldProps={getFieldProps}
@@ -95,7 +95,7 @@ export default Register;
           className={styles.fieldInput}
           placeholder="Прізвище"
           value={clientValues.parentSurname}
-          onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
+          // onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
         />
       </div> */
 }

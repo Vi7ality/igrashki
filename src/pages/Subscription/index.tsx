@@ -14,6 +14,7 @@ import AuthSection from "./components/AuthSection";
 import { PageTitle, SubscrContainer } from "./Subscription.styled";
 import { AxiosError } from "axios";
 import ButtonPannel from "./components/ButtonPannel";
+import OrderSection from "./components/OrderSection";
 
 // managementPointId:
 // clientId:
@@ -24,11 +25,11 @@ import ButtonPannel from "./components/ButtonPannel";
 
 const Subscription = () => {
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const { client } = useAppSelector((state) => state.client);
-  const { cart, selectedManagementPoint } = useAppSelector((state) => state.cart);
+  const { selectedManagementPoint } = useAppSelector((state) => state.cart);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
+  // const [isEditing, setIsEditing] = useState(false);
   const [clientValues, setClientValues] = useState({
     parentName: "",
     parentSurname: "",
@@ -41,12 +42,12 @@ const Subscription = () => {
     acceptRules: false,
   });
 
-  const handleDeleteItem = useCallback(
-    (id: string) => {
-      dispatch(removeItemFromCart(id));
-    },
-    [dispatch]
-  );
+  // const handleDeleteItem = useCallback(
+  //   (id: string) => {
+  //     dispatch(removeItemFromCart(id));
+  //   },
+  //   [dispatch]
+  // );
 
   const handleSubmit = async (values: any) => {
     try {
@@ -78,7 +79,7 @@ const Subscription = () => {
     }
   };
 
-  const toysCount = cart.length;
+  
   return (
     <>
       <HeaderBackgound />
@@ -93,8 +94,8 @@ const Subscription = () => {
             setClientValues={setClientValues}
             setIsAuthModalOpen={setIsAuthModalOpen}
           />
-
-          <div className={styles.rightContent}>
+          <OrderSection clientValues={clientValues} setIsAuthModalOpen={setIsAuthModalOpen} />
+          {/* <div className={styles.rightContent}>
             <h1 className={styles.title}>Твоє замовлення</h1>
             <div className={styles.container}>
               <h6 className={styles.toysTitle}>Іграшки ({toysCount}) </h6>
@@ -119,27 +120,7 @@ const Subscription = () => {
             </div>
             <hr className={styles.line} />
             <ButtonPannel client={client} clientValues={clientValues} setIsAuthModalOpen={setIsAuthModalOpen} position="cart"/>
-            {/* <button
-              disabled={!clientValues.acceptRules && !client?._id}
-              type="submit"
-              form="formId"
-            >
-              Відправити
-            </button>
-                  {!client?._id && (
-        <div className={styles.headerSub}>
-          <>
-            <p>
-              Якщо ви вже заповнили анкету у одній з бібліотек або онлайн — увійдіть до свого
-              облікового запису, натиснувши кнопку нижче
-            </p>
-            <button onClick={() => setIsAuthModalOpen(true)} className={styles.accountBtn}>
-              Увійти
-            </button>
-          </>
-        </div>
-      )} */}
-          </div>
+          </div> */}
           {isAuthModalOpen && <AuthModal authClose={() => setIsAuthModalOpen(false)} />}
           <ToastContainer
             position="bottom-right"
