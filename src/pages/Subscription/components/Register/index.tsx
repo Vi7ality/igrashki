@@ -2,15 +2,13 @@ import InputField from "../InputField";
 import PasswordInput from "../PasswordInput";
 import { ClientValuesType } from "../../../../models/auth";
 import { CheckboxField } from "../CheckboxField";
-import { FormikTouched } from "formik";
-import { FormEvent } from "react";
 
 type PropType = {
   clientValues: ClientValuesType;
   setClientValues(values: ClientValuesType): void;
   errors: any;
-  touched: FormikTouched<FormEvent<Element>>;
-  getFieldProps: any
+  touched: any;
+  getFieldProps(name: string): object;
 };
 
 const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps }: PropType) => {

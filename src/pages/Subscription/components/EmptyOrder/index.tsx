@@ -8,8 +8,8 @@ const EmptyOrder = () => {
         Твій кошик порожній.
         <br />
         Завітай до нашого <LinkStyled to={"/catalogue"}>Каталогу іграшок</LinkStyled>
-          </TextStyled>
-              <BoxImage src={EmptyBox} alt="Empty box" />   
+      </TextStyled>
+      <BoxImage src={EmptyBox} alt="Empty box" />
     </>
   );
 };

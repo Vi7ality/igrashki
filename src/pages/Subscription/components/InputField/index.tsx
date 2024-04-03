@@ -7,12 +7,12 @@ type PropType = {
   type: string;
   name: string;
   placeholder?: string;
-  value: string;
+  value: string | undefined;
   disabled?: boolean;
   onChange?: ChangeEventHandler;
-  error?: any,
-  touched?: boolean,
-  getFieldProps(name: string): object
+  error?: any;
+  touched?: boolean;
+  getFieldProps(name: string): object;
 };
 
 const InputField = ({
@@ -24,8 +24,10 @@ const InputField = ({
   disabled = false,
   onChange,
   error,
-  touched, getFieldProps
+  touched,
+  getFieldProps,
 }: PropType) => {
+  console.log(value);
   return (
     <InputWrap>
       <LabelStyled htmlFor={name}>{label}</LabelStyled>
@@ -39,7 +41,7 @@ const InputField = ({
           value={value}
           onChange={onChange}
           disabled={disabled}
-        {...getFieldProps(name)}
+          {...getFieldProps(name)}
           {...(error && touched && { isInvalid: true })}
         />
       ) : (
@@ -49,12 +51,14 @@ const InputField = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-            disabled={disabled}
+          disabled={disabled}
           {...getFieldProps(name)}
-            {...(error && touched && { isInvalid: true })}
+          {...(error && touched && { isInvalid: true })}
         />
       )}
-      <ErrorMessage name={name} component="div">{(msg) => <AlertMsg>{msg}</AlertMsg>}</ErrorMessage>
+      <ErrorMessage name={name} component="div">
+        {(msg) => <AlertMsg>{msg}</AlertMsg>}
+      </ErrorMessage>
     </InputWrap>
   );
 };

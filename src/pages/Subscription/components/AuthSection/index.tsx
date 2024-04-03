@@ -9,11 +9,12 @@ import { IClient } from "../../../../models/client";
 import { ImanagementPoint } from "../../../../models/managementPoint";
 import ButtonPannel from "../ButtonPannel";
 import { registerValidationSchema } from "../../../../utils/validationSchemas/authValidationSchema";
+import { useAppSelector } from "../../../../redux/store";
+import ClientDetails from "../ClientDetails";
 
 type PropType = {
   handleSubmit: (e: FormEvent) => Promise<void>;
   selectedManagementPoint?: ImanagementPoint;
-  client?: IClient;
   clientValues: ClientValuesType;
   setClientValues(values: ClientValuesType): void;
   setIsAuthModalOpen(value: boolean): void;
@@ -23,12 +24,11 @@ type PropType = {
 const AuthSection = ({
   handleSubmit,
   selectedManagementPoint,
-  client,
   clientValues,
   setClientValues,
   setIsAuthModalOpen,
 }: PropType) => {
-
+  const { client } = useAppSelector((state) => state.client);
   const initialValues = {
     parentName: "",
     parentSurname: "",
@@ -72,39 +72,7 @@ const AuthSection = ({
                   getFieldProps={getFieldProps}
                 />
               ) : (
-                <>
-                  <div>
-                    <label htmlFor="parentName">Ім'я</label>
-                    <input
-                      type="text"
-                      name="parentName"
-                      className={styles.fieldInput}
-                      placeholder="Ім'я"
-                      value={client?.parentName}
-                      disabled
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="parentSurname">Прізвище</label>
-                    <input
-                      type="text"
-                      name="parentSurname"
-                      placeholder="Прізвище"
-                      value={client?.parentSurname}
-                      disabled
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phoneNumber">Мобільний номер</label>
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      placeholder="+38 (___) ___ __ __"
-                      value={client?.phoneNumber}
-                      disabled
-                    />
-                  </div>
-                </>
+                  <ClientDetails getFieldProps={getFieldProps} />
               )}
               <ButtonPannel
                 clientValues={clientValues}

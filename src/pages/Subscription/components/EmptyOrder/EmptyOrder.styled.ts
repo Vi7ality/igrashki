@@ -11,14 +11,6 @@ export const LinkStyled = styled(NavLink)`
   color: ${(props) => props.theme.colors.baseBlue};
 `;
 
-// export const ImgContainer = styled.div`
-// @media ${p => p.theme.device.mobileOnly} {
-//     height: 220px;
-// }
-// display: flex;
-// width: 100%;
-// height: 100%;
-// `
 
 export const BoxImage = styled.img`
 width: 200px;
