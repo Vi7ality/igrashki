@@ -58,7 +58,6 @@ const AuthSection = ({
                         ? `${selectedManagementPoint.city}, ${selectedManagementPoint.location}`
                         : ""
                     }
-                    touched={touched}
                     disabled
                     getFieldProps={getFieldProps}
                   />

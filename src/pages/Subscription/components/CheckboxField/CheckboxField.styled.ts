@@ -50,4 +50,8 @@ font-size: 14px;
 export const FlexWrap = styled.div`
 display: flex;
 gap: 58px;
+
+@media ${p => p.theme.device.tablet}{
+  gap: 85px;
+}
 `

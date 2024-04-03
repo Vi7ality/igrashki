@@ -1,5 +1,6 @@
 import { useAppSelector } from "../../../../redux/store";
 import ButtonPannel from "../ButtonPannel";
+import EmptyOrder from "../EmptyOrder";
 import OrderList from "../OrderList";
 import { SectionStyled, SectionTitle } from "./OrderSection.styled";
 
@@ -14,7 +15,7 @@ const OrderSection = ({clientValues, setIsAuthModalOpen}: PropType) => {
     return (
         <SectionStyled>
         <SectionTitle>Замовлення</SectionTitle>
-        {toysCount === 0 ? <>Пусто</> :
+        {toysCount === 0 ? <EmptyOrder/> :
           <OrderList/>
         }
             <ButtonPannel clientValues={clientValues} setIsAuthModalOpen={setIsAuthModalOpen} position="cart"/>

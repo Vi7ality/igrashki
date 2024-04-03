@@ -17,5 +17,5 @@ export const registerValidationSchema = Yup.object({
   childBirthDate: Yup.date().required("Введіть дату народження дитини"),
   password: Yup.string()
     .required("Це поле обов'язкове")
-    .min(6, "Пароль повинен бути більшим за 6 символів"),
+    .min(6, "Пароль повинен бути не меншим за 6 символів"),
 });

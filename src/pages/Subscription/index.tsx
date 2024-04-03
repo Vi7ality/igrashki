@@ -5,7 +5,6 @@ import AuthModal from "../../shared/Header/components/AuthModal";
 import { ToastContainer, toast } from "react-toastify";
 import { useCallback } from "react";
 import HeaderBackgound from "../../shared/HeaderBackground";
-import Container from "../../shared/Container";
 import AuthSection from "./components/AuthSection";
 import { PageTitle, SubscrContainer } from "./Subscription.styled";
 import { AxiosError } from "axios";
@@ -67,7 +66,6 @@ const Subscription = () => {
   return (
     <>
       <HeaderBackgound />
-      <Container>
         <PageTitle>Реєстрація</PageTitle>
         <SubscrContainer>
           <AuthSection
@@ -94,7 +92,6 @@ const Subscription = () => {
             theme="light"
             closeButton={false}
           />
-      </Container>
     </>
   );
 };

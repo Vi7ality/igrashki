@@ -11,7 +11,7 @@ type PropType = {
   disabled?: boolean;
   onChange?: ChangeEventHandler;
   error?: any,
-  touched: boolean,
+  touched?: boolean,
   getFieldProps(name: string): object
 };
 
