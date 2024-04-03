@@ -24,7 +24,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         value={clientValues.parentSurname}
         // onChange={(e) => setClientValues({ ...clientValues, parentSurname: e.target.value })}
         error={errors.parentSurname}
-        touched={touched}
+        touched={touched.parentSurname}
         getFieldProps={getFieldProps}
       />
       <InputField
@@ -35,7 +35,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         value={clientValues.parentName}
         // onChange={(e) => setClientValues({ ...clientValues, parentName: e.target.value })}
         error={errors.parentName}
-        touched={touched}
+        touched={touched.parentName}
         getFieldProps={getFieldProps}
       />
       <InputField
@@ -45,14 +45,14 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         value={clientValues.phoneNumber}
         // onChange={(e) => setClientValues({ ...clientValues, phoneNumber: e.target.value })}
         error={errors.phoneNumber}
-        touched={touched}
+        touched={touched.phoneNumber}
         getFieldProps={getFieldProps}
       />
       <PasswordInput
         clientValues={clientValues}
         setClientValues={setClientValues}
         error={errors.password}
-        touched={touched}
+        touched={touched.password}
       getFieldProps={getFieldProps}/>
       
       <InputField
@@ -63,7 +63,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         value={clientValues.childName}
         // onChange={(e) => setClientValues({ ...clientValues, childName: e.target.value })}
         error={errors.childName}
-        touched={touched}
+        touched={touched.childName}
         getFieldProps={getFieldProps}
       />
       <InputField
@@ -74,7 +74,7 @@ const Register = ({ clientValues, setClientValues, errors, touched,getFieldProps
         value={clientValues.childBirthDate}
         // onChange={(e) => setClientValues({ ...clientValues, childBirthDate: e.target.value })}
         error={errors.childBirthDate}
-        touched={touched}
+        touched={touched.childBirthDate}
         getFieldProps={getFieldProps}
       />
       <CheckboxField clientValues={clientValues} setClientValues={setClientValues} getFieldProps={getFieldProps} />

@@ -11,8 +11,8 @@ type PropType = {
   disabled?: boolean;
   onChange?: ChangeEventHandler;
   error?: any,
-  touched: FormikTouched<FormEvent<Element>>,
-  getFieldProps: any
+  touched: boolean,
+  getFieldProps(name: string): object
 };
 
 const InputField = ({
