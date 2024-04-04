@@ -5,7 +5,7 @@ export type ClientValuesType = {
   password: string;
   childName: string;
   childBirthDate: string;
-  messenger: "telegram" | "viber";
-  formType: "online" | "offline";
+  messenger: string;
+  formType: string;
   acceptRules: boolean;
 };

@@ -16,7 +16,7 @@ type PropType = {
   clientValues: ClientValuesType;
   setClientValues(clientValues: ClientValuesType): void;
   error?: any;
-  touched: FormikTouched<FormEvent<Element>>;
+  touched?: boolean;
   getFieldProps: any;
 };
 

@@ -7,7 +7,7 @@ import ClientDetails from "../ClientDetails";
 
 
 type PropType = {
-  handleSubmit: (e: FormEvent) => Promise<void>;
+  handleSubmit(values: ClientValuesType): Promise<void>;
   clientValues: ClientValuesType;
   setClientValues(values: ClientValuesType): void;
   setIsAuthModalOpen(value: boolean): void;

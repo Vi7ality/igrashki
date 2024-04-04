@@ -7,7 +7,7 @@ import { ClientValuesType } from "../../../../models/auth";
 import SelectedLocation from "../SelectedLocation";
 
 type PropType = {
-  handleSubmit: (e: FormEvent<Element>) => Promise<void>;
+  handleSubmit(values: ClientValuesType): Promise<void>;
   setIsAuthModalOpen(value: boolean): void;
   clientValues: ClientValuesType;
 };

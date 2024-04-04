@@ -15,7 +15,7 @@ type PropType = {
   // errors: any;
   // touched: any;
   // getFieldProps(name: string): object;
-  handleSubmit: (e: FormEvent<Element>) => Promise<void>;
+  handleSubmit(values: ClientValuesType): Promise<void>;
   setIsAuthModalOpen(value: boolean): void;
 };
 
