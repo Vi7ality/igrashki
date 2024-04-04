@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     white: "#FFFFFF",
     bgWhite: "#F3F3FF",
+    bgWhite2: "#fafaff",
     mutedWhite: "#8F8ACD",
 
     baseBlue: "#46409C",
@@ -11,6 +12,7 @@ export const theme = {
     bgDark: "#100E20",
     borderGrey: '#AFBBF2',
     mutedGrey: "#70728F",
+    mutedGrey2: "#8F91BF",
     lightGrey: '#D8DEFB',
 
     accent: "#FFCD1E",

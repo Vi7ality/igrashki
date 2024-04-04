@@ -76,7 +76,7 @@ const AuthModal = ({ authClose }: AuthModalProps) => {
                   touched={touched.phoneNumber}
                 />
                 <PasswordInput
-                  
+                
                   getFieldProps={getFieldProps}
                   error={errors.phoneNumber}
                   touched={touched.phoneNumber}

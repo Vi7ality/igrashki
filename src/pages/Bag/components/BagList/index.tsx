@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { removeItemFromCart } from "../../../../redux/slices/cart.slice";
 import { useAppDispatch, useAppSelector } from "../../../../redux/store";
-import BagItem from "../BagItem";
 import { CalcText, CartList, FlexWrap, LinkAccent, LinkTrsp, ListWrap } from "./BagList.styled";
+import BagItem from "../../../../shared/BagItem";
 
 const BagList = () => {
   const { cart } = useAppSelector((state) => state.cart);

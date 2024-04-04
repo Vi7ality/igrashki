@@ -12,7 +12,7 @@ export const PhoneInput = ({ getFieldProps, error, touched }: PropType) => {
     <PhoneInputWrap>
       <InputMaskStyled
         mask="+38 (999) 999 99 99"
-        placeholder="+380"
+        placeholder="+38"
         maskChar={null}
         autocomplete="username"
         {...getFieldProps("phoneNumber")}
