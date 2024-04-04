@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useAppSelector } from "../../redux/store";
+import { AppDispatch, useAppSelector } from "../../redux/store";
 import AuthModal from "../../shared/Header/components/AuthModal";
 import { ToastContainer, toast } from "react-toastify";
 import HeaderBackgound from "../../shared/HeaderBackground";
@@ -11,6 +11,7 @@ import api from "../../api";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/slices/cart.slice";
 import { ClientState} from "../../models/auth";
+import { autoLogin } from "../../redux/slices/client.slice";
 
 // managementPointId:
 // clientId:
@@ -27,7 +28,7 @@ const Subscription = () => {
     acceptRules: false,
   });
   const { cart } = useAppSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = async (values: ClientState) => {
     try {
@@ -40,6 +41,7 @@ const Subscription = () => {
       if (!client?._id) {
         const { data: registeredClient } = await api.post("/auth/register", values);
         token = registeredClient.token;
+        typeof(token) === 'string' && dispatch(autoLogin(token));
       }
 
       if (cart.length > 0) {
