@@ -9,6 +9,9 @@ import AuthSection from "./components/AuthSection";
 import { PageTitle, SubscrContainer } from "./Subscription.styled";
 import { AxiosError } from "axios";
 import OrderSection from "./components/OrderSection";
+import api from "../../api";
+import { useDispatch } from "react-redux";
+import { clearCart } from '../../redux/slices/cart.slice';
 
 // managementPointId:
 // clientId:
@@ -33,28 +36,31 @@ const Subscription = () => {
     formType: "online",
     acceptRules: false,
   });
-
+  const { cart } = useAppSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  
   const handleSubmit = async (values: any) => {
     try {
       // e.preventDefault();
-      console.log(values);
-      // let token = localStorage.getItem("userToken");
-      // const subscription = {
-      //   managementPointId: selectedManagementPoint?._id,
-      //   toys: cart.map((toy) => toy.itemId),
-      // };
+      console.log('values', values);
+      let token = localStorage.getItem("userToken");
+      const subscription = {
+        managementPointId: selectedManagementPoint?._id,
+        toys: cart.map((toy) => toy.itemId),
+      };
 
-      // if (!client?._id) {
-      //   const { data: registeredClient } = await api.post("/auth/register", clientValues);
-      //   token = registeredClient.token;
-      // }
-
-      // await api.post("/subscription/sub", subscription, {
-      //   headers: { Authorization: `Bearer ${token}` },
-      // });
-      // dispatch(clearCart());
-      // navigate("/confirmation");
+      if (!client?._id) {
+        const { data: registeredClient } = await api.post("/auth/register", values);
+        token = registeredClient.token;
+      }
+      
+      await api.post("/subscription/sub", subscription, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(clearCart());
+      navigate("/confirmation");
     } catch (error: any) {
+      console.log(error)
       toast.error(`Помилка при оформленні: ${error?.response?.data?.error}`);
       setTimeout(() => {
         if (client?._id) {
