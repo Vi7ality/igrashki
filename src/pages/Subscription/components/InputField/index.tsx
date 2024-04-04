@@ -1,13 +1,13 @@
-import { ChangeEventHandler, FormEvent } from "react";
+import { ChangeEventHandler } from "react";
 import { AlertMsg, InputStyled, InputWrap, LabelStyled, PhoneInput } from "./InputField.styled";
-import { ErrorMessage, FormikTouched } from "formik";
+import { ErrorMessage } from "formik";
 
 type PropType = {
   label: string;
   type: string;
   name: string;
   placeholder?: string;
-  value: string | undefined;
+  value?: string | undefined;
   disabled?: boolean;
   onChange?: ChangeEventHandler;
   error?: any;

@@ -1,21 +1,26 @@
 import { Form, Formik } from "formik";
 import { useAppSelector } from "../../../../redux/store";
 import { InputStyled, InputWrap, LabelStyled } from "./ClientDetails.styled";
-import { FormEvent } from "react";
 import ButtonPannel from "../ButtonPannel";
-import { ClientValuesType } from "../../../../models/auth";
+import { ClientState } from "../../../../models/auth";
 import SelectedLocation from "../SelectedLocation";
 
 type PropType = {
-  handleSubmit(values: ClientValuesType): Promise<void>;
+  handleSubmit(values: ClientState): Promise<void>;
   setIsAuthModalOpen(value: boolean): void;
-  clientValues: ClientValuesType;
+  clientValues: ClientState;
 };
 
 const initialValues = {
   parentName: "",
   parentSurname: "",
   phoneNumber: "",
+  password: "",
+  childName: "",
+  childBirthDate: "",
+  messenger: "telegram",
+  formType: "online",
+  acceptRules: false,
 };
 
 const ClientDetails = ({ handleSubmit, clientValues, setIsAuthModalOpen }: PropType) => {

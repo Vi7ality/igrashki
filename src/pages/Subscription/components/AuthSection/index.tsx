@@ -1,17 +1,15 @@
 import Register from "../Register";
-import { FormEvent } from "react";
 import { SectionStyled } from "./AuthSection.styled";
-import { ClientValuesType } from "../../../../models/auth";
+import { ClientState } from "../../../../models/auth";
 import { useAppSelector } from "../../../../redux/store";
 import ClientDetails from "../ClientDetails";
 
 
 type PropType = {
-  handleSubmit(values: ClientValuesType): Promise<void>;
-  clientValues: ClientValuesType;
-  setClientValues(values: ClientValuesType): void;
+  handleSubmit(values: ClientState): Promise<void>;
+  clientValues: ClientState;
+  setClientValues(values: ClientState): void;
   setIsAuthModalOpen(value: boolean): void;
-  initialValues: string;
 };
 
 const AuthSection = ({

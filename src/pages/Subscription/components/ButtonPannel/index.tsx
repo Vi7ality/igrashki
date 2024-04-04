@@ -1,4 +1,4 @@
-import { ClientValuesType } from "../../../../models/auth";
+import { ClientState } from "../../../../models/auth";
 import { useAppSelector } from "../../../../redux/store";
 import {
   DecorLine,
@@ -11,7 +11,7 @@ import {
 } from "./ButtonPannel.styled";
 
 type PropType = {
-  clientValues: ClientValuesType;
+  clientValues: ClientState;
   setIsAuthModalOpen(value: boolean): void;
   position: "auth" | "cart";
 };

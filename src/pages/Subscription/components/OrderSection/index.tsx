@@ -1,3 +1,4 @@
+import { ClientState } from "../../../../models/auth";
 import { useAppSelector } from "../../../../redux/store";
 import ButtonPannel from "../ButtonPannel";
 import EmptyOrder from "../EmptyOrder";
@@ -5,8 +6,8 @@ import OrderList from "../OrderList";
 import { SectionStyled, SectionTitle } from "./OrderSection.styled";
 
 type PropType = {
-    clientValues: any,
-    setIsAuthModalOpen: any
+    clientValues: ClientState,
+    setIsAuthModalOpen(value: boolean): void;
 }
 
 const OrderSection = ({clientValues, setIsAuthModalOpen}: PropType) => {

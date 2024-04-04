@@ -1,5 +1,5 @@
 import { Field } from "formik";
-import { ClientValuesType } from "../../../../models/auth";
+import { ClientState } from "../../../../models/auth";
 import {
   CheckWrapper,
   CheckedIcon,
@@ -11,8 +11,8 @@ import {
 } from "./CheckboxField.styled";
 
 type PropType = {
-  clientValues: ClientValuesType;
-  setClientValues(values: ClientValuesType): void;
+  clientValues: ClientState;
+  setClientValues(values: ClientState): void;
   getFieldProps: any;
 };
 
@@ -44,15 +44,6 @@ export const CheckboxField = ({ clientValues, setClientValues, getFieldProps }: 
           {clientValues.messenger === "telegram" ? <CheckedIcon /> : <UncheckedIcon />}
           <span>Telegram</span>
         </LabelStyled>
-        {/* <LabelStyled onClick={() => setClientValues({ ...clientValues, messenger: "viber" })}>
-          {clientValues.messenger === "viber" ? <CheckedIcon /> : <UncheckedIcon />}
-          <span>Viber</span>
-        </LabelStyled>
-
-        <LabelStyled onClick={() => setClientValues({ ...clientValues, messenger: "telegram" })}>
-          {clientValues.messenger === "telegram" ? <CheckedIcon /> : <UncheckedIcon />}
-          <span>Telegram</span>
-        </LabelStyled> */}
       </FlexWrap>
     </>
   );

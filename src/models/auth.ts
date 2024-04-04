@@ -9,3 +9,8 @@ export type ClientValuesType = {
   formType: string;
   acceptRules: boolean;
 };
+
+export type ClientState = {
+  messenger: string;
+  acceptRules: boolean;
+}

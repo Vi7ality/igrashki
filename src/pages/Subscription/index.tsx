@@ -1,18 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { FormEvent, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { useState } from "react";
+import { useAppSelector } from "../../redux/store";
 import AuthModal from "../../shared/Header/components/AuthModal";
 import { ToastContainer, toast } from "react-toastify";
-import { useCallback } from "react";
 import HeaderBackgound from "../../shared/HeaderBackground";
 import AuthSection from "./components/AuthSection";
 import { PageTitle, SubscrContainer } from "./Subscription.styled";
-import { AxiosError } from "axios";
 import OrderSection from "./components/OrderSection";
 import api from "../../api";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/slices/cart.slice";
-import { ClientValuesType } from "../../models/auth";
+import { ClientState} from "../../models/auth";
 
 // managementPointId:
 // clientId:
@@ -25,23 +23,14 @@ const Subscription = () => {
   const { selectedManagementPoint } = useAppSelector((state) => state.cart);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [clientValues, setClientValues] = useState({
-    parentName: "",
-    parentSurname: "",
-    phoneNumber: "",
-    password: "",
-    childName: "",
-    childBirthDate: "",
     messenger: "telegram",
-    formType: "online",
     acceptRules: false,
   });
   const { cart } = useAppSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const handleSubmit = async (values: ClientValuesType) => {
+  const handleSubmit = async (values: ClientState) => {
     try {
-      // e.preventDefault();
-      // console.log("values", values);
       let token = localStorage.getItem("userToken");
       const subscription = {
         managementPointId: selectedManagementPoint?._id,
@@ -78,8 +67,6 @@ const Subscription = () => {
       <SubscrContainer>
         <AuthSection
           handleSubmit={handleSubmit}
-          selectedManagementPoint={selectedManagementPoint}
-          client={client}
           clientValues={clientValues}
           setClientValues={setClientValues}
           setIsAuthModalOpen={setIsAuthModalOpen}
