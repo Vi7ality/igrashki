@@ -10,8 +10,8 @@ import OrderSection from "./components/OrderSection";
 import api from "../../api";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/slices/cart.slice";
-import { ClientState} from "../../models/auth";
-import { autoLogin } from "../../redux/slices/client.slice";
+import { ClientValuesType} from "../../models/auth";
+import { clientRegister } from "../../redux/slices/client.slice";
 
 // managementPointId:
 // clientId:
@@ -30,7 +30,7 @@ const Subscription = () => {
   const { cart } = useAppSelector((state) => state.cart);
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleSubmit = async (values: ClientState) => {
+  const handleSubmit = async (values: ClientValuesType) => {
     try {
       let token = localStorage.getItem("userToken");
       const subscription = {
@@ -39,9 +39,9 @@ const Subscription = () => {
       };
 
       if (!client?._id) {
-        const { data: registeredClient } = await api.post("/auth/register", values);
-        token = registeredClient.token;
-        typeof(token) === 'string' && dispatch(autoLogin(token));
+        const data  = await dispatch(clientRegister(values));
+        token = data.payload.token;
+        console.log('token:', token)
       }
 
       if (cart.length > 0) {

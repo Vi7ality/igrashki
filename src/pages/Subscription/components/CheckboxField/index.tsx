@@ -1,7 +1,5 @@
-import { Field } from "formik";
 import { ClientState } from "../../../../models/auth";
 import {
-  CheckWrapper,
   CheckedIcon,
   FlexWrap,
   HiddenCheckbox,
@@ -16,7 +14,7 @@ type PropType = {
   getFieldProps: any;
 };
 
-export const CheckboxField = ({ clientValues, setClientValues, getFieldProps }: PropType) => {
+export const CheckboxField = ({ clientValues, setClientValues }: PropType) => {
   return (
     <>
         <LabelStyled>
