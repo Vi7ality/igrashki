@@ -1,23 +1,31 @@
-import { Link } from "react-router-dom";
-import HeaderBackgound from "../../shared/HeaderBackground";
-import Container from "../../shared/Container";
-import CheckImg from "./assets/check-illustration.svg";
+import HeaderBackgound from '../../shared/HeaderBackground';
+import CheckImg from './assets/check-illustration.svg';
+import {
+  SectionStyled,
+  Image,
+  PageTitle,
+  FlexContainer,
+  TextStyled,
+  LinkStyled,
+} from './Confirmation.styled';
 
 const Confirmation = () => {
   return (
     <>
       <HeaderBackgound />
-      <section>
-        <Container>
-          <img src={CheckImg} alt="confirm image"></img>
-          <h1>Дякуемо за замовлення!</h1>
-          <p>
-            Найближчим часом наш менеджер зв’яжеться з вами у мессенджері, що ви обрали, для
-            погодження вашого замовлення. Бажаємо гарного дня!
-          </p>
-          <Link to="/">Повернутися на головну сторінку</Link>
-        </Container>
-      </section>
+      <SectionStyled>
+        <FlexContainer>
+          <Image src={CheckImg} alt="confirm image"></Image>
+          <PageTitle>Дякуємо за замовлення!</PageTitle>
+          <TextStyled>
+            Найближчим часом наш менеджер зв’яжеться з вами в обраному
+            месенджері, для погодження деталей.
+            <br />
+            Бажаємо гарного дня!
+          </TextStyled>
+          <LinkStyled to="/">Повернутися на головну</LinkStyled>
+        </FlexContainer>
+      </SectionStyled>
     </>
   );
 };
