@@ -1,11 +1,12 @@
 import { ChangeEvent, useMemo } from 'react';
 import { useAppSelector } from '../../../../redux/store';
 import { IManager } from '../../../../models/manager';
+import { LocationWrap,SelectWrapper, StyledSelect, TitleStyled } from './SelectLocation.styled';
 
 type Props = {
   managementPoints: any;
   selectedCity: string;
-  handleCitySelect(e: Event): void;
+  handleCitySelect(e: ChangeEvent<HTMLSelectElement>): void;
   handleChangeLocation(e: ChangeEvent<HTMLSelectElement>): void;
 };
 
@@ -28,20 +29,19 @@ const SelectLocation = ({
   );
 
   return (
-    <>
-      <h2>Локація</h2>
-      <div>
+    <LocationWrap>
+      <TitleStyled>Локація</TitleStyled>
+      <SelectWrapper>
         {cities.length > 0 && (
-          <select value={selectedCity} placeholder='Оберіть ваше місто' onChange={handleCitySelect}>
+          <StyledSelect value={selectedCity} onChange={handleCitySelect}>
             {cities.map((city: string) => (
               <option key={city} value={city}>
                 {city}
               </option>
             ))}
-          </select>
+          </StyledSelect>
         )}
-      </div>
-      <div>
+
         {managementPointsByCity.length > 0 && (
           <select
             value={selectedManagementPoint?._id}
@@ -54,8 +54,8 @@ const SelectLocation = ({
             ))}
           </select>
         )}
-      </div>
-    </>
+      </SelectWrapper>
+    </LocationWrap>
   );
 };
 
