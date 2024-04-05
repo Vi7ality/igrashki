@@ -18,6 +18,7 @@ margin-bottom: 5px;
 `
 
 export const InputStyled = styled.input<InputProps>`
+width: 100%;
 outline: none;
 border: none;
 border-radius: 20px;
