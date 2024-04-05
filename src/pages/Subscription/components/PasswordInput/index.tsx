@@ -10,7 +10,7 @@ import {
   AlertMsg,
 } from "./PasswordInput.styled";
 import { ClientState } from "../../../../models/auth";
-import { ErrorMessage} from "formik";
+import { ErrorMessage } from "formik";
 
 type PropType = {
   clientValues: ClientState;
@@ -20,11 +20,7 @@ type PropType = {
   getFieldProps: any;
 };
 
-const PasswordInput = ({
-  error,
-  touched,
-  getFieldProps,
-}: PropType) => {
+const PasswordInput = ({ error, touched, getFieldProps }: PropType) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <InputWrap>
@@ -39,9 +35,9 @@ const PasswordInput = ({
         />
         <ShowPasswordBtn type="button" onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? (
-            <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
-          ) : (
             <AiFillEye style={{ width: "24px", height: "24px" }} />
+          ) : (
+            <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
           )}
         </ShowPasswordBtn>
       </RelativeWrap>

@@ -25,9 +25,9 @@ export const PasswordInput = ({ getFieldProps, error, touched }: PropType) => {
         />
         <ShowPasswordBtn type="button" onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? (
-            <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
-          ) : (
             <AiFillEye style={{ width: "24px", height: "24px" }} />
+          ) : (
+            <FaEyeSlash style={{ color: "grey", width: "24px", height: "24px" }} />
           )}
         </ShowPasswordBtn>
       </div>
