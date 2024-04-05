@@ -1,6 +1,3 @@
-import Footer from '../../shared/Footer';
-import Header from '../../shared/Header';
-import styles from './Catalogue.module.scss';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { ChangeEvent, useEffect, useMemo, useState } from 'react';
@@ -16,6 +13,8 @@ import { IManager } from '../../models/manager';
 import { IToyInfo } from '../../models/toy';
 import HeaderBackgound from '../../shared/HeaderBackground';
 import Container from '../../shared/Container';
+import { PageTitle, SectionStyled } from './Catalogue.styled';
+import SelectLocation from './components/SelectLocation';
 
 const Catalogue = () => {
   const { toys, isLoading: isToysLoading } = useAppSelector(
@@ -94,25 +93,26 @@ const Catalogue = () => {
     );
   };
 
-  const cities = useMemo(
-    () => [...new Set(managementPoints.map((point: IManager) => point.city))],
-    [managementPoints]
-  );
-  const managementPointsByCity = useMemo(
-    () =>
-      managementPoints.filter((point: IManager) => point.city === selectedCity),
-    [selectedCity, managementPoints]
-  );
+  // const cities = useMemo(
+  //   () => [...new Set(managementPoints.map((point: IManager) => point.city))],
+  //   [managementPoints]
+  // );
+  // const managementPointsByCity = useMemo(
+  //   () =>
+  //     managementPoints.filter((point: IManager) => point.city === selectedCity),
+  //   [selectedCity, managementPoints]
+  // );
 
   return (
-    <div>
+    <>
       <HeaderBackgound />
-      <section>
+      <SectionStyled>
         <Container>
         <div>
-          <h1>Каталог іграшок</h1>
-          <div>
-            <aside>
+          <PageTitle>Каталог іграшок</PageTitle>
+            <div>
+              <SelectLocation managementPoints={managementPoints} selectedCity={selectedCity} handleCitySelect={handleCitySelect} handleChangeLocation={handleChangeLocation} />
+            {/* <aside>
               <div>
                 <h3>Місто</h3>
                 {cities.length > 0 && (
@@ -145,7 +145,7 @@ const Catalogue = () => {
                   </select>
                 )}
               </div>
-            </aside>
+            </aside> */}
               {isToysLoading ? (
                 <h1>Шукаємо іграшки на вибраній локації...</h1>
               ) : (
@@ -170,7 +170,7 @@ const Catalogue = () => {
           </div>
           </div>
           </Container>
-      </section>
+      </SectionStyled>
 
 
       <ToastContainer
@@ -185,7 +185,7 @@ const Catalogue = () => {
         theme="light"
         closeButton={false}
       />
-    </div>
+    </>
   );
 };
 
