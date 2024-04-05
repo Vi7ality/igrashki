@@ -34,6 +34,8 @@ const Register = ({
   setIsAuthModalOpen,
 }: PropType) => {
   const { selectedManagementPoint } = useAppSelector((state) => state.cart);
+  const { cart } = useAppSelector((state) => state.cart);
+  const toysCount = cart.length;
   return (
     <Formik
       initialValues={initialValues}
@@ -43,7 +45,7 @@ const Register = ({
       {({ handleSubmit, getFieldProps, touched, errors }) => {
         return (
           <Form onSubmit={handleSubmit} id="formId">
-            {selectedManagementPoint && <SelectedLocation />}
+            {selectedManagementPoint && toysCount > 0 && <SelectedLocation />}
             <InputField
               label="Прізвище"
               type="text"
