@@ -26,12 +26,14 @@ const initialValues = {
 const ClientDetails = ({ handleSubmit, clientValues, setIsAuthModalOpen }: PropType) => {
   const { client } = useAppSelector((state) => state.client);
   const { selectedManagementPoint } = useAppSelector((state) => state.cart);
+  const { cart } = useAppSelector((state) => state.cart);
+  const toysCount = cart.length;
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ handleSubmit }) => {
         return (
           <Form onSubmit={handleSubmit} id="formId">
-            {selectedManagementPoint && <SelectedLocation />}
+            {selectedManagementPoint && toysCount > 0 && <SelectedLocation />}
             <InputWrap>
               <LabelStyled htmlFor="parentName">Ім'я</LabelStyled>
               <InputStyled type="text" name="parentName" value={client?.parentName} disabled />

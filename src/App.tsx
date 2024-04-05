@@ -15,7 +15,7 @@ import ToyDetails from "./pages/Management/screens/ToyDetails";
 import ManagementHome from "./pages/Management/screens/ManagementHome";
 import { useAppDispatch } from "./redux/store";
 import { useEffect } from "react";
-import { loadCartItems } from "./redux/slices/cart.slice";
+import { loadCartItems, loadSelectedManagementPoint } from "./redux/slices/cart.slice";
 import ManagerLogin from "./pages/ManagerLogin";
 import Profile from "./pages/Profile";
 import SubscriptionInfo from "./pages/Management/screens/SubscriptionInfo";
@@ -34,6 +34,7 @@ function App() {
       dispatch(managerGetInfo());
     }
     dispatch(loadCartItems());
+    dispatch(loadSelectedManagementPoint());
   }, [dispatch]);
 
   return (
