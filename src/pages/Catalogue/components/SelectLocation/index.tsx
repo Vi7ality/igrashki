@@ -9,10 +9,10 @@ import {
 import CategorySelector from '../CategorySelector';
 
 type Props = {
-  managementPoints: any;
+  managementPoints: IManager[];
   selectedCity: string;
   handleCitySelect(v: string | unknown): void;
-  handleChangeLocation(value: any): void;
+  handleChangeLocation(value: string): void;
 };
 
 const SelectLocation = ({

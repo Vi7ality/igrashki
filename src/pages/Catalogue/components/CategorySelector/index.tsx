@@ -8,16 +8,17 @@ import {
   WrapperArrow,
 } from './CategorySelector.styled';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
+import { nanoid } from 'nanoid';
 
 type Props = {
   placeholderName: string, 
   selectedCategory: string | undefined,
-  categories: any,
+  categories: string[],
   handleCategorySelect(v: string): void;
 }
 
 const CategorySelector = ({ placeholderName, selectedCategory, categories, handleCategorySelect }: Props) => {
-    const [isCategoryActive, setIsCategoryActive] = useState(false);
+  const [isCategoryActive, setIsCategoryActive] = useState(false);
     return (
         <CategoryWrapper>
           <Input
@@ -43,9 +44,9 @@ const CategorySelector = ({ placeholderName, selectedCategory, categories, handl
           </StyledSelect>
           {isCategoryActive && (
             <SelectContainer>
-              {categories.map((category: string, idx: string) => (
+              {categories.map((category: string) => (
                 <SelectItem
-                  key={idx}
+                  key={nanoid(6)}
                   isSelected={selectedCategory === category}
                   onClick={() => {
                     handleCategorySelect(category);
