@@ -62,22 +62,37 @@ const Catalogue = () => {
     }
   };
 
-  const handleCitySelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    if (cart.length > 0) {
-      toast.warning('Очистіть кошик перед зміною міста отримання!', {
-        autoClose: 3000,
-      });
-      return;
-    }
+  // const handleCitySelect = (e: ChangeEvent<HTMLSelectElement>) => {
+  //   if (cart.length > 0) {
+  //     toast.warning('Очистіть кошик перед зміною міста отримання!', {
+  //       autoClose: 3000,
+  //     });
+  //     return;
+  //   }
 
-    setSelectedCity(e.target.value);
+  //   setSelectedCity(e.target.value);
+  //   const newManagementPoint = managementPoints.find(
+  //     (point: IManager) => point.city === e.target.value
+  //   )!;
+  //   dispatch(setSelectedManagementPoint(newManagementPoint));
+  // };
+
+    const handleCitySelect = (value: string) => {
+      if (cart.length > 0) {
+        toast.warning('Очистіть кошик перед зміною міста отримання!', {
+          autoClose: 3000,
+        });
+        return;
+      }
+
+
+    setSelectedCity(value);
     const newManagementPoint = managementPoints.find(
-      (point: IManager) => point.city === e.target.value
-    )!;
+      (point: IManager) => point.city === value)!;
     dispatch(setSelectedManagementPoint(newManagementPoint));
   };
 
-  const handleChangeLocation = (e: ChangeEvent<HTMLSelectElement>) => {
+    const handleChangeLocation = (value) => {
     if (cart.length > 0) {
       toast.warning('Очистіть кошик перед вибором іншої локації!', {
         autoClose: 3000,
@@ -87,11 +102,26 @@ const Catalogue = () => {
     dispatch(
       setSelectedManagementPoint(
         managementPoints.find(
-          (point: IManager) => point._id === e.target.value
+          (point: IManager) => point._id === value
         )!
       )
     );
   };
+  // const handleChangeLocation = (e: ChangeEvent<HTMLSelectElement>) => {
+  //   if (cart.length > 0) {
+  //     toast.warning('Очистіть кошик перед вибором іншої локації!', {
+  //       autoClose: 3000,
+  //     });
+  //     return;
+  //   }
+  //   dispatch(
+  //     setSelectedManagementPoint(
+  //       managementPoints.find(
+  //         (point: IManager) => point._id === e.target.value
+  //       )!
+  //     )
+  //   );
+  // };
 
   // const cities = useMemo(
   //   () => [...new Set(managementPoints.map((point: IManager) => point.city))],

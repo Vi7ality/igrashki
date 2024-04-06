@@ -1,13 +1,18 @@
-import { ChangeEvent, useMemo } from 'react';
+import {useMemo } from 'react';
 import { useAppSelector } from '../../../../redux/store';
 import { IManager } from '../../../../models/manager';
-import { LocationWrap,SelectWrapper, StyledSelect, TitleStyled } from './SelectLocation.styled';
+import {
+  LocationWrap,
+  SelectWrapper,
+  TitleStyled,
+} from './SelectLocation.styled';
+import CategorySelector from '../CategorySelector';
 
 type Props = {
   managementPoints: any;
   selectedCity: string;
-  handleCitySelect(e: ChangeEvent<HTMLSelectElement>): void;
-  handleChangeLocation(e: ChangeEvent<HTMLSelectElement>): void;
+  handleCitySelect(v: string | unknown): void;
+  handleChangeLocation(value: any): void;
 };
 
 const SelectLocation = ({
@@ -28,32 +33,25 @@ const SelectLocation = ({
     [selectedCity, managementPoints]
   );
 
+  const locationList = managementPointsByCity.map((point: IManager) => point.location);
+
+
   return (
     <LocationWrap>
       <TitleStyled>Локація</TitleStyled>
       <SelectWrapper>
-        {cities.length > 0 && (
-          <StyledSelect value={selectedCity} onChange={handleCitySelect}>
-            {cities.map((city: string) => (
-              <option key={city} value={city}>
-                {city}
-              </option>
-            ))}
-          </StyledSelect>
-        )}
-
-        {managementPointsByCity.length > 0 && (
-          <select
-            value={selectedManagementPoint?._id}
-            onChange={e => handleChangeLocation(e)}
-          >
-            {managementPointsByCity.map(({ _id, location }: IManager) => (
-              <option key={_id} value={_id}>
-                {location}
-              </option>
-            ))}
-          </select>
-        )}
+        <CategorySelector
+          placeholderName="Оберіть ваше місто"
+          selectedCategory={selectedCity}
+          categories={cities}
+          handleCategorySelect={handleCitySelect}
+        />
+        <CategorySelector
+          placeholderName="Оберіть найближчу точку Спільно"
+          selectedCategory={selectedManagementPoint?.location}
+          categories={locationList}
+          handleCategorySelect={handleChangeLocation}
+        />
       </SelectWrapper>
     </LocationWrap>
   );
