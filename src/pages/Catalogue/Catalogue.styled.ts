@@ -23,3 +23,9 @@ font-size: 68px;
 margin-bottom: 40px;
 }
 `
+
+export const ToyList = styled.ul`
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+`

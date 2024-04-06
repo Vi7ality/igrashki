@@ -13,7 +13,7 @@ import { IManager } from '../../models/manager';
 import { IToyInfo } from '../../models/toy';
 import HeaderBackgound from '../../shared/HeaderBackground';
 import Container from '../../shared/Container';
-import { PageTitle, SectionStyled } from './Catalogue.styled';
+import { PageTitle, SectionStyled, ToyList } from './Catalogue.styled';
 import SelectLocation from './components/SelectLocation';
 import { nanoid } from 'nanoid';
 import ToyItem from './components/ToyItem';
@@ -149,20 +149,11 @@ const Catalogue = () => {
               {isToysLoading ? (
                 <p>Шукаємо іграшки на вибраній локації...</p>
               ) : (
-                <ul>
+                <ToyList>
                     {toys.map(toy => (
                       <ToyItem handleAddToCart={handleAddToCart} toy={toy} />
-                    // <li key={nanoid(6)}>
-                    //   <Link to={`/toys/${toy.toyId}`}>
-                    //     <img src={toy?.images[0]} alt="toy" />
-                    //   </Link>
-                    //   <h6>{toy.toyName}</h6>
-                    //   <button onClick={() => handleAddToCart(toy)}>
-                    //     Додати
-                    //   </button>
-                    // </li>
                   ))}
-                </ul>
+                </ToyList>
               )}
             </div>
           </div>
