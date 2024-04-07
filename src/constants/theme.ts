@@ -16,8 +16,11 @@ export const theme = {
     lightGrey: '#D8DEFB',
 
     accent: "#FFCD1E",
+    accentAlt: '#F6C411',
     red: "#EF7669",
+    redAlt: '#FFD9D7',
     warnRed: '#FF6157',
+
   },
 
   fontWeights: {

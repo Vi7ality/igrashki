@@ -35,12 +35,13 @@ export const ContentWrap = styled.div`
 `;
 
 export const ToyName = styled.p`
-  margin-bottom: 40px;
+  margin-bottom: auto;
 `;
 
 export const FlexWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 export const FlexContainer = styled.div`
 display: flex;

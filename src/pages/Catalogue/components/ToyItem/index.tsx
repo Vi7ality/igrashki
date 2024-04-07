@@ -11,9 +11,10 @@ import {
   AgeIcon,
   AgeText,
   IconWrap,
-  FlexContainer
+  FlexContainer,
 } from './ToyItem.styled';
 import icons from '../../../../assets/icons.svg';
+import CartButton from '../CartButton';
 
 type Props = {
   handleAddToCart(toy: IToyInfo): void;
@@ -25,7 +26,7 @@ const ToyItem = ({ handleAddToCart, toy }: Props) => {
     <ToyItemStyled key={nanoid(6)}>
       <Link to={`/toys/${toy.toyId}`}>
         <ImageWrap>
-          <img src={toy?.images[0]} alt="toy" />
+          <img src={toy?.images[0]} alt="toy image" />
         </ImageWrap>
       </Link>
       <ContentWrap>
@@ -40,7 +41,7 @@ const ToyItem = ({ handleAddToCart, toy }: Props) => {
             </IconWrap>
             <Category>{toy.category}</Category>
           </FlexContainer>
-          <button onClick={() => handleAddToCart(toy)}>Додати</button>
+          <CartButton toy={toy} handleAddToCart={handleAddToCart}/>
         </FlexWrap>
       </ContentWrap>
     </ToyItemStyled>
