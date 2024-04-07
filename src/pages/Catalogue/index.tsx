@@ -18,6 +18,7 @@ import { PageTitle, SectionStyled, ToyList } from './Catalogue.styled';
 import SelectLocation from './components/SelectLocation';
 import { nanoid } from 'nanoid';
 import ToyItem from './components/ToyItem';
+import Filters from './components/Filters';
 
 const Catalogue = () => {
   const { toys, isLoading: isToysLoading } = useAppSelector(
@@ -26,6 +27,9 @@ const Catalogue = () => {
   const { cart, selectedManagementPoint } = useAppSelector(state => state.cart);
   const [managementPoints, setManagementPoints] = useState([]);
   const [selectedCity, setSelectedCity] = useState<string>('');
+  const [categories, setCategories] = useState(['Усі категорії']);
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>('Усі категорії');
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -34,15 +38,21 @@ const Catalogue = () => {
       setManagementPoints(data);
       if (selectedManagementPoint) {
         setSelectedCity(selectedManagementPoint.city);
-        dispatch(fetchToys(selectedManagementPoint));
-      }    
+        const { payload: dispatchedToys } = await dispatch(
+          fetchToys(selectedManagementPoint)
+        );
+        const toyCategories = dispatchedToys.map(
+          (toy: IToyInfo) => toy.category
+        );
+        const filteredCategories = toyCategories.filter(
+          (category: string, idx: number) =>
+            toyCategories.indexOf(category) === idx
+        );
+        setCategories([...categories, ...filteredCategories]);
+      }
     };
     fetchPoints();
   }, [dispatch, selectedManagementPoint]);
-
-  // useEffect(() => {
-  //   selectedManagementPoint && 
-  // }, [dispatch,selectedManagementPoint]);
 
   const handleToggleToCart = (toy: IToyInfo) => {
     const isItemInCart = cart.some(item => item.itemId === toy.toyId);
@@ -50,38 +60,19 @@ const Catalogue = () => {
       toast.error('Кошик повний. Максимальна кількість: 3 іграшки.', {
         autoClose: 1000,
       });
+    } else if (toy && isItemInCart) {
+      dispatch(removeItemFromCart(toy.toyId));
+    } else {
+      dispatch(
+        addItemToCart({
+          itemId: toy.toyId,
+          itemName: toy.toyName,
+          itemImage: toy.images[0],
+        })
+      );
+      toast.success('Іграшку додано в кошик!', { autoClose: 1000 });
     }
-        else if (toy && isItemInCart) {
-      // toast.warning('Іграшка вже додана в кошик!', { autoClose: 2000 });
-                dispatch(removeItemFromCart(
-         toy.toyId,
-          )) 
-      } else {
-        dispatch(
-          addItemToCart({
-            itemId: toy.toyId,
-            itemName: toy.toyName,
-            itemImage: toy.images[0],
-          })
-        );
-        toast.success('Іграшку додано в кошик!', { autoClose: 1000 });
-      }
-    };
-
-  // const handleCitySelect = (e: ChangeEvent<HTMLSelectElement>) => {
-  //   if (cart.length > 0) {
-  //     toast.warning('Очистіть кошик перед зміною міста отримання!', {
-  //       autoClose: 3000,
-  //     });
-  //     return;
-  //   }
-
-  //   setSelectedCity(e.target.value);
-  //   const newManagementPoint = managementPoints.find(
-  //     (point: IManager) => point.city === e.target.value
-  //   )!;
-  //   dispatch(setSelectedManagementPoint(newManagementPoint));
-  // };
+  };
 
   const handleCitySelect = (value: string) => {
     if (cart.length > 0) {
@@ -111,31 +102,6 @@ const Catalogue = () => {
       )
     );
   };
-  // const handleChangeLocation = (e: ChangeEvent<HTMLSelectElement>) => {
-  //   if (cart.length > 0) {
-  //     toast.warning('Очистіть кошик перед вибором іншої локації!', {
-  //       autoClose: 3000,
-  //     });
-  //     return;
-  //   }
-  //   dispatch(
-  //     setSelectedManagementPoint(
-  //       managementPoints.find(
-  //         (point: IManager) => point._id === e.target.value
-  //       )!
-  //     )
-  //   );
-  // };
-
-  // const cities = useMemo(
-  //   () => [...new Set(managementPoints.map((point: IManager) => point.city))],
-  //   [managementPoints]
-  // );
-  // const managementPointsByCity = useMemo(
-  //   () =>
-  //     managementPoints.filter((point: IManager) => point.city === selectedCity),
-  //   [selectedCity, managementPoints]
-  // );
 
   return (
     <>
@@ -151,13 +117,35 @@ const Catalogue = () => {
                 handleCitySelect={handleCitySelect}
                 handleChangeLocation={handleChangeLocation}
               />
+              <Filters
+                categories={categories}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              />
               {isToysLoading ? (
                 <p>Шукаємо іграшки на вибраній локації...</p>
               ) : (
                 <ToyList>
-                    {toys.map(toy => (
-                      <ToyItem key={nanoid(6)} handleToggleToCart ={handleToggleToCart} toy={toy} />
-                  ))}
+                  {toys.map(
+                    toy =>
+                      selectedCategory === 'Усі категорії' && (
+                        <ToyItem
+                          key={nanoid(6)}
+                          handleToggleToCart={handleToggleToCart}
+                          toy={toy}
+                        />
+                      )
+                  )}
+                  {toys.map(
+                    toy =>
+                      toy.category === selectedCategory && (
+                        <ToyItem
+                          key={nanoid(6)}
+                          handleToggleToCart={handleToggleToCart}
+                          toy={toy}
+                        />
+                      )
+                  )}
                 </ToyList>
               )}
             </div>
