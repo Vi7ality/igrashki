@@ -27,7 +27,11 @@ export const ImageWrap = styled.div`
 `;
 
 export const ContentWrap = styled.div`
-  padding: 15px 5px 20px 15px;
+  padding: 15px 15px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 159px;
 `;
 
 export const ToyName = styled.p`
@@ -38,6 +42,34 @@ export const FlexWrap = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+export const FlexContainer = styled.div`
+display: flex;
+`
+export const IconWrap = styled.div`
+position: relative;
+width: 28px;
+height: 28px;
+margin-right: 10px;
+`
+
+export const AgeIcon = styled.svg`
+width: 28px;
+height: 28px;
+`
+
+export const AgeText = styled.p`
+position: absolute;
+bottom: 0;
+left: 0;
+z-index:9;
+font-weight: 600;
+font-size: 12px;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+`
 
 export const Category = styled.div`
   border-radius: 10px;

@@ -1,7 +1,19 @@
 import { nanoid } from 'nanoid';
 import { Link } from 'react-router-dom';
 import { IToyInfo } from '../../../../models/toy';
-import { Category, ContentWrap, FlexWrap, ImageWrap, ToyItemStyled, ToyName } from './ToyItem.styled';
+import {
+  Category,
+  ContentWrap,
+  FlexWrap,
+  ImageWrap,
+  ToyItemStyled,
+  ToyName,
+  AgeIcon,
+  AgeText,
+  IconWrap,
+  FlexContainer
+} from './ToyItem.styled';
+import icons from '../../../../assets/icons.svg';
 
 type Props = {
   handleAddToCart(toy: IToyInfo): void;
@@ -18,12 +30,19 @@ const ToyItem = ({ handleAddToCart, toy }: Props) => {
       </Link>
       <ContentWrap>
         <ToyName>{toy.toyName}</ToyName>
-      <FlexWrap>
-          <Category>{toy.category}</Category>
+        <FlexWrap>
+          <FlexContainer>
+            <IconWrap>
+              <AgeIcon>
+                <use href={`${icons}#icon-age`} />
+              </AgeIcon>
+              <AgeText>0</AgeText>
+            </IconWrap>
+            <Category>{toy.category}</Category>
+          </FlexContainer>
           <button onClick={() => handleAddToCart(toy)}>Додати</button>
-      </FlexWrap>
+        </FlexWrap>
       </ContentWrap>
-      
     </ToyItemStyled>
   );
 };
