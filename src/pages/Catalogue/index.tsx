@@ -151,7 +151,7 @@ const Catalogue = () => {
               ) : (
                 <ToyList>
                     {toys.map(toy => (
-                      <ToyItem handleAddToCart={handleAddToCart} toy={toy} />
+                      <ToyItem key={nanoid(6)} handleAddToCart={handleAddToCart} toy={toy} />
                   ))}
                 </ToyList>
               )}
