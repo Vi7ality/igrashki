@@ -1,28 +1,33 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 type SelectItemProps = {
   isSelected: boolean;
-}
+};
+
+type selectorStylesProp = {
+  selectorStyles: any;
+};
 
 export const CategoryWrapper = styled.div`
   position: relative;
   cursor: pointer;
   @media ${props => props.theme.device.tablet} {
-
   }
   @media ${props => props.theme.device.desktop} {
-
   }
 `;
-export const Input = styled.input`
+export const Input = styled.input<selectorStylesProp>`
   display: block;
   border-radius: 30px;
   padding: 15px 44px 15px 20px;
+
   width: 350px;
   height: 48px;
   border: none;
   outline: transparent;
   cursor: pointer;
+
+
 
   &::placeholder {
     font-size: 16px;
@@ -94,7 +99,7 @@ export const SelectContainer = styled.ul`
 `;
 export const SelectItem = styled.li<SelectItemProps>`
   color: ${props =>
-  props.isSelected ? props.theme.colors.accent : props.theme.colors.darkBlue};
+    props.isSelected ? props.theme.colors.accent : props.theme.colors.darkBlue};
   cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.accent};

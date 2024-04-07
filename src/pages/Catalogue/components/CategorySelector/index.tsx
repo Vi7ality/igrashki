@@ -15,6 +15,7 @@ type Props = {
   selectedCategory: string | null | undefined;
   categories: string[];
   handleCategorySelect(v: string): void;
+  selectorStyles: any;
 };
 
 const CategorySelector = ({
@@ -22,11 +23,14 @@ const CategorySelector = ({
   selectedCategory,
   categories,
   handleCategorySelect,
+  selectorStyles
 }: Props) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
+  console.log(selectorStyles.width)
   return (
     <CategoryWrapper>
       <Input
+        selectorStyles={selectorStyles}
         type="text"
         placeholder={selectedCategory ? selectedCategory : placeholderName}
       />

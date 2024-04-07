@@ -32,6 +32,11 @@ const Catalogue = () => {
     useState<string>('Усі категорії');
   const dispatch = useAppDispatch();
 
+  const filteredToys =
+    selectedCategory === 'Усі категорії'
+      ? toys
+      : toys.filter(toy => toy.category === selectedCategory);
+  
   useEffect(() => {
     const fetchPoints = async () => {
       const { data } = await api.get('/management/points');
@@ -121,22 +126,20 @@ const Catalogue = () => {
                 categories={categories}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
+                toysCount={filteredToys.length}
               />
               {isToysLoading ? (
                 <p>Шукаємо іграшки на вибраній локації...</p>
               ) : (
                 <ToyList>
-                  {toys.map(
-                    toy =>
-                      selectedCategory === 'Усі категорії' && (
-                        <ToyItem
-                          key={nanoid(6)}
-                          handleToggleToCart={handleToggleToCart}
-                          toy={toy}
-                        />
-                      )
-                  )}
-                  {toys.map(
+                  {filteredToys.map(toy => (
+                    <ToyItem
+                      key={nanoid(6)}
+                      handleToggleToCart={handleToggleToCart}
+                      toy={toy}
+                    />
+                  ))}
+                  {/* {toys.map(
                     toy =>
                       toy.category === selectedCategory && (
                         <ToyItem
@@ -145,7 +148,7 @@ const Catalogue = () => {
                           toy={toy}
                         />
                       )
-                  )}
+                  )} */}
                 </ToyList>
               )}
             </div>
