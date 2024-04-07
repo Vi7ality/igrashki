@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   addItemToCart,
+  removeItemFromCart,
   setSelectedManagementPoint,
 } from '../../redux/slices/cart.slice';
 import api from '../../api';
@@ -43,14 +44,18 @@ const Catalogue = () => {
   //   selectedManagementPoint && 
   // }, [dispatch,selectedManagementPoint]);
 
-  const handleAddToCart = (toy: IToyInfo) => {
+  const handleToggleToCart = (toy: IToyInfo) => {
     const isItemInCart = cart.some(item => item.itemId === toy.toyId);
-    if (toy && isItemInCart) {
-      toast.warning('Іграшка вже додана в кошик!', { autoClose: 2000 });
-      } else if (cart.length >= 3) {
-        toast.error('Кошик повний. Максимальна кількість: 3 іграшки.', {
-          autoClose: 1000,
-        });
+    if (cart.length >= 3) {
+      toast.error('Кошик повний. Максимальна кількість: 3 іграшки.', {
+        autoClose: 1000,
+      });
+    }
+        else if (toy && isItemInCart) {
+      // toast.warning('Іграшка вже додана в кошик!', { autoClose: 2000 });
+                dispatch(removeItemFromCart(
+         toy.toyId,
+          )) 
       } else {
         dispatch(
           addItemToCart({
@@ -151,7 +156,7 @@ const Catalogue = () => {
               ) : (
                 <ToyList>
                     {toys.map(toy => (
-                      <ToyItem key={nanoid(6)} handleAddToCart={handleAddToCart} toy={toy} />
+                      <ToyItem key={nanoid(6)} handleToggleToCart ={handleToggleToCart} toy={toy} />
                   ))}
                 </ToyList>
               )}

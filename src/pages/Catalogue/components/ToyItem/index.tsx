@@ -18,11 +18,11 @@ import CartButton from '../CartButton';
 import defaultImg from '../../assets/default-image.svg'
 
 type Props = {
-  handleAddToCart(toy: IToyInfo): void;
+  handleToggleToCart(toy: IToyInfo): void;
   toy: IToyInfo;
 };
 
-const ToyItem = ({ handleAddToCart, toy }: Props) => {
+const ToyItem = ({ handleToggleToCart, toy }: Props) => {
   return (
     <ToyItemStyled key={nanoid(6)}>
       <Link to={`/toys/${toy.toyId}`}>
@@ -42,7 +42,7 @@ const ToyItem = ({ handleAddToCart, toy }: Props) => {
             </IconWrap>
             <Category>{toy.category}</Category>
           </FlexContainer>
-          <CartButton toy={toy} handleAddToCart={handleAddToCart}/>
+          <CartButton toy={toy} handleToggleToCart={handleToggleToCart}/>
         </FlexWrap>
       </ContentWrap>
     </ToyItemStyled>
