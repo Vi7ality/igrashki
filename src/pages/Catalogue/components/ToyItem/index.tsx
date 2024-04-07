@@ -15,6 +15,7 @@ import {
 } from './ToyItem.styled';
 import icons from '../../../../assets/icons.svg';
 import CartButton from '../CartButton';
+import defaultImg from '../../assets/default-image.svg'
 
 type Props = {
   handleAddToCart(toy: IToyInfo): void;
@@ -26,7 +27,7 @@ const ToyItem = ({ handleAddToCart, toy }: Props) => {
     <ToyItemStyled key={nanoid(6)}>
       <Link to={`/toys/${toy.toyId}`}>
         <ImageWrap>
-          <img src={toy?.images[0]} alt="toy image" />
+          {toy?.images[0] ? <img src={toy?.images[0]} alt="toy image" /> : <img src={defaultImg} alt="toy image" />}
         </ImageWrap>
       </Link>
       <ContentWrap>

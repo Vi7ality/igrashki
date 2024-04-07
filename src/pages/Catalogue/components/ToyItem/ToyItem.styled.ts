@@ -21,6 +21,10 @@ export const ImageWrap = styled.div`
   height: 201px;
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   @media ${p => p.theme.device.tablet} {
     border-radius: 26px;
   }
