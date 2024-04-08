@@ -15,19 +15,24 @@ import {
 } from './ToyItem.styled';
 import icons from '../../../../assets/icons.svg';
 import CartButton from '../CartButton';
-import defaultImg from '../../assets/default-image.svg'
+import defaultImg from '../../assets/default-image.svg';
 
 type Props = {
   handleToggleToCart(toy: IToyInfo): void;
+  handleCategorySelect(v: string): void;
   toy: IToyInfo;
 };
 
-const ToyItem = ({ handleToggleToCart, toy }: Props) => {
+const ToyItem = ({ handleToggleToCart, handleCategorySelect, toy }: Props) => {
   return (
     <ToyItemStyled key={nanoid(6)}>
       <Link to={`/toys/${toy.toyId}`}>
         <ImageWrap>
-          {toy?.images[0] ? <img src={toy?.images[0]} alt="toy image" /> : <img src={defaultImg} alt="toy image" />}
+          {toy?.images[0] ? (
+            <img src={toy?.images[0]} alt="toy image" />
+          ) : (
+            <img src={defaultImg} alt="toy image" />
+          )}
         </ImageWrap>
       </Link>
       <ContentWrap>
@@ -40,9 +45,14 @@ const ToyItem = ({ handleToggleToCart, toy }: Props) => {
               </AgeIcon>
               <AgeText>0</AgeText>
             </IconWrap>
-            <Category>{toy.category}</Category>
+            <Category
+              type="button"
+              onClick={() => handleCategorySelect(toy.category)}
+            >
+              {toy.category}
+            </Category>
           </FlexContainer>
-          <CartButton toy={toy} handleToggleToCart={handleToggleToCart}/>
+          <CartButton toy={toy} handleToggleToCart={handleToggleToCart} />
         </FlexWrap>
       </ContentWrap>
     </ToyItemStyled>

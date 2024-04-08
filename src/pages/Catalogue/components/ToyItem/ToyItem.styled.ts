@@ -76,7 +76,7 @@ justify-content: center;
 align-items: center;
 `
 
-export const Category = styled.div`
+export const Category = styled.button`
   border-radius: 10px;
   padding: 6px 10px;
   background-color: ${p => p.theme.colors.bgWhite};

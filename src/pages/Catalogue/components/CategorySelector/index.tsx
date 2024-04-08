@@ -26,11 +26,11 @@ const CategorySelector = ({
   selectorStyles
 }: Props) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
-  console.log(selectorStyles)
   return (
     <CategoryWrapper>
       <Input
         type="text"
+        readOnly="readonly"
         placeholder={selectedCategory ? selectedCategory : placeholderName}
         {...selectorStyles}
       />

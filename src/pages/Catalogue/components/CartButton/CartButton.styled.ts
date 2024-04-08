@@ -13,7 +13,11 @@ export const ButtonStyled = styled.button<BtnProps>`
   width: 36px;
   height: 36px;
 
-  :hover&:focus {
+  &:hover {
+    background-color: ${p => p.isItemInCart ? p.theme.colors.redAlt : p.theme.colors.accentAlt};
+  }
+
+  &:focus {
     background-color: ${p => p.isItemInCart ? p.theme.colors.redAlt : p.theme.colors.accentAlt};
   }
 `;

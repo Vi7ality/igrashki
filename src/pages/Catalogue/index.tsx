@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { useCallback, useEffect, useState } from 'react';
 import { fetchToys } from '../../redux/slices/toys.slice';
@@ -143,18 +142,9 @@ const Catalogue = () => {
                       key={nanoid(6)}
                       handleToggleToCart={handleToggleToCart}
                       toy={toy}
+                      handleCategorySelect={setSelectedCategory}
                     />
                   ))}
-                  {/* {toys.map(
-                    toy =>
-                      toy.category === selectedCategory && (
-                        <ToyItem
-                          key={nanoid(6)}
-                          handleToggleToCart={handleToggleToCart}
-                          toy={toy}
-                        />
-                      )
-                  )} */}
                 </ToyList>
               )}
             </div>
