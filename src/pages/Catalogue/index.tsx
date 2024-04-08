@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { fetchToys } from '../../redux/slices/toys.slice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,6 +37,17 @@ const Catalogue = () => {
       ? toys
       : toys.filter(toy => toy.category === selectedCategory);
   
+    const setFilteredCategories = useCallback((dispatchedToys: IToyInfo[]) => {
+        const toyCategories = dispatchedToys.map(
+          (toy: IToyInfo) => toy.category
+        );
+        const filteredCategories = toyCategories.filter(
+          (category: string, idx: number) =>
+            toyCategories.indexOf(category) === idx
+        );
+        setCategories(['Усі категорії', ...filteredCategories]);
+  }, [])
+  
   useEffect(() => {
     const fetchPoints = async () => {
       const { data } = await api.get('/management/points');
@@ -46,18 +57,13 @@ const Catalogue = () => {
         const { payload: dispatchedToys } = await dispatch(
           fetchToys(selectedManagementPoint)
         );
-        const toyCategories = dispatchedToys.map(
-          (toy: IToyInfo) => toy.category
-        );
-        const filteredCategories = toyCategories.filter(
-          (category: string, idx: number) =>
-            toyCategories.indexOf(category) === idx
-        );
-        setCategories([...categories, ...filteredCategories]);
+        setFilteredCategories(dispatchedToys);
       }
     };
     fetchPoints();
-  }, [dispatch, selectedManagementPoint]);
+  }, [dispatch, selectedManagementPoint, setFilteredCategories]);
+
+
 
   const handleToggleToCart = (toy: IToyInfo) => {
     const isItemInCart = cart.some(item => item.itemId === toy.toyId);
@@ -86,12 +92,12 @@ const Catalogue = () => {
       });
       return;
     }
-
     setSelectedCity(value);
     const newManagementPoint = managementPoints.find(
       (point: IManager) => point.city === value
     )!;
     dispatch(setSelectedManagementPoint(newManagementPoint));
+    setSelectedCategory("Усі категорії");
   };
 
   const handleChangeLocation = (value: string) => {
