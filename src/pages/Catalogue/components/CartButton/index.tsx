@@ -10,11 +10,11 @@ type Props = {
 
 const CartButton = ({ toy, handleToggleToCart}: Props) => {
   const { cart } = useAppSelector(state => state.cart);
-  const isItemInCart = cart.some(item => item.itemId === toy.toyId);
+  const isitemincart: boolean = cart.some(item => item.itemId === toy.toyId);
   return (
-    <ButtonStyled type='button' onClick={() => handleToggleToCart(toy)} isItemInCart={isItemInCart}>
+    <ButtonStyled type='button' onClick={() => handleToggleToCart(toy)} isitemincart={isitemincart}>
       <CartIcon>
-        {!isItemInCart ? (
+        {!isitemincart ? (
           <use href={`${icons}#icon-cart-add`} />
         ) : (
           <use href={`${icons}#icon-cart-active`} />

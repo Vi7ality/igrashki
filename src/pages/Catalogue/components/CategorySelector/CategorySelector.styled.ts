@@ -20,17 +20,17 @@ export const Input = styled.input<stylesProps>`
   border-radius: 30px;
   padding: 15px 44px 15px 20px;
   width: 100%;
-  background-color: ${p => p.backgroundColor || p.theme.colors.white}; 
+  background-color: ${p => p.backgroundcolor || p.theme.colors.white}; 
   height: 48px;
   border: none;
   outline: transparent;
   cursor: pointer;
 
   @media ${p => p.theme.device.tablet} {
-    width: ${p => p.widthTablet};
+    width: ${p => p.widthtablet || '350px'};
   }
   @media ${p => p.theme.device.desktop} {
-    width: ${p => p.widthDesktop};
+    width: ${p => p.widthdesktop || '350px'};
   }
 
   &::placeholder {
@@ -104,8 +104,6 @@ export const SelectContainer = styled.ul<stylesProps>`
 export const SelectItem = styled.li<Props>`
   font-weight: ${props =>
     props.isselected ? props.theme.fontWeights.bold : props.theme.fontWeights.normal};
-  /* color: ${props =>
-    props.isselected ? props.theme.colors.accent : props.theme.colors.darkBlue}; */
   cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.accent};

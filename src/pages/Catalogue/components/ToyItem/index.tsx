@@ -36,7 +36,9 @@ const ToyItem = ({ handleToggleToCart, handleCategorySelect, toy }: Props) => {
         </ImageWrap>
       </Link>
       <ContentWrap>
-        <ToyName>{toy.toyName}</ToyName>
+        <Link to={`/toys/${toy.toyId}`}>
+          <ToyName>{toy.toyName}</ToyName>
+        </Link>
         <FlexWrap>
           <FlexContainer>
             <IconWrap>

@@ -9,10 +9,10 @@ type Props = {
 };
 
 const styleSettings = {
-  widthMobile: '100%',
-  widthTablet: '195px',
-  widthDesktop: '250px',
-  backgroundColor: '#F3F3FF',
+  widthmobile: '100%',
+  widthtablet: '195px',
+  widthdesktop: '250px',
+  backgroundcolor: '#F3F3FF',
 };
 
 const Filters = ({
