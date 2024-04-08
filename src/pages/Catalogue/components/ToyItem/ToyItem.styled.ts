@@ -40,6 +40,7 @@ export const ContentWrap = styled.div`
 
 export const ToyName = styled.p`
   margin-bottom: auto;
+  color: ${p => p.theme.colors.darkBlue};
 `;
 
 export const FlexWrap = styled.div`
