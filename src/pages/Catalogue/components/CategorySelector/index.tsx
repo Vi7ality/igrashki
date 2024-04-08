@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   CategoryWrapper,
   Input,
@@ -26,8 +26,23 @@ const CategorySelector = ({
   styleSettings
 }: Props) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
+  const inputRef = useRef<HTMLDivElement>(null);
+  
+
+      useEffect(() => {
+        const handler = (e: Event) => {
+            if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
+                setIsCategoryActive(false);
+            }
+        };
+        window.addEventListener("click", handler);
+        return () => {
+            window.removeEventListener("click", handler);
+        };
+      });
+  
   return (
-    <CategoryWrapper>
+    <CategoryWrapper ref={inputRef}>
       <Input
         type="text"
         readOnly="readonly"

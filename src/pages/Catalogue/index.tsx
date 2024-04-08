@@ -88,9 +88,8 @@ const Catalogue = () => {
     }
     setSelectedCity(value);
     const newManagementPoint = managementPoints.find(
-      (point: IManager) => point.city === value
-    )!;
-    dispatch(setSelectedManagementPoint(newManagementPoint));
+    (point: IManager) => point.city === value);
+    newManagementPoint && dispatch(setSelectedManagementPoint(newManagementPoint));
     setSelectedCategory('Усі категорії');
   };
 
@@ -101,9 +100,11 @@ const Catalogue = () => {
       });
       return;
     }
+    const newManagementPoint = managementPoints.find((point: IManager) => point._id === value);
+    newManagementPoint &&
     dispatch(
       setSelectedManagementPoint(
-        managementPoints.find((point: IManager) => point._id === value)!
+        newManagementPoint
       )
     );
   };
