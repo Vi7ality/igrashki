@@ -91,18 +91,21 @@ export const SelectContainer = styled.ul<stylesProps>`
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   top: 48px;
   right: 0;
   width: 100%;
   font-size: 16px;
   padding: 15px 20px;
   background-color: ${p => p.backgroundColor || p.theme.colors.white};
-
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  gap: 15px;
 `;
 export const SelectItem = styled.li<Props>`
-  color: ${props =>
-    props.isselected ? props.theme.colors.accent : props.theme.colors.darkBlue};
+  font-weight: ${props =>
+    props.isselected ? props.theme.fontWeights.bold : props.theme.fontWeights.normal};
+  /* color: ${props =>
+    props.isselected ? props.theme.colors.accent : props.theme.colors.darkBlue}; */
   cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.accent};
