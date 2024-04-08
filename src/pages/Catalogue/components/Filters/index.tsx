@@ -26,7 +26,7 @@ const Filters = ({
       <InputWrap>
         <CategoryLabel>Виберіть категорію</CategoryLabel>
         <CategorySelector
-          selectorStyles={styleSettings}
+          styleSettings={styleSettings}
           categories={categories}
           selectedCategory={selectedCategory}
           handleCategorySelect={setSelectedCategory}

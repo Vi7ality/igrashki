@@ -15,7 +15,7 @@ type Props = {
   selectedCategory: string | null | undefined;
   categories: string[];
   handleCategorySelect(v: string): void;
-  selectorStyles: any;
+  styleSettings?: any;
 };
 
 const CategorySelector = ({
@@ -23,7 +23,7 @@ const CategorySelector = ({
   selectedCategory,
   categories,
   handleCategorySelect,
-  selectorStyles
+  styleSettings
 }: Props) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
   return (
@@ -32,7 +32,7 @@ const CategorySelector = ({
         type="text"
         readOnly="readonly"
         placeholder={selectedCategory ? selectedCategory : placeholderName}
-        {...selectorStyles}
+        {...styleSettings}
       />
       <StyledSelect
         onClick={() => {
@@ -52,7 +52,7 @@ const CategorySelector = ({
         </WrapperArrow>
       </StyledSelect>
       {isCategoryActive && (
-        <SelectContainer {...selectorStyles}>
+        <SelectContainer {...styleSettings}>
           {categories.map((category: string) => (
             <SelectItem
               key={nanoid(6)}

@@ -1,6 +1,4 @@
-import { Field } from 'formik';
 import styled from 'styled-components';
-
 
 export const LocationWrap = styled.div`
   margin-bottom: 20px;
@@ -21,13 +19,5 @@ export const SelectWrapper = styled.div`
   }
 `;
 
-// export const StyledSelect = styled.select`
-// border-radius: 30px;
-// padding: 15px 20px;
-// width: 350px;
 
-// font-size: 16px;
-// `
-
-// fsaffffff
 
