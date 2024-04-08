@@ -1,33 +1,35 @@
 import styled from 'styled-components';
 
-type SelectItemProps = {
-  isSelected: boolean;
+type Props = {
+  isselected: boolean;
 };
 
-type selectorStylesProp = {
-  selectorStyles: any;
+type stylesProps = {
+  [key: string]: string
 };
 
 export const CategoryWrapper = styled.div`
   position: relative;
-  cursor: pointer;
-  @media ${props => props.theme.device.tablet} {
-  }
-  @media ${props => props.theme.device.desktop} {
-  }
+  cursor: pointer; 
 `;
-export const Input = styled.input<selectorStylesProp>`
+export const Input = styled.input<stylesProps>`
   display: block;
   border-radius: 30px;
   padding: 15px 44px 15px 20px;
-
-  width: 350px;
+  width: 100%;
+  background-color: ${p => p.backgroundColor || p.theme.colors.white};
+  /* width: 350px; */
   height: 48px;
   border: none;
   outline: transparent;
   cursor: pointer;
 
-
+  @media ${p => p.theme.device.tablet} {
+    width: ${p => p.widthTablet};
+  }
+  @media ${p => p.theme.device.desktop} {
+    width: ${p => p.widthDesktop};
+  }
 
   &::placeholder {
     font-size: 16px;
@@ -81,7 +83,7 @@ export const StyledSelect = styled.div`
   }
 `;
 
-export const SelectContainer = styled.ul`
+export const SelectContainer = styled.ul<stylesProps>`
   position: absolute;
   z-index: 9;
   cursor: pointer;
@@ -93,13 +95,12 @@ export const SelectContainer = styled.ul`
   width: 100%;
   font-size: 16px;
   padding: 15px 20px;
-  background-color: ${p => p.theme.colors.white};
-  @media ${props => props.theme.device.tablet} {
-  }
+  background-color: ${p => p.backgroundColor || p.theme.colors.white};
+
 `;
-export const SelectItem = styled.li<SelectItemProps>`
+export const SelectItem = styled.li<Props>`
   color: ${props =>
-    props.isSelected ? props.theme.colors.accent : props.theme.colors.darkBlue};
+    props.isselected ? props.theme.colors.accent : props.theme.colors.darkBlue};
   cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.accent};

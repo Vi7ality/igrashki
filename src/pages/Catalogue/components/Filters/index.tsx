@@ -8,12 +8,10 @@ type Props = {
   toysCount: number;
 };
 
-const selectorStyles = {
-    width: {
-        mobile: '100%',
-        tablet: '195px',
-        desktop: '250px'
-    },
+const styleSettings = {
+    widthMobile: '100%',
+    widthTablet: '195px',
+    widthDesktop: '250px', 
     backgroundColor: '#F3F3FF',
 }
 
@@ -27,7 +25,7 @@ const Filters = ({
       <PannelContainer>
           <p>Виберіть категорію</p>
           <CategorySelector
-              selectorStyles={selectorStyles}
+              selectorStyles={styleSettings}
         categories={categories}
         selectedCategory={selectedCategory}
         handleCategorySelect={setSelectedCategory}

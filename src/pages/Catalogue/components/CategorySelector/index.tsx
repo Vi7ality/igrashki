@@ -26,13 +26,13 @@ const CategorySelector = ({
   selectorStyles
 }: Props) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
-  console.log(selectorStyles.width)
+  console.log(selectorStyles)
   return (
     <CategoryWrapper>
       <Input
-        selectorStyles={selectorStyles}
         type="text"
         placeholder={selectedCategory ? selectedCategory : placeholderName}
+        {...selectorStyles}
       />
       <StyledSelect
         onClick={() => {
@@ -52,11 +52,11 @@ const CategorySelector = ({
         </WrapperArrow>
       </StyledSelect>
       {isCategoryActive && (
-        <SelectContainer>
+        <SelectContainer {...selectorStyles}>
           {categories.map((category: string) => (
             <SelectItem
               key={nanoid(6)}
-              isSelected={selectedCategory === category}
+              isselected={selectedCategory === category}
               onClick={() => {
                 handleCategorySelect(category);
                 setIsCategoryActive(false);
