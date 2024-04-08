@@ -10,15 +10,17 @@ type stylesProps = {
 
 export const CategoryWrapper = styled.div`
   position: relative;
-  cursor: pointer; 
+  cursor: pointer;
+    @media ${p => p.theme.device.mobileOnly} {
+    width: 100%;
+  }
 `;
 export const Input = styled.input<stylesProps>`
   display: block;
   border-radius: 30px;
   padding: 15px 44px 15px 20px;
   width: 100%;
-  background-color: ${p => p.backgroundColor || p.theme.colors.white};
-  /* width: 350px; */
+  background-color: ${p => p.backgroundColor || p.theme.colors.white}; 
   height: 48px;
   border: none;
   outline: transparent;

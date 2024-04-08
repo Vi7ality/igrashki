@@ -1,5 +1,5 @@
 import CategorySelector from '../CategorySelector';
-import { PannelContainer } from './Filters.styled';
+import { PannelContainer, CategoryLabel, ToyCount, InputWrap } from './Filters.styled';
 
 type Props = {
   categories: string[];
@@ -9,11 +9,11 @@ type Props = {
 };
 
 const styleSettings = {
-    widthMobile: '100%',
-    widthTablet: '195px',
-    widthDesktop: '250px', 
-    backgroundColor: '#F3F3FF',
-}
+  widthMobile: '100%',
+  widthTablet: '195px',
+  widthDesktop: '250px',
+  backgroundColor: '#F3F3FF',
+};
 
 const Filters = ({
   categories,
@@ -22,18 +22,21 @@ const Filters = ({
   toysCount,
 }: Props) => {
   return (
-      <PannelContainer>
-          <p>Виберіть категорію</p>
-          <CategorySelector
-              selectorStyles={styleSettings}
-        categories={categories}
-        selectedCategory={selectedCategory}
-        handleCategorySelect={setSelectedCategory}
-        placeholderName="Усі категорії"
-      />
-      <p>
+    <PannelContainer>
+      <InputWrap>
+        <CategoryLabel>Виберіть категорію</CategoryLabel>
+        <CategorySelector
+          selectorStyles={styleSettings}
+          categories={categories}
+          selectedCategory={selectedCategory}
+          handleCategorySelect={setSelectedCategory}
+          placeholderName="Усі категорії"
+        />
+      </InputWrap>
+
+      <ToyCount>
         Знайдено іграшок: <span>{toysCount}</span>
-      </p>
+      </ToyCount>
     </PannelContainer>
   );
 };
