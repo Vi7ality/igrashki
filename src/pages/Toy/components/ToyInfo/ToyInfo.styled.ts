@@ -10,6 +10,7 @@ export const SectionStyled = styled.section`
   }
   @media ${p => p.theme.device.desktop} {
     width: 640px;
+    border-radius: 30px;
   }
 `;
 

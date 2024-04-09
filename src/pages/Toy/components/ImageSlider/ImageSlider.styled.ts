@@ -113,7 +113,14 @@ export const SliderStyled = styled(Slider)`
 `;
 
 export const ImageConatiner = styled.div`
-  border-radius: 30px;
+  border-radius: 10px;
+  @media ${p => p.theme.device.tablet} {
+    border-radius: 15px;
+  }
+  @media ${p => p.theme.device.tablet} {
+    border-radius: 30px;
+  }
+
   background-color: ${p => p.theme.colors.white};
   display: flex !important;
   flex-direction: column;
