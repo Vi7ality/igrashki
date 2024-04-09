@@ -2,7 +2,7 @@ import { Category } from './CategoryBtn.styled';
 
 type Props = {
   handleCategorySelect?(v: string): void;
-  categoryName: string;
+  categoryName: string | null;
 };
 
 const CategoryBtn = ({ handleCategorySelect, categoryName }: Props) => {

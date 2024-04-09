@@ -13,7 +13,6 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HeaderBackgound from '../../shared/HeaderBackground';
-import { IToyInfo } from '../../models/toy';
 import ToyInfo from './components/ToyInfo';
 import Container from '../../shared/Container';
 

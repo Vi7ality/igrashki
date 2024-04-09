@@ -2,10 +2,10 @@ import { AgeIcon, AgeText, IconWrap } from './AgeBtn.styled';
 import icons from '../../assets/icons.svg';
 
 type Props = {
-    age?: string
+  age?: number | null;
 }
 
-const AgeBtn = ({ age = '0' }: Props) => {
+const AgeBtn = ({ age = 0 }: Props) => {
   return (
     <IconWrap>
       <AgeIcon>
