@@ -1,23 +1,27 @@
-import { useParams } from "react-router-dom";
-import Footer from "../../shared/Footer";
+import { useParams } from 'react-router-dom';
+import Footer from '../../shared/Footer';
 
-import ImageSlider from "./components/ImageSlider";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { fetchToy } from "../../redux/slices/toy.slice";
-import { useEffect } from "react";
-import { addItemToCart, removeItemFromCart } from "../../redux/slices/cart.slice";
+import ImageSlider from './components/ImageSlider';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { fetchToy } from '../../redux/slices/toy.slice';
+import { useEffect } from 'react';
+import {
+  addItemToCart,
+  removeItemFromCart,
+} from '../../redux/slices/cart.slice';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HeaderBackgound from "../../shared/HeaderBackground";
-import { IToyInfo } from "../../models/toy";
-import ToyInfo from "./components/ToyInfo";
+import HeaderBackgound from '../../shared/HeaderBackground';
+import { IToyInfo } from '../../models/toy';
+import ToyInfo from './components/ToyInfo';
+import Container from '../../shared/Container';
 
 const Toy = () => {
   const { toyId } = useParams<{ toyId: string }>();
-  const { toy } = useAppSelector((state) => state.toy);
+  const { toy } = useAppSelector(state => state.toy);
   const dispatch = useAppDispatch();
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cart } = useAppSelector(state => state.cart);
 
   useEffect(() => {
     if (toyId) {
@@ -25,7 +29,7 @@ const Toy = () => {
     }
   }, [toyId, dispatch]);
 
-    const handleToggleToCart = () => {
+  const handleToggleToCart = () => {
     const isItemInCart = cart.some(item => item.itemId === toy.toyId);
     if (cart.length >= 3) {
       toast.error('Кошик повний. Максимальна кількість: 3 іграшки.', {
@@ -34,13 +38,14 @@ const Toy = () => {
     } else if (toy && isItemInCart) {
       dispatch(removeItemFromCart(toy.toyId));
     } else {
-      toy && dispatch(
-        addItemToCart({
-          itemId: toy.toyId,
-          itemName: toy.toyName,
-          itemImage: toy.images[0],
-        })
-      );
+      toy &&
+        dispatch(
+          addItemToCart({
+            itemId: toy.toyId,
+            itemName: toy.toyName,
+            itemImage: toy.images[0],
+          })
+        );
       toast.success('Іграшку додано в кошик!', { autoClose: 1000 });
     }
   };
@@ -59,25 +64,26 @@ const Toy = () => {
   //   }
   // };
 
-
   return (
     <>
       <HeaderBackgound />
-      <ImageSlider images={toy?.images} />
-      <ToyInfo handleToggleToCart={handleToggleToCart} />
-            <ToastContainer
-            position="bottom-right"
-            autoClose={1000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss={false}
-            draggable
-            pauseOnHover={false}
-            theme="light"
-            closeButton={false}
-          />
+      <Container>
+        <ImageSlider images={toy?.images} />
+        <ToyInfo handleToggleToCart={handleToggleToCart} />
+      </Container>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="light"
+        closeButton={false}
+      />
     </>
   );
 };

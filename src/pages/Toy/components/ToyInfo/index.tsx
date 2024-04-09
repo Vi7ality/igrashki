@@ -1,4 +1,6 @@
 import { useAppSelector } from '../../../../redux/store';
+import CategoryBtn from '../../../../shared/CategoryBtn';
+import { SectionStyled, PageTitle } from './ToyInfo.styled';
 
 type Props = {
   handleToggleToCart(): void;
@@ -7,13 +9,12 @@ type Props = {
 const ToyInfo = ({ handleToggleToCart }: Props) => {
   const { toy } = useAppSelector(state => state.toy);
   return (
-    <section>
-      <div>
-        <h2>{toy?.toyName}</h2>
-        <button onClick={handleToggleToCart}>Додати</button>
-      </div>
-      <button onClick={handleToggleToCart}>Додати</button>
-
+    <SectionStyled>
+        <PageTitle>{toy?.toyName}</PageTitle>
+          <div>
+              <p>Категорія:</p>
+              <CategoryBtn categoryName={toy.category} />
+    </div>
       <div>
         <div>
           <div>
@@ -48,7 +49,7 @@ const ToyInfo = ({ handleToggleToCart }: Props) => {
           </div>
         </div>
       </div>
-    </section>
+    </SectionStyled>
   );
 };
 
