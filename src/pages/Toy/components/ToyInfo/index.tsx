@@ -12,8 +12,10 @@ import {
   InfoWrap,
   FeatureList,
   ItemStyled,
+  CartBtn,
+  CartIcon,
 } from './ToyInfo.styled';
-import icons from '../../../../assets/icons.svg'
+import icons from '../../../../assets/icons.svg';
 
 type Props = {
   handleToggleToCart(): void;
@@ -21,6 +23,8 @@ type Props = {
 
 const ToyInfo = ({ handleToggleToCart }: Props) => {
   const { toy } = useAppSelector(state => state.toy);
+  const { cart } = useAppSelector(state => state.cart);
+  const isitemincart: boolean = cart.some(item => item.itemId === toy?.toyId);
   console.log(toy?.ageFrom);
   return (
     <SectionStyled>
@@ -53,8 +57,12 @@ const ToyInfo = ({ handleToggleToCart }: Props) => {
             </FeatureList>
           </div>
         )}
-          </InfoWrap>
-          <button>Додати</button>
+      </InfoWrap>
+          {!isitemincart ? <CartBtn type='button' onClick={() => handleToggleToCart()} className='add'>          <CartIcon>
+            <use href={`${icons}#icon-cart-add`} />
+          </CartIcon>Додати</CartBtn> : <CartBtn type='button' onClick={() => handleToggleToCart()} className='delete'>          <CartIcon>
+            <use href={`${icons}#icon-cart-active`} />
+          </CartIcon>У кошику</CartBtn>}
     </SectionStyled>
   );
 };
