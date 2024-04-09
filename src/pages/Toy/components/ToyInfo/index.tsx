@@ -14,6 +14,7 @@ import {
   ItemStyled,
   CartBtn,
   CartIcon,
+  BtnContent,
 } from './ToyInfo.styled';
 import icons from '../../../../assets/icons.svg';
 
@@ -58,11 +59,33 @@ const ToyInfo = ({ handleToggleToCart }: Props) => {
           </div>
         )}
       </InfoWrap>
-          {!isitemincart ? <CartBtn type='button' onClick={() => handleToggleToCart()} className='add'>          <CartIcon>
-            <use href={`${icons}#icon-cart-add`} />
-          </CartIcon>Додати</CartBtn> : <CartBtn type='button' onClick={() => handleToggleToCart()} className='delete'>          <CartIcon>
-            <use href={`${icons}#icon-cart-active`} />
-          </CartIcon>У кошику</CartBtn>}
+      {!isitemincart ? (
+        <CartBtn
+          type="button"
+          onClick={() => handleToggleToCart()}
+          className="add"
+        >
+          <BtnContent>
+            <CartIcon>
+              <use href={`${icons}#icon-cart-add`} />
+            </CartIcon>
+            Додати
+          </BtnContent>
+        </CartBtn>
+      ) : (
+        <CartBtn
+          type="button"
+          onClick={() => handleToggleToCart()}
+          className="delete"
+        >
+          <BtnContent>
+            <CartIcon>
+              <use href={`${icons}#icon-cart-active`} />
+            </CartIcon>
+            У кошику
+          </BtnContent>
+        </CartBtn>
+      )}
     </SectionStyled>
   );
 };

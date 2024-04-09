@@ -65,7 +65,6 @@ export const CartBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   transition: background-color
     ${p => p.theme.transition.function && p.theme.transition.duration.standart};
   margin-top: 40px;
@@ -91,6 +90,12 @@ export const CartBtn = styled.button`
     }
   }
 `;
+
+export const BtnContent = styled.div`
+display: flex;
+align-items: flex-end;
+gap: 10px;
+`
 export const CartIcon = styled.svg`
   width: 24px;
   height: 24px;

@@ -10,7 +10,7 @@ const CategoryBtn = ({ handleCategorySelect, categoryName }: Props) => {
     <Category
       type="button"
       onClick={() => {
-        handleCategorySelect && handleCategorySelect(categoryName);
+        handleCategorySelect && categoryName && handleCategorySelect(categoryName);
       }}
     >
       {categoryName}
