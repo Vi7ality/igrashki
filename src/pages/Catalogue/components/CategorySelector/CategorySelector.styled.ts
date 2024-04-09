@@ -5,13 +5,13 @@ type Props = {
 };
 
 type stylesProps = {
-  [key: string]: string
+  [key: string]: string;
 };
 
 export const CategoryWrapper = styled.div`
   position: relative;
   cursor: pointer;
-    @media ${p => p.theme.device.mobileOnly} {
+  @media ${p => p.theme.device.mobileOnly} {
     width: 100%;
   }
 `;
@@ -20,7 +20,7 @@ export const Input = styled.input<stylesProps>`
   border-radius: 30px;
   padding: 15px 44px 15px 20px;
   width: 100%;
-  background-color: ${p => p.backgroundcolor || p.theme.colors.white}; 
+  background-color: ${p => p.backgroundcolor || p.theme.colors.white};
   height: 48px;
   border: none;
   outline: transparent;
@@ -100,11 +100,50 @@ export const SelectContainer = styled.ul<stylesProps>`
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 10px;
   gap: 15px;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity
+      ${({
+        theme: {
+          transition: {
+            duration,
+            function: transitionFunction,
+          },
+        },
+      }) => `${duration} ${transitionFunction}`},
+    visibility
+      ${({
+        theme: {
+          transition: {
+            duration,
+            function: transitionFunction,
+          },
+        },
+      }) => `${duration} ${transitionFunction}`}
+      ;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
 `;
+
 export const SelectItem = styled.li<Props>`
   font-weight: ${props =>
-    props.isselected ? props.theme.fontWeights.bold : props.theme.fontWeights.normal};
+    props.isselected
+      ? props.theme.fontWeights.bold
+      : props.theme.fontWeights.normal};
   cursor: pointer;
+   transition: color
+      ${({
+        theme: {
+          transition: {
+            duration,
+            function: transitionFunction,
+          },
+        },
+      }) => `${duration} ${transitionFunction}`};
   &:hover {
     color: ${props => props.theme.colors.accent};
   }

@@ -35,6 +35,11 @@ export const theme = {
     desktop: "1340px",
   },
 
+  transition: {
+    function: "cubic-bezier(0.4, 0, 0.2, 1)",
+    duration: "250ms"
+  },
+
   device: {
     mobile: `(min-width: 370px)`,
     mobileOnly: `(max-width: 979px)`,

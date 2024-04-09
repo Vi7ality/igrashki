@@ -9,6 +9,7 @@ export const ButtonStyled = styled.button<BtnProps>`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  transition: background-color ${p => p.theme.transition.function && p.theme.transition.duration.standart};
   background-color: ${p => p.isitemincart ? p.theme.colors.bgWhite : p.theme.colors.accent};
   width: 36px;
   height: 36px;

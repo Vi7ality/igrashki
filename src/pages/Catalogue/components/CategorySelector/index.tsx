@@ -66,8 +66,7 @@ const CategorySelector = ({
           )}
         </WrapperArrow>
       </StyledSelect>
-      {isCategoryActive && (
-        <SelectContainer {...styleSettings}>
+        <SelectContainer {...styleSettings} className={isCategoryActive ? "open" : ""}>
           {categories.map((category: string) => (
             <SelectItem
               key={nanoid(6)}
@@ -81,7 +80,6 @@ const CategorySelector = ({
             </SelectItem>
           ))}
         </SelectContainer>
-      )}
     </CategoryWrapper>
   );
 };
