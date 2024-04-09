@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const IconWrap = styled.div`
+export const BtnStyled = styled.button`
 position: relative;
 width: 28px;
 height: 28px;

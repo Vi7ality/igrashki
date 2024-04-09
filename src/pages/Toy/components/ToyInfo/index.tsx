@@ -34,11 +34,11 @@ const ToyInfo = ({ handleToggleToCart }: Props) => {
         <RowFlex>
           <CategoryWrap>
             <p>Категорія:</p>
-            <CategoryBtn categoryName={toy && toy.category} />
+            <CategoryBtn categoryName={toy && toy.category} disabled={true} />
           </CategoryWrap>
           <AgeWrap>
             <p>Вік:</p>
-            <AgeBtn age={toy && toy.ageFrom} />
+            <AgeBtn age={toy && toy.ageFrom} disabled={true} />
           </AgeWrap>
         </RowFlex>
         <div>

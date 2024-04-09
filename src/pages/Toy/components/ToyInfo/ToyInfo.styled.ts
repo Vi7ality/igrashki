@@ -4,6 +4,13 @@ export const SectionStyled = styled.section`
   border-radius: 15px;
   padding: 30px;
   background-color: ${({ theme: { colors } }) => colors.white};
+
+  @media ${p => p.theme.device.tablet} {
+    width: 460px;
+  }
+  @media ${p => p.theme.device.desktop} {
+    width: 640px;
+  }
 `;
 
 export const PageTitle = styled.h1`
@@ -89,13 +96,23 @@ export const CartBtn = styled.button`
       background-color: ${p => p.theme.colors.redAlt};
     }
   }
+
+  @media ${p => p.theme.device.tablet} {
+    width: 160px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    margin-top: 50px;
+  }
 `;
 
 export const BtnContent = styled.div`
-display: flex;
-align-items: flex-end;
-gap: 10px;
-`
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+`;
 export const CartIcon = styled.svg`
   width: 24px;
   height: 24px;
