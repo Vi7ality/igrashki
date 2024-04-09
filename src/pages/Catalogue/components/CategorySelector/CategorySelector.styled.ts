@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-type Props = {
-  isselected: boolean;
-};
-
 type stylesProps = {
   [key: string]: string;
 };
@@ -106,22 +102,15 @@ export const SelectContainer = styled.ul<stylesProps>`
   transition: opacity
       ${({
         theme: {
-          transition: {
-            duration,
-            function: transitionFunction,
-          },
+          transition: { duration, function: transitionFunction },
         },
       }) => `${duration} ${transitionFunction}`},
     visibility
       ${({
         theme: {
-          transition: {
-            duration,
-            function: transitionFunction,
-          },
+          transition: { duration, function: transitionFunction },
         },
-      }) => `${duration} ${transitionFunction}`}
-      ;
+      }) => `${duration} ${transitionFunction}`};
 
   &.open {
     opacity: 1;
@@ -129,22 +118,20 @@ export const SelectContainer = styled.ul<stylesProps>`
   }
 `;
 
-export const SelectItem = styled.li<Props>`
-  font-weight: ${props =>
-    props.isselected
-      ? props.theme.fontWeights.bold
-      : props.theme.fontWeights.normal};
+export const SelectItem = styled.li`
+  font-weight: ${props => props.theme.fontWeights.normal};
   cursor: pointer;
-   transition: color
-      ${({
-        theme: {
-          transition: {
-            duration,
-            function: transitionFunction,
-          },
-        },
-      }) => `${duration} ${transitionFunction}`};
+  transition: color
+    ${({
+      theme: {
+        transition: { duration, function: transitionFunction },
+      },
+    }) => `${duration} ${transitionFunction}`};
   &:hover {
     color: ${props => props.theme.colors.accent};
+  }
+
+  &.selected {
+    font-weight: ${props => props.theme.fontWeights.bold};
   }
 `;

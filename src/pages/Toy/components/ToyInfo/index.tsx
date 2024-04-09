@@ -26,7 +26,6 @@ const ToyInfo = ({ handleToggleToCart }: Props) => {
   const { toy } = useAppSelector(state => state.toy);
   const { cart } = useAppSelector(state => state.cart);
   const isitemincart: boolean = cart.some(item => item.itemId === toy?.toyId);
-  console.log(toy?.ageFrom);
   return (
     <SectionStyled>
       <PageTitle>{toy?.toyName}</PageTitle>

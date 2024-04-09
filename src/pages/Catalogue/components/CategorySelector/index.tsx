@@ -70,7 +70,7 @@ const CategorySelector = ({
           {categories.map((category: string) => (
             <SelectItem
               key={nanoid(6)}
-              isselected={selectedCategory === category}
+              className={selectedCategory === category ? 'selected' : ''}
               onClick={() => {
                 handleCategorySelect(category);
                 setIsCategoryActive(false);
@@ -80,6 +80,7 @@ const CategorySelector = ({
             </SelectItem>
           ))}
         </SelectContainer>
+      {/* )} */}
     </CategoryWrapper>
   );
 };

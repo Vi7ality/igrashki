@@ -36,7 +36,7 @@ const Carousel = () => {
         <img src={image6} className='gallery-img' alt="Фото" />
         <img src={image7} className='gallery-img' alt="Фото" />
         <img src={image8} className='gallery-img' alt="Фото" />
-      </SliderStyled>
+    </SliderStyled>
   );
 }
 

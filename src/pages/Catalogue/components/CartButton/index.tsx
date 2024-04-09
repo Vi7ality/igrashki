@@ -8,11 +8,15 @@ type Props = {
   toy: IToyInfo;
 };
 
-const CartButton = ({ toy, handleToggleToCart}: Props) => {
+const CartButton = ({ toy, handleToggleToCart }: Props) => {
   const { cart } = useAppSelector(state => state.cart);
   const isitemincart: boolean = cart.some(item => item.itemId === toy.toyId);
   return (
-    <ButtonStyled type='button' onClick={() => handleToggleToCart(toy)} isitemincart={isitemincart}>
+    <ButtonStyled
+      type="button"
+      onClick={() => handleToggleToCart(toy)}
+      className={!isitemincart ? 'add' : 'delete'}
+    >
       <CartIcon>
         {!isitemincart ? (
           <use href={`${icons}#icon-cart-add`} />
