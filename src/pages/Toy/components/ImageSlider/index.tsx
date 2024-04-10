@@ -7,18 +7,32 @@ import {
   SliderStyled,
 } from './ImageSlider.styled';
 import { nanoid } from 'nanoid';
+import defaultImage from '../../../../assets/default-toy-image.svg';
 
-
-const ImageSlider: FC<{ images?: string[] }> = ({ images }) => {
-  const customPaging = (i: number) => (
-    <MiniatureLink key={nanoid(6)}>
-      <MiniatureImg
-        key={nanoid(6)}
-        src={`${images?.[i]}`}
-        alt={`Slide ${i + 1}`}
-      />
-    </MiniatureLink>
-  );
+const ImageSlider: FC<{ images?: string[] }> = ({images}) => {
+  const customPaging = (i: number) => {
+    if (images?.length !== 0) {
+      return (
+        <MiniatureLink key={nanoid(6)}>
+          <MiniatureImg
+            key={nanoid(6)}
+            src={`${images?.[i]}`}
+            alt={`Slide ${i + 1}`}
+          />
+        </MiniatureLink>
+      );
+    } else {
+      return (
+        <MiniatureLink key={nanoid(6)}>
+          <MiniatureImg
+            key={nanoid(6)}
+            src={defaultImage}
+            alt={`Slide ${i + 1}`}
+          />
+        </MiniatureLink>
+      );
+    }
+  };
 
   const settings = {
     dots: true,
@@ -44,11 +58,17 @@ const ImageSlider: FC<{ images?: string[] }> = ({ images }) => {
   return (
     <SliderSection>
       <SliderStyled {...settings}>
-        {images?.map(image => (
-          <ImageContainer key={nanoid(6)}>
-            <img src={image} alt="toy photo"></img>
+        {images?.length !== 0 ? (
+          images?.map(image => (
+            <ImageContainer key={nanoid(6)}>
+              <img src={image} alt="toy photo"></img>
+            </ImageContainer>
+          ))
+        ) : (
+          <ImageContainer>
+              <img src={defaultImage} style={{ width: "100%"}} alt="default toy photo"></img>
           </ImageContainer>
-        ))}
+        )}
       </SliderStyled>
     </SliderSection>
   );

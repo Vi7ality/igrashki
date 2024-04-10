@@ -12,9 +12,9 @@ import { nanoid } from 'nanoid';
 
 type Props = {
   placeholderName: string;
-  selectedCategory: string | null | undefined;
-  categories: string[];
-  handleCategorySelect(v: string): void;
+  selectedCategory: string | number | null | undefined;
+  categories: string[] | number[];
+  handleCategorySelect(v: string | number): void;
   styleSettings?: any;
 };
 
@@ -67,7 +67,7 @@ const CategorySelector = ({
         </WrapperArrow>
       </StyledSelect>
         <SelectContainer {...styleSettings} className={isCategoryActive ? "open" : ""}>
-          {categories.map((category: string) => (
+          {categories.map((category: string | number) => (
             <SelectItem
               key={nanoid(6)}
               className={selectedCategory === category ? 'selected' : ''}

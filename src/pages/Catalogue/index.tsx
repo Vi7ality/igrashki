@@ -27,22 +27,43 @@ const Catalogue = () => {
   const [managementPoints, setManagementPoints] = useState([]);
   const [selectedCity, setSelectedCity] = useState<string>('');
   const [categories, setCategories] = useState(['Усі категорії']);
+  const [ages, setAges] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] =
     useState<string>('Усі категорії');
+  const [selectedAge, setSelectedAge] = useState(0);
   const dispatch = useAppDispatch();
-  const filteredToys =
-    selectedCategory === 'Усі категорії'
-      ? toys
-      : toys.filter(toy => toy.category === selectedCategory);
-  
-  
+
+
+
+  const conditionToysFilter = () => {
+    const conditions: any[] = [];
+
+  if (selectedCategory !== 'Усі категорії') {
+    conditions.push((toy: IToyInfo) => toy.category === selectedCategory);
+  }
+
+  if (selectedAge !== 0) {
+    conditions.push((toy: IToyInfo) => toy.ageFrom >= selectedAge);
+  }
+
+  return toys.filter((toy: IToyInfo) => conditions.every(condition => condition(toy)));
+};
+
+  const filteredToys = conditionToysFilter();
+
 
   const setFilteredCategories = useCallback((dispatchedToys: IToyInfo[]) => {
     const toyCategories = dispatchedToys.map((toy: IToyInfo) => toy.category);
+    const toyAges = dispatchedToys.map((toy: IToyInfo) => toy.ageFrom);
     const filteredCategories = toyCategories.filter(
       (category: string, idx: number) => toyCategories.indexOf(category) === idx
     );
     setCategories(['Усі категорії', ...filteredCategories]);
+
+    const filteredAges = toyAges.filter(
+      (age: number, idx: number) => toyAges.indexOf(age) === idx
+    );
+    setAges(filteredAges);
   }, []);
 
   useEffect(() => {
@@ -89,8 +110,10 @@ const Catalogue = () => {
     }
     setSelectedCity(value);
     const newManagementPoint = managementPoints.find(
-    (point: IManager) => point.city === value);
-    newManagementPoint && dispatch(setSelectedManagementPoint(newManagementPoint));
+      (point: IManager) => point.city === value
+    );
+    newManagementPoint &&
+      dispatch(setSelectedManagementPoint(newManagementPoint));
     setSelectedCategory('Усі категорії');
   };
 
@@ -101,13 +124,11 @@ const Catalogue = () => {
       });
       return;
     }
-    const newManagementPoint = managementPoints.find((point: IManager) => point._id === value);
-    newManagementPoint &&
-    dispatch(
-      setSelectedManagementPoint(
-        newManagementPoint
-      )
+    const newManagementPoint = managementPoints.find(
+      (point: IManager) => point._id === value
     );
+    newManagementPoint &&
+      dispatch(setSelectedManagementPoint(newManagementPoint));
   };
 
   return (
@@ -128,6 +149,9 @@ const Catalogue = () => {
                 categories={categories}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
+                ages={ages}
+                selectedAge={selectedAge}
+                setSelectedAge={setSelectedAge}
                 toysCount={filteredToys.length}
               />
               {isToysLoading ? (
