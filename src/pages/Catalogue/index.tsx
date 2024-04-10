@@ -30,11 +30,12 @@ const Catalogue = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>('Усі категорії');
   const dispatch = useAppDispatch();
-
   const filteredToys =
     selectedCategory === 'Усі категорії'
       ? toys
       : toys.filter(toy => toy.category === selectedCategory);
+  
+  
 
   const setFilteredCategories = useCallback((dispatchedToys: IToyInfo[]) => {
     const toyCategories = dispatchedToys.map((toy: IToyInfo) => toy.category);

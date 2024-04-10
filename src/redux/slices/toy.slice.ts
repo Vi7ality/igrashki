@@ -27,9 +27,7 @@ export const toySlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchToy.fulfilled, (state, action) => {
-                console.log('fetchToy.fulfilled', action.payload);
-                
+            .addCase(fetchToy.fulfilled, (state, action) => {       
                 state.toy = action.payload;
             })
     },

@@ -2,20 +2,17 @@ import { nanoid } from 'nanoid';
 import { Link } from 'react-router-dom';
 import { IToyInfo } from '../../../../models/toy';
 import {
-  Category,
   ContentWrap,
   FlexWrap,
   ImageWrap,
   ToyItemStyled,
   ToyName,
-  AgeIcon,
-  AgeText,
-  IconWrap,
   FlexContainer,
 } from './ToyItem.styled';
-import icons from '../../../../assets/icons.svg';
 import CartButton from '../CartButton';
 import defaultImg from '../../assets/default-image.svg';
+import CategoryBtn from '../../../../shared/CategoryBtn';
+import AgeBtn from '../../../../shared/AgeBtn';
 
 type Props = {
   handleToggleToCart(toy: IToyInfo): void;
@@ -41,18 +38,8 @@ const ToyItem = ({ handleToggleToCart, handleCategorySelect, toy }: Props) => {
         </Link>
         <FlexWrap>
           <FlexContainer>
-            <IconWrap>
-              <AgeIcon>
-                <use href={`${icons}#icon-age`} />
-              </AgeIcon>
-              <AgeText>0</AgeText>
-            </IconWrap>
-            <Category
-              type="button"
-              onClick={() => handleCategorySelect(toy.category)}
-            >
-              {toy.category}
-            </Category>
+          <AgeBtn/>
+            <CategoryBtn handleCategorySelect={handleCategorySelect} categoryName={toy.category} />
           </FlexContainer>
           <CartButton toy={toy} handleToggleToCart={handleToggleToCart} />
         </FlexWrap>
