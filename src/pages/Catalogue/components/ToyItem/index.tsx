@@ -38,7 +38,7 @@ const ToyItem = ({ handleToggleToCart, handleCategorySelect, toy }: Props) => {
         </Link>
         <FlexWrap>
           <FlexContainer>
-          <AgeBtn/>
+            <AgeBtn age={toy.ageFrom} />
             <CategoryBtn handleCategorySelect={handleCategorySelect} categoryName={toy.category} />
           </FlexContainer>
           <CartButton toy={toy} handleToggleToCart={handleToggleToCart} />

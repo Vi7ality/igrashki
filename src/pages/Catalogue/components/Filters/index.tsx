@@ -33,6 +33,16 @@ const Filters = ({
           placeholderName="Усі категорії"
         />
       </InputWrap>
+      <InputWrap>
+        <CategoryLabel>Виберіть вік дитини</CategoryLabel>
+        <CategorySelector
+          styleSettings={styleSettings}
+          categories={categories}
+          selectedCategory={selectedCategory}
+          handleCategorySelect={setSelectedCategory}
+          placeholderName="Усі категорії"
+        />
+      </InputWrap>
 
       <ToyCount>
         Знайдено іграшок: <span>{toysCount}</span>
