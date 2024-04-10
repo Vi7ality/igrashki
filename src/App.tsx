@@ -24,6 +24,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./constants/theme";
 import SharedLayout from "./shared/SharedLayout";
 import NotFound from "./pages/NotFound";
+import RegisterSuccess from "./pages/RegisterSuccess";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -49,6 +50,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/subscription" element={<Subscription />} />
             <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/register-success" element={<RegisterSuccess />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="*" element={<NotFound/>} />
           </Route>

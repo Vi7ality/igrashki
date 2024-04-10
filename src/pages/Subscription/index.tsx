@@ -33,6 +33,9 @@ const Subscription = () => {
   const handleSubmit = async (values: ClientValuesType) => {
     try {
       let token = localStorage.getItem("userToken");
+      if (token === undefined) {
+        token = '';
+      }
       const subscription = {
         managementPointId: selectedManagementPoint?._id,
         toys: cart.map((toy) => toy.itemId),
@@ -41,7 +44,6 @@ const Subscription = () => {
       if (!client?._id) {
         const data  = await dispatch(clientRegister(values));
         token = data.payload.token;
-        console.log('token:', token)
       }
 
       if (cart.length > 0) {
@@ -49,11 +51,13 @@ const Subscription = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
         dispatch(clearCart());
+        navigate("/confirmation");
+        return
       }
 
-      navigate("/confirmation");
+      navigate("/register-success");
     } catch (error: any) {
-      console.log(error);
+      console.log(error)
       toast.error(`Помилка при оформленні: ${error?.response?.data?.error}`);
       setTimeout(() => {
         if (client?._id) {
