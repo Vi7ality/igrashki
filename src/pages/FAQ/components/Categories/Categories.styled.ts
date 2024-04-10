@@ -21,7 +21,8 @@ export const CategoryBtn = styled.button`
   font-weight: 600;
   line-height: 1.3;
   border-radius: 20px;
-  border: 2px solid ${props => props.theme.colors.baseblue};
+  border: 2px solid;
+  border-color: ${props => props.theme.colors.baseblue};
 
   &.selected {
     background-color: #46409C;
