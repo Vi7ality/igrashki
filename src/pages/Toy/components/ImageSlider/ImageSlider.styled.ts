@@ -68,8 +68,6 @@ export const SliderStyled = styled(Slider)`
     @media ${p => p.theme.device.mobileOnly} {
       bottom: -39px;
     }
-    @media ${p => p.theme.device.tablet} {
-    }
     @media ${p => p.theme.device.desktop} {
       bottom: -96px;
     }

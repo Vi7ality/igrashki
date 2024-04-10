@@ -9,7 +9,6 @@ import {
   ToyName,
   FlexContainer,
 } from './ToyItem.styled';
-import icons from '../../../../assets/icons.svg';
 import CartButton from '../CartButton';
 import defaultImg from '../../assets/default-image.svg';
 import CategoryBtn from '../../../../shared/CategoryBtn';
