@@ -1,10 +1,13 @@
 import CategorySelector from '../CategorySelector';
-import { PannelContainer, CategoryLabel, ToyCount, InputWrap } from './Filters.styled';
+import { PannelContainer, CategoryLabel, ToyCount, InputWrap, SelectorsContainer } from './Filters.styled';
 
 type Props = {
   categories: string[];
   selectedCategory: string;
   setSelectedCategory(v: string): void;
+  ages: number[],
+  selectedAge: number,
+  setSelectedAge(v: number): void;
   toysCount: number;
 };
 
@@ -17,13 +20,17 @@ const styleSettings = {
 
 const Filters = ({
   categories,
+  ages,
+  setSelectedAge,
+  selectedAge,
   selectedCategory,
   setSelectedCategory,
   toysCount,
 }: Props) => {
   return (
     <PannelContainer>
-      <InputWrap>
+      <SelectorsContainer>
+        <InputWrap>
         <CategoryLabel>Виберіть категорію</CategoryLabel>
         <CategorySelector
           styleSettings={styleSettings}
@@ -37,13 +44,13 @@ const Filters = ({
         <CategoryLabel>Виберіть вік дитини</CategoryLabel>
         <CategorySelector
           styleSettings={styleSettings}
-          categories={categories}
-          selectedCategory={selectedCategory}
-          handleCategorySelect={setSelectedCategory}
-          placeholderName="Усі категорії"
+          categories={ages}
+          selectedCategory={`${selectedAge}+`}
+          handleCategorySelect={setSelectedAge}
+          placeholderName="0+"
         />
       </InputWrap>
-
+      </SelectorsContainer>
       <ToyCount>
         Знайдено іграшок: <span>{toysCount}</span>
       </ToyCount>
