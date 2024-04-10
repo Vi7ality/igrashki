@@ -3,23 +3,33 @@ import styled from 'styled-components';
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowRight from '../../assets/arrow-right.svg';
 
+export const SliderSection = styled.section`
+  width: 350px;
+  height: 350px;
+  margin-bottom: 33px;
+  @media ${p => p.theme.device.tablet} {
+    position: sticky;
+    top: 0;
+    width: 458px;
+    height: 458px;
+    margin-bottom: 96px;
+  }
+  @media ${p => p.theme.device.desktop} {
+    width: 640px;
+    height: 640px;
+    margin-bottom: 132px;
+  }
+`;
+
 export const SliderStyled = styled(Slider)`
   &.slick-slider {
-    width: 350px;
-    height: 350px;
-    @media ${p => p.theme.device.tablet} {
-      width: 458px;
-      height: 458px;
-    }
-    @media ${p => p.theme.device.desktop} {
-      width: 640px;
-      height: 640px;
-    }
+    width: 100%;
+    height: 100%;
   }
 
   .slick-list {
-    /* width: 640px;
-    height: 640px; */
+    width: 100%;
+    height: 100%;
   }
 
   .slick-prev {
