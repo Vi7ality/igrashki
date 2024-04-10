@@ -10,7 +10,7 @@ import {
   FlexContainer,
 } from './ToyItem.styled';
 import CartButton from '../CartButton';
-import defaultImg from '../../assets/default-image.svg';
+import defaultImg from '../../../../assets/default-toy-image.svg';
 import CategoryBtn from '../../../../shared/CategoryBtn';
 import AgeBtn from '../../../../shared/AgeBtn';
 
