@@ -1,15 +1,18 @@
 import { FC } from 'react';
 import { ImageConatiner, MiniatureLink, SliderStyled } from './ImageSlider.styled';
+import { nanoid } from 'nanoid';
 
 const ImageSlider: FC<{ images?: string[] }> = ({ images }) => {
   const customPaging = (i: number) => (
-    <MiniatureLink>
+    <MiniatureLink key={nanoid(6)}>
       <img src={`${images?.[i]}`} alt={`Slide ${i + 1}`} />
     </MiniatureLink>
   );
 
+
+
   const settings = {
-    customPaging,
+
     dots: true,
     dotsClass: 'slick-dots slick-thumb',
     infinite: true,
@@ -18,14 +21,15 @@ const ImageSlider: FC<{ images?: string[] }> = ({ images }) => {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 980,
+        breakpoint: 20000,
         settings: {
-          dots: true,
-          dotsClass: 'slick-dots slick-thumb',
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1,
+              customPaging,
+        },
+      },
+            {
+        breakpoint: 979,
+        settings: {
+
         },
       },
     ],
