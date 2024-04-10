@@ -7,6 +7,7 @@ export const SectionStyled = styled.section`
 
   @media ${p => p.theme.device.tablet} {
     width: 460px;
+    height: 100%;
   }
   @media ${p => p.theme.device.desktop} {
     width: 640px;

@@ -53,10 +53,11 @@ export const SliderStyled = styled(Slider)`
     &:before {
       content: '';
       background-image: url(${arrowRight});
+      fill: red;
       display: block;
       width: 40px;
       height: 40px;
-    }
+    } 
   }
 
   .slick-dots {
@@ -158,3 +159,14 @@ export const MiniatureLink = styled.a`
   justify-content: center;
   align-items: center;
 `;
+
+export const MiniatureImg = styled.img`
+    @media ${p => p.theme.device.tablet} {
+      max-width: 76px;
+      max-height: 76px;
+    }
+    @media ${p => p.theme.device.desktop} {
+      max-width: 112px;
+      max-height: 112px;
+    }
+`
