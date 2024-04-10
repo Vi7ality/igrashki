@@ -75,7 +75,7 @@ export const CartBtn = styled.button`
   align-items: center;
   justify-content: center;
   transition: background-color
-    ${p => p.theme.transition.function && p.theme.transition.duration.standart};
+    ${p => p.theme.transition.function && p.theme.transition.duration};
   margin-top: 40px;
 
   &.add {
