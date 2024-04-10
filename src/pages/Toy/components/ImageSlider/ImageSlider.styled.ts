@@ -57,7 +57,7 @@ export const SliderStyled = styled(Slider)`
       display: block;
       width: 40px;
       height: 40px;
-    } 
+    }
   }
 
   .slick-dots {
@@ -73,6 +73,11 @@ export const SliderStyled = styled(Slider)`
     @media ${p => p.theme.device.desktop} {
       bottom: -96px;
     }
+  }
+
+  .slick-thumb {
+    display: flex !important;
+    flex-wrap: wrap;
   }
 
   .slick-dots li {
@@ -123,7 +128,7 @@ export const SliderStyled = styled(Slider)`
   }
 `;
 
-export const ImageConatiner = styled.div`
+export const ImageContainer = styled.div`
   border-radius: 10px;
   @media ${p => p.theme.device.tablet} {
     border-radius: 15px;
@@ -161,12 +166,12 @@ export const MiniatureLink = styled.a`
 `;
 
 export const MiniatureImg = styled.img`
-    @media ${p => p.theme.device.tablet} {
-      max-width: 76px;
-      max-height: 76px;
-    }
-    @media ${p => p.theme.device.desktop} {
-      max-width: 112px;
-      max-height: 112px;
-    }
-`
+  @media ${p => p.theme.device.tablet} {
+    max-width: 76px;
+    max-height: 76px;
+  }
+  @media ${p => p.theme.device.desktop} {
+    max-width: 112px;
+    max-height: 112px;
+  }
+`;

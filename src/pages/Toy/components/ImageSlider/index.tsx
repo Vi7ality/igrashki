@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import {
-  ImageConatiner,
+  ImageContainer,
   MiniatureImg,
   MiniatureLink,
   SliderSection,
   SliderStyled,
 } from './ImageSlider.styled';
 import { nanoid } from 'nanoid';
+
 
 const ImageSlider: FC<{ images?: string[] }> = ({ images }) => {
   const customPaging = (i: number) => (
@@ -44,9 +45,9 @@ const ImageSlider: FC<{ images?: string[] }> = ({ images }) => {
     <SliderSection>
       <SliderStyled {...settings}>
         {images?.map(image => (
-          <ImageConatiner key={nanoid(6)}>
+          <ImageContainer key={nanoid(6)}>
             <img src={image} alt="toy photo"></img>
-          </ImageConatiner>
+          </ImageContainer>
         ))}
       </SliderStyled>
     </SliderSection>
