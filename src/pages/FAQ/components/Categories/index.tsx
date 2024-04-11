@@ -20,6 +20,7 @@ const Categories = ({ isSelected, handleCategoryClick }: Props) => {
     <CategoriesWrap>
       {categories.map((category, index) => (
         <CategoryBtn
+          type="button"
           key={index}
           className={`${isSelected(category) && "selected"}`}
           onClick={() => handleCategoryClick(category)}

@@ -80,6 +80,7 @@ export const SliderStyled = styled(Slider)`
 
   .slick-dots li {
     border-radius: 30px;
+    overflow: hidden;
     background-color: ${p => p.theme.colors.white};
     @media ${p => p.theme.device.mobileOnly} {
       width: 18px;

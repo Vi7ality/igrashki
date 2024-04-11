@@ -49,7 +49,7 @@ const CartModal = ({ cart, onClose }: CartModalProps) => {
         <>
           <CartList>
             {cart.map((item) => (
-              <CartItem key={item.itemId}>{item.itemName}</CartItem>
+              <CartItem to={`/toys/${item.itemId}`} onClick={onClose} key={item.itemId}>{item.itemName}</CartItem>
             ))}
           </CartList>
           <LinkBtnContainer>

@@ -88,7 +88,19 @@ export const LinkStyled = styled(Link)`
   font-size: 16px;
   line-height: 1.1875;
   font-weight: 600;
-  transition: 0.3s;
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+     @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
 `;
 
 export const ContainerRight = styled.ul`
@@ -101,6 +113,19 @@ export const IconStyled = styled.svg`
   fill: ${props => props.theme.colors.white};
   width: 36px;
   height: 36px;
+    transition: fill
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+     @media (hover: hover) {
+      &:hover {
+        fill: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        fill: ${p => p.theme.colors.lightGrey};
+      }
+    }
 `;
 
 export const FlexWrapBottom = styled.div`
@@ -133,11 +158,37 @@ export const TermsList = styled.ul`
 
 export const TermsLink = styled.a`
   color: ${(props) => props.theme.colors.bgWhite};
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+     @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
 `;
 export const ContactLink = styled.a`
   font-size: 18px;
   font-weight: ${(props) => props.theme.colors.bold};
   color: ${(props) => props.theme.colors.bgWhite};
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+     @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
 `;
 
 export const ContactList = styled.ul`

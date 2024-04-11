@@ -75,27 +75,35 @@ export const CartBtn = styled.button`
   align-items: center;
   justify-content: center;
   transition: background-color
-    ${p => p.theme.transition.function && p.theme.transition.duration.standart};
+    ${p => p.theme.transition.function && p.theme.transition.duration};
   margin-top: 40px;
 
   &.add {
     background-color: ${({ theme: { colors } }) => colors.accent};
-    &:hover {
-      background-color: ${p => p.theme.colors.accentAlt};
-    }
 
-    &:focus {
-      background-color: ${p => p.theme.colors.accentAlt};
+    @media (hover: hover) {
+      &:hover {
+        background-color: ${p => p.theme.colors.accentAlt};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        background-color: ${p => p.theme.colors.accentAlt};
+      }
     }
   }
   &.delete {
     background-color: ${({ theme: { colors } }) => colors.bgWhite};
-    &:hover {
-      background-color: ${p => p.theme.colors.redAlt};
-    }
 
-    &:focus {
-      background-color: ${p => p.theme.colors.redAlt};
+    @media (hover: hover) {
+      &:hover {
+        background-color: ${p => p.theme.colors.redAlt};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        background-color: ${p => p.theme.colors.redAlt};
+      }
     }
   }
 

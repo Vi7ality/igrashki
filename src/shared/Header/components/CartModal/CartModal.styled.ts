@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { AccentLinkStyled } from "../../../../pages/AboutUs/components/JoinUsSection/JoinUsSection.styled";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { AccentLinkStyled } from '../../../../pages/AboutUs/components/JoinUsSection/JoinUsSection.styled';
+import { Link } from 'react-router-dom';
 
 export const CartModalContainer = styled.div`
   position: absolute;
@@ -8,20 +8,20 @@ export const CartModalContainer = styled.div`
   right: 0;
   top: 45px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.white};
   box-shadow: 0 6px 25px 0 rgba(63, 73, 148, 0.2);
   padding: 20px;
   border-radius: 15px;
   width: 100%;
 
-  @media ${(props) => props.theme.device.tablet} {
-      width: 446px;
-      top: 50px;
-      right: 20px;
-      padding: 20px 30px;
+  @media ${props => props.theme.device.tablet} {
+    width: 446px;
+    top: 50px;
+    right: 20px;
+    padding: 20px 30px;
   }
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     top: 63px;
   }
 `;
@@ -34,7 +34,7 @@ export const FlexWrap = styled.div`
 
 export const ItemCounter = styled.p`
   font-size: 18px;
-  color: ${(props) => props.theme.colors.baseBlue};
+  color: ${props => props.theme.colors.baseBlue};
 
   span {
     font-weight: 700;
@@ -51,15 +51,29 @@ export const CartList = styled.ul`
   margin-top: 30px;
 `;
 
-export const CartItem = styled.li`
+export const CartItem = styled(Link)`
   padding-bottom: 20px;
+  color: ${p => p.theme.colors.darkBlue};
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${p => p.theme.colors.altBlue};
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      color: ${p => p.theme.colors.altBlue};
+    }
+  }
 
   &:not(:first-child) {
     margin-top: 20px;
   }
 
   &::after {
-    content: "";
+    content: '';
     position: relative;
     display: block;
     bottom: -20px;
@@ -67,7 +81,7 @@ export const CartItem = styled.li`
     width: 100%;
     height: 1px;
     border-radius: 16px;
-    background-color: ${(props) => props.theme.colors.lightGrey};
+    background-color: ${props => props.theme.colors.lightGrey};
   }
 `;
 
@@ -84,26 +98,41 @@ export const ClearBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.colors.baseBlue};
-  border: 2px solid ${(props) => props.theme.colors.baseBlue};
+  color: ${props => props.theme.colors.baseBlue};
+  border: 2px solid ${props => props.theme.colors.baseBlue};
   border-radius: 20px;
+  transition: all
+    ${p => p.theme.transition.function && p.theme.transition.duration};
 
-  @media ${(props) => props.theme.device.tablet} {
+  @media (hover: hover) {
+    &:hover {
+      color: ${p => p.theme.colors.white};
+      background-color: ${p => p.theme.colors.baseBlue};
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      color: ${p => p.theme.colors.white};
+      background-color: ${p => p.theme.colors.baseBlue};
+    }
+  }
+
+  @media ${props => props.theme.device.tablet} {
     width: 142px;
   }
 `;
 
 export const BagLink = styled(AccentLinkStyled)`
-font-size: 16px;
+  font-size: 16px;
   width: 194px;
   height: 48px;
 
-  @media ${(props) => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 16px;
     width: 234px;
     height: 48px;
   }
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     font-size: 16px;
     width: 234px;
     height: 48px;
@@ -111,11 +140,24 @@ font-size: 16px;
 `;
 
 export const EmptyCartMsg = styled.p`
-font-size: 18px;
-margin-top: 30px;
-`
+  font-size: 18px;
+  margin-top: 30px;
+`;
 
 export const CatalogueLink = styled(Link)`
-display: inline;
-font-weight: 600;
-`
+  display: inline;
+  font-weight: 600;
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${p => p.theme.colors.altBlue};
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      color: ${p => p.theme.colors.altBlue};
+    }
+  }
+`;

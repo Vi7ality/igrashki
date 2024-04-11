@@ -98,6 +98,24 @@ export const TrspLinkStyled = styled(NavLinkTrsp)`
   color: ${(props) => props.theme.colors.baseBlue};
   border-color: ${(props) => props.theme.colors.baseBlue};
 
+    transition: background-color ${p => p.theme.transition.duration}
+      ${p => p.theme.transition.function},
+    color ${p => p.theme.transition.duration}
+      ${p => p.theme.transition.function},
+    border-color ${p => p.theme.transition.duration}
+      ${p => p.theme.transition.function},
+    fill ${p => p.theme.transition.duration} ${p => p.theme.transition.function};
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background-color: ${p => p.theme.colors.baseBlue};
+      color: ${props => props.theme.colors.white};
+      border-color: ${p => p.theme.colors.baseBlue};
+      fill: ${props => props.theme.colors.white};
+    }
+  }
+
   @media ${(props) => props.theme.device.tablet} {
     width: 280px;
   }

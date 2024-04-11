@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Container from "../Container";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import Container from '../Container';
+import { Link } from 'react-router-dom';
 
 export const HeaderStyled = styled.header`
   position: absolute;
@@ -14,11 +14,11 @@ export const HeaderStyled = styled.header`
   align-items: center;
   padding-top: 10px;
 
-  @media ${(props) => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     padding-top: 19px;
   }
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     padding-top: 24px;
   }
 `;
@@ -40,7 +40,7 @@ export const MobMenuBtn = styled.button`
 
   margin-right: 30px;
 
-  @media ${(props) => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     display: none;
   }
 `;
@@ -53,7 +53,7 @@ export const MenuIcon = styled.svg`
 export const Logo = styled.img`
   width: 39px;
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     width: 56px;
   }
 `;
@@ -61,7 +61,7 @@ export const Logo = styled.img`
 export const NavContainer = styled.nav`
   display: none;
 
-  @media ${(props) => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     display: block;
   }
 `;
@@ -74,10 +74,23 @@ export const NavList = styled.ul`
 
 export const LinkStyled = styled(Link)`
   text-decoration: none;
-  color: ${(props) => props.theme.colors.white};
+  color: ${props => props.theme.colors.white};
   font-size: 16px;
-  font-weight: ${(props) => props.theme.fontWeights.medium};
-  transition: 0.3s;
+  font-weight: ${props => props.theme.fontWeights.medium};
+  transition: color  ${p => p.theme.transition.function && p.theme.transition.duration};
+
+   @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: #fff;
+        background-color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+
 `;
 
 export const ContainerRight = styled.div`
@@ -85,31 +98,63 @@ export const ContainerRight = styled.div`
   align-items: center;
   gap: 15px;
 
-  @media ${(props) => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     gap: 20px;
   }
 `;
 
 export const ClientProfile = styled.button`
-font-weight: 400;
-font-size: 14px;
-`
+  font-weight: 400;
+  font-size: 14px;
+  color: ${p => p.theme.colors.white};
+    transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+      @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+`;
 
 export const AuthBtn = styled.button`
   height: 28px;
+  fill: ${props => props.theme.colors.white};
+  transition: background-color ${p => p.theme.transition.duration}
+      ${p => p.theme.transition.function},
+    color ${p => p.theme.transition.duration}
+      ${p => p.theme.transition.function},
+    border-color ${p => p.theme.transition.duration}
+      ${p => p.theme.transition.function},
+    fill ${p => p.theme.transition.duration} ${p => p.theme.transition.function};
 
-  @media ${(props) => props.theme.device.tablet} {
+
+
+  @media (hover: hover) {
+    &:hover, &:focus {
+      background-color: ${p => p.theme.colors.bgWhite};
+      color: ${props => props.theme.colors.baseBlue};
+      border-color: ${p => p.theme.colors.bgWhite};
+      fill: ${props => props.theme.colors.baseBlue};
+    }
+  }
+
+  @media ${props => props.theme.device.tablet} {
     height: 36px;
   }
 
-  @media ${(props) => props.theme.device.desktop} {
-    font-weight: ${(props) => props.theme.fontWeights.medium};
+  @media ${props => props.theme.device.desktop} {
+    font-weight: ${props => props.theme.fontWeights.medium};
     font-size: 16px;
 
     display: flex;
     align-items: center;
-    color: ${(props) => props.theme.colors.white};
-    border: 2px solid ${(props) => props.theme.colors.white};
+    color: ${props => props.theme.colors.white};
+    border: 2px solid ${props => props.theme.colors.white};
     border-radius: 20px;
     padding: 10px 30px;
     width: 200px;
@@ -123,22 +168,23 @@ export const MobUserIcon = styled.svg`
   padding: 6px;
   width: 28px;
   height: 28px;
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.white};
   border-radius: 50%;
 
-  @media ${(props) => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     padding: 8px;
     width: 36px;
     height: 36px;
   }
 
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     display: none;
   }
 `;
 export const DeskUserIcon = styled.svg`
   display: none;
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
+    fill: inherit;
     display: block;
     width: 28px;
     height: 28px;
@@ -148,26 +194,39 @@ export const DeskUserIcon = styled.svg`
 
 export const AuthContent = styled.p`
   display: none;
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     display: inline;
   }
 `;
 
 export const BasketBtn = styled.button`
   padding: 5px;
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.white};
   border-radius: 50%;
   width: 28px;
   height: 28px;
-
   position: relative;
 
-  @media ${(props) => props.theme.device.tablet} {
+  transition: background-color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+     @media (hover: hover) {
+      &:hover {
+        background-color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        background-color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+
+  @media ${props => props.theme.device.tablet} {
     padding: 7px;
     width: 36px;
     height: 36px;
   }
-  @media ${(props) => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     padding: 9px;
     width: 48px;
     height: 48px;
@@ -176,11 +235,11 @@ export const BasketBtn = styled.button`
   svg {
     width: 17px;
     height: 17px;
-    @media ${(props) => props.theme.device.tablet} {
+    @media ${props => props.theme.device.tablet} {
       width: 21px;
       height: 21px;
     }
-    @media ${(props) => props.theme.device.desktop} {
+    @media ${props => props.theme.device.desktop} {
       width: 28px;
       height: 28px;
     }

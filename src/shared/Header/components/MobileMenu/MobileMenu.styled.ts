@@ -62,11 +62,15 @@ export const FlexWrap = styled.div`
   display: flex;
 `;
 
+export const CloseBtn = styled.button`
+fill: ${p => p.theme.colors.baseBlue};
+`
+
 export const IconClose = styled.svg`
   width: 28px;
   height: 28px;
-
   margin-right: 30px;
+  fill: inherit;
 `;
 
 export const BagNavLink = styled(NavLink)`
@@ -79,6 +83,13 @@ height: 28px;
 fill: ${props => props.theme.colors.white};
 background-color: ${props => props.theme.colors.baseBlue};
 border-radius: 50%;
+transition: fill
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+    @media (hover: none) {
+      &:active {
+        fill: ${p => p.theme.colors.altBlue};
+      }
+    }
 `
 
 export const IconBag = styled.svg`
@@ -99,6 +110,14 @@ export const RegisterLink = styled(NavLink)`
   padding-left: 20px;
   border-left: 2px solid #d8defb;
   color: ${props => props.theme.colors.darkBlue};
+    transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.altBlue};
+      }
+    }
 `;
 
 export const NavList = styled.ul`
@@ -110,17 +129,41 @@ export const NavList = styled.ul`
   margin-bottom: 40px;
 `;
 
-export const NavLinkStyled = styled(NavLink)`
+export const LinkStyled = styled(NavLink)`
   font-size: 18px;
-  font-weight: 700;
   color: ${props => props.theme.colors.darkBlue};
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.altBlue};
+      }
+    }
 `;
+
+export const BoldLink = styled(LinkStyled)`
+font-weight: 700;
+`
 
 export const LogoutBtn = styled.button`
 border: none;
 font-size: 18px;
 color: ${props => props.theme.colors.red};
 margin-bottom: 40px;
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${p => p.theme.colors.redAlt};
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      color: ${p => p.theme.colors.redAlt};
+    }
+  }
 `
 
 export const SocialMediaList = styled.ul`
@@ -135,6 +178,14 @@ export const IconSocial = styled.svg`
   width: 36px;
   height: 36px;
   fill: ${(props) => props.theme.colors.baseBlue};
+  transition: fill
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+    @media (hover: none) {
+      &:active {
+        fill: ${p => p.theme.colors.altBlue};
+      }
+    }
 `;
 
 export const MenuBottom = styled.div`
@@ -162,9 +213,25 @@ export const ContactList = styled.ul`
 export const ContactLink = styled.a`
   font-weight: 600;
   color: ${(props) => props.theme.colors.darkBlue};
+    transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.altBlue};
+      }
+    }
 `;
 
 export const UserTerms = styled.a`
 color: ${props => props.theme.colors.darkBlue};
 padding-bottom: 15px;
+  transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.altBlue};
+      }
+    }
 `

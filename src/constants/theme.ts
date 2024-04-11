@@ -7,6 +7,7 @@ export const theme = {
 
     baseBlue: "#46409C",
     darkBlue: "#2F2960",
+    altBlue: "#5c54c9",
 
     black: "#000000",
     bgDark: "#100E20",

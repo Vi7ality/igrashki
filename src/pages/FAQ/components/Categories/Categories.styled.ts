@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CategoriesWrap = styled.div`
   margin-bottom: 30px;
@@ -16,15 +16,28 @@ export const CategoryBtn = styled.button`
   cursor: pointer;
   background-color: transparent;
   padding: 11px 23px;
-  color: ${props => props.theme.colors.baseblue};
+  color: #46409c;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.3;
   border-radius: 20px;
-  border: 2px solid ${props => props.theme.colors.baseblue};
+  border: 2px solid;
+  border-color: ${props => props.theme.colors.baseblue};
+
+  @media (hover: hover) {
+    &:hover {
+      color: #fff;
+      background-color: #46409c;
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      color: #fff;
+      background-color: #46409c;
+    }
+  }
 
   &.selected {
-    background-color: #46409C;
+    background-color: #46409c;
     color: #fff;
   }
 `;
