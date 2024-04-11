@@ -144,12 +144,12 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
           <ContactList>
             <li>
               <ContactLink type="tel" href="tel:+380123456789">
-                +380 12 345 67 89
+                +380 96 077 11 02
               </ContactLink>
             </li>
             <li>
               <ContactLink type="mail" href="mailto:hello@growithyou.club">
-                hello@growithyou.club
+                growwithyou.subscription@gmail.com
               </ContactLink>
             </li>
           </ContactList>

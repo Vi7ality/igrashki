@@ -66,10 +66,10 @@ const FooterTop = () => {
           </TermsLink>
           <ContactList>
             <li>
-              <ContactLink href="tel:+380123456789">+380 12 345 67 89</ContactLink>
+              <ContactLink href="tel:+380123456789">+380 96 077 11 02</ContactLink>
             </li>
             <li>
-              <ContactLink href="mailto:hello@growithyou.club">hello@growithyou.club</ContactLink>
+              <ContactLink href="mailto:hello@growithyou.club">growwithyou.subscription@gmail.com</ContactLink>
             </li>
           </ContactList>
         </FlexWrapBottom>
