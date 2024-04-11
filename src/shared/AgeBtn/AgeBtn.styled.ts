@@ -19,7 +19,7 @@ export const AgeText = styled.p`
 position: absolute;
 bottom: 0;
 left: 0;
-z-index:9;
+z-index: 3;
 font-weight: 600;
 font-size: 12px;
 width: 100%;
