@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import {
   AuthContainer,
   BagNavLink,
@@ -19,13 +18,13 @@ import {
   RegisterLink,
   SocialMediaList,
   UserTerms,
-  CloseBtn
-} from "./MobileMenu.styled";
-import icons from "../../../../assets/icons.svg";
-import darkLogo from "../../../../assets/logo-dark.svg";
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../../redux/store";
-import { clearClient } from "../../../../redux/slices/client.slice";
+  CloseBtn,
+} from './MobileMenu.styled';
+import icons from '../../../../assets/icons.svg';
+import darkLogo from '../../../../assets/logo-dark.svg';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../../redux/store';
+import { clearClient } from '../../../../redux/slices/client.slice';
 
 type Props = {
   handleMenuClick(): void;
@@ -33,7 +32,7 @@ type Props = {
 };
 
 const MobileMenu = ({ handleMenuClick, openState }: Props) => {
-  const { client } = useAppSelector((state) => state.client);
+  const { client } = useAppSelector(state => state.client);
   const dispatch = useAppDispatch();
 
   const onLogoutClick = () => {
@@ -45,17 +44,17 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
     if (openState) {
       const scrollY = window.scrollY;
 
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
 
       return () => {
-        document.body.style.overflow = "";
+        document.body.style.overflow = '';
         window.scrollTo(0, scrollY);
       };
     }
   }, [openState, client]);
 
   return (
-    <MobileMenuSection className={openState ? "open" : ""}>
+    <MobileMenuSection className={openState ? 'open' : ''}>
       <MenuContainer>
         <HeaderMb>
           <FlexWrap>
@@ -66,7 +65,7 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
             </CloseBtn>
             <img src={darkLogo} alt="logo" />
           </FlexWrap>
-          <BagNavLink to={"/bag"} onClick={handleMenuClick}>
+          <BagNavLink to={'/bag'} onClick={handleMenuClick}>
             <IconBag>
               <use href={`${icons}#icon-basket-white`}></use>
             </IconBag>
@@ -74,19 +73,19 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         </HeaderMb>
         <AuthContainer>
           {client ? (
-            <LinkStyled to={"/profile"} onClick={handleMenuClick}>
-              {client.parentName + " " + client.parentSurname}
+            <LinkStyled to={'/profile'} onClick={handleMenuClick}>
+              {client.parentName + ' ' + client.parentSurname}
             </LinkStyled>
           ) : (
             <>
               <LinkStyled
-                to={"/"}
-                style={{ fontSize: "18px", paddingRight: "20px" }}
+                to={'/'}
+                style={{ fontSize: '18px', paddingRight: '20px' }}
                 onClick={handleMenuClick}
               >
                 Вхід
               </LinkStyled>
-              <RegisterLink to={"/subscription"} onClick={handleMenuClick}>
+              <RegisterLink to={'/subscription'} onClick={handleMenuClick}>
                 Реєстрація
               </RegisterLink>
             </>
@@ -95,22 +94,22 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         <nav>
           <NavList>
             <li>
-              <BoldLink to={"/"} onClick={handleMenuClick}>
+              <BoldLink to={'/'} onClick={handleMenuClick}>
                 Головна сторінка
               </BoldLink>
             </li>
             <li>
-              <BoldLink to={"/catalogue"} onClick={handleMenuClick}>
+              <BoldLink to={'/catalogue'} onClick={handleMenuClick}>
                 Каталог іграшок
               </BoldLink>
             </li>
             <li>
-              <BoldLink to={"/about"} onClick={handleMenuClick}>
+              <BoldLink to={'/about'} onClick={handleMenuClick}>
                 Про проєкт
               </BoldLink>
             </li>
             <li>
-              <BoldLink to={"/faq"} onClick={handleMenuClick}>
+              <BoldLink to={'/faq'} onClick={handleMenuClick}>
                 Популярні запитання
               </BoldLink>
             </li>
@@ -144,10 +143,14 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         <MenuBottom>
           <ContactList>
             <li>
-              <ContactLink type="tel" href="tel:+380123456789">+380 12 345 67 89</ContactLink>
+              <ContactLink type="tel" href="tel:+380123456789">
+                +380 12 345 67 89
+              </ContactLink>
             </li>
             <li>
-              <ContactLink type="mail" href="mailto:hello@growithyou.club">hello@growithyou.club</ContactLink>
+              <ContactLink type="mail" href="mailto:hello@growithyou.club">
+                hello@growithyou.club
+              </ContactLink>
             </li>
           </ContactList>
           <UserTerms
