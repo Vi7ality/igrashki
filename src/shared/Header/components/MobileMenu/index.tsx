@@ -13,11 +13,13 @@ import {
   MenuBottom,
   MenuContainer,
   MobileMenuSection,
-  NavLinkStyled,
+  LinkStyled,
+  BoldLink,
   NavList,
   RegisterLink,
   SocialMediaList,
   UserTerms,
+  CloseBtn
 } from "./MobileMenu.styled";
 import icons from "../../../../assets/icons.svg";
 import darkLogo from "../../../../assets/logo-dark.svg";
@@ -57,11 +59,11 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
       <MenuContainer>
         <HeaderMb>
           <FlexWrap>
-            <button onClick={handleMenuClick}>
+            <CloseBtn onClick={handleMenuClick}>
               <IconClose>
                 <use href={`${icons}#icon-close`}></use>
               </IconClose>
-            </button>
+            </CloseBtn>
             <img src={darkLogo} alt="logo" />
           </FlexWrap>
           <BagNavLink to={"/bag"} onClick={handleMenuClick}>
@@ -72,18 +74,18 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         </HeaderMb>
         <AuthContainer>
           {client ? (
-            <NavLink to={"/profile"} onClick={handleMenuClick}>
+            <LinkStyled to={"/profile"} onClick={handleMenuClick}>
               {client.parentName + " " + client.parentSurname}
-            </NavLink>
+            </LinkStyled>
           ) : (
             <>
-              <NavLink
+              <LinkStyled
                 to={"/"}
                 style={{ fontSize: "18px", paddingRight: "20px" }}
                 onClick={handleMenuClick}
               >
                 Вхід
-              </NavLink>
+              </LinkStyled>
               <RegisterLink to={"/subscription"} onClick={handleMenuClick}>
                 Реєстрація
               </RegisterLink>
@@ -93,24 +95,24 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         <nav>
           <NavList>
             <li>
-              <NavLinkStyled to={"/"} onClick={handleMenuClick}>
+              <BoldLink to={"/"} onClick={handleMenuClick}>
                 Головна сторінка
-              </NavLinkStyled>
+              </BoldLink>
             </li>
             <li>
-              <NavLinkStyled to={"/catalogue"} onClick={handleMenuClick}>
+              <BoldLink to={"/catalogue"} onClick={handleMenuClick}>
                 Каталог іграшок
-              </NavLinkStyled>
+              </BoldLink>
             </li>
             <li>
-              <NavLinkStyled to={"/about"} onClick={handleMenuClick}>
+              <BoldLink to={"/about"} onClick={handleMenuClick}>
                 Про проєкт
-              </NavLinkStyled>
+              </BoldLink>
             </li>
             <li>
-              <NavLinkStyled to={"/faq"} onClick={handleMenuClick}>
+              <BoldLink to={"/faq"} onClick={handleMenuClick}>
                 Популярні запитання
-              </NavLinkStyled>
+              </BoldLink>
             </li>
           </NavList>
         </nav>
@@ -142,10 +144,10 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
         <MenuBottom>
           <ContactList>
             <li>
-              <ContactLink href="tel:+380123456789">+380 12 345 67 89</ContactLink>
+              <ContactLink type="tel" href="tel:+380123456789">+380 12 345 67 89</ContactLink>
             </li>
             <li>
-              <ContactLink href="mailto:hello@growithyou.club">hello@growithyou.club</ContactLink>
+              <ContactLink type="mail" href="mailto:hello@growithyou.club">hello@growithyou.club</ContactLink>
             </li>
           </ContactList>
           <UserTerms

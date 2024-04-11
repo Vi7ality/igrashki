@@ -64,7 +64,7 @@ export const SelectInput = styled.input`
     font-size: 16px;
   }
 `;
-export const StyledSelect = styled.div`
+export const StyledSelect = styled.button`
   position: absolute;
   display: flex;
   top: 0;
@@ -118,20 +118,27 @@ export const SelectContainer = styled.ul<stylesProps>`
   }
 `;
 
-export const SelectItem = styled.li`
+export const SelectItem = styled.button`
+  text-align: start;
   font-weight: ${props => props.theme.fontWeights.normal};
   cursor: pointer;
   transition: color
-    ${({
-      theme: {
-        transition: { duration, function: transitionFunction },
-      },
-    }) => `${duration} ${transitionFunction}`};
-  &:hover {
-    color: ${props => props.theme.colors.accent};
-  }
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+     @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.altBlue};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.altBlue};
+      }
+    }
+
 
   &.selected {
     font-weight: ${props => props.theme.fontWeights.bold};
   }
+  
 `;

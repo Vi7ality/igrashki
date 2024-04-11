@@ -31,6 +31,19 @@ export const AccordionHeader = styled.button`
   text-align: start;
   justify-content: space-between;
   cursor: pointer;
+    transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${p => p.theme.colors.altBlue};
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      color: ${p => p.theme.colors.altBlue};
+    }
+  }
 
   h2 {
     width: 270px;

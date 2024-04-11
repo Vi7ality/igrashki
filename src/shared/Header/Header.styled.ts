@@ -106,6 +106,19 @@ export const ContainerRight = styled.div`
 export const ClientProfile = styled.button`
   font-weight: 400;
   font-size: 14px;
+  color: ${p => p.theme.colors.white};
+    transition: color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+      @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
 `;
 
 export const AuthBtn = styled.button`

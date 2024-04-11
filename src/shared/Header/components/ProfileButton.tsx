@@ -26,7 +26,7 @@ const ProfileButton = () => {
   return (
     <>
       {client ? (
-        <div>
+        <div style={{ position: 'relative'}}>
           <ClientProfile
             style={{ color: 'white' }}
             onClick={handleProfileButtonClick}
