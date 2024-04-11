@@ -77,7 +77,20 @@ export const LinkStyled = styled(Link)`
   color: ${props => props.theme.colors.white};
   font-size: 16px;
   font-weight: ${props => props.theme.fontWeights.medium};
-  transition: 0.3s;
+  transition: color  ${p => p.theme.transition.function && p.theme.transition.duration};
+
+   @media (hover: hover) {
+      &:hover {
+        color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        color: #fff;
+        background-color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+
 `;
 
 export const ContainerRight = styled.div`
@@ -179,8 +192,21 @@ export const BasketBtn = styled.button`
   border-radius: 50%;
   width: 28px;
   height: 28px;
-
   position: relative;
+
+  transition: background-color
+    ${p => p.theme.transition.function && p.theme.transition.duration};
+
+     @media (hover: hover) {
+      &:hover {
+        background-color: ${p => p.theme.colors.lightGrey};
+      }
+    }
+    @media (hover: none) {
+      &:active {
+        background-color: ${p => p.theme.colors.lightGrey};
+      }
+    }
 
   @media ${props => props.theme.device.tablet} {
     padding: 7px;

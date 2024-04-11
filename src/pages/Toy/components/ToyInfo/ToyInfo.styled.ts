@@ -88,7 +88,6 @@ export const CartBtn = styled.button`
     }
     @media (hover: none) {
       &:active {
-        color: #fff;
         background-color: ${p => p.theme.colors.accentAlt};
       }
     }
