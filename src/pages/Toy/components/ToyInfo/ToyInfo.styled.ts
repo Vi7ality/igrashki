@@ -80,17 +80,32 @@ export const CartBtn = styled.button`
 
   &.add {
     background-color: ${({ theme: { colors } }) => colors.accent};
-      &:hover,
-      &:focus {
+
+    @media (hover: hover) {
+      &:hover {
         background-color: ${p => p.theme.colors.accentAlt};
       }
+    }
+    @media (hover: none) {
+      &:active {
+        color: #fff;
+        background-color: ${p => p.theme.colors.accentAlt};
+      }
+    }
   }
   &.delete {
     background-color: ${({ theme: { colors } }) => colors.bgWhite};
-      &:hover,
-      &:focus {
+
+    @media (hover: hover) {
+      &:hover {
         background-color: ${p => p.theme.colors.redAlt};
       }
+    }
+    @media (hover: none) {
+      &:active {
+        background-color: ${p => p.theme.colors.redAlt};
+      }
+    }
   }
 
   @media ${p => p.theme.device.tablet} {

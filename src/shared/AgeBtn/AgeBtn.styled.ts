@@ -4,6 +4,10 @@ export const BtnStyled = styled.button`
 position: relative;
 width: 28px;
 height: 28px;
+
+&:disabled {
+    pointer-events: none;
+}
 `
 
 export const AgeIcon = styled.svg`
