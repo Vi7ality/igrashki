@@ -30,7 +30,7 @@ export const ListOfItems = styled.ul`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 `;
 
 export const Item = styled.li`
