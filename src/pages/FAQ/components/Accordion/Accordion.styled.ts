@@ -8,6 +8,7 @@ export const AccordionWrap = styled.div`
   padding: 20px;
   background-color: ${(props) => props.theme.colors.white};
   border-radius: 15px;
+  cursor: pointer;
 
   @media ${(props) => props.theme.device.tablet} {
     padding: 23px 23px 23px 40px;
@@ -23,10 +24,11 @@ export const AccordionWrap = styled.div`
   }
 `;
 
-export const AccordionHeader = styled.div`
+export const AccordionHeader = styled.button`
   width: 100%;
   display: flex;
   align-items: center;
+  text-align: start;
   justify-content: space-between;
   cursor: pointer;
 
