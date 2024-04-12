@@ -2,7 +2,7 @@ import { MutableRefObject } from 'react';
 import styled from 'styled-components';
 
 type Props = {
-  modalRef: MutableRefObject<undefined>;
+  ref: MutableRefObject<undefined>;
 }
 
 export const DropdownContainer = styled.div<Props>`

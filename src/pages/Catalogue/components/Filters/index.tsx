@@ -11,12 +11,19 @@ type Props = {
   toysCount: number;
 };
 
-const styleSettings = {
+const categoryStyleSettings = {
   widthmobile: '100%',
   widthtablet: '195px',
   widthdesktop: '250px',
   backgroundcolor: '#F3F3FF',
 };
+
+const ageStyleSettings = {
+  widthmobile: '100%',
+  widthtablet: '150px',
+  widthdesktop: '161px',
+  backgroundcolor: '#F3F3FF',
+}
 
 const Filters = ({
   categories,
@@ -33,7 +40,7 @@ const Filters = ({
         <InputWrap>
         <CategoryLabel>Виберіть категорію</CategoryLabel>
         <CategorySelector
-          styleSettings={styleSettings}
+          styleSettings={categoryStyleSettings}
           categories={categories}
           selectedCategory={selectedCategory}
           handleCategorySelect={setSelectedCategory}
@@ -43,7 +50,7 @@ const Filters = ({
       <InputWrap>
         <CategoryLabel>Виберіть вік дитини</CategoryLabel>
         <CategorySelector
-          styleSettings={styleSettings}
+          styleSettings={ageStyleSettings}
           categories={ages}
           selectedCategory={`${selectedAge}+`}
           handleCategorySelect={setSelectedAge}

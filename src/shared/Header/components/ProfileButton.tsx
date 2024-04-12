@@ -12,16 +12,20 @@ import {
 import icons from '../../../assets/icons.svg';
 import useClickOutside from '../../../utils/useClickOutside';
 
-const ProfileButton = () => {
+type Props = {
+  showAuthModal: boolean;
+  setShowAuthModal(v: boolean): void;
+}
+
+const ProfileButton = ({showAuthModal, setShowAuthModal}: Props) => {
   const { client } = useAppSelector(state => state.client);
-  const [showAuthModal, setShowAuthModal] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const handleProfileButtonClick = () => {
     setShowProfileDropdown(prev => !prev);
   };
 
   const handleAuthModal = () => {
-    setShowAuthModal(prev => !prev);
+    setShowAuthModal(!showAuthModal);
   };
 
   const DropDownProfileRef = useRef();

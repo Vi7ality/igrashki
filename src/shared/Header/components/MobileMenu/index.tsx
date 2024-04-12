@@ -29,9 +29,10 @@ import { clearClient } from '../../../../redux/slices/client.slice';
 type Props = {
   handleMenuClick(): void;
   openState: boolean;
+  setShowAuthModal(v: boolean): void;
 };
 
-const MobileMenu = ({ handleMenuClick, openState }: Props) => {
+const MobileMenu = ({ handleMenuClick, setShowAuthModal, openState }: Props) => {
   const { client } = useAppSelector(state => state.client);
   const dispatch = useAppDispatch();
 
@@ -39,6 +40,11 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
     dispatch(clearClient());
     handleMenuClick();
   };
+
+  const onLoginClick = () => {
+    setShowAuthModal(true);
+    handleMenuClick();
+  }
 
   useEffect(() => {
     if (openState) {
@@ -81,7 +87,7 @@ const MobileMenu = ({ handleMenuClick, openState }: Props) => {
               <LinkStyled
                 to={'/'}
                 style={{ fontSize: '18px', paddingRight: '20px' }}
-                onClick={handleMenuClick}
+                onClick={() => onLoginClick()}
               >
                 Вхід
               </LinkStyled>

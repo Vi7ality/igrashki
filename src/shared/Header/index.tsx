@@ -25,6 +25,7 @@ const Header = () => {
   const dispatch = useAppDispatch();
 
   const [open, setOpen] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   
     const handleMenuClick = () => {
     setOpen(!open);
@@ -72,12 +73,12 @@ const Header = () => {
             </NavList>
           </NavContainer>
           <ContainerRight>
-            <ProfileButton />
+            <ProfileButton showAuthModal={showAuthModal} setShowAuthModal={setShowAuthModal} />
             <CartButton/>
           </ContainerRight>
         </FlexContainer>
       </HeaderStyled>
-      <MobileMenu openState={open} handleMenuClick={handleMenuClick} />
+      <MobileMenu openState={open} handleMenuClick={handleMenuClick} setShowAuthModal={setShowAuthModal}/>
     </>
   );
 };
