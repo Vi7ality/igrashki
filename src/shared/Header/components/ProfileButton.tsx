@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useAppSelector } from '../../../redux/store';
 import AuthModal from './AuthModal';
 import DropDownProfile from './DropDownProfile';
@@ -10,6 +10,7 @@ import {
   MobUserIcon,
 } from '../Header.styled';
 import icons from '../../../assets/icons.svg';
+import useClickOutside from '../../../utils/useClickOutside';
 
 const ProfileButton = () => {
   const { client } = useAppSelector(state => state.client);
@@ -23,10 +24,16 @@ const ProfileButton = () => {
     setShowAuthModal(prev => !prev);
   };
 
+  const DropDownProfileRef = useRef();
+
+  useClickOutside(DropDownProfileRef, () => {
+    showProfileDropdown && setShowProfileDropdown(false);
+  });
+
   return (
     <>
       {client ? (
-        <div style={{ position: 'relative'}}>
+        <div style={{ position: 'relative' }}>
           <ClientProfile
             style={{ color: 'white' }}
             onClick={handleProfileButtonClick}
@@ -35,6 +42,7 @@ const ProfileButton = () => {
           </ClientProfile>
           {showProfileDropdown && (
             <DropDownProfile
+              modalRef={DropDownProfileRef}
               closeDropDown={() => setShowProfileDropdown(false)}
             />
           )}
