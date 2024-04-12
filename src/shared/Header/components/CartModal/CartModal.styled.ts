@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 import { AccentLinkStyled } from '../../../../pages/AboutUs/components/JoinUsSection/JoinUsSection.styled';
 import { Link } from 'react-router-dom';
+import { MutableRefObject } from 'react';
 
-export const CartModalContainer = styled.div`
+type Props = {
+  ref: MutableRefObject<undefined>;
+}
+
+export const CartModalContainer = styled.div<Props>`
   position: absolute;
   z-index: 999;
   right: 0;

@@ -1,5 +1,6 @@
 import { useAppDispatch } from "../../../../redux/store";
 import { clearCart } from "../../../../redux/slices/cart.slice";
+
 import {
   CartModalContainer,
   IconClose,
@@ -14,15 +15,18 @@ import {
   EmptyCartMsg,
 } from "./CartModal.styled";
 import icons from "../../../../assets/icons.svg";
+import { MutableRefObject } from "react";
 
 interface CartModalProps {
   cart: Array<{ itemId: string; itemName: string }>;
   onClose: () => void;
+  modalRef: MutableRefObject<undefined>;
 }
 
-const CartModal = ({ cart, onClose }: CartModalProps) => {
+const CartModal = ({ cart, onClose, modalRef}: CartModalProps) => {
   const dispatch = useAppDispatch();
   const totalItems = cart.length;
+  
   const getWordEnding = (quantity: number) => {
     return quantity === 1 ? "іграшка" : quantity >= 2 && quantity <= 4 ? "іграшки" : "іграшок";
   };
@@ -32,8 +36,10 @@ const CartModal = ({ cart, onClose }: CartModalProps) => {
     onClose();
   };
 
+
+
   return (
-    <CartModalContainer>
+    <CartModalContainer ref={modalRef}>
       <FlexWrap>
         <ItemCounter>
           У кошику:<span>{totalItems}</span> {getWordEnding(totalItems)}

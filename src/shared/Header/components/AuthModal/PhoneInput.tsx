@@ -14,7 +14,6 @@ export const PhoneInput = ({ getFieldProps, error, touched }: PropType) => {
         mask="+38 (999) 999 99 99"
         placeholder="+38"
         maskChar={null}
-        autocomplete="username"
         {...getFieldProps("phoneNumber")}
         {...(error && touched && { isInvalid: true })}
       />

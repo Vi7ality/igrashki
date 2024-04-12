@@ -19,7 +19,6 @@ export const PasswordInput = ({ getFieldProps, error, touched }: PropType) => {
           autoComplete="true"
           type={showPassword ? "text" : "password"}
           placeholder="Введіть пароль"
-          autocomplete="current-password"
           {...getFieldProps("password")}
           {...(error && touched && { isInvalid: true })}
         />
