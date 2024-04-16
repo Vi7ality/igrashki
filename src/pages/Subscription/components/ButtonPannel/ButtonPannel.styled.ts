@@ -24,6 +24,10 @@ height: 48px;
 background-color: ${p => p.theme.colors.accent};
 font-weight: 600;
 margin-bottom: 20px;
+&:disabled {
+      background-color: ${props => props.theme.colors.lightGrey};
+      color: ${props => props.theme.colors.mutedGrey2};
+    }
 `
 export const LoginBtn = styled.button`
 display: flex;

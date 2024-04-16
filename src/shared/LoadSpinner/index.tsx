@@ -1,9 +1,9 @@
 import { ThreeDots } from 'react-loader-spinner';
 
 type Props = {
-    height: string;
-    width: string;
-    color: string;
+    height?: string;
+    width?: string;
+    color?: string;
 }
 
 const LoadSpinner = ({height = '48', width = '48', color = '#2F2960'}: Props) => (

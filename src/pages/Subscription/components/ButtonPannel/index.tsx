@@ -1,5 +1,6 @@
 import { ClientState } from "../../../../models/auth";
 import { useAppSelector } from "../../../../redux/store";
+import LoadSpinner from "../../../../shared/LoadSpinner";
 import {
   DecorLine,
   DecorText,
@@ -19,6 +20,7 @@ type PropType = {
 const ButtonPannel = ({ clientValues, setIsAuthModalOpen, position }: PropType) => {
   const { client } = useAppSelector((state) => state.client);
   const { cart } = useAppSelector((state) => state.cart);
+  const { loading: isLoading } = useAppSelector((state) => state.client);
   const toysCount = cart.length;
   return (
     <PannelWrap position={position}>
@@ -28,23 +30,23 @@ const ButtonPannel = ({ clientValues, setIsAuthModalOpen, position }: PropType) 
         </SubmitBtn>
       )}
 
-      {!client?._id && toysCount !== 0 && (
+      {!client?._id && toysCount > 0 && (
         <SubmitBtn
-          disabled={!clientValues?.acceptRules && !client?._id}
+          disabled={!clientValues?.acceptRules || isLoading}
           type="submit"
           form="formId"
         >
-          Зареєструватися і замовити
+          {!isLoading ? 'Зареєструватися і замовити' : <LoadSpinner/>}
         </SubmitBtn>
       )}
 
       {!client?._id && toysCount === 0 && (
         <SubmitBtn
-          disabled={!clientValues?.acceptRules && !client?._id}
+          disabled={!clientValues?.acceptRules || isLoading}
           type="submit"
           form="formId"
         >
-          Зареєструватися
+          {!isLoading ? 'Зареєструватися' : <LoadSpinner/>}
         </SubmitBtn>
       )}
 
