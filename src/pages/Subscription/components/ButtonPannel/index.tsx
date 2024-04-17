@@ -21,12 +21,13 @@ const ButtonPannel = ({ clientValues, setIsAuthModalOpen, position }: PropType) 
   const { client } = useAppSelector((state) => state.client);
   const { cart } = useAppSelector((state) => state.cart);
   const { loading: isLoading } = useAppSelector((state) => state.client);
+  const { loading: isCartLoading } = useAppSelector((state) => state.cart);
   const toysCount = cart.length;
   return (
     <PannelWrap position={position}>
       {client?._id && toysCount !== 0 && (
-        <SubmitBtn type="submit" form="formId">
-          Замовити
+        <SubmitBtn type="submit" form="formId" disabled={isCartLoading}>
+          {!isCartLoading ? 'Замовити' : <LoadSpinner/>}
         </SubmitBtn>
       )}
 

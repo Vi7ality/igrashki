@@ -9,7 +9,7 @@ import { PageTitle, SubscrContainer } from "./Subscription.styled";
 import OrderSection from "./components/OrderSection";
 import api from "../../api";
 import { useDispatch } from "react-redux";
-import { clearCart } from "../../redux/slices/cart.slice";
+import { cartSubsription, clearCart } from "../../redux/slices/cart.slice";
 import { ClientValuesType} from "../../models/auth";
 import { clientRegister } from "../../redux/slices/client.slice";
 
@@ -47,14 +47,12 @@ const Subscription = () => {
       }
 
       if (cart.length > 0) {
-        await api.post("/subscription/sub", subscription, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        await dispatch(cartSubsription(subscription));
         dispatch(clearCart());
         navigate("/confirmation");
         return
       }
-
+      
       navigate("/register-success");
     } catch (error: any) {
       console.log(error)
