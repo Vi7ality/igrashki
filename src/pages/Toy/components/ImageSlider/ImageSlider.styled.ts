@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowRight from '../../assets/arrow-right.svg';
+import defaultImg from '../../../../assets/default-toy-image.svg';
 
 export const SliderSection = styled.section`
   width: 350px;
@@ -129,6 +130,9 @@ export const SliderStyled = styled(Slider)`
 
 export const ImageContainer = styled.div`
   border-radius: 10px;
+  background-image: url(${defaultImg});
+  background-position: center;
+  background-size: cover;
   @media ${p => p.theme.device.tablet} {
     border-radius: 15px;
   }
@@ -157,6 +161,9 @@ export const ImageContainer = styled.div`
 `;
 
 export const MiniatureLink = styled.a`
+  background-image: url(${defaultImg});
+  background-position: center;
+  background-size: cover;
   height: 100%;
   width: 100%;
   display: flex;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import defaultImg from '../../../../assets/default-toy-image.svg';
 
 export const ToyItemStyled = styled.li`
   width: 350px;
@@ -25,6 +26,8 @@ export const ImageWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url(${defaultImg});
+  background-position: center;
   @media ${p => p.theme.device.tablet} {
     border-radius: 26px;
   }
