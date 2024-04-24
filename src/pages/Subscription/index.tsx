@@ -7,7 +7,6 @@ import HeaderBackgound from "../../shared/HeaderBackground";
 import AuthSection from "./components/AuthSection";
 import { PageTitle, SubscrContainer } from "./Subscription.styled";
 import OrderSection from "./components/OrderSection";
-import api from "../../api";
 import { useDispatch } from "react-redux";
 import { cartSubsription, clearCart } from "../../redux/slices/cart.slice";
 import { ClientValuesType} from "../../models/auth";
@@ -52,7 +51,7 @@ const Subscription = () => {
         navigate("/confirmation");
         return
       }
-      
+
       navigate("/register-success");
     } catch (error: any) {
       console.log(error)

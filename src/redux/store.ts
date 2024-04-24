@@ -11,6 +11,7 @@ import cartSlice, { CartInitialState } from './slices/cart.slice';
 import { ManagerInitialState, managerLogout, managerSlice } from './slices/manager.slice';
 import api from '../api';
 import { ClientAdminInitialState, clientAdminSlice } from './slices/clientAdmin.slice';
+import { InitialOrderType, orderSlice } from './slices/order.slice';
 
 interface AppState {
     cart: CartInitialState
@@ -22,6 +23,7 @@ interface AppState {
     toyAdmin: ToyAdminInitialState;
     clientAdmin: ClientAdminInitialState;
     manager: ManagerInitialState;
+    order: InitialOrderType
 }
 
 export const store = configureStore<AppState>({
@@ -34,7 +36,8 @@ export const store = configureStore<AppState>({
         toys: toysSlice.reducer,
         toy: toySlice.reducer,
         manager: managerSlice.reducer,
-        clientAdmin: clientAdminSlice.reducer,
+      clientAdmin: clientAdminSlice.reducer,
+      order: orderSlice.reducer,
     },
 });
 

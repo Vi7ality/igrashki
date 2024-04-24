@@ -40,6 +40,10 @@ height: 48px;
 font-weight: 600;
 color: ${p => p.theme.colors.baseBlue};
 `
+export const WarnMsg = styled.p`
+color: ${p => p.theme.colors.warnRed};
+font-size: 14px;
+`
 
 export const DecorWrap = styled.div`
 display: flex;

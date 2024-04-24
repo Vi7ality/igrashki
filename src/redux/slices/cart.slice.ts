@@ -17,12 +17,12 @@ export const cartSubsription = createAsyncThunk(
   '/subscription/sub',
   async (subscription: cartSubsription) => {
     try {
-      let token = localStorage.getItem("userToken");
+      let token = localStorage.getItem('userToken');
       if (token === undefined) {
         token = '';
       }
       const response = await api.post('/subscription/sub', subscription, {
-          headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
       return response.data;
     } catch (error: Error | any) {
@@ -30,10 +30,6 @@ export const cartSubsription = createAsyncThunk(
     }
   }
 );
-
-//  await api.post("/subscription/sub", subscription, {
-//           headers: { Authorization: `Bearer ${token}` },
-//         });
 
 export interface CartInitialState {
   cart: ICartItem[] | [];
@@ -96,12 +92,12 @@ export const cartSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(cartSubsription.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
       .addCase(cartSubsription.fulfilled, state => {
         state.loading = false;
+        state.error = null;
+      })
+      .addCase(cartSubsription.pending, state => {
+        state.loading = true;
         state.error = null;
       })
       .addCase(cartSubsription.rejected, (state, action) => {
