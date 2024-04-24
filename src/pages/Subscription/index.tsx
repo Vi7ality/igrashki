@@ -54,7 +54,6 @@ const Subscription = () => {
 
       navigate("/register-success");
     } catch (error: any) {
-      console.log(error)
       toast.error(`Помилка при оформленні: ${error?.response?.data?.error}`);
       setTimeout(() => {
         if (client?._id) {

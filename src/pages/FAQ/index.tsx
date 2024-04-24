@@ -115,8 +115,6 @@ const FAQ = () => {
     [selectedCategories]
   );
 
-  console.log(points);
-
   return (
     <div >
       <HeroSection />
