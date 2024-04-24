@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { IClient, IClientCredentials } from "../../models/client";
 import api from "../../api";
 import { ClientValuesType } from "../../models/auth";
+import { fetchClientOrder } from "./order.slice";
 
 export interface ClientInitialState {
   client: IClient | null;
@@ -57,6 +58,7 @@ export const fetchClientById = createAsyncThunk(
   async (clientId: string) => {
     try {
       const result = await api.get(`/clients/${clientId}`);
+      fetchClientOrder();
       return result.data;
     } catch (error) {
       throw new Error("Failed to fetch client");

@@ -13,7 +13,7 @@ import {
   WarnMsg,
 } from './ButtonPannel.styled';
 import { fetchClientOrder } from '../../../../redux/slices/order.slice';
-import { useCallback, useEffect, useState } from 'react';
+import {useEffect} from 'react';
 
 type PropType = {
   clientValues: ClientState;
@@ -26,33 +26,20 @@ const ButtonPannel = ({
   setIsAuthModalOpen,
   position,
 }: PropType) => {
-  const [isOrderMade, setisOrderMade] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
   const { client } = useAppSelector(state => state.client);
+    const { order } = useAppSelector((state) => state.order);
   const { cart } = useAppSelector(state => state.cart);
   const { loading: isLoading } = useAppSelector(state => state.client);
   const { loading: isCartLoading } = useAppSelector(state => state.cart);
   const { loading: isOrderFetching } = useAppSelector(state => state.order);
   const dispatch = useDispatch<AppDispatch>();
-
-
-  const fetchData = useCallback(async () => {
-    // setIsLoading(true);
-    try {
-    const { payload: data } = await dispatch(fetchClientOrder());
-      data.length === 0 && setisOrderMade(true);
-      // setIsLoading(false);
-    } catch (error: any) {
-      // setIsLoading(false);
-      throw new Error(error);
-  }
-  }, [dispatch]);
   
   useEffect(() => {
-    fetchData();
-  },[fetchData])
+    dispatch(fetchClientOrder());
+  },[dispatch])
 
   const toysCount = cart.length;
+  const isOrdered = order?.length !== 0
   return (
     <PannelWrap position={position}>
       {client?._id && toysCount !== 0 && (
@@ -60,11 +47,11 @@ const ButtonPannel = ({
           <SubmitBtn
             type="submit"
             form="formId"
-            disabled={isCartLoading || isOrderFetching || isOrderMade}
+            disabled={isCartLoading || isOrderFetching || isOrdered}
           >
             {!isCartLoading ? 'Замовити' : <LoadSpinner />}
           </SubmitBtn>
-          {isOrderMade && <WarnMsg>У вас вже є активне замовлення.</WarnMsg>}
+          {isOrdered && <WarnMsg>У вас вже є активне замовлення.</WarnMsg>}
         </>
       )}
 

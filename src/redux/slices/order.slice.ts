@@ -3,7 +3,7 @@ import api from "../../api";
 import { ISubscription } from "../../models/client";
 
 export type InitialOrderType = {
-  order: ISubscription[] | null;
+  order: ISubscription[] | [];
   loading: boolean;
   error: string | null;
 }
@@ -12,9 +12,9 @@ export const fetchClientOrder = createAsyncThunk(
   '/subscription/sub',
   async () => {
     try {
-      let token = localStorage.getItem("userToken");
-      if (token === undefined) {
-        token = '';
+      const token = localStorage.getItem("userToken");
+      if (!token) {
+        return;
       }
       const response = await api.get(`/subscription`, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -27,7 +27,7 @@ export const fetchClientOrder = createAsyncThunk(
 );
 
 const initialState: InitialOrderType = {
-  order: null,
+  order: [],
   loading: false,
   error: null,
 };
@@ -37,7 +37,7 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     clearOrder: (state: any) => {
-      state.order = null;
+      state.order = [];
       state.loading = false;
       state.error = null;
       localStorage.removeItem("order");
