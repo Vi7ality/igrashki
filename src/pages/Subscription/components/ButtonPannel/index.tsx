@@ -35,8 +35,8 @@ const ButtonPannel = ({
   const dispatch = useDispatch<AppDispatch>();
   
   useEffect(() => {
-    dispatch(fetchClientOrder());
-  },[dispatch])
+    client && dispatch(fetchClientOrder());
+  },[client, dispatch])
 
   const toysCount = cart.length;
   const isOrdered = order?.length !== 0
