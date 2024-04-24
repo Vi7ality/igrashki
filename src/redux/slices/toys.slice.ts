@@ -74,6 +74,7 @@ export const toysSlice = createSlice({
             })
             .addCase(addToy.fulfilled, (state, action) => {
                 state.toys.push(action.payload);
+                state.isLoading = false;
             })
             .addCase(updateToy.fulfilled, (state, action) => {
                 const toyIndex = state.toys.findIndex(toy => toy._id === action.payload.id);

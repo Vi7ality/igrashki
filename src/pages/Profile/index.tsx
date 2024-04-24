@@ -1,5 +1,5 @@
 import { addMonths, format } from 'date-fns';
-import { useAppSelector } from '../../redux/store';
+import { AppDispatch, useAppSelector } from '../../redux/store';
 import Header from '../../shared/Header'
 import styles from './Profile.module.scss'
 import { appDateFormat } from '../../constants/date';
@@ -7,23 +7,23 @@ import { useEffect, useState } from 'react';
 import api from '../../api';
 import QRCode from 'react-qr-code';
 import { ISubscription } from '../../models/client';
+import { useDispatch } from 'react-redux';
+import { fetchClientOrder } from '../../redux/slices/order.slice';
 
 const Profile = () => {
     const { client } = useAppSelector((state) => state.client);
     const [subscriptions, setSubscriptions] = useState<ISubscription[]>([])
     const [isQRModalVisible, setIsQRModalVisible] = useState(false)
     const [selectedSubscription, setSelectedSubscription] = useState<any>(null)
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         const fetchSubscriptions = async () => {
-            const { data } = await api.get(`/subscription`, {
-                headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` }
-            })
+            const { payload: data } = await dispatch(fetchClientOrder());
             setSubscriptions(data)
         }
-
         fetchSubscriptions()
-    }, [])
+    }, [dispatch])
 
     const formatDate = (date: Date | undefined) => {
         if (!date) return ""
