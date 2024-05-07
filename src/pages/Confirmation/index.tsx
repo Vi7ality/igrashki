@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import HeaderBackgound from '../../shared/HeaderBackground';
 import CheckImg from './assets/check-illustration.svg';
 import {
@@ -12,6 +13,9 @@ import {
 const Confirmation = () => {
   return (
     <>
+      <Helmet>
+        <title>Дякуємо за замовлення!</title>
+      </Helmet>
       <HeaderBackgound />
       <SectionStyled>
         <FlexContainer>

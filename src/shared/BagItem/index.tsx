@@ -13,7 +13,7 @@ const BagItem = ({ itemId, itemImage, itemName, deleteItem }: BagItemProps) => {
   return (
     <BagItemStyled>
       <FlexWrap>
-        <WrapLeft>
+        <WrapLeft to={`/toys/${itemId}`}>
           <ItemImg src={itemImage} />
           <ItemName>{itemName}</ItemName>
         </WrapLeft>
