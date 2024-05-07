@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import styles from "./Management.module.scss";
 import { NavLink } from "react-router-dom";
-import logoDark from "../../assets/logoDark.png";
+import logoDark from "../../assets/logo-dark.svg";
 import { MdLeaderboard, MdToys } from "react-icons/md";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useEffect } from "react";

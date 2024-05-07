@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import HeaderBackgound from '../../shared/HeaderBackground';
 import ToyInfo from './components/ToyInfo';
 import { FlexContainer } from './Toy.styled';
+import { Helmet } from 'react-helmet';
 
 const Toy = () => {
   const { toyId } = useParams<{ toyId: string }>();
@@ -49,6 +50,13 @@ const Toy = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{toy?.toyName}</title>
+        <meta
+          name="description"
+          content="Замовити іграшки для вашої дитини з Спільно Іграшки"
+        />
+      </Helmet>
       <HeaderBackgound />
       <FlexContainer>
         <ImageSlider images={toy?.images} />

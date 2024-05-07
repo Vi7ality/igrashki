@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const BagItemStyled = styled.li`
@@ -22,7 +23,7 @@ export const FlexWrap = styled.div`
   justify-content: space-between;
 `;
 
-export const WrapLeft = styled.div`
+export const WrapLeft = styled(Link)`
   display: flex;
   align-items: center;
 `;
@@ -42,6 +43,7 @@ export const ItemImg = styled.img`
 `;
 
 export const ItemName = styled.p`
+color: ${p => p.theme.colors.darkBlue};
   @media ${(p) => p.theme.device.tablet} {
     font-size: 18px;
   }

@@ -18,6 +18,7 @@ import SelectLocation from './components/SelectLocation';
 import { nanoid } from 'nanoid';
 import ToyItem from './components/ToyItem';
 import Filters from './components/Filters';
+import { Helmet } from 'react-helmet';
 
 const Catalogue = () => {
   const { toys, isLoading: isToysLoading } = useAppSelector(
@@ -33,24 +34,23 @@ const Catalogue = () => {
   const [selectedAge, setSelectedAge] = useState(0);
   const dispatch = useAppDispatch();
 
-
-
   const conditionToysFilter = () => {
     const conditions: any[] = [];
 
-  if (selectedCategory !== 'Усі категорії') {
-    conditions.push((toy: IToyInfo) => toy.category === selectedCategory);
-  }
+    if (selectedCategory !== 'Усі категорії') {
+      conditions.push((toy: IToyInfo) => toy.category === selectedCategory);
+    }
 
-  if (selectedAge !== 0) {
-    conditions.push((toy: IToyInfo) => toy.ageFrom >= selectedAge);
-  }
+    if (selectedAge !== 0) {
+      conditions.push((toy: IToyInfo) => toy.ageFrom >= selectedAge);
+    }
 
-  return toys.filter((toy: IToyInfo) => conditions.every(condition => condition(toy)));
-};
+    return toys.filter((toy: IToyInfo) =>
+      conditions.every(condition => condition(toy))
+    );
+  };
 
   const filteredToys = conditionToysFilter();
-
 
   const setFilteredCategories = useCallback((dispatchedToys: IToyInfo[]) => {
     const toyCategories = dispatchedToys.map((toy: IToyInfo) => toy.category);
@@ -133,6 +133,13 @@ const Catalogue = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Каталог іграшок</title>
+        <meta
+          name="description"
+          content="Тут можна знайти та замовити іграшки з усіх доступних локацій"
+        />
+      </Helmet>
       <HeaderBackgound />
       <SectionStyled>
         <Container>

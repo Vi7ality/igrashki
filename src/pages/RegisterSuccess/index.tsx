@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import HeaderBackgound from '../../shared/HeaderBackground';
 import welcomeImg from './assets/welcome.svg';
 import {
@@ -14,6 +15,9 @@ import {
 const RegisterSuccess = () => {
   return (
     <>
+      <Helmet>
+        <title>Дякуємо за реєстрацію!</title>
+      </Helmet>
       <HeaderBackgound />
       <SectionStyled>
         <FlexContainer>
