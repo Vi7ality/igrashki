@@ -4,7 +4,7 @@ import styles from './ToyModal.module.scss';
 import Input from '../../../../../shared/formComponents/Input';
 import api from '../../../../../api';
 import { IToyInfo } from '../../../../../models/toy';
-import { Formik } from 'formik';
+import { Form, Formik } from 'formik';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -78,136 +78,137 @@ const AddToyModal: FC<AddToyModalProps> = ({
           Закрити
         </div>
         <h2>Додати іграшку</h2>
-        <Formik onSubmit={handleSubmit(onSubmit)}>
-                  {({ handleSubmit, getFieldProps, touched, errors }) => {
-                      return (
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Input label="Назва" {...register('toyName')} name="toyName" />
-              <Input
-                label="Виробник"
-                {...register('manufacturer')}
-                name="manufacturer"
-              />
-              <Input
-                label="Вікова категорія від"
-                {...register('ageFrom')}
-                name="ageFrom"
-                type="number"
-              />
-              <Input
-                label="Вікова категорія до"
-                {...register('ageTo')}
-                name="ageTo"
-                type="number"
-              />
-              <Input
-                label="Опис"
-                {...register('description')}
-                name="description"
-              />
-              <Input
-                label="Категорія"
-                {...register('category')}
-                name="category"
-              />
+        <Formik initialValues={defaultValues} onSubmit={onSubmit}>
+          {({ handleSubmit, getFieldProps, touched, errors }) => {
+            return (
+              <Form onSubmit={handleSubmit} id="formId">
+                <Input label="Назва" {...register('toyName')} name="toyName" />
+                <Input
+                  label="Виробник"
+                  {...register('manufacturer')}
+                  name="manufacturer"
+                />
+                <Input
+                  label="Вікова категорія від"
+                  {...register('ageFrom')}
+                  name="ageFrom"
+                  type="number"
+                />
+                <Input
+                  label="Вікова категорія до"
+                  {...register('ageTo')}
+                  name="ageTo"
+                  type="number"
+                />
+                <Input
+                  label="Опис"
+                  {...register('description')}
+                  name="description"
+                />
+                <Input
+                  label="Категорія"
+                  {...register('category')}
+                  name="category"
+                />
 
-              <div className={styles.featuresWrapper}>
-                <div className={styles.featuresHeader}>
-                  <h3>Особливості</h3>
-                  <button
-                    type="button"
-                    className={styles.addFeatureBtn}
-                    onClick={() => setIsAddFeatureOpen(!isAddFeatureOpen)}
-                  >
-                    Додати
-                  </button>
-                </div>
-                {isAddFeatureOpen && (
-                  <div className={styles.addFeatureWrapper}>
-                    <input
-                      type="text"
-                      value={feature}
-                      onChange={e => setFeature(e.target.value)}
-                    />
+                <div className={styles.featuresWrapper}>
+                  <div className={styles.featuresHeader}>
+                    <h3>Особливості</h3>
                     <button
-                      className={styles.saveFeatureBtn}
                       type="button"
-                      onClick={() => {
-                        setFeatures([...features, feature]);
-                        setFeature('');
-                      }}
+                      className={styles.addFeatureBtn}
+                      onClick={() => setIsAddFeatureOpen(!isAddFeatureOpen)}
                     >
-                      Зберегти
+                      Додати
                     </button>
                   </div>
-                )}
-                <div className={styles.features}>
-                  {features.map((feature, index) => (
-                    <div key={index} className={styles.feature}>
-                      <div className={styles.featureValue}>{feature}</div>
+                  {isAddFeatureOpen && (
+                    <div className={styles.addFeatureWrapper}>
+                      <input
+                        type="text"
+                        value={feature}
+                        onChange={e => setFeature(e.target.value)}
+                      />
                       <button
-                        className={styles.removeFeatureBtn}
+                        className={styles.saveFeatureBtn}
                         type="button"
                         onClick={() => {
-                          setFeatures(features.filter((_, i) => i !== index));
+                          setFeatures([...features, feature]);
+                          setFeature('');
                         }}
                       >
-                        Видалити
+                        Зберегти
                       </button>
                     </div>
-                  ))}
+                  )}
+                  <div className={styles.features}>
+                    {features.map((feature, index) => (
+                      <div key={index} className={styles.feature}>
+                        <div className={styles.featureValue}>{feature}</div>
+                        <button
+                          className={styles.removeFeatureBtn}
+                          type="button"
+                          onClick={() => {
+                            setFeatures(features.filter((_, i) => i !== index));
+                          }}
+                        >
+                          Видалити
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className={styles.imagesWrapper}>
-                <div className={styles.imagesHeader}>
-                  <h3>Картинки Іграшки</h3>
-                  <button
-                    type="button"
-                    className={styles.addImageBtn}
-                    onClick={() => setIsAddToyOpen(!isAddToyOpen)}
-                  >
-                    Додати картинку
-                  </button>
-                </div>
-                {isAddToyOpen && (
-                  <div className={styles.addImageWrapper}>
-                    <input
-                      type="text"
-                      value={image}
-                      onChange={e => setImage(e.target.value)}
-                    />
+                <div className={styles.imagesWrapper}>
+                  <div className={styles.imagesHeader}>
+                    <h3>Картинки Іграшки</h3>
                     <button
-                      className={styles.saveImageBtn}
                       type="button"
-                      onClick={() => {
-                        setImages([...images, image]);
-                        setImage('');
-                      }}
+                      className={styles.addImageBtn}
+                      onClick={() => setIsAddToyOpen(!isAddToyOpen)}
                     >
-                      Зберегти
+                      Додати картинку
                     </button>
                   </div>
-                )}
-                <div className={styles.images}>
-                  {images.map((image, index) => (
-                    <div key={index} className={styles.image}>
-                      <img src={image} alt="" />
+                  {isAddToyOpen && (
+                    <div className={styles.addImageWrapper}>
+                      <input
+                        type="text"
+                        value={image}
+                        onChange={e => setImage(e.target.value)}
+                      />
                       <button
-                        className={styles.removeImageBtn}
+                        className={styles.saveImageBtn}
                         type="button"
                         onClick={() => {
-                          setImages(images.filter((_, i) => i !== index));
+                          setImages([...images, image]);
+                          setImage('');
                         }}
                       >
-                        Видалити
+                        Зберегти
                       </button>
                     </div>
-                  ))}
+                  )}
+                  <div className={styles.images}>
+                    {images.map((image, index) => (
+                      <div key={index} className={styles.image}>
+                        <img src={image} alt="" />
+                        <button
+                          className={styles.removeImageBtn}
+                          type="button"
+                          onClick={() => {
+                            setImages(images.filter((_, i) => i !== index));
+                          }}
+                        >
+                          Видалити
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <input type="submit" value="Submit" />
-            </form>);
+                <input type="submit" value="Submit" />
+              </Form>
+            );
           }}
         </Formik>
         {/* <form onSubmit={handleSubmit(onSubmit)}>
