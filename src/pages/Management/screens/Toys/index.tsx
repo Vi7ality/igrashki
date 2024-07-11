@@ -17,7 +17,7 @@ import { useMemo } from "react";
 
 
 const Toys = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [editableToy, setEditableToy] = useState<IToy | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAddToyModalOpen, setIsAddToyModalOpen] = useState(false)
