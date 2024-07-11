@@ -77,7 +77,6 @@ const ToyModal: FC<ToyModalProps> = ({ isModalOpen, closeModal, editableToy }) =
         closeModal()
     };
 
-    console.log();
 
 
     return (
