@@ -42,6 +42,7 @@ const ManagerLogin = () => {
   return (
     <div className={styles.managerForm}>
       <h1>Manager Login</h1>
+      {error && <p className={styles.errMsg}>Недійсні облікові дані</p>}
       <Formik
         onSubmit={handleLogin}
         initialValues={defaultValues}
