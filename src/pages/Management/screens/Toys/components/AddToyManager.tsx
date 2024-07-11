@@ -4,7 +4,8 @@ import styles from './ToyModal.module.scss';
 import Input from '../../../../../shared/formComponents/Input';
 import api from '../../../../../api';
 import { IToyInfo } from '../../../../../models/toy';
-import { Form, Formik } from 'formik';
+import { ErrorMessage, Form, Formik } from 'formik';
+import { newToyValidationSchema } from '../../../../../utils/validationSchemas/toyValidationSchema';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -79,38 +80,44 @@ const AddToyModal: FC<AddToyModalProps> = ({
           Закрити
         </div>
         <h2>Додати іграшку</h2>
-        <Formik initialValues={defaultValues} onSubmit={onSubmit}>
+        <Formik initialValues={defaultValues} onSubmit={onSubmit} validationSchema={newToyValidationSchema}>
           {({ handleSubmit, getFieldProps, touched, errors }) => {
             return (
-              <Form onSubmit={handleSubmit} id="formId">
-                    <Input label="Назва"  name="toyName" getFieldProps={getFieldProps} />
+              <Form className={styles.form} onSubmit={handleSubmit} id="formId">
+                    <Input label="Назва" name="toyName" getFieldProps={getFieldProps} />
+                     {/* <ErrorMessage name="toyName" component="div">{(msg) => <p>{msg}</p>}</ErrorMessage> */}
                 <Input
                   label="Виробник"
                   getFieldProps={getFieldProps}
-                  name="manufacturer"
-                />
+                        name="manufacturer"
+                    />
+                    {/* <ErrorMessage name="manufacturer" component="div">{(msg) => <p>{msg}</p>}</ErrorMessage> */}
                 <Input
                   label="Вікова категорія від"
                   getFieldProps={getFieldProps}
                   name="ageFrom"
-                  type="number"
-                />
+                        type="number"
+                    />
+                    {/* <ErrorMessage name="ageFrom" component="div">{(msg) => <p>{msg}</p>}</ErrorMessage> */}
                 <Input
                   label="Вікова категорія до"
                   getFieldProps={getFieldProps}
                   name="ageTo"
                   type="number"
-                />
+                    />
+                    {/* <ErrorMessage name="ageTo" component="div">{(msg) => <p>{msg}</p>}</ErrorMessage> */}
                 <Input
                   label="Опис"
                   getFieldProps={getFieldProps}
                   name="description"
-                />
+                    />
+                    {/* <ErrorMessage name="description" component="div">{(msg) => <p>{msg}</p>}</ErrorMessage> */}
                 <Input
                   label="Категорія"
                   getFieldProps={getFieldProps}
                   name="category"
-                />
+                    />
+                    {/* <ErrorMessage name="category" component="div">{(msg) => <p>{msg}</p>}</ErrorMessage> */}
 
                 <div className={styles.featuresWrapper}>
                   <div className={styles.featuresHeader}>
@@ -206,8 +213,7 @@ const AddToyModal: FC<AddToyModalProps> = ({
                     ))}
                   </div>
                 </div>
-
-                <input type="submit" value="Submit" />
+                <input className={styles.submitInput} type="submit" value="Submit" />
               </Form>
             );
           }}
