@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Formik } from 'formik';
 import FormikInput from '../../shared/formComponents/FormikInput';
+import { managerLoginValidSchema } from '../../utils/validationSchemas/authValidationSchema';
 
 const defaultValues = {
   managerUserName: '',
@@ -27,7 +28,7 @@ const ManagerLogin = () => {
     if (currentManager?._id) {
       navigate('/management');
     }
-  }, [currentManager?._id]);
+  }, [currentManager?._id, navigate]);
 
   const handleLogin = (data: IManagerCredentials) => {
     dispatch(managerLogin(data));
@@ -38,7 +39,8 @@ const ManagerLogin = () => {
       <h1>Manager Login</h1>
       <Formik
         onSubmit={handleLogin}
-        initialValues={{ managerUserName: '', managerPassword: '' }}
+              initialValues={{ managerUserName: '', managerPassword: '' }}
+              validationSchema={managerLoginValidSchema}
       >
         {({ handleSubmit, getFieldProps }) => {
           return (

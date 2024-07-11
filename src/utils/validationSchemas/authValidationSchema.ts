@@ -19,3 +19,10 @@ export const registerValidationSchema = Yup.object({
     .required("Це поле обов'язкове")
     .min(6, "Пароль повинен бути не меншим за 6 символів"),
 });
+
+
+export const managerLoginValidSchema = Yup.object({
+  managerUserName: Yup.string()
+    .required("Це поле обов'язкове"),
+  managerPassword: Yup.string().required("Це поле обов'язкове"),
+});
