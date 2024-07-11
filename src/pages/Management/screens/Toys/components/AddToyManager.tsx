@@ -45,30 +45,31 @@ const AddToyModal: FC<AddToyModalProps> = ({
   const [feature, setFeature] = useState<string>('');
   const [isAddToyOpen, setIsAddToyOpen] = useState(false);
   const [isAddFeatureOpen, setIsAddFeatureOpen] = useState(false);
-  const { register, handleSubmit } = useForm<IToyForm>({
-    mode: 'onBlur',
-    values: editableToy ? editableToy : defaultValues,
-  });
+//   const { register, handleSubmit } = useForm<IToyForm>({
+//     mode: 'onBlur',
+//     values: editableToy ? editableToy : defaultValues,
+//   });
 
-  const onSubmit = async (formData: IToyForm) => {
-    const managerToken = localStorage.getItem('managerToken');
-    const toy = { ...formData, images, features };
-    const { _id, ...rest } = toy;
+    const onSubmit = async (formData: IToyForm) => {
+      console.log(formData)
+    // const managerToken = localStorage.getItem('managerToken');
+    // const toy = { ...formData, images, features };
+    // const { _id, ...rest } = toy;
 
-    if (!editableToy?._id) {
-      await api.post('/toys', toy, {
-        headers: {
-          Authorization: `Bearer ${managerToken}`,
-        },
-      });
-    } else {
-      await api.put(`/toys/${editableToy?.toyId}`, rest, {
-        headers: {
-          Authorization: `Bearer ${managerToken}`,
-        },
-      });
-    }
-    closeModal();
+    // if (!editableToy?._id) {
+    //   await api.post('/toys', toy, {
+    //     headers: {
+    //       Authorization: `Bearer ${managerToken}`,
+    //     },
+    //   });
+    // } else {
+    //   await api.put(`/toys/${editableToy?.toyId}`, rest, {
+    //     headers: {
+    //       Authorization: `Bearer ${managerToken}`,
+    //     },
+    //   });
+    // }
+    // closeModal();
   };
 
   return (
@@ -82,32 +83,32 @@ const AddToyModal: FC<AddToyModalProps> = ({
           {({ handleSubmit, getFieldProps, touched, errors }) => {
             return (
               <Form onSubmit={handleSubmit} id="formId">
-                <Input label="Назва" {...register('toyName')} name="toyName" />
+                    <Input label="Назва"  name="toyName" getFieldProps={getFieldProps} />
                 <Input
                   label="Виробник"
-                  {...register('manufacturer')}
+                  getFieldProps={getFieldProps}
                   name="manufacturer"
                 />
                 <Input
                   label="Вікова категорія від"
-                  {...register('ageFrom')}
+                  getFieldProps={getFieldProps}
                   name="ageFrom"
                   type="number"
                 />
                 <Input
                   label="Вікова категорія до"
-                  {...register('ageTo')}
+                  getFieldProps={getFieldProps}
                   name="ageTo"
                   type="number"
                 />
                 <Input
                   label="Опис"
-                  {...register('description')}
+                  getFieldProps={getFieldProps}
                   name="description"
                 />
                 <Input
                   label="Категорія"
-                  {...register('category')}
+                  getFieldProps={getFieldProps}
                   name="category"
                 />
 

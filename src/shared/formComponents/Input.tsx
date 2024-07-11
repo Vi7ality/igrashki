@@ -7,9 +7,10 @@ interface InputProps {
   name: string;
   type?: string;
   disabled?: boolean;
+  getFieldProps(name: string): object;
 }
 
-const Input: FC<InputProps> = forwardRef(({ label, name, type = "text", disabled = false, ...registerProps }, ref: Ref<HTMLInputElement>) => {
+const Input: FC<InputProps> = forwardRef(({ label, name, type = "text", disabled = false, getFieldProps }, ref: Ref<HTMLInputElement>) => {
   const [showPassword, setShowPassword] = useState(false)
   const inputType = type === "password"
     ? showPassword ? "text" : "password"
@@ -19,7 +20,9 @@ const Input: FC<InputProps> = forwardRef(({ label, name, type = "text", disabled
     <div className={styles.input}>
       <label htmlFor={name}>{label}</label>
       <div className={styles.inputContainer}>
-        <input type={inputType} id={name} name={name} ref={ref} {...registerProps} disabled={disabled} />
+        <input type={inputType} id={name} name={name} ref={ref} {...getFieldProps(name)}
+          // {...registerProps}
+          disabled={disabled} />
         {type === "password" && (
           <div className={styles.passwordIcon} onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
