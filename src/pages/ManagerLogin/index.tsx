@@ -15,8 +15,8 @@ const defaultValues = {
 };
 
 const spinnerSettings = {
-  height: '48',
-  width: '48',
+  height: '36',
+  width: '36',
   color: 'white',
 };
 
@@ -62,15 +62,19 @@ const ManagerLogin = () => {
                 type="password"
                 getFieldProps={getFieldProps}
               />
-              <button type="submit">
+              <button
+                className={styles.sbmtButton}
+                type="submit"
+                disabled={isLoading}
+              >
                 {!isLoading ? (
                   'Login'
                 ) : (
-                  <LoadSpinner
-                    height={spinnerSettings.height}
-                    width={spinnerSettings.width}
-                    color={spinnerSettings.color}
-                  />
+                    <LoadSpinner
+                      height={spinnerSettings.height}
+                      width={spinnerSettings.width}
+                      color={spinnerSettings.color}
+                    />
                 )}
               </button>
             </Form>
