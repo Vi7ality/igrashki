@@ -125,10 +125,10 @@ const Toys = () => {
                 </td>
                 <td>
                   <div className={styles.actions}>
-                    <button onClick={() => handleEdit(toy)}>
+                    <button title="Edit toy" onClick={() => handleEdit(toy)}>
                       <AiOutlineEdit />
                     </button>
-                    <button onClick={() => handleDelete(toy._id)}>
+                    <button onClick={() => handleDelete(toy._id)} disabled title="Not implemented">
                       <BsTrash />
                     </button>
                   </div>
