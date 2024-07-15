@@ -14,7 +14,6 @@ const Input: FC<InputProps> = forwardRef(({ label, name, type = "text", disabled
   const inputType = type === "password"
     ? showPassword ? "text" : "password"
     : type
-
   return (
     <div className={styles.input}>
       <label htmlFor={name}>{label}</label>

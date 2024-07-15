@@ -28,6 +28,8 @@ const Toys = () => {
   });
   const dispatch = useAppDispatch()
 
+  const toyCount = toysAdmin.length;
+
   useEffect(() => {
     dispatch(fetchToysAdmin())
   }, [])
@@ -82,6 +84,7 @@ const Toys = () => {
           <h1>Іграшки</h1>
           <Search handleSearch={(search: string) => setSearchParams({ search })} />
         </div>
+        <p>Усього іграшок на точці: {toyCount}</p>
         <div className={styles.headerRight}>
           <button onClick={() => setIsAddToyModalOpen(true)}>
             <MdOutlineAddCircleOutline />
