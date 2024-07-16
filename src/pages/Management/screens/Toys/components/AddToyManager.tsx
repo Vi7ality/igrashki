@@ -68,7 +68,7 @@ const AddToyModal: FC<AddToyModalProps> = ({
   };
 
   return (
-    <div className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}>
+    <div onClick={closeModal} className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}>
       <div className={styles.modalContent}>
         <div className={styles.close} onClick={closeModal}>
           Закрити

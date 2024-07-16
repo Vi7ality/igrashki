@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, MutableRefObject, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import styles from './ToyModal.module.scss';
 import Input from '../../../../../shared/formComponents/Input';
@@ -102,7 +102,7 @@ const ToyModal: FC<ToyModalProps> = ({
   };
 
   return (
-    <div className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}>
+    <div onClick={closeModal} className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}>
       <div className={styles.modalContent}>
         <div className={styles.close} onClick={closeModal}>
           Закрити
