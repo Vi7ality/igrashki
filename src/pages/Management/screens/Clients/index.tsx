@@ -12,7 +12,7 @@ import { appDateFormat } from "../../../../constants/date";
 import { format } from "date-fns";
 
 const Clients = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editableClient, setEditableClient] = useState<IClient | null>(null)
   const { clients } = useAppSelector(state => state.clients)
@@ -20,7 +20,7 @@ const Clients = () => {
 
   useEffect(() => {
     dispatch(fetchClients())
-  }, [])
+  }, [dispatch])
 
   const handleEdit = (client: IClient) => {
     setEditableClient(client)
