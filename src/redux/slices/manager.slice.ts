@@ -35,7 +35,6 @@ export const managerGetInfo = createAsyncThunk(
                     Authorization: `Bearer ${managerToken}`,
                 }
             });
-            console.log("Manager Info: ", result.data);
             
             return result.data;
         } catch (error) {

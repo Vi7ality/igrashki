@@ -42,6 +42,13 @@
   cursor: pointer;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
 .toyForm {
   margin-top: 30px;
   display: flex;
@@ -50,9 +57,9 @@
   justify-content: center;
   gap: 20px;
 
-  button[type="submit"] {
+  button[type='submit'] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -60,7 +67,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 18px;
-  
+
     &:disabled {
       background-color: #ddd;
       color: #aaa;
@@ -68,7 +75,6 @@
     }
   }
 }
-
 
 .upper {
   display: flex;
@@ -104,7 +110,7 @@
     gap: 20px;
 
     .addImageBtn {
-      background-color: #4CAF50;
+      background-color: #4caf50;
       color: white;
       padding: 5px 10px;
       border: none;
@@ -157,7 +163,7 @@
   }
 
   .addImageBtn {
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     padding: 5px 10px;
     border: none;
@@ -205,7 +211,7 @@
     margin-top: 20px;
 
     .addFeatureBtn {
-      background-color: #4CAF50;
+      background-color: #4caf50;
       color: white;
       padding: 5px 10px;
       border: none;
@@ -258,4 +264,8 @@
       font-size: 14px;
     }
   }
+}
+
+.submitInput {
+  width: 100px;
 }

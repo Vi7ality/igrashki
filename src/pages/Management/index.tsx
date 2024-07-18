@@ -18,7 +18,7 @@ const ManagementLayout = () => {
     if (!managerToken) {
       navigate("/managerLogin")
     }
-  }, [currentManager?._id])
+  }, [currentManager?._id, managerToken, navigate])
 
   const handleManagerLogout = () => {
     dispatch(managerLogout())

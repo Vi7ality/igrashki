@@ -1,44 +1,50 @@
 .input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input {
+    outline: none;
+    border: none;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 10px;
     font-size: 16px;
+  }
 
-    label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 8px;
+  .inputContainer {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .passwordIcon {
+    position: absolute;
+    min-width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
     }
+  }
+}
 
-    input {
-        outline: none;
-        border: none;
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 16px;
-    }
-
-    .inputContainer {
-        position: relative;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .passwordIcon {
-        position: absolute;
-        min-width: 20px;
-        height: 20px;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        cursor: pointer;
-
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    }
+.errMessage {
+  font-size: 14px;
+  text-align: start;
+  color: #ff6157;
+  margin-top: 5px;
 }

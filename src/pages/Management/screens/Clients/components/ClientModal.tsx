@@ -114,8 +114,8 @@ const ClientModal: FC<ClientModalProps> = ({ isModalOpen, closeModal, editableCl
   };
 
   return (
-    <div className={`${styles.modal} ${isModalOpen ? styles.active : ""}`}>
-      <div className={styles.modalContent}>
+    <div onClick={closeModal} className={`${styles.modal} ${isModalOpen ? styles.active : ""}`}>
+      <div onClick={e => e.stopPropagation()} className={styles.modalContent}>
         <div className={styles.close} onClick={closeModal}>Закрити</div>
         <h2>
           {editableClient?._id ? 'Редагувати клієнта' : 'Додати клієнта'}

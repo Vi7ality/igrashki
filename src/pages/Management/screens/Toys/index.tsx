@@ -1,87 +1,112 @@
-import styles from "./Toys.module.scss";
-import Search from "../../../../shared/Search";
-import { MdOutlineAddCircleOutline } from "react-icons/md";
-import { AiOutlineEdit } from "react-icons/ai";
-import { BsTrash } from "react-icons/bs";
-import { useAppDispatch, useAppSelector } from "../../../../redux/store";
-import { useEffect, useState } from "react";
-import { deleteToyAdmin, fetchToysAdmin } from "../../../../redux/slices/toysAdmin.slice";
-import ToyModal from "./components/ToyModal";
-import { IToy } from "../../../../models/toy";
-import { toyStateOptions } from "../../../../constants/toys";
-import { Link, useSearchParams } from "react-router-dom";
-import { format } from "date-fns";
-import { appDateFormat } from "../../../../constants/date";
-import AddToyManager from "./components/AddToyManager";
-import { useMemo } from "react";
-
+import styles from './Toys.module.scss';
+import Search from '../../../../shared/Search';
+import { MdOutlineAddCircleOutline } from 'react-icons/md';
+import { AiOutlineEdit } from 'react-icons/ai';
+import { BsTrash } from 'react-icons/bs';
+import { useAppDispatch, useAppSelector } from '../../../../redux/store';
+import { useCallback, useEffect, useState } from 'react';
+import {
+  deleteToyAdmin,
+  fetchToysAdmin,
+} from '../../../../redux/slices/toysAdmin.slice';
+import ToyModal from './components/ToyModal';
+import { IToy } from '../../../../models/toy';
+import { toyStateOptions } from '../../../../constants/toys';
+import { Link, useSearchParams } from 'react-router-dom';
+import { format } from 'date-fns';
+import { appDateFormat } from '../../../../constants/date';
+import AddToyManager from './components/AddToyManager';
+import { useMemo } from 'react';
 
 const Toys = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
-  const [editableToy, setEditableToy] = useState<IToy | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isAddToyModalOpen, setIsAddToyModalOpen] = useState(false)
-  const { toysAdmin } = useAppSelector(state => state.toysAdmin)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [editableToy, setEditableToy] = useState<IToy | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddToyModalOpen, setIsAddToyModalOpen] = useState(false);
+  const { toysAdmin } = useAppSelector(state => state.toysAdmin);
   const [sortFilter, setSortFilter] = useState({
-    sortBy: "",
-    sortOrder: "asc",
+    sortBy: '',
+    sortOrder: 'asc',
   });
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+
+  const toyCount = toysAdmin.length;
 
   useEffect(() => {
-    dispatch(fetchToysAdmin())
-  }, [])
+    dispatch(fetchToysAdmin());
+  }, [dispatch]);
 
   const handleEdit = (toy: IToy) => {
-    setEditableToy(toy)
-    setIsModalOpen(true)
-  }
+    setEditableToy(toy);
+    setIsModalOpen(true);
+  };
 
   const handleDelete = (id: string) => {
-    dispatch(deleteToyAdmin(id))
-  }
+    dispatch(deleteToyAdmin(id));
+  };
 
   const handleSort = (sortBy: string) => {
-    setSortFilter((prevSortFilter) => ({
+    setSortFilter(prevSortFilter => ({
       sortBy,
       sortOrder:
-        prevSortFilter.sortBy === sortBy && prevSortFilter.sortOrder === "asc"
-          ? "desc"
-          : "asc",
+        prevSortFilter.sortBy === sortBy && prevSortFilter.sortOrder === 'asc'
+          ? 'desc'
+          : 'asc',
     }));
   };
 
-  const sortByFilter = (a: { toyName: string; usageCycle: number; lastDisinfectionDate: string | number | Date; }, b: { toyName: any; usageCycle: number; lastDisinfectionDate: string | number | Date; }) => {
+  const sortByFilter = useCallback((
+    a: {
+      toyName: string;
+      usageCycle: number;
+      lastDisinfectionDate: string | number | Date;
+    },
+    b: {
+      toyName: string;
+      usageCycle: number;
+      lastDisinfectionDate: string | number | Date;
+    }
+  ) => {
     switch (sortFilter.sortBy) {
-      case "toy":
+      case 'toy':
         return a.toyName.localeCompare(b.toyName);
-      case "cycle":
+      case 'cycle':
         return a.usageCycle - b.usageCycle;
-      case "date":
+      case 'date':
         return (
-          new Date(b.lastDisinfectionDate).getTime() - new Date(a.lastDisinfectionDate).getTime()
+          new Date(b.lastDisinfectionDate).getTime() -
+          new Date(a.lastDisinfectionDate).getTime()
         );
       default:
         return 0;
     }
-  }
+  },[sortFilter])
 
   const filteredItems = useMemo(() => {
-    const searchToy = searchParams.get("search") || "";
+    const searchToy = searchParams.get('search') || '';
     const sortedItems = [...toysAdmin]
       .sort(sortByFilter)
-      .filter(({ toyName, _id }) => toyName?.toLowerCase().includes(searchToy.toLowerCase()) || _id?.toLowerCase().includes(searchToy.toLowerCase()));
+      .filter(
+        ({ toyName, _id }) =>
+          toyName?.toLowerCase().includes(searchToy.toLowerCase()) ||
+          _id?.toLowerCase().includes(searchToy.toLowerCase())
+      );
 
-    return sortFilter.sortOrder === "desc" ? sortedItems.reverse() : sortedItems;
-  }, [toysAdmin, sortFilter, searchParams]);
+    return sortFilter.sortOrder === 'desc'
+      ? sortedItems.reverse()
+      : sortedItems;
+  }, [toysAdmin, sortFilter, searchParams, sortByFilter]);
 
   return (
     <main className={styles.main}>
       <header>
         <div className={styles.headerLeft}>
           <h1>Іграшки</h1>
-          <Search handleSearch={(search: string) => setSearchParams({ search })} />
+          <Search
+            handleSearch={(search: string) => setSearchParams({ search })}
+          />
         </div>
+        <p>Усього іграшок на точці: {toyCount}</p>
         <div className={styles.headerRight}>
           <button onClick={() => setIsAddToyModalOpen(true)}>
             <MdOutlineAddCircleOutline />
@@ -97,9 +122,9 @@ const Toys = () => {
         <table>
           <thead>
             <tr>
-              <th onClick={() => handleSort("toy")}>Іграшка</th>
-              <th onClick={() => handleSort("cycle")}>Циклів користування</th>
-              <th onClick={() => handleSort("date")}>Продезінфековано</th>
+              <th onClick={() => handleSort('toy')}>Іграшка</th>
+              <th onClick={() => handleSort('cycle')}>Циклів користування</th>
+              <th onClick={() => handleSort('date')}>Продезінфековано</th>
               <th>Стан іграшки</th>
               <th>У користуванні</th>
               <th>Користувач</th>
@@ -107,42 +132,67 @@ const Toys = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredItems.length > 0 && filteredItems.map((toy) => (
-              <tr key={toy._id}>
-                <td className={styles.toyName}>
-                  <Link to={`/management/toys/${toy._id}`}>
-                    {toy.toyName}<br />({toy._id})
-                  </Link>
-                </td>
-                <td>{toy.usageCycle}</td>
-                <td>{format(new Date(toy.lastDisinfectionDate), appDateFormat)}</td>
-                <td>{toyStateOptions.find(state => state.value === toy.toyState)?.label}</td>
-                <td>{!toy.isAvailable ? "Так" : "Ні"}</td>
-                <td>
-                  <Link to={`/management/clients/${toy.client?._id}`}>
-                    {toy.client?.parentName} {toy.client?.parentSurname}
-                  </Link>
-                </td>
-                <td>
-                  <div className={styles.actions}>
-                    <button onClick={() => handleEdit(toy)}>
-                      <AiOutlineEdit />
-                    </button>
-                    <button onClick={() => handleDelete(toy._id)}>
-                      <BsTrash />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {filteredItems.length > 0 &&
+              filteredItems.map(toy => (
+                <tr key={toy._id}>
+                  <td className={styles.toyName}>
+                    <Link to={`/management/toys/${toy._id}`}>
+                      {toy.toyName}
+                      <br />({toy._id})
+                    </Link>
+                  </td>
+                  <td>{toy.usageCycle}</td>
+                  <td>
+                    {format(new Date(toy.lastDisinfectionDate), appDateFormat)}
+                  </td>
+                  <td>
+                    {
+                      toyStateOptions.find(
+                        state => state.value === toy.toyState
+                      )?.label
+                    }
+                  </td>
+                  <td>{!toy.isAvailable ? 'Так' : 'Ні'}</td>
+                  <td>
+                    <Link to={`/management/clients/${toy.client?._id}`}>
+                      {toy.client?.parentName} {toy.client?.parentSurname}
+                    </Link>
+                  </td>
+                  <td>
+                    <div className={styles.actions}>
+                      <button title="Edit toy" onClick={() => handleEdit(toy)}>
+                        <AiOutlineEdit />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(toy._id)}
+                        disabled
+                        title="Not implemented"
+                      >
+                        <BsTrash />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
-      {isModalOpen && <ToyModal isModalOpen={isModalOpen} closeModal={() => {
-        setIsModalOpen(false)
-        setEditableToy(null)
-      }} editableToy={editableToy} />}
-      {isAddToyModalOpen && <AddToyManager isModalOpen={isAddToyModalOpen} closeModal={() => setIsAddToyModalOpen(false)} />}
+      {isModalOpen && (
+        <ToyModal
+          isModalOpen={isModalOpen}
+          closeModal={() => {
+            setIsModalOpen(false);
+            setEditableToy(null);
+          }}
+          editableToy={editableToy}
+        />
+      )}
+      {isAddToyModalOpen && (
+        <AddToyManager
+          isModalOpen={isAddToyModalOpen}
+          closeModal={() => setIsAddToyModalOpen(false)}
+        />
+      )}
     </main>
   );
 };
