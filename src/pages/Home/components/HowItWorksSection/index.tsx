@@ -32,7 +32,7 @@ const HowItWorks = () => {
               <use href={`${svgImg}#svg-howworks_takepart`}></use>
             </SvgStyled>
             <TextStyled>
-              Відвідуйте ігрові сесії у Дитячій точці "Спільно” та забираєте іграшки, що
+              Відвідуйте ігрові сесії у Дитячій точці "Спільно” та забирайте іграшки, що
               сподобались, додому
             </TextStyled>
           </ItemStyled>
@@ -41,7 +41,7 @@ const HowItWorks = () => {
               <use href={`${svgImg}#svg-howworks_exchange`}></use>
             </SvgStyled>
             <TextStyled>
-              Обмінюйте іграшки щотримісяці та ставайте частиною спільноти однодумців
+              Обмінюйте іграшки щомісяця та ставайте частиною спільноти однодумців
             </TextStyled>
           </ItemStyled>
         </ListStyled>

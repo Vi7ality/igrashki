@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import styles from './ToyModal.module.scss';
 import Input from '../../../../../shared/formComponents/Input';
