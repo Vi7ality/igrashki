@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 const Gallery = lazy(()=> import('./components/GallerySection/Gallery'))
 
 const Home = () => {
+  
   return (
     <>
       <Helmet>
@@ -17,14 +18,14 @@ const Home = () => {
         </title>
         <meta
           name="description"
-          content="Програма з безкоштовної оренди дитячих іграшок для раннього розвитку, що реалізується через мережу Дитячих точок Спільно. В основі проєкту лежить ідея бібліотеки, де замість книжок — іграшки.Наразі проєкт реалізується у Чернівецькій, Тернопільській, Івано-Франківській та Закарпатській та Львівській областях."
+          content="Програма з безкоштовної оренди дитячих іграшок для раннього розвитку, що реалізується через мережу Дитячих точок Спільно. В основі проєкту лежить ідея бібліотеки, де замість книжок — іграшки."
         />
         <meta property='og:type' content='website'/>
         <meta property='og:url' content='/'/>
         <meta property='og:title' content='Спільно іграшки. Мережа безоплатних бібліотек іграшок для раннього
           розвитку'/>
         <meta property='og:description' content='Програма з безкоштовної оренди дитячих іграшок для раннього розвитку, що реалізується через мережу Дитячих точок Спільно.'/>
-        <meta property='og:image' content={logo}/>
+        <meta property='og:image' content="/dist/growithyou-og.jpg"/>
       </Helmet>
       <HeroSection />
       <HowItWorks />
