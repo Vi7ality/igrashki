@@ -8,7 +8,7 @@ const Gallery = lazy(()=> import('./components/GallerySection/Gallery'))
 
 const Home = () => {
   const websiteURL = window.location.href;
-  
+  // 
   return (
     <>
       <Helmet>
