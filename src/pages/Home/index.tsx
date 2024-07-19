@@ -25,7 +25,7 @@ const Home = () => {
         <meta property='og:title' content='Спільно іграшки. Мережа безоплатних бібліотек іграшок для раннього
           розвитку'/>
         <meta property='og:description' content='Програма з безкоштовної оренди дитячих іграшок для раннього розвитку, що реалізується через мережу Дитячих точок Спільно.'/>
-        <meta property='og:image' content={websiteURL + "growithyou-og.jpg"}/>
+        <meta property='og:image' content="growithyou-og.jpg"/>
       </Helmet>
       <HeroSection />
       <HowItWorks />
