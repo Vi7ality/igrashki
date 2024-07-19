@@ -2,7 +2,6 @@ import HowItWorks from './components/HowItWorksSection';
 import WhyUs from './components//WhyUs/WhyUs';
 import HeroSection from './components/HeroSection/HeroSection';
 import JoinUs from './components/JoinUs';
-import logo from "../../assets/logo.svg";
 import { lazy } from 'react';
 import { Helmet } from 'react-helmet';
 const Gallery = lazy(()=> import('./components/GallerySection/Gallery'))
