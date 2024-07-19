@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 const Gallery = lazy(()=> import('./components/GallerySection/Gallery'))
 
 const Home = () => {
-  const websiteURL = window.location.href;
+  // const websiteURL = window.location.href;
   // 
   return (
     <>
