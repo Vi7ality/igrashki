@@ -12,13 +12,13 @@ interface IMapProps {
   points: ILocationPoint[];
 }
 
-const mapCenterPosition = [49.01702615167241, 25.78615009518391] as LatLngTuple;
+const mapCenterPosition = [49.03855038750613, 31.45139858519458] as LatLngTuple;
 
 const Map = ({ points }: IMapProps) => {
   return (
     <MapContainer
       center={mapCenterPosition}
-      zoom={7}
+      zoom={6}
       //   scrollWheelZoom={false}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
