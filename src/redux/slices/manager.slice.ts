@@ -61,7 +61,6 @@ export const managerSlice = createSlice({
                 state.error = null;
             })
             .addCase(managerLogin.fulfilled, (state, action) => {
-                console.log("Current Manager: ", action.payload);
                 state.currentManager = action.payload;
                 state.loading = false;
                 state.error = null;
