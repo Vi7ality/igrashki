@@ -165,8 +165,6 @@ const Toys = () => {
                       </button>
                       <button
                         onClick={() => handleDelete(toy._id)}
-                        disabled
-                        title="Not implemented"
                       >
                         <BsTrash />
                       </button>

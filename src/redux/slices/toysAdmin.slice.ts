@@ -57,7 +57,12 @@ export const updateToyAdmin = createAsyncThunk('toysAdmin/updateToy', async (toy
 
 export const deleteToyAdmin = createAsyncThunk('toysAdmin/deleteToy', async (toyId: string) => {
     try {
-        await api.delete(`/toysAdmin/${toyId}`);
+        const managerToken = localStorage.getItem('managerToken');
+        await api.delete(`/management/toys/${toyId}`, {
+            headers: {
+                Authorization: `Bearer ${managerToken}`,
+            },
+        });
         return toyId;
     } catch (error) {
         console.error('Failed to delete toy:', error);
