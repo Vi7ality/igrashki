@@ -1,18 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Bag from "./pages/Bag";
-import Catalogue from "./pages/Catalogue";
-import FAQ from "./pages/FAQ";
-import Toy from "./pages/Toy";
-import Subscription from "./pages/Subscription";
-import Confirmation from "./pages/Confirmation";
-import AboutUs from "./pages/AboutUs";
-import ManagementLayout from "./pages/Management";
-import Clients from "./pages/Management/screens/Clients";
-import ClientDetails from "./pages/Management/screens/ClientDetails";
-import Toys from "./pages/Management/screens/Toys";
-import ToyDetails from "./pages/Management/screens/ToyDetails";
-import ManagementHome from "./pages/Management/screens/ManagementHome";
 import { useAppDispatch } from "./redux/store";
 import { useEffect } from "react";
 import { loadCartItems, loadSelectedManagementPoint } from "./redux/slices/cart.slice";
@@ -25,6 +12,21 @@ import { theme } from "./constants/theme";
 import SharedLayout from "./shared/SharedLayout";
 import NotFound from "./pages/NotFound";
 import RegisterSuccess from "./pages/RegisterSuccess";
+import { lazy } from 'react';
+
+const Bag = lazy(()=> import ("./pages/Bag"))
+const Catalogue = lazy(() => import("./pages/Catalogue"))
+const FAQ = lazy(() => import("./pages/FAQ"))
+const Toy = lazy(()=>import("./pages/Toy"))
+const Subscription = lazy(()=>import("./pages/Subscription"))
+const Confirmation = lazy(()=>import("./pages/Confirmation"))
+const AboutUs = lazy(()=>import("./pages/AboutUs"))
+const ManagementLayout = lazy(()=>import("./pages/Management"))
+const Clients = lazy(()=>import("./pages/Management/screens/Clients"))
+const ClientDetails = lazy(()=>import("./pages/Management/screens/ClientDetails"))
+const Toys = lazy(()=>import("./pages/Management/screens/Toys"))
+const ToyDetails = lazy(()=>import("./pages/Management/screens/ToyDetails"))
+const ManagementHome = lazy(()=>import("./pages/Management/screens/ManagementHome"))
 
 function App() {
   const dispatch = useAppDispatch();
