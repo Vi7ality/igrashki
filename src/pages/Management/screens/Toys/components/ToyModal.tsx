@@ -113,15 +113,13 @@ const ToyModal: FC<ToyModalProps> = ({
             // <Input label="Назва іграшки" disabled />
             <input type="text" value={editableToy.toyName} disabled />
           ) : (
-            toysFullList?.length > 0 && (
               <Controller
                 control={control}
                 name="toyId"
                 render={({ field }) => (
                   <Select label="Іграшка" {...field} options={toysFullList} />
                 )}
-              />
-            )
+              />            
           )}
 
           {!editableToy && (
