@@ -13,6 +13,9 @@ import SharedLayout from "./shared/SharedLayout";
 import NotFound from "./pages/NotFound";
 import RegisterSuccess from "./pages/RegisterSuccess";
 import { lazy } from 'react';
+import Clients from "./pages/Management/screens/Clients";
+import Toys from "./pages/Management/screens/Toys";
+import ManagementLayout from "./pages/Management";
 
 const Bag = lazy(()=> import ("./pages/Bag"))
 const Catalogue = lazy(() => import("./pages/Catalogue"))
@@ -21,10 +24,10 @@ const Toy = lazy(()=>import("./pages/Toy"))
 const Subscription = lazy(()=>import("./pages/Subscription"))
 const Confirmation = lazy(()=>import("./pages/Confirmation"))
 const AboutUs = lazy(()=>import("./pages/AboutUs"))
-const ManagementLayout = lazy(()=>import("./pages/Management"))
-const Clients = lazy(()=>import("./pages/Management/screens/Clients"))
+// const ManagementLayout = lazy(()=>import("./pages/Management"))
+// const Clients = lazy(()=>import("./pages/Management/screens/Clients"))
 const ClientDetails = lazy(()=>import("./pages/Management/screens/ClientDetails"))
-const Toys = lazy(()=>import("./pages/Management/screens/Toys"))
+// const Toys = lazy(()=>import("./pages/Management/screens/Toys"))
 const ToyDetails = lazy(()=>import("./pages/Management/screens/ToyDetails"))
 const ManagementHome = lazy(()=>import("./pages/Management/screens/ManagementHome"))
 
