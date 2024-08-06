@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import styles from './ToyModal.module.scss';
 import { deleteToyAdmin } from '../../../../../redux/slices/toysAdmin.slice';
+import { AppDispatch } from '../../../../../redux/store';
 
 type PropType = {
   closeModal(): void;
@@ -9,7 +10,7 @@ type PropType = {
 };
 
 export const ConfirmModal = ({ closeModal, isModalOpen, id }: PropType) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const handleDelete = (id: string) => {
     dispatch(deleteToyAdmin(id));
     closeModal();
