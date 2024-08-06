@@ -6,7 +6,6 @@ import { BsTrash } from 'react-icons/bs';
 import { useAppDispatch, useAppSelector } from '../../../../redux/store';
 import { useCallback, useEffect, useState } from 'react';
 import {
-  deleteToyAdmin,
   fetchToysAdmin,
 } from '../../../../redux/slices/toysAdmin.slice';
 import ToyModal from './components/ToyModal';
@@ -17,12 +16,15 @@ import { format } from 'date-fns';
 import { appDateFormat } from '../../../../constants/date';
 import AddToyManager from './components/AddToyManager';
 import { useMemo } from 'react';
+import { ConfirmModal } from './components/ConfirmModal';
 
 const Toys = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [editableToy, setEditableToy] = useState<IToy | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddToyModalOpen, setIsAddToyModalOpen] = useState(false);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [choosenItemId, setChoosenItemId] = useState('');
   const { toysAdmin } = useAppSelector(state => state.toysAdmin);
   const [sortFilter, setSortFilter] = useState({
     sortBy: '',
@@ -41,9 +43,13 @@ const Toys = () => {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (id: string) => {
-    dispatch(deleteToyAdmin(id));
-  };
+  const ConfirmDelete = (itemId: string) => {
+    setChoosenItemId(itemId);
+    setIsConfirmModalOpen(true);
+
+  }
+
+
 
   const handleSort = (sortBy: string) => {
     setSortFilter(prevSortFilter => ({
@@ -55,32 +61,35 @@ const Toys = () => {
     }));
   };
 
-  const sortByFilter = useCallback((
-    a: {
-      toyName: string;
-      usageCycle: number;
-      lastDisinfectionDate: string | number | Date;
+  const sortByFilter = useCallback(
+    (
+      a: {
+        toyName: string;
+        usageCycle: number;
+        lastDisinfectionDate: string | number | Date;
+      },
+      b: {
+        toyName: string;
+        usageCycle: number;
+        lastDisinfectionDate: string | number | Date;
+      }
+    ) => {
+      switch (sortFilter.sortBy) {
+        case 'toy':
+          return a.toyName.localeCompare(b.toyName);
+        case 'cycle':
+          return a.usageCycle - b.usageCycle;
+        case 'date':
+          return (
+            new Date(b.lastDisinfectionDate).getTime() -
+            new Date(a.lastDisinfectionDate).getTime()
+          );
+        default:
+          return 0;
+      }
     },
-    b: {
-      toyName: string;
-      usageCycle: number;
-      lastDisinfectionDate: string | number | Date;
-    }
-  ) => {
-    switch (sortFilter.sortBy) {
-      case 'toy':
-        return a.toyName.localeCompare(b.toyName);
-      case 'cycle':
-        return a.usageCycle - b.usageCycle;
-      case 'date':
-        return (
-          new Date(b.lastDisinfectionDate).getTime() -
-          new Date(a.lastDisinfectionDate).getTime()
-        );
-      default:
-        return 0;
-    }
-  },[sortFilter])
+    [sortFilter]
+  );
 
   const filteredItems = useMemo(() => {
     const searchToy = searchParams.get('search') || '';
@@ -163,9 +172,7 @@ const Toys = () => {
                       <button title="Edit toy" onClick={() => handleEdit(toy)}>
                         <AiOutlineEdit />
                       </button>
-                      <button
-                        onClick={() => handleDelete(toy._id)}
-                      >
+                      <button onClick={() => ConfirmDelete(toy._id)}>
                         <BsTrash />
                       </button>
                     </div>
@@ -189,6 +196,14 @@ const Toys = () => {
         <AddToyManager
           isModalOpen={isAddToyModalOpen}
           closeModal={() => setIsAddToyModalOpen(false)}
+        />
+      )}
+
+      {isConfirmModalOpen && (
+        <ConfirmModal
+          isModalOpen={isConfirmModalOpen}
+          closeModal={() => setIsConfirmModalOpen(false)}
+          id={choosenItemId}
         />
       )}
     </main>
