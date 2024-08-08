@@ -125,7 +125,7 @@ const Catalogue = () => {
       return;
     }
     const newManagementPoint = managementPoints.find(
-      (point: IManager) => point._id === value
+      (point: IManager) => point.location === value
     );
     newManagementPoint &&
       dispatch(setSelectedManagementPoint(newManagementPoint));
