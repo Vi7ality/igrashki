@@ -7,6 +7,7 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { managerLogout } from "../../redux/slices/manager.slice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
+import LoadSpinner from "../../shared/LoadSpinner";
 
 const ManagementLayout = () => {
   const navigate = useNavigate()
@@ -43,7 +44,7 @@ const ManagementLayout = () => {
             </NavLink>
           </li>
           <li>
-            <span>{currentManager?.city}</span><br /><span className={styles.location}>{currentManager?.location}</span>
+            {currentManager ? <><span>{currentManager?.city}</span><br /><span className={styles.location}>{currentManager?.location}</span></> : <LoadSpinner/>}
           </li>
           <li>
             <NavLink
