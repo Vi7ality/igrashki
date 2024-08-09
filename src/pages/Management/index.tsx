@@ -5,7 +5,7 @@ import logoDark from "../../assets/logo-dark.svg";
 import { MdLeaderboard, MdToys } from "react-icons/md";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useEffect } from "react";
-import { managerLogout } from "../../redux/slices/manager.slice";
+import { managerGetInfo, managerLogout } from "../../redux/slices/manager.slice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import LoadSpinner from "../../shared/LoadSpinner";
 
@@ -18,8 +18,8 @@ const ManagementLayout = () => {
   useEffect(() => {
     if (!managerToken) {
       navigate("/managerLogin")
-    }
-  }, [currentManager?._id, managerToken, navigate])
+    } else { dispatch(managerGetInfo())}
+  }, [currentManager?._id, managerToken, navigate, dispatch])
 
   const handleManagerLogout = () => {
     dispatch(managerLogout())

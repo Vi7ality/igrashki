@@ -33,10 +33,6 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const managerToken = localStorage.getItem("managerToken");
-    if (managerToken) {
-      dispatch(managerGetInfo());
-    }
     dispatch(loadCartItems());
     dispatch(loadSelectedManagementPoint());
   }, [dispatch]);
