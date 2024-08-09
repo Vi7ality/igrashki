@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import logoDark from "../../assets/logo-dark.svg";
 import { MdLeaderboard, MdToys } from "react-icons/md";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { managerGetInfo, managerLogout } from "../../redux/slices/manager.slice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import LoadSpinner from "../../shared/LoadSpinner";
@@ -72,7 +72,9 @@ const ManagementLayout = () => {
           </button>
         </div>
       </nav>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

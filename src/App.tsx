@@ -1,22 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import { useAppDispatch } from "./redux/store";
 import { useEffect } from "react";
 import { loadCartItems, loadSelectedManagementPoint } from "./redux/slices/cart.slice";
-import ManagerLogin from "./pages/ManagerLogin";
-import Profile from "./pages/Profile";
-import SubscriptionInfo from "./pages/Management/screens/SubscriptionInfo";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./constants/theme";
 import SharedLayout from "./shared/SharedLayout";
-import NotFound from "./pages/NotFound";
-import RegisterSuccess from "./pages/RegisterSuccess";
 import { lazy } from 'react';
-import Clients from "./pages/Management/screens/Clients";
-import Toys from "./pages/Management/screens/Toys";
 import ManagementLayout from "./pages/Management";
-import ClientDetails from "./pages/Management/screens/ClientDetails";
-import ToyDetails from "./pages/Management/screens/ToyDetails";
+
+const Home = lazy(() => import('./pages/Home'));
+const ManagerLogin = lazy(() => import('./pages/ManagerLogin'));
+const Profile = lazy(() => import('./pages/Profile'));
+const SubscriptionInfo = lazy(() => import('./pages/Management/screens/SubscriptionInfo'));
+const Clients = lazy(() => import('./pages/Management/screens/Clients'));
+const Toys = lazy(() => import('./pages/Management/screens/Toys'));
+const ClientDetails = lazy(() => import('./pages/Management/screens/ClientDetails'));
+const ToyDetails = lazy(() => import('./pages/Management/screens/ToyDetails'));
+const RegisterSuccess = lazy(() => import('./pages/RegisterSuccess'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 const Bag = lazy(()=> import ("./pages/Bag"))
 const Catalogue = lazy(() => import("./pages/Catalogue"))
