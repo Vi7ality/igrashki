@@ -6,7 +6,6 @@ import { loadCartItems, loadSelectedManagementPoint } from "./redux/slices/cart.
 import ManagerLogin from "./pages/ManagerLogin";
 import Profile from "./pages/Profile";
 import SubscriptionInfo from "./pages/Management/screens/SubscriptionInfo";
-import { managerGetInfo } from "./redux/slices/manager.slice";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./constants/theme";
 import SharedLayout from "./shared/SharedLayout";
