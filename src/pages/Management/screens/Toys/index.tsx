@@ -145,7 +145,7 @@ const Toys = () => {
               filteredItems.map(toy => (
                 <tr key={toy._id}>
                   <td className={styles.toyName}>
-                    <Link to={`/toys/${toy.toyId}`}>
+                    <Link to={`/management/toys/${toy._id}`}>
                       {toy.toyName}
                       <br />({toy._id})
                     </Link>

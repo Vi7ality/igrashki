@@ -16,6 +16,8 @@ import { lazy } from 'react';
 import Clients from "./pages/Management/screens/Clients";
 import Toys from "./pages/Management/screens/Toys";
 import ManagementLayout from "./pages/Management";
+import ClientDetails from "./pages/Management/screens/ClientDetails";
+import ToyDetails from "./pages/Management/screens/ToyDetails";
 
 const Bag = lazy(()=> import ("./pages/Bag"))
 const Catalogue = lazy(() => import("./pages/Catalogue"))
@@ -24,8 +26,7 @@ const Toy = lazy(()=>import("./pages/Toy"))
 const Subscription = lazy(()=>import("./pages/Subscription"))
 const Confirmation = lazy(()=>import("./pages/Confirmation"))
 const AboutUs = lazy(()=>import("./pages/AboutUs"))
-const ClientDetails = lazy(()=>import("./pages/Management/screens/ClientDetails"))
-const ToyDetails = lazy(()=>import("./pages/Management/screens/ToyDetails"))
+
 const ManagementHome = lazy(()=>import("./pages/Management/screens/ManagementHome"))
 
 function App() {
