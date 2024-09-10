@@ -5,21 +5,14 @@ import api from '../../../../../api';
 import { IToyInfo } from '../../../../../models/toy';
 import { Form, Formik } from 'formik';
 import { newToyValidationSchema } from '../../../../../utils/validationSchemas/toyValidationSchema';
+import UploadFileBtn from '../../../../../shared/UploadFileBtn';
+import { createNewToyFormData } from '../../../../../utils/createFormData';
+import { IToyForm } from '../../../../../models/toyForm';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
   closeModal: () => void;
   editableToy?: IToyInfo | null;
-}
-
-interface IToyForm {
-  toyName: string;
-  description: string;
-  manufacturer: string;
-  ageFrom: number;
-  ageTo?: number;
-  category: string;
-  _id?: string;
 }
 
 const defaultValues: IToyForm = {
@@ -28,6 +21,7 @@ const defaultValues: IToyForm = {
   manufacturer: '',
   ageFrom: 0,
   category: '',
+  images: [],
 };
 
 const AddToyModal: FC<AddToyModalProps> = ({
@@ -35,30 +29,25 @@ const AddToyModal: FC<AddToyModalProps> = ({
   closeModal,
   editableToy,
 }) => {
-  const [images, setImages] = useState<string[]>(
-    editableToy ? editableToy.images : []
-  );
-  const [image, setImage] = useState<string>('');
   const [features, setFeatures] = useState<string[]>(
     editableToy ? editableToy.features : []
   );
   const [feature, setFeature] = useState<string>('');
-  const [isAddToyOpen, setIsAddToyOpen] = useState(false);
   const [isAddFeatureOpen, setIsAddFeatureOpen] = useState(false);
 
-  const onSubmit = async (formData: IToyForm) => {
+  const handleSubmit = async (formData: IToyForm) => {
     const managerToken = localStorage.getItem('managerToken');
-    const toy = { ...formData, images, features };
-    const { _id, ...rest } = toy;
 
+    const data = createNewToyFormData(formData, features);
     if (!editableToy?._id) {
       await api.post('/toys', toy, {
+      await api.post('/toys', data, {
         headers: {
           Authorization: `Bearer ${managerToken}`,
         },
       });
     } else {
-      await api.put(`/toys/${editableToy?.toyId}`, rest, {
+      await api.put(`/toys/${editableToy?.toyId}`, data, {
         headers: {
           Authorization: `Bearer ${managerToken}`,
         },
@@ -68,20 +57,21 @@ const AddToyModal: FC<AddToyModalProps> = ({
   };
 
   return (
-    <div onClick={closeModal} className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}>
       <div onClick={e => e.stopPropagation()} className={styles.modalContent}>
         <div className={styles.close} onClick={closeModal}>
           Закрити
         </div>
         <h2>Додати іграшку</h2>
         <Formik
-          initialValues={defaultValues}
-          onSubmit={onSubmit}
+          initialValues={
+            editableToy ? { ...editableToy, images: [] } : defaultValues
+          }
+          onSubmit={handleSubmit}
           validationSchema={newToyValidationSchema}
         >
-          {({ handleSubmit, getFieldProps }) => {
+          {({ handleSubmit, getFieldProps, setFieldValue, values }) => {
             return (
-              <Form className={styles.form} onSubmit={handleSubmit} id="formId">
+              <Form className={styles.form} onSubmit={handleSubmit}>
                 <FormikInput
                   label="Назва"
                   name="toyName"
@@ -114,6 +104,7 @@ const AddToyModal: FC<AddToyModalProps> = ({
                   getFieldProps={getFieldProps}
                   name="category"
                 />
+
                 <div className={styles.featuresWrapper}>
                   <div className={styles.featuresHeader}>
                     <h3>Особливості</h3>
@@ -161,58 +152,18 @@ const AddToyModal: FC<AddToyModalProps> = ({
                     ))}
                   </div>
                 </div>
+
                 <div className={styles.imagesWrapper}>
                   <div className={styles.imagesHeader}>
                     <h3>Картинки Іграшки</h3>
-                    <button
-                      type="button"
-                      className={styles.addImageBtn}
-                      onClick={() => setIsAddToyOpen(!isAddToyOpen)}
-                    >
-                      Додати картинку
-                    </button>
-                  </div>
-                  {isAddToyOpen && (
-                    <div className={styles.addImageWrapper}>
-                      <input
-                        type="text"
-                        value={image}
-                        onChange={e => setImage(e.target.value)}
-                      />
-                      <button
-                        className={styles.saveImageBtn}
-                        type="button"
-                        onClick={() => {
-                          setImages([...images, image]);
-                          setImage('');
-                        }}
-                      >
-                        Зберегти
-                      </button>
-                    </div>
-                  )}
-                  <div className={styles.images}>
-                    {images.map((image, index) => (
-                      <div key={index} className={styles.image}>
-                        <img src={image} alt="" />
-                        <button
-                          className={styles.removeImageBtn}
-                          type="button"
-                          onClick={() => {
-                            setImages(images.filter((_, i) => i !== index));
-                          }}
-                        >
-                          Видалити
-                        </button>
-                      </div>
-                    ))}
+                    <UploadFileBtn
+                      inputName="images"
+                      values={values.images}
+                      setFieldValue={setFieldValue}
+                    />
                   </div>
                 </div>
-                <input
-                  className={styles.submitInput}
-                  type="submit"
-                  value="Submit"
-                />
+                <button type="submit">Submit</button>
               </Form>
             );
           }}
