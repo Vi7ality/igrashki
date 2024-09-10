@@ -40,7 +40,6 @@ const AddToyModal: FC<AddToyModalProps> = ({
 
     const data = createNewToyFormData(formData, features);
     if (!editableToy?._id) {
-      await api.post('/toys', toy, {
       await api.post('/toys', data, {
         headers: {
           Authorization: `Bearer ${managerToken}`,
@@ -57,6 +56,10 @@ const AddToyModal: FC<AddToyModalProps> = ({
   };
 
   return (
+    <div
+      onClick={closeModal}
+      className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}
+    >
       <div onClick={e => e.stopPropagation()} className={styles.modalContent}>
         <div className={styles.close} onClick={closeModal}>
           Закрити
