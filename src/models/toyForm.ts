@@ -6,5 +6,6 @@ export interface IToyForm {
   ageTo?: number;
   category: string;
   images: File[] | string[];
+  imagesToDelete?: string[];
   _id?: string;
 }

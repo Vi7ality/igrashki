@@ -43,14 +43,15 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
   const handleSubmit = async (formData: IToyForm) => {
     const managerToken = localStorage.getItem('managerToken');
 
-    const data = createNewToyFormData(formData, features);
     if (!editableToy?._id) {
+      const data = createNewToyFormData(formData, features);
       await api.post('/toys', data, {
         headers: {
           Authorization: `Bearer ${managerToken}`,
         },
       });
     } else {
+      const data = createNewToyFormData(formData, features, imagesToDelete);
       await api.put(`/toys/${editableToy?.toyId}`, data, {
         headers: {
           Authorization: `Bearer ${managerToken}`,
@@ -113,54 +114,6 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                   name="category"
                 />
                 <FeaturesForm features={features} setFeatures={setFeatures} />
-                {/* <div className={styles.featuresWrapper}>
-                  <div className={styles.featuresHeader}>
-                    <h3>Особливості</h3>
-                    <button
-                      type="button"
-                      className={styles.addFeatureBtn}
-                      onClick={() => setIsAddFeatureOpen(!isAddFeatureOpen)}
-                    >
-                      Додати
-                    </button>
-                  </div>
-                  {isAddFeatureOpen && (
-                    <div className={styles.addFeatureWrapper}>
-                      <input
-                        type="text"
-                        value={feature}
-                        onChange={e => setFeature(e.target.value)}
-                      />
-                      <button
-                        className={styles.saveFeatureBtn}
-                        type="button"
-                        onClick={() => {
-                          setFeatures([...features, feature]);
-                          setFeature('');
-                        }}
-                      >
-                        Зберегти
-                      </button>
-                    </div>
-                  )}
-                  <div className={styles.features}>
-                    {features.map((feature, index) => (
-                      <div key={index} className={styles.feature}>
-                        <div className={styles.featureValue}>{feature}</div>
-                        <button
-                          className={styles.removeFeatureBtn}
-                          type="button"
-                          onClick={() => {
-                            setFeatures(features.filter((_, i) => i !== index));
-                          }}
-                        >
-                          Видалити
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div> */}
-
                 <div className={styles.imagesWrapper}>
                   <h3>Картинки Іграшки</h3>
                   {images.length > 0 && (

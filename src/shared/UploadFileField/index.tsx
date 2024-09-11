@@ -3,11 +3,9 @@ import PreviewFile from '../PreviewFile';
 import {
   BtnLabel,
   BtnWrap,
-  DeleteBtn,
   Ext,
   FlexCont,
   Input,
-  PreviewRelWrap,
 } from './UploadFileBtn.styled';
 import { nanoid } from 'nanoid';
 import { ChangeEvent } from 'react';
