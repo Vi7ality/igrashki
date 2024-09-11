@@ -17,8 +17,8 @@ export const createNewToyFormData = (
   } = values;
   formDataToSend.append('toyName', toyName);
   formDataToSend.append('manufacturer', manufacturer);
-  formDataToSend.append('ageFrom', ageFrom);
-  values.ageTo && formDataToSend.append('ageTo', ageTo);
+  formDataToSend.append('ageFrom', ageFrom.toString());
+  ageTo && formDataToSend.append('ageTo', ageTo.toString());
   formDataToSend.append('description', description);
   formDataToSend.append('category', category);
   features.forEach((feature: string, index: number) => {
@@ -26,7 +26,7 @@ export const createNewToyFormData = (
   });
 
   images &&
-    images.forEach((image: File) => {
+    (images as File[]).forEach((image: File) => {
       formDataToSend.append('images', image);
     });
   imagesToDelete &&

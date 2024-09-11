@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from '../../../../redux/store';
-import { IClientCredentials } from '../../../../models/client';
-import { clientLogin } from '../../../../redux/slices/client.slice';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { IClientCredentials } from '../../models/client';
+import { clientLogin } from '../..//redux/slices/client.slice';
 import { useEffect } from 'react';
 import {
   FormWrap,
@@ -13,13 +13,13 @@ import {
   RegisterLink,
   ClientErr,
 } from './AuthModal.styled';
-import icons from '../../../../assets/icons.svg';
-import logo from '../../../../assets/logo-dark.svg';
+import icons from '../../assets/icons.svg';
+import logo from '../../assets/logo-dark.svg';
 import { Formik } from 'formik';
 import { PhoneInput } from './PhoneInput';
 import { PasswordInput } from './PasswordInput';
-import { loginValidationSchema } from '../../../../utils/validationSchemas/authValidationSchema';
-import LoadSpinner from '../../../LoadSpinner';
+import { loginValidationSchema } from '../../utils/validationSchemas/authValidationSchema';
+import LoadSpinner from '../LoadSpinner';
 
 interface AuthModalProps {
   authClose: () => void;

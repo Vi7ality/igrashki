@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { useAppSelector } from '../../../redux/store';
-import AuthModal from './AuthModal';
+import AuthModal from '../../AuthModal';
 import DropDownProfile from './DropDownProfile';
 import {
   AuthBtn,
@@ -15,9 +15,9 @@ import useClickOutside from '../../../utils/useClickOutside';
 type Props = {
   showAuthModal: boolean;
   setShowAuthModal(v: boolean): void;
-}
+};
 
-const ProfileButton = ({showAuthModal, setShowAuthModal}: Props) => {
+const ProfileButton = ({ showAuthModal, setShowAuthModal }: Props) => {
   const { client } = useAppSelector(state => state.client);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const handleProfileButtonClick = () => {

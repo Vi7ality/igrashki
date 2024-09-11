@@ -20,11 +20,11 @@ import {
   UserTerms,
   CloseBtn,
 } from './MobileMenu.styled';
-import icons from '../../../../assets/icons.svg';
-import darkLogo from '../../../../assets/logo-dark.svg';
+import icons from '../../assets/icons.svg';
+import darkLogo from '../../assets/logo-dark.svg';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../redux/store';
-import { clearClient } from '../../../../redux/slices/client.slice';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { clearClient } from '../../redux/slices/client.slice';
 
 type Props = {
   handleMenuClick(): void;
@@ -32,7 +32,11 @@ type Props = {
   setShowAuthModal(v: boolean): void;
 };
 
-const MobileMenu = ({ handleMenuClick, setShowAuthModal, openState }: Props) => {
+const MobileMenu = ({
+  handleMenuClick,
+  setShowAuthModal,
+  openState,
+}: Props) => {
   const { client } = useAppSelector(state => state.client);
   const dispatch = useAppDispatch();
 
@@ -44,7 +48,7 @@ const MobileMenu = ({ handleMenuClick, setShowAuthModal, openState }: Props) => 
   const onLoginClick = () => {
     setShowAuthModal(true);
     handleMenuClick();
-  }
+  };
 
   useEffect(() => {
     if (openState) {
