@@ -113,7 +113,12 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                   getFieldProps={getFieldProps}
                   name="category"
                 />
-                <FeaturesForm features={features} setFeatures={setFeatures} />
+                <FeaturesForm
+                  features={features}
+                  setFeatures={setFeatures}
+                  // values={values.features}
+                  // setFieldValue={setFieldValue}
+                />
                 <div className={styles.imagesWrapper}>
                   <h3>Картинки Іграшки</h3>
                   {images.length > 0 && (

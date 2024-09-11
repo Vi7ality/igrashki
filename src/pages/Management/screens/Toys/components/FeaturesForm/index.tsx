@@ -50,7 +50,7 @@ const FeaturesForm = ({ features, setFeatures }: FeaturesProp) => {
       <ul>
         {features.map((feature, index) => (
           <FeatureItem key={index}>
-            <div>{feature}</div>
+            <FeatureInput />
             <RemoveBtn
               type="button"
               onClick={() => {
