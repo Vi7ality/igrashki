@@ -8,4 +8,5 @@ export interface IToyForm {
   images: File[] | string[];
   imagesToDelete?: string[];
   _id?: string;
+  features: string[] | [];
 }

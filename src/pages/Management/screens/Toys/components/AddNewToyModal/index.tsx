@@ -32,9 +32,9 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
   closeModal,
   editableToy,
 }) => {
-  const [features, setFeatures] = useState<string[]>(
-    editableToy ? editableToy.features : []
-  );
+  // const [features, setFeatures] = useState<string[]>(
+  //   editableToy ? editableToy.features : []
+  // );
   const [images, setImages] = useState<string[]>(
     editableToy ? editableToy.images : []
   );
@@ -44,14 +44,14 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
     const managerToken = localStorage.getItem('managerToken');
 
     if (!editableToy?._id) {
-      const data = createNewToyFormData(formData, features);
+      const data = createNewToyFormData(formData);
       await api.post('/toys', data, {
         headers: {
           Authorization: `Bearer ${managerToken}`,
         },
       });
     } else {
-      const data = createNewToyFormData(formData, features, imagesToDelete);
+      const data = createNewToyFormData(formData, imagesToDelete);
       await api.put(`/toys/${editableToy?.toyId}`, data, {
         headers: {
           Authorization: `Bearer ${managerToken}`,
@@ -114,10 +114,10 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                   name="category"
                 />
                 <FeaturesForm
-                  features={features}
-                  setFeatures={setFeatures}
-                  // values={values.features}
-                  // setFieldValue={setFieldValue}
+                  // features={features}
+                  features={values.features}
+                  setFieldValue={setFieldValue}
+                  getFieldProps={getFieldProps}
                 />
                 <div className={styles.imagesWrapper}>
                   <h3>Картинки Іграшки</h3>
@@ -133,6 +133,7 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                     inputName="images"
                     values={values.images}
                     setFieldValue={setFieldValue}
+                    getFieldProps={getFieldProps}
                   />
                 </div>
                 <SubmitBtn type="submit">Submit</SubmitBtn>

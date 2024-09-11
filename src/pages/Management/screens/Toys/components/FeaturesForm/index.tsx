@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import {
   AddBtn,
   AddFeatureWrap,
@@ -12,12 +12,50 @@ import {
 
 interface FeaturesProp {
   features: string[];
-  setFeatures(arg: string[]): void;
+  setFieldValue: (field: string, value: any) => void;
+  getFieldProps(name: string): object;
 }
 
-const FeaturesForm = ({ features, setFeatures }: FeaturesProp) => {
+const FeaturesForm = ({
+  features,
+  setFieldValue,
+  getFieldProps,
+}: FeaturesProp) => {
   const [isAddFeatureOpen, setIsAddFeatureOpen] = useState(false);
   const [feature, setFeature] = useState<string>('');
+
+  console.log(features);
+
+  const handleFeaturesChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newFeatures = Array.from(event.currentTarget.files || []);
+    const existingFeatures = features || [];
+    const updatedFeatures = [...existingFeatures, ...newFeatures];
+    setFieldValue('features', updatedFeatures);
+  };
+
+  const handleFeatureInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setFeature(event.target.value); // Set the current feature being typed
+  };
+
+  const handleSaveFeature = () => {
+    if (feature) {
+      const updatedFeatures = [...(features || []), feature]; // Append the new feature to the existing features
+      setFieldValue('features', updatedFeatures); // Update Formik's state with the new features list
+      setFeature('');
+      setIsAddFeatureOpen(!isAddFeatureOpen); // Clear the input after saving
+    }
+  };
+
+  const handleDeleteFeature = (index: number) => {
+    const existingFeatures = features || [];
+
+    const updatedFeatures = existingFeatures.filter(
+      (_, i: number) => i !== index
+    );
+
+    setFieldValue('features', updatedFeatures);
+  };
+
   return (
     <Wrapper>
       <FeaturesHead>
@@ -32,16 +70,13 @@ const FeaturesForm = ({ features, setFeatures }: FeaturesProp) => {
       {isAddFeatureOpen && (
         <AddFeatureWrap>
           <FeatureInput
-            type="text"
+            name="feature"
             value={feature}
-            onChange={e => setFeature(e.target.value)}
+            onChange={handleFeatureInputChange}
           />
           <SaveBtn
             type="button"
-            onClick={() => {
-              setFeatures([...features, feature]);
-              setFeature('');
-            }}
+            onClick={handleSaveFeature} // Add the new feature when clicked
           >
             Зберегти
           </SaveBtn>
@@ -50,12 +85,15 @@ const FeaturesForm = ({ features, setFeatures }: FeaturesProp) => {
       <ul>
         {features.map((feature, index) => (
           <FeatureItem key={index}>
-            <FeatureInput />
+            <FeatureInput
+              name={`features[${index}]`}
+              value={feature}
+              onChange={() => handleFeaturesChange}
+              {...getFieldProps(`features[${index}]`)}
+            />
             <RemoveBtn
               type="button"
-              onClick={() => {
-                setFeatures(features.filter((_, i) => i !== index));
-              }}
+              onClick={() => handleDeleteFeature(index)} // Delete the feature
             >
               Видалити
             </RemoveBtn>
