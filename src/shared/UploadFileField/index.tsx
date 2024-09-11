@@ -68,13 +68,6 @@ const UploadFileField = ({
                   deleteImg={handleDeleteImage}
                   index={index}
                 />
-                {/* <DeleteBtn
-                  onClick={() => {
-                    handleDeleteImage(index);
-                  }}
-                >
-                  Delete
-                </DeleteBtn> */}
               </div>
             ))}
         </FlexCont>

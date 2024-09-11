@@ -9,6 +9,7 @@ import { createNewToyFormData } from '../../../../../../utils/createFormData';
 import { IToyForm } from '../../../../../../models/toyForm';
 import UploadFileField from '../../../../../../shared/UploadFileField';
 import { SubmitBtn } from '../../../../../../shared/SubmitBtn/SubmitBtn.styled';
+import ImagesList from '../ImagesList';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -33,6 +34,11 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
   const [features, setFeatures] = useState<string[]>(
     editableToy ? editableToy.features : []
   );
+  const [images, setImages] = useState<string[]>(
+    editableToy ? editableToy.images : []
+  );
+  const [imagesToDelete, setImagesToDelete] = useState<string[]>([]);
+
   const [feature, setFeature] = useState<string>('');
   const [isAddFeatureOpen, setIsAddFeatureOpen] = useState(false);
 
@@ -160,6 +166,14 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                 <div className={styles.imagesWrapper}>
                   <div className={styles.imagesHeader}>
                     <h3>Картинки Іграшки</h3>
+                    {images.length > 0 && (
+                      <ImagesList
+                        images={images}
+                        setImagesToDelete={setImagesToDelete}
+                        setImages={setImages}
+                        imagesToDelete={imagesToDelete}
+                      />
+                    )}
                     <UploadFileField
                       inputName="images"
                       values={values.images}
