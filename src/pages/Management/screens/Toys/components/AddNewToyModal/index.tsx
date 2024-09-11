@@ -164,22 +164,20 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                 </div>
 
                 <div className={styles.imagesWrapper}>
-                  <div className={styles.imagesHeader}>
-                    <h3>Картинки Іграшки</h3>
-                    {images.length > 0 && (
-                      <ImagesList
-                        images={images}
-                        setImagesToDelete={setImagesToDelete}
-                        setImages={setImages}
-                        imagesToDelete={imagesToDelete}
-                      />
-                    )}
-                    <UploadFileField
-                      inputName="images"
-                      values={values.images}
-                      setFieldValue={setFieldValue}
+                  <h3>Картинки Іграшки</h3>
+                  {images.length > 0 && (
+                    <ImagesList
+                      images={images}
+                      setImagesToDelete={setImagesToDelete}
+                      setImages={setImages}
+                      imagesToDelete={imagesToDelete}
                     />
-                  </div>
+                  )}
+                  <UploadFileField
+                    inputName="images"
+                    values={values.images}
+                    setFieldValue={setFieldValue}
+                  />
                 </div>
                 <SubmitBtn type="submit">Submit</SubmitBtn>
               </Form>
