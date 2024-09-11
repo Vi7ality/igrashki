@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AppDispatch, useAppSelector } from '../../redux/store';
-import AuthModal from '../../shared/Header/components/AuthModal';
+import AuthModal from '../../shared/AuthModal';
 import { ToastContainer, toast } from 'react-toastify';
 import HeaderBackgound from '../../shared/HeaderBackground';
 import AuthSection from './components/AuthSection';

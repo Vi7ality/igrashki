@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import styles from '../ToyModal.module.scss';
 import { deleteToyAdmin } from '../../../../../../redux/slices/toysAdmin.slice';
 import { AppDispatch } from '../../../../../../redux/store';
 import {

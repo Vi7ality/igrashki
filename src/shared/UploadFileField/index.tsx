@@ -1,4 +1,4 @@
-import { ErrorMessage, FormikValues } from 'formik';
+import { ErrorMessage } from 'formik';
 import PreviewFile from '../PreviewFile';
 import {
   BtnLabel,
@@ -13,7 +13,7 @@ import { getAllowedExt } from '../../utils/validationSchemas/toyValidationSchema
 
 interface IUploadFileBtn {
   inputName: string;
-  values: FormikValues;
+  values: File[];
   setFieldValue: (field: string, value: any) => void;
 }
 

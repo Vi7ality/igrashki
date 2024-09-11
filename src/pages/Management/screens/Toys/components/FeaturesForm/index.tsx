@@ -32,15 +32,15 @@ const FeaturesForm = ({
   };
 
   const handleFeatureInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFeature(event.target.value); // Set the current feature being typed
+    setFeature(event.target.value);
   };
 
   const handleSaveFeature = () => {
     if (feature) {
-      const updatedFeatures = [...(features || []), feature]; // Append the new feature to the existing features
-      setFieldValue('features', updatedFeatures); // Update Formik's state with the new features list
+      const updatedFeatures = [...(features || []), feature];
+      setFieldValue('features', updatedFeatures);
       setFeature('');
-      setIsAddFeatureOpen(!isAddFeatureOpen); // Clear the input after saving
+      setIsAddFeatureOpen(!isAddFeatureOpen);
     }
   };
 

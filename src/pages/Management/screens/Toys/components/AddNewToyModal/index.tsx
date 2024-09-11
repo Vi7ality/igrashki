@@ -11,7 +11,6 @@ import UploadFileField from '../../../../../../shared/UploadFileField';
 import { SubmitBtn } from '../../../../../../shared/SubmitBtn/SubmitBtn.styled';
 import ImagesList from '../ImagesList';
 import FeaturesForm from '../FeaturesForm';
-import { toast } from 'react-toastify';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -44,24 +43,18 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
 
     if (!editableToy?._id) {
       const data = createNewToyFormData(formData);
-      await api
-        .post('/toys', data, {
-          headers: {
-            Authorization: `Bearer ${managerToken}`,
-          },
-        })
-        .then(toast.success('Іграшку створено', { autoClose: 1000 }));
+      await api.post('/toys', data, {
+        headers: {
+          Authorization: `Bearer ${managerToken}`,
+        },
+      });
     } else {
       const data = createNewToyFormData(formData, imagesToDelete);
-      await api
-        .put(`/toys/${editableToy?.toyId}`, data, {
-          headers: {
-            Authorization: `Bearer ${managerToken}`,
-          },
-        })
-        .then(
-          toast.success('Опис іграшки успішно оновлено', { autoClose: 1000 })
-        );
+      await api.put(`/toys/${editableToy?.toyId}`, data, {
+        headers: {
+          Authorization: `Bearer ${managerToken}`,
+        },
+      });
     }
     closeModal();
   };
@@ -135,7 +128,7 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                   )}
                   <UploadFileField
                     inputName="images"
-                    values={values.images}
+                    values={values.images as File[]}
                     setFieldValue={setFieldValue}
                   />
                 </div>

@@ -1,6 +1,10 @@
 import * as Yup from 'yup';
 
-const validFileExtensions = {
+interface ValidFileExtensions {
+  [key: string]: string[];
+}
+
+const validFileExtensions: ValidFileExtensions = {
   image: ['jpg'],
 };
 
@@ -9,11 +13,18 @@ export function getAllowedExt(type: string) {
 }
 
 const MAX_FILE_SIZE = 8e6;
-function isValidFileType(fileName: string, fileType: string) {
-  return (
-    fileName &&
-    validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1
-  );
+
+function isValidFileType(fileName: string, fileType: string): boolean {
+  const extensions = validFileExtensions[fileType];
+
+  if (!extensions) {
+    console.warn(`File type ${fileType} is not valid.`);
+    return false;
+  }
+
+  const fileExtension = fileName.split('.').pop();
+
+  return fileExtension ? extensions.indexOf(fileExtension) > -1 : false;
 }
 
 export const newToyValidationSchema = Yup.object({
@@ -24,14 +35,12 @@ export const newToyValidationSchema = Yup.object({
   ageTo: Yup.number(),
   category: Yup.string().required("Це поле обов'язкове"),
   image: Yup.mixed()
-    .test(
-      'is-valid-type',
-      'Недійсний тип зображення',
-      value => !value || isValidFileType(value.name.toLowerCase(), 'image') // If no file, skip check
-    )
-    .test(
-      'is-valid-size',
-      'Максимальний розмір файлу — 8MB',
-      value => !value || value.size <= MAX_FILE_SIZE // If no file, skip check
-    ),
+    .test('is-valid-type', 'Недійсний тип зображення', value => {
+      if (!value) return true;
+      return isValidFileType((value as File).name.toLowerCase(), 'image');
+    })
+    .test('is-valid-size', 'Максимальний розмір файлу — 8MB', value => {
+      if (!value) return true;
+      return (value as File).size <= MAX_FILE_SIZE;
+    }),
 });

@@ -2,7 +2,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowRight from '../../assets/arrow-right.svg';
-import defaultImg from '../../../../assets/default-toy-image.svg';
+import defaultImg from '../../assets/default-toy-image.svg';
 
 export const SliderStyled = styled(Slider)`
   &.slick-slider {
