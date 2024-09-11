@@ -10,6 +10,7 @@ import { IToyForm } from '../../../../../../models/toyForm';
 import UploadFileField from '../../../../../../shared/UploadFileField';
 import { SubmitBtn } from '../../../../../../shared/SubmitBtn/SubmitBtn.styled';
 import ImagesList from '../ImagesList';
+import FeaturesForm from '../FeaturesForm';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -38,9 +39,6 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
     editableToy ? editableToy.images : []
   );
   const [imagesToDelete, setImagesToDelete] = useState<string[]>([]);
-
-  const [feature, setFeature] = useState<string>('');
-  const [isAddFeatureOpen, setIsAddFeatureOpen] = useState(false);
 
   const handleSubmit = async (formData: IToyForm) => {
     const managerToken = localStorage.getItem('managerToken');
@@ -114,8 +112,8 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                   getFieldProps={getFieldProps}
                   name="category"
                 />
-
-                <div className={styles.featuresWrapper}>
+                <FeaturesForm features={features} setFeatures={setFeatures} />
+                {/* <div className={styles.featuresWrapper}>
                   <div className={styles.featuresHeader}>
                     <h3>Особливості</h3>
                     <button
@@ -161,7 +159,7 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
                 <div className={styles.imagesWrapper}>
                   <h3>Картинки Іграшки</h3>

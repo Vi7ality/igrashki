@@ -46,7 +46,7 @@ const UploadFileField = ({
       <BtnWrap>
         <BtnLabel htmlFor={inputName}>
           <span>Вибрати файли</span>
-          <Ext>[{allowedExt}]</Ext>
+          <Ext>[{allowedExt}], max size: 8 Mb </Ext>
         </BtnLabel>
         <Input
           id={inputName}
