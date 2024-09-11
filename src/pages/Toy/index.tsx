@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import ImageSlider from './components/ImageSlider';
+import ImageSlider from '../../shared/ImageSlider';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { fetchToy } from '../../redux/slices/toy.slice';
 import { useEffect } from 'react';
@@ -12,7 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HeaderBackgound from '../../shared/HeaderBackground';
 import ToyInfo from './components/ToyInfo';
-import { FlexContainer } from './Toy.styled';
+import { FlexContainer, SliderSection } from './Toy.styled';
 import { Helmet } from 'react-helmet';
 
 const Toy = () => {
@@ -59,7 +59,9 @@ const Toy = () => {
       </Helmet>
       <HeaderBackgound />
       <FlexContainer>
-        <ImageSlider images={toy?.images} />
+        <SliderSection>
+          <ImageSlider images={toy?.images} />
+        </SliderSection>
         <ToyInfo handleToggleToCart={handleToggleToCart} />
       </FlexContainer>
       <ToastContainer

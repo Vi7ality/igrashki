@@ -6,7 +6,7 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { useAppDispatch, useAppSelector } from '../../../../redux/store';
 import { fetchToyAdmin } from '../../../../redux/slices/toyAdmin.slice';
 import AddToyModal from '../Toys/components/AddNewToyModal';
-import defaultImg from '../../../../assets/default-toy-image.svg';
+import ImageSlider from '../../../../shared/ImageSlider';
 
 const ToyDetails = () => {
   const [isToyModalOpen, setIsToyModalOpen] = useState(false);
@@ -30,11 +30,10 @@ const ToyDetails = () => {
         </button>
       </header>
       <div className={styles.clientInfoWrapper}>
-        {toy && toy.images.length > 0 ? (
-          <img src={toy?.images[0]} alt="" className={styles.toyImg} />
-        ) : (
-          <img src={defaultImg} alt="" className={styles.toyImg} />
-        )}
+        <div className={styles.toyImg}>
+          <ImageSlider images={toy?.images} />
+        </div>
+
         <div className={styles.clientInfoLeft}>
           <h2>Іграшка</h2>
           <div className={styles.clientInfo}>

@@ -24,8 +24,6 @@ const FeaturesForm = ({
   const [isAddFeatureOpen, setIsAddFeatureOpen] = useState(false);
   const [feature, setFeature] = useState<string>('');
 
-  console.log(features);
-
   const handleFeaturesChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newFeatures = Array.from(event.currentTarget.files || []);
     const existingFeatures = features || [];

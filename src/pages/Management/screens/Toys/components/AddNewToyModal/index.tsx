@@ -11,6 +11,7 @@ import UploadFileField from '../../../../../../shared/UploadFileField';
 import { SubmitBtn } from '../../../../../../shared/SubmitBtn/SubmitBtn.styled';
 import ImagesList from '../ImagesList';
 import FeaturesForm from '../FeaturesForm';
+import { toast } from 'react-toastify';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -25,6 +26,7 @@ const defaultValues: IToyForm = {
   ageFrom: 0,
   category: '',
   images: [],
+  features: [],
 };
 
 const AddNewToyModal: FC<AddToyModalProps> = ({
@@ -32,9 +34,6 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
   closeModal,
   editableToy,
 }) => {
-  // const [features, setFeatures] = useState<string[]>(
-  //   editableToy ? editableToy.features : []
-  // );
   const [images, setImages] = useState<string[]>(
     editableToy ? editableToy.images : []
   );
@@ -45,18 +44,24 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
 
     if (!editableToy?._id) {
       const data = createNewToyFormData(formData);
-      await api.post('/toys', data, {
-        headers: {
-          Authorization: `Bearer ${managerToken}`,
-        },
-      });
+      await api
+        .post('/toys', data, {
+          headers: {
+            Authorization: `Bearer ${managerToken}`,
+          },
+        })
+        .then(toast.success('Іграшку створено', { autoClose: 1000 }));
     } else {
       const data = createNewToyFormData(formData, imagesToDelete);
-      await api.put(`/toys/${editableToy?.toyId}`, data, {
-        headers: {
-          Authorization: `Bearer ${managerToken}`,
-        },
-      });
+      await api
+        .put(`/toys/${editableToy?.toyId}`, data, {
+          headers: {
+            Authorization: `Bearer ${managerToken}`,
+          },
+        })
+        .then(
+          toast.success('Опис іграшки успішно оновлено', { autoClose: 1000 })
+        );
     }
     closeModal();
   };
@@ -114,7 +119,6 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                   name="category"
                 />
                 <FeaturesForm
-                  // features={features}
                   features={values.features}
                   setFieldValue={setFieldValue}
                   getFieldProps={getFieldProps}
@@ -133,7 +137,6 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                     inputName="images"
                     values={values.images}
                     setFieldValue={setFieldValue}
-                    getFieldProps={getFieldProps}
                   />
                 </div>
                 <SubmitBtn type="submit">Submit</SubmitBtn>

@@ -3,13 +3,12 @@ import {
   ImageContainer,
   MiniatureImg,
   MiniatureLink,
-  SliderSection,
   SliderStyled,
 } from './ImageSlider.styled';
 import { nanoid } from 'nanoid';
-import defaultImage from '../../../../assets/default-toy-image.svg';
+import defaultImage from '../../assets/default-toy-image.svg';
 
-const ImageSlider: FC<{ images?: string[] }> = ({images}) => {
+const ImageSlider: FC<{ images?: string[] }> = ({ images }) => {
   const customPaging = (i: number) => {
     if (images?.length !== 0) {
       return (
@@ -37,7 +36,7 @@ const ImageSlider: FC<{ images?: string[] }> = ({images}) => {
   const settings = {
     dots: true,
     dotsClass: 'slick-dots slick-thumb',
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -56,7 +55,7 @@ const ImageSlider: FC<{ images?: string[] }> = ({images}) => {
   };
 
   return (
-    <SliderSection>
+    <>
       <SliderStyled {...settings}>
         {images?.length !== 0 ? (
           images?.map(image => (
@@ -66,11 +65,15 @@ const ImageSlider: FC<{ images?: string[] }> = ({images}) => {
           ))
         ) : (
           <ImageContainer>
-              <img src={defaultImage} style={{ width: "100%"}} alt="default toy photo"></img>
+            <img
+              src={defaultImage}
+              style={{ width: '100%' }}
+              alt="default toy photo"
+            ></img>
           </ImageContainer>
         )}
       </SliderStyled>
-    </SliderSection>
+    </>
   );
 };
 
