@@ -12,6 +12,7 @@ import {
   addToyAdmin,
   updateToyAdmin,
 } from '../../../../../redux/slices/toysAdmin.slice';
+import { SubmitBtn } from '../../../../../shared/SubmitBtn/SubmitBtn.styled';
 
 interface ToyModalProps {
   editableToy: IToy | null;
@@ -96,13 +97,16 @@ const ToyModal: FC<ToyModalProps> = ({
     } else {
       dispatch(addToyAdmin(transformedData));
     }
-      console.log(transformedData)
+    console.log(transformedData);
     reset();
     closeModal();
   };
 
   return (
-    <div onClick={closeModal} className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}>
+    <div
+      onClick={closeModal}
+      className={`${styles.modal} ${isModalOpen ? styles.active : ''}`}
+    >
       <div onClick={e => e.stopPropagation()} className={styles.modalContent}>
         <div className={styles.close} onClick={closeModal}>
           Закрити
@@ -111,15 +115,15 @@ const ToyModal: FC<ToyModalProps> = ({
         <form className={styles.toyForm} onSubmit={handleSubmit(onSubmit)}>
           {editableToy ? (
             // <Input label="Назва іграшки" disabled />
-            <input type="text" value={editableToy.toyName} disabled />
+            <input type="text" value={editableToy.toyName} />
           ) : (
-              <Controller
-                control={control}
-                name="toyId"
-                render={({ field }) => (
-                  <Select label="Іграшка" {...field} options={toysFullList} />
-                )}
-              />            
+            <Controller
+              control={control}
+              name="toyId"
+              render={({ field }) => (
+                <Select label="Іграшка" {...field} options={toysFullList} />
+              )}
+            />
           )}
 
           {!editableToy && (
@@ -153,7 +157,7 @@ const ToyModal: FC<ToyModalProps> = ({
               />
             )}
           />
-          <button type="submit">Submit</button>
+          <SubmitBtn type="submit">Submit</SubmitBtn>
         </form>
       </div>
     </div>

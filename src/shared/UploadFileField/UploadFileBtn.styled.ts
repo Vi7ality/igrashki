@@ -31,4 +31,5 @@ export const Ext = styled.span`
 
 export const FlexCont = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;

@@ -1,13 +1,14 @@
 import { FC, useState } from 'react';
-import styles from './ToyModal.module.scss';
-import FormikInput from '../../../../../shared/formComponents/FormikInput';
-import api from '../../../../../api';
-import { IToyInfo } from '../../../../../models/toy';
+import styles from '../ToyModal.module.scss';
+import FormikInput from '../../../../../../shared/formComponents/FormikInput';
+import api from '../../../../../../api';
+import { IToyInfo } from '../../../../../../models/toy';
 import { Form, Formik } from 'formik';
-import { newToyValidationSchema } from '../../../../../utils/validationSchemas/toyValidationSchema';
-import UploadFileBtn from '../../../../../shared/UploadFileBtn';
-import { createNewToyFormData } from '../../../../../utils/createFormData';
-import { IToyForm } from '../../../../../models/toyForm';
+import { newToyValidationSchema } from '../../../../../../utils/validationSchemas/toyValidationSchema';
+import { createNewToyFormData } from '../../../../../../utils/createFormData';
+import { IToyForm } from '../../../../../../models/toyForm';
+import UploadFileField from '../../../../../../shared/UploadFileField';
+import { SubmitBtn } from '../../../../../../shared/SubmitBtn/SubmitBtn.styled';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -24,7 +25,7 @@ const defaultValues: IToyForm = {
   images: [],
 };
 
-const AddToyModal: FC<AddToyModalProps> = ({
+const AddNewToyModal: FC<AddToyModalProps> = ({
   isModalOpen,
   closeModal,
   editableToy,
@@ -159,14 +160,14 @@ const AddToyModal: FC<AddToyModalProps> = ({
                 <div className={styles.imagesWrapper}>
                   <div className={styles.imagesHeader}>
                     <h3>Картинки Іграшки</h3>
-                    <UploadFileBtn
+                    <UploadFileField
                       inputName="images"
                       values={values.images}
                       setFieldValue={setFieldValue}
                     />
                   </div>
                 </div>
-                <button type="submit">Submit</button>
+                <SubmitBtn type="submit">Submit</SubmitBtn>
               </Form>
             );
           }}
@@ -176,4 +177,4 @@ const AddToyModal: FC<AddToyModalProps> = ({
   );
 };
 
-export default AddToyModal;
+export default AddNewToyModal;

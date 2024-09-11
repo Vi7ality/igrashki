@@ -1,13 +1,27 @@
 import { useState, useEffect } from 'react';
-import { PreviewContainer, PreviewLabel } from './PreviewFile.styled';
+import {
+  DeleteBtn,
+  PreviewContainer,
+  PreviewLabel,
+  RelWrap,
+  XIcon,
+} from './PreviewFile.styled';
 
 interface IPreviewFile {
   file: File;
   width: number | 'auto';
   height: number | 'auto';
+  deleteImg(idx: number): void;
+  index: number;
 }
 
-const PreviewFile = ({ file, width, height }: IPreviewFile) => {
+const PreviewFile = ({
+  file,
+  width,
+  height,
+  deleteImg,
+  index,
+}: IPreviewFile) => {
   const [preview, setPreview] = useState<string | null>(null);
 
   useEffect(() => {
@@ -35,13 +49,24 @@ const PreviewFile = ({ file, width, height }: IPreviewFile) => {
   if (preview) {
     return (
       <PreviewContainer>
-        <img
-          src={preview}
-          className="preview"
-          alt="Preview"
-          width={width}
-          height={height}
-        />
+        <RelWrap>
+          <img
+            src={preview}
+            className="preview"
+            alt="Preview"
+            width={width}
+            height={height}
+          />
+          <DeleteBtn
+            title="Видалити зображення"
+            onClick={() => {
+              deleteImg(index);
+            }}
+          >
+            <XIcon>x</XIcon>
+          </DeleteBtn>
+        </RelWrap>
+
         <PreviewLabel>{file.name}</PreviewLabel>
       </PreviewContainer>
     );

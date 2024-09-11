@@ -5,18 +5,16 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import { useAppDispatch, useAppSelector } from '../../../../redux/store';
 import { useCallback, useEffect, useState } from 'react';
-import {
-  fetchToysAdmin,
-} from '../../../../redux/slices/toysAdmin.slice';
+import { fetchToysAdmin } from '../../../../redux/slices/toysAdmin.slice';
 import ToyModal from './components/ToyModal';
 import { IToy } from '../../../../models/toy';
 import { toyStateOptions } from '../../../../constants/toys';
 import { Link, useSearchParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import { appDateFormat } from '../../../../constants/date';
-import AddToyManager from './components/AddToyManager';
 import { useMemo } from 'react';
 import { ConfirmModal } from './components/ConfirmModal';
+import AddNewToyModal from './components/AddNewToyModal';
 
 const Toys = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -46,10 +44,7 @@ const Toys = () => {
   const ConfirmDelete = (itemId: string) => {
     setChoosenItemId(itemId);
     setIsConfirmModalOpen(true);
-
-  }
-
-
+  };
 
   const handleSort = (sortBy: string) => {
     setSortFilter(prevSortFilter => ({
@@ -193,7 +188,7 @@ const Toys = () => {
         />
       )}
       {isAddToyModalOpen && (
-        <AddToyManager
+        <AddNewToyModal
           isModalOpen={isAddToyModalOpen}
           closeModal={() => setIsAddToyModalOpen(false)}
         />

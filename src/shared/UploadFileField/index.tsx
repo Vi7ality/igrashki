@@ -3,9 +3,11 @@ import PreviewFile from '../PreviewFile';
 import {
   BtnLabel,
   BtnWrap,
+  DeleteBtn,
   Ext,
   FlexCont,
   Input,
+  PreviewRelWrap,
 } from './UploadFileBtn.styled';
 import { nanoid } from 'nanoid';
 import { ChangeEvent } from 'react';
@@ -17,7 +19,7 @@ interface IUploadFileBtn {
   setFieldValue: (field: string, value: any) => void;
 }
 
-const UploadFileBtn = ({
+const UploadFileField = ({
   inputName,
   values,
   setFieldValue,
@@ -34,7 +36,7 @@ const UploadFileBtn = ({
   const handleDeleteImage = (index: number) => {
     const existingFiles = values || [];
 
-    const updatedFiles = existingFiles.filter((_, i) => i !== index);
+    const updatedFiles = existingFiles.filter((_, i: number) => i !== index);
 
     setFieldValue(inputName, updatedFiles);
   };
@@ -43,7 +45,7 @@ const UploadFileBtn = ({
     <>
       <BtnWrap>
         <BtnLabel htmlFor={inputName}>
-          <span>Upload {inputName}</span>
+          <span>Вибрати файли</span>
           <Ext>[{allowedExt}]</Ext>
         </BtnLabel>
         <Input
@@ -57,21 +59,22 @@ const UploadFileBtn = ({
         <FlexCont>
           {values &&
             values.length > 0 &&
-            values.map((file: File, index) => (
+            values.map((file: File, index: number) => (
               <div key={nanoid(8)}>
                 <PreviewFile
                   width={50}
                   height={'auto'}
                   file={file}
-                  key={nanoid(8)}
+                  deleteImg={handleDeleteImage}
+                  index={index}
                 />
-                <button
+                {/* <DeleteBtn
                   onClick={() => {
                     handleDeleteImage(index);
                   }}
                 >
                   Delete
-                </button>
+                </DeleteBtn> */}
               </div>
             ))}
         </FlexCont>
@@ -83,4 +86,4 @@ const UploadFileBtn = ({
   );
 };
 
-export default UploadFileBtn;
+export default UploadFileField;
