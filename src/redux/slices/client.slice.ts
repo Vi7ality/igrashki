@@ -3,6 +3,7 @@ import { IClient, IClientCredentials } from "../../models/client";
 import api from "../../api";
 import { ClientValuesType } from "../../models/auth";
 import { fetchClientOrder } from "./order.slice";
+import { toast } from "react-toastify";
 
 export interface ClientInitialState {
   client: IClient | null;

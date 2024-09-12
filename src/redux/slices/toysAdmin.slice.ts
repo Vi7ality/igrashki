@@ -24,6 +24,7 @@ export const fetchToysAdmin = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.error('Failed to fetch toys:', error);
+      toast.error('Сталася помилка');
       throw error;
     }
   }
@@ -39,9 +40,11 @@ export const addToyAdmin = createAsyncThunk(
           Authorization: `Bearer ${managerToken}`,
         },
       });
+      toast.success('Іграшка додана');
       return response.data;
     } catch (error) {
       console.error('Failed to add toy:', error);
+      toast.error('Сталася помилка');
       throw error;
     }
   }
@@ -60,6 +63,7 @@ export const updateToyAdmin = createAsyncThunk(
       return { ...toy, ...response.data };
     } catch (error) {
       console.error('Failed to update toy:', error);
+      toast.error('Сталася помилка');
       throw error;
     }
   }

@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import styles from '../ToyModal.module.scss';
 import FormikInput from '../../../../../../shared/formComponents/FormikInput';
-import api from '../../../../../../api';
 import { IToyInfo } from '../../../../../../models/toy';
 import { Form, Formik } from 'formik';
 import { newToyValidationSchema } from '../../../../../../utils/validationSchemas/toyValidationSchema';
@@ -11,7 +10,9 @@ import UploadFileField from '../../../../../../shared/UploadFileField';
 import ImagesList from '../ImagesList';
 import FeaturesForm from '../FeaturesForm';
 import SubmitBtn from '../../../../../../shared/SubmitBtn';
-import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { addToy, updateToy } from '../../../../../../redux/slices/toys.slice';
+import { AppDispatch, useAppSelector } from '../../../../../../redux/store';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -38,34 +39,19 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
     editableToy ? editableToy.images : []
   );
   const [imagesToDelete, setImagesToDelete] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { loading: isLoading } = useAppSelector(state => state.toys);
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = async (formData: IToyForm) => {
-    const managerToken = localStorage.getItem('managerToken');
-    try {
-      setIsLoading(true);
-      if (!editableToy?._id) {
-        const data = createNewToyFormData(formData);
-        await api.post('/toys', data, {
-          headers: {
-            Authorization: `Bearer ${managerToken}`,
-          },
-        });
-        toast.success('Toy created');
-      } else {
-        const data = createNewToyFormData(formData, imagesToDelete);
-        await api.put(`/toys/${editableToy?.toyId}`, data, {
-          headers: {
-            Authorization: `Bearer ${managerToken}`,
-          },
-        });
-        toast.success('Toy updated');
-      }
+    if (!editableToy?._id) {
+      const data = createNewToyFormData(formData);
+      dispatch(addToy(data));
       closeModal();
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-      toast.error('Something went wrong');
+    } else {
+      const toyId = editableToy?.toyId;
+      const data = createNewToyFormData(formData, imagesToDelete);
+      dispatch(updateToy({ toy: data, toyId }));
+      closeModal();
     }
   };
 
