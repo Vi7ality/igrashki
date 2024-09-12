@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SubmitBtn = styled.button`
+export const Btn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,11 +15,6 @@ export const SubmitBtn = styled.button`
   transition: background-color
     ${p => p.theme.transition.function && p.theme.transition.duration};
 
-  &:disabled {
-    background-color: ${props => props.theme.colors.lightGrey};
-    color: ${props => props.theme.colors.mutedGrey2};
-  }
-
   @media (hover: hover) {
     &:hover {
       background-color: ${p => p.theme.colors.accentAlt};
@@ -29,5 +24,10 @@ export const SubmitBtn = styled.button`
     &:active {
       background-color: ${p => p.theme.colors.accentAlt};
     }
+  }
+
+  &:disabled {
+    background-color: ${props => props.theme.colors.lightGrey};
+    color: ${props => props.theme.colors.mutedGrey2};
   }
 `;

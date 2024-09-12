@@ -12,7 +12,7 @@ import {
   addToyAdmin,
   updateToyAdmin,
 } from '../../../../../redux/slices/toysAdmin.slice';
-import { SubmitBtn } from '../../../../../shared/SubmitBtn/SubmitBtn.styled';
+import SubmitBtn from '../../../../../shared/SubmitBtn';
 
 interface ToyModalProps {
   editableToy: IToy | null;
@@ -72,6 +72,7 @@ const ToyModal: FC<ToyModalProps> = ({
     values: editableToy ? transformEditableToy(editableToy) : defaultValues,
   });
   const [toysFullList, setToysFullList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchToys = async () => {
@@ -92,14 +93,20 @@ const ToyModal: FC<ToyModalProps> = ({
       toyState: getValueBySelectedOption(data.toyState),
       lastDisinfectionDate: new Date(data.lastDisinfectionDate),
     };
-    if (editableToy) {
-      dispatch(updateToyAdmin(transformedData));
-    } else {
-      dispatch(addToyAdmin(transformedData));
+
+    try {
+      setIsLoading(true);
+      if (editableToy) {
+        dispatch(updateToyAdmin(transformedData));
+      } else {
+        dispatch(addToyAdmin(transformedData));
+      }
+      reset();
+      closeModal();
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
     }
-    console.log(transformedData);
-    reset();
-    closeModal();
   };
 
   return (
@@ -114,7 +121,6 @@ const ToyModal: FC<ToyModalProps> = ({
         <h2>{editableToy ? 'Редагування іграшки' : 'Додати іграшку'}</h2>
         <form className={styles.toyForm} onSubmit={handleSubmit(onSubmit)}>
           {editableToy ? (
-            // <Input label="Назва іграшки" disabled />
             <input type="text" value={editableToy.toyName} />
           ) : (
             <Controller
@@ -157,7 +163,7 @@ const ToyModal: FC<ToyModalProps> = ({
               />
             )}
           />
-          <SubmitBtn type="submit">Submit</SubmitBtn>
+          <SubmitBtn isLoading={isLoading} title="Submit" />
         </form>
       </div>
     </div>

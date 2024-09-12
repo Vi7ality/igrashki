@@ -1,33 +1,44 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useAppDispatch } from "./redux/store";
-import { useEffect } from "react";
-import { loadCartItems, loadSelectedManagementPoint } from "./redux/slices/cart.slice";
-import { ThemeProvider } from "styled-components";
-import { theme } from "./constants/theme";
-import SharedLayout from "./shared/SharedLayout";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { useAppDispatch } from './redux/store';
+import { useEffect } from 'react';
+import {
+  loadCartItems,
+  loadSelectedManagementPoint,
+} from './redux/slices/cart.slice';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './constants/theme';
+import SharedLayout from './shared/SharedLayout';
 import { lazy } from 'react';
-import ManagementLayout from "./pages/Management";
+import ManagementLayout from './pages/Management';
+import { ToastContainer } from 'react-toastify';
 
 const Home = lazy(() => import('./pages/Home'));
 const ManagerLogin = lazy(() => import('./pages/ManagerLogin'));
 const Profile = lazy(() => import('./pages/Profile'));
-const SubscriptionInfo = lazy(() => import('./pages/Management/screens/SubscriptionInfo'));
+const SubscriptionInfo = lazy(
+  () => import('./pages/Management/screens/SubscriptionInfo')
+);
 const Clients = lazy(() => import('./pages/Management/screens/Clients'));
 const Toys = lazy(() => import('./pages/Management/screens/Toys'));
-const ClientDetails = lazy(() => import('./pages/Management/screens/ClientDetails'));
+const ClientDetails = lazy(
+  () => import('./pages/Management/screens/ClientDetails')
+);
 const ToyDetails = lazy(() => import('./pages/Management/screens/ToyDetails'));
 const RegisterSuccess = lazy(() => import('./pages/RegisterSuccess'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-const Bag = lazy(()=> import ("./pages/Bag"))
-const Catalogue = lazy(() => import("./pages/Catalogue"))
-const FAQ = lazy(() => import("./pages/FAQ"))
-const Toy = lazy(()=>import("./pages/Toy"))
-const Subscription = lazy(()=>import("./pages/Subscription"))
-const Confirmation = lazy(()=>import("./pages/Confirmation"))
-const AboutUs = lazy(()=>import("./pages/AboutUs"))
+const Bag = lazy(() => import('./pages/Bag'));
+const Catalogue = lazy(() => import('./pages/Catalogue'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const Toy = lazy(() => import('./pages/Toy'));
+const Subscription = lazy(() => import('./pages/Subscription'));
+const Confirmation = lazy(() => import('./pages/Confirmation'));
+const AboutUs = lazy(() => import('./pages/AboutUs'));
 
-const ManagementHome = lazy(()=>import("./pages/Management/screens/ManagementHome"))
+const ManagementHome = lazy(
+  () => import('./pages/Management/screens/ManagementHome')
+);
 
 function App() {
   const dispatch = useAppDispatch();
@@ -51,7 +62,7 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/register-success" element={<RegisterSuccess />} />
             <Route path="/about" element={<AboutUs />} />
-            <Route path="*" element={<NotFound/>} />
+            <Route path="*" element={<NotFound />} />
           </Route>
 
           <Route path="/managerLogin" element={<ManagerLogin />} />
@@ -66,6 +77,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </ThemeProvider>
   );
 }

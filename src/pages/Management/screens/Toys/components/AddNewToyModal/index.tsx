@@ -8,9 +8,10 @@ import { newToyValidationSchema } from '../../../../../../utils/validationSchema
 import { createNewToyFormData } from '../../../../../../utils/createFormData';
 import { IToyForm } from '../../../../../../models/toyForm';
 import UploadFileField from '../../../../../../shared/UploadFileField';
-import { SubmitBtn } from '../../../../../../shared/SubmitBtn/SubmitBtn.styled';
 import ImagesList from '../ImagesList';
 import FeaturesForm from '../FeaturesForm';
+import SubmitBtn from '../../../../../../shared/SubmitBtn';
+import { toast } from 'react-toastify';
 
 interface AddToyModalProps {
   isModalOpen: boolean;
@@ -37,26 +38,35 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
     editableToy ? editableToy.images : []
   );
   const [imagesToDelete, setImagesToDelete] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (formData: IToyForm) => {
     const managerToken = localStorage.getItem('managerToken');
-
-    if (!editableToy?._id) {
-      const data = createNewToyFormData(formData);
-      await api.post('/toys', data, {
-        headers: {
-          Authorization: `Bearer ${managerToken}`,
-        },
-      });
-    } else {
-      const data = createNewToyFormData(formData, imagesToDelete);
-      await api.put(`/toys/${editableToy?.toyId}`, data, {
-        headers: {
-          Authorization: `Bearer ${managerToken}`,
-        },
-      });
+    try {
+      setIsLoading(true);
+      if (!editableToy?._id) {
+        const data = createNewToyFormData(formData);
+        await api.post('/toys', data, {
+          headers: {
+            Authorization: `Bearer ${managerToken}`,
+          },
+        });
+        toast.success('Toy created');
+      } else {
+        const data = createNewToyFormData(formData, imagesToDelete);
+        await api.put(`/toys/${editableToy?.toyId}`, data, {
+          headers: {
+            Authorization: `Bearer ${managerToken}`,
+          },
+        });
+        toast.success('Toy updated');
+      }
+      closeModal();
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      toast.error('Something went wrong');
     }
-    closeModal();
   };
 
   return (
@@ -132,7 +142,7 @@ const AddNewToyModal: FC<AddToyModalProps> = ({
                     setFieldValue={setFieldValue}
                   />
                 </div>
-                <SubmitBtn type="submit">Submit</SubmitBtn>
+                <SubmitBtn isLoading={isLoading} title="Submit" />
               </Form>
             );
           }}

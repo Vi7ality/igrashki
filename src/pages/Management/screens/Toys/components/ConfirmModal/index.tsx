@@ -8,8 +8,6 @@ import {
   DialogueBtn,
   FormWrap,
   IconClose,
-  // ModalContainer,
-  // ModalContent,
 } from './ConfirmModal.styled';
 import icons from '../../../../../../assets/icons.svg';
 
