@@ -2,7 +2,7 @@ import LoadSpinner from '../LoadSpinner';
 import { Btn } from './SubmitBtn.styled';
 
 interface SubmitBtnProps {
-  isLoading: boolean;
+  isLoading?: boolean;
   title: string;
 }
 
