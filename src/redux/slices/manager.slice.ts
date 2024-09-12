@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../api';
 import { IManager, IManagerCredentials } from '../../models/manager';
+import { toast } from 'react-toastify';
 
 export interface ManagerInitialState {
     currentManager: IManager | null;
@@ -21,7 +22,9 @@ export const managerLogin = createAsyncThunk(
             const result = await api.post('/auth/loginManager', managerCredential);
             return result.data;
         } catch (error) {
+            toast.error('Сталася помилка');
             throw new Error('Failed to fetch client');
+            
         }
     }
 );
@@ -38,6 +41,7 @@ export const managerGetInfo = createAsyncThunk(
             
             return result.data;
         } catch (error) {
+            toast.error('Сталася помилка');
             throw new Error('Failed to fetch client');
         }
     }

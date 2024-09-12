@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg";
-import { useEffect, useState } from "react";
-import { autoLogin } from "../../redux/slices/client.slice";
-import { useAppDispatch } from "../../redux/store";
-import ProfileButton from "./components/ProfileButton";
-import CartButton from "./components/CartButton";
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.svg';
+import { useEffect, useState } from 'react';
+import { autoLogin } from '../../redux/slices/client.slice';
+import { useAppDispatch } from '../../redux/store';
+import ProfileButton from './components/ProfileButton';
+import CartButton from './components/CartButton';
 import {
   ContainerRight,
   FlexContainer,
@@ -15,19 +15,18 @@ import {
   NavList,
   MobMenuBtn,
   MenuIcon,
-  FlexWrap
-} from "./Header.styled";
-import icons from "../../assets/icons.svg";
-import MobileMenu from "./components/MobileMenu";
-
+  FlexWrap,
+} from './Header.styled';
+import icons from '../../assets/icons.svg';
+import MobileMenu from '../MobileMenu';
 
 const Header = () => {
   const dispatch = useAppDispatch();
 
   const [open, setOpen] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
-  
-    const handleMenuClick = () => {
+
+  const handleMenuClick = () => {
     setOpen(!open);
     if (open) {
       document.body.classList.add('modal-open');
@@ -35,14 +34,13 @@ const Header = () => {
     if (!open) {
       document.body.classList.remove('modal-open');
     }
-    };
-  
+  };
+
   useEffect(() => {
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem('userToken');
     if (token) {
       dispatch(autoLogin(token));
     }
-    
   }, [dispatch]);
 
   return (
@@ -62,23 +60,30 @@ const Header = () => {
           <NavContainer>
             <NavList>
               <li>
-                <LinkStyled to={"/catalogue"}>Каталог іграшок</LinkStyled>
+                <LinkStyled to={'/catalogue'}>Каталог іграшок</LinkStyled>
               </li>
               <li>
-                <LinkStyled to={"/about"}>Про проєкт</LinkStyled>
+                <LinkStyled to={'/about'}>Про проєкт</LinkStyled>
               </li>
               <li>
-                <LinkStyled to={"/faq"}>Популярні запитання</LinkStyled>
+                <LinkStyled to={'/faq'}>Популярні запитання</LinkStyled>
               </li>
             </NavList>
           </NavContainer>
           <ContainerRight>
-            <ProfileButton showAuthModal={showAuthModal} setShowAuthModal={setShowAuthModal} />
-            <CartButton/>
+            <ProfileButton
+              showAuthModal={showAuthModal}
+              setShowAuthModal={setShowAuthModal}
+            />
+            <CartButton />
           </ContainerRight>
         </FlexContainer>
       </HeaderStyled>
-      <MobileMenu openState={open} handleMenuClick={handleMenuClick} setShowAuthModal={setShowAuthModal}/>
+      <MobileMenu
+        openState={open}
+        handleMenuClick={handleMenuClick}
+        setShowAuthModal={setShowAuthModal}
+      />
     </>
   );
 };

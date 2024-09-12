@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import CartModal from './CartModal';
+import CartModal from '../../CartModal';
 import { useAppSelector } from '../../../redux/store';
 import icons from '../../../assets/icons.svg';
 import { BasketBtn } from '../Header.styled';

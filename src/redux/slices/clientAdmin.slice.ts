@@ -1,39 +1,42 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IClient } from "../../models/client";
-import api from "../../api"
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { IClient } from '../../models/client';
+import api from '../../api';
+import { toast } from 'react-toastify';
 
 export interface ClientAdminInitialState {
-    clientInfoAdmin: IClient | null;
+  clientInfoAdmin: IClient | null;
 }
 
 export const clientAdminInitialState: ClientAdminInitialState = {
-    clientInfoAdmin: null,
-}
+  clientInfoAdmin: null,
+};
 
-export const fetchClientInfoForAdmin = createAsyncThunk('clients/fetchClientInfoForAdmin', async (clientId: string) => {
+export const fetchClientInfoForAdmin = createAsyncThunk(
+  'clients/fetchClientInfoForAdmin',
+  async (clientId: string) => {
     try {
-        const managerToken = localStorage.getItem('managerToken');
-        const response = await api.get(`/management/clients/${clientId}`, {
-            headers: {
-                Authorization: `Bearer ${managerToken}`,
-            },
-        });
-        return response.data;
+      const managerToken = localStorage.getItem('managerToken');
+      const response = await api.get(`/management/clients/${clientId}`, {
+        headers: {
+          Authorization: `Bearer ${managerToken}`,
+        },
+      });
+      return response.data;
     } catch (error) {
-        console.error('Failed to fetch clients:', error);
-        throw error;
+      toast.error('Сталася помилка');
+      console.error('Failed to fetch clients:', error);
+      throw error;
     }
-});
+  }
+);
 
 export const clientAdminSlice = createSlice({
-    name: 'clientAdmin',
-    initialState: clientAdminInitialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchClientInfoForAdmin.fulfilled, (state, action) => {
-                state.clientInfoAdmin = action.payload;
-            })
-    },
+  name: 'clientAdmin',
+  initialState: clientAdminInitialState,
+  reducers: {},
+  extraReducers: builder => {
+    builder.addCase(fetchClientInfoForAdmin.fulfilled, (state, action) => {
+      state.clientInfoAdmin = action.payload;
+    });
+  },
 });
-

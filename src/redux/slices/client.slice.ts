@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { IClient, IClientCredentials } from "../../models/client";
-import api from "../../api";
-import { ClientValuesType } from "../../models/auth";
-import { fetchClientOrder } from "./order.slice";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { IClient, IClientCredentials } from '../../models/client';
+import api from '../../api';
+import { ClientValuesType } from '../../models/auth';
+import { fetchClientOrder } from './order.slice';
 
 export interface ClientInitialState {
   client: IClient | null;
@@ -17,69 +17,72 @@ const initialState: ClientInitialState = {
 };
 
 export const clientRegister = createAsyncThunk(
-  "client/register",
+  'client/register',
   async (clientValues: ClientValuesType) => {
     try {
-    const response = await api.post("/auth/register", clientValues);
+      const response = await api.post('/auth/register', clientValues);
       return response.data;
     } catch (error: Error | any) {
-      throw new Error("Failed to register");
+      throw new Error('Failed to register');
     }
   }
 );
 
 export const clientLogin = createAsyncThunk(
-  "client/login",
+  'client/login',
   async (clientCredential: IClientCredentials) => {
     try {
-      const response = await api.post("/auth/login", clientCredential);
+      const response = await api.post('/auth/login', clientCredential);
       return response.data;
     } catch (error: Error | any) {
-      throw new Error("Failed to login");
+      throw new Error('Failed to login');
     }
   }
 );
 
-export const autoLogin = createAsyncThunk("client/authoLogin", async (token: string) => {
-  try {
-    const response = await api.get("/clients/me", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error("Failed to login");
+export const autoLogin = createAsyncThunk(
+  'client/authoLogin',
+  async (token: string) => {
+    try {
+      const response = await api.get('/clients/me', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to login');
+    }
   }
-});
+);
 
 export const fetchClientById = createAsyncThunk(
-  "client/fetchClientById",
+  'client/fetchClientById',
   async (clientId: string) => {
     try {
       const result = await api.get(`/clients/${clientId}`);
       fetchClientOrder();
       return result.data;
     } catch (error) {
-      throw new Error("Failed to fetch client");
+      throw new Error('Failed to fetch client');
     }
   }
 );
 
 export const clientSlice = createSlice({
-  name: "client",
+  name: 'client',
   initialState,
   reducers: {
-    clearClient: (state) => {
+    clearClient: state => {
       state.client = null;
       state.loading = false;
       state.error = null;
-      localStorage.removeItem("userToken");
+      localStorage.removeItem('userToken');
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchClientById.pending, (state) => {
+      .addCase(fetchClientById.pending, state => {
         state.loading = true;
         state.error = null;
       })
@@ -90,9 +93,9 @@ export const clientSlice = createSlice({
       })
       .addCase(fetchClientById.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Failed to fetch client";
+        state.error = action.error.message || 'Failed to fetch client';
       })
-      .addCase(clientRegister.pending, (state) => {
+      .addCase(clientRegister.pending, state => {
         state.loading = true;
         state.error = null;
       })
@@ -100,13 +103,13 @@ export const clientSlice = createSlice({
         state.client = action.payload;
         state.loading = false;
         state.error = null;
-        localStorage.setItem("userToken", action.payload.token);
+        localStorage.setItem('userToken', action.payload.token);
       })
       .addCase(clientRegister.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Failed to register";
+        state.error = action.error.message || 'Failed to register';
       })
-      .addCase(clientLogin.pending, (state) => {
+      .addCase(clientLogin.pending, state => {
         state.loading = true;
         state.error = null;
       })
@@ -114,13 +117,13 @@ export const clientSlice = createSlice({
         state.client = action.payload;
         state.loading = false;
         state.error = null;
-        localStorage.setItem("userToken", action.payload.token);
+        localStorage.setItem('userToken', action.payload.token);
       })
       .addCase(clientLogin.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Failed to login";
+        state.error = action.error.message || 'Failed to login';
       })
-      .addCase(autoLogin.pending, (state) => {
+      .addCase(autoLogin.pending, state => {
         state.loading = true;
         state.error = null;
       })
@@ -131,7 +134,7 @@ export const clientSlice = createSlice({
       })
       .addCase(autoLogin.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Failed to login";
+        state.error = action.error.message || 'Failed to login';
       });
   },
 });

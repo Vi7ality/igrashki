@@ -21,7 +21,7 @@ import Filters from './components/Filters';
 import { Helmet } from 'react-helmet';
 
 const Catalogue = () => {
-  const { toys, isLoading: isToysLoading } = useAppSelector(
+  const { toys, loading: isToysLoading } = useAppSelector(
     state => state.toys
   );
   const { cart, selectedManagementPoint } = useAppSelector(state => state.cart);

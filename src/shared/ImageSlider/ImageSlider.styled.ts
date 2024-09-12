@@ -2,25 +2,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowRight from '../../assets/arrow-right.svg';
-import defaultImg from '../../../../assets/default-toy-image.svg';
-
-export const SliderSection = styled.section`
-  width: 350px;
-  height: 350px;
-  margin-bottom: 33px;
-  @media ${p => p.theme.device.tablet} {
-    position: sticky;
-    top: 0;
-    width: 458px;
-    height: 458px;
-    margin-bottom: 96px;
-  }
-  @media ${p => p.theme.device.desktop} {
-    width: 640px;
-    height: 640px;
-    margin-bottom: 132px;
-  }
-`;
+import defaultImg from '../../assets/default-toy-image.svg';
 
 export const SliderStyled = styled(Slider)`
   &.slick-slider {
@@ -30,7 +12,7 @@ export const SliderStyled = styled(Slider)`
 
   .slick-list {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
   }
 
   .slick-prev {
@@ -156,7 +138,7 @@ export const ImageContainer = styled.div`
   }
   @media ${p => p.theme.device.desktop} {
     width: 640px;
-    height: 640px;
+    height: 100%;
   }
 `;
 

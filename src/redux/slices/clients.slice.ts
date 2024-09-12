@@ -1,39 +1,49 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IClient } from "../../models/client";
-import api from "../../api"
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { IClient } from '../../models/client';
+import api from '../../api';
+import { toast } from 'react-toastify';
 
 export interface ClientsInitialState {
-    clients: IClient[];
+  clients: IClient[];
 }
 
 export const clientsInitialState: ClientsInitialState = {
-    clients: [],
-}
+  clients: [],
+};
 
-export const fetchClients = createAsyncThunk('clients/fetchClients', async () => {
+export const fetchClients = createAsyncThunk(
+  'clients/fetchClients',
+  async () => {
     try {
-        const managerToken = localStorage.getItem('managerToken');
-        const response = await api.get('/management/clients', {
-            headers: {
-                Authorization: `Bearer ${managerToken}`,
-            },
-        });
-        return response.data;
+      const managerToken = localStorage.getItem('managerToken');
+      const response = await api.get('/management/clients', {
+        headers: {
+          Authorization: `Bearer ${managerToken}`,
+        },
+      });
+      return response.data;
     } catch (error) {
-        console.error('Failed to fetch clients:', error);
-        throw error;
+      toast.error('Сталася помилка');
+      console.error('Failed to fetch clients:', error);
+      throw error;
     }
-});
+  }
+);
 
-export const removeClient = createAsyncThunk('clients/removeClient', async (clientId: string) => {
+export const removeClient = createAsyncThunk(
+  'clients/removeClient',
+  async (clientId: string) => {
     try {
-        await api.delete(`/clients/${clientId}`);
-        return clientId;
+      await api.delete(`/clients/${clientId}`);
+      toast.success('Клієнт видалений');
+      return clientId;
     } catch (error) {
-        console.error('Failed to remove client:', error);
-        throw error;
+      toast.error('Сталася помилка');
+      console.error('Failed to remove client:', error);
+      throw error;
     }
-});
+  }
+);
 
 // export const addClient = createAsyncThunk('clients/addClient', async (client: IClient) => {
 //     try {
@@ -45,49 +55,58 @@ export const removeClient = createAsyncThunk('clients/removeClient', async (clie
 //     }
 // });
 
-export const addClient = createAsyncThunk('clients/addClient', async (client: IClient) => {
+export const addClient = createAsyncThunk(
+  'clients/addClient',
+  async (client: IClient) => {
     try {
-        const managerToken = localStorage.getItem('managerToken');
-        const response = await api.post('/management/clients', client, {
-            headers: {
-                Authorization: `Bearer ${managerToken}`,
-            },
-        });
-        return response.data;
+      const managerToken = localStorage.getItem('managerToken');
+      const response = await api.post('/management/clients', client, {
+        headers: {
+          Authorization: `Bearer ${managerToken}`,
+        },
+      });
+      return response.data;
     } catch (error) {
-        console.error('Failed to add client:', error);
-        throw error;
+      console.error('Failed to add client:', error);
+      throw error;
     }
-});
+  }
+);
 
-export const updateClient = createAsyncThunk('clients/updateClient', async (client: IClient) => {
+export const updateClient = createAsyncThunk(
+  'clients/updateClient',
+  async (client: IClient) => {
     try {
-        const response = await api.put(`/clients/${client._id}`, client);
-        return response.data;
+      const response = await api.put(`/clients/${client._id}`, client);
+      return response.data;
     } catch (error) {
-        console.error('Failed to update client:', error);
-        throw error;
+      console.error('Failed to update client:', error);
+      throw error;
     }
-});
+  }
+);
 
 export const clientsSlice = createSlice({
-    name: 'clients',
-    initialState: clientsInitialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchClients.fulfilled, (state, action) => {
-                state.clients = action.payload;
-            })
-            .addCase(removeClient.fulfilled, (state, action) => {
-                state.clients = state.clients.filter(client => client._id !== action.payload);
-            })
-            .addCase(addClient.fulfilled, (state, action) => {
-                state.clients.push(action.payload);
-            })
-            .addCase(updateClient.fulfilled, (state, action) => {
-                state.clients = state.clients.map(client => client._id === action.payload.id ? action.payload : client);
-            });
-    },
+  name: 'clients',
+  initialState: clientsInitialState,
+  reducers: {},
+  extraReducers: builder => {
+    builder
+      .addCase(fetchClients.fulfilled, (state, action) => {
+        state.clients = action.payload;
+      })
+      .addCase(removeClient.fulfilled, (state, action) => {
+        state.clients = state.clients.filter(
+          client => client._id !== action.payload
+        );
+      })
+      .addCase(addClient.fulfilled, (state, action) => {
+        state.clients.push(action.payload);
+      })
+      .addCase(updateClient.fulfilled, (state, action) => {
+        state.clients = state.clients.map(client =>
+          client._id === action.payload.id ? action.payload : client
+        );
+      });
+  },
 });
-
